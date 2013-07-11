@@ -1,0 +1,1 @@
+<b><center>Hello players! RO1 will be started on 17.06.2013, preregistration will open on 17.06.2013. The version is T4.2 and speed of the server is 100x. </center></b>

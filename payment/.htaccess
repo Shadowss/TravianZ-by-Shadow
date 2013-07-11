@@ -1,0 +1,5 @@
+Order deny,allow
+Deny from all
+Allow from service.micropayment.de
+Allow from proxy.micropayment.de
+Allow from access.micropayment.de 

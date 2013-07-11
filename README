@@ -1,0 +1,45 @@
+TravianZ is based on TravianX v6.0.0 with some grapich changes from ZravianX.
+I will try to make the best from this version and I will add every fix that I will found to it.
+If you found fix to somthing please give it to me.
+
+This version
+
+1. Modified register page with pictures.
+2. Modified names of tribes with colours.
+3. Modified Plus System with packages.
+4. Modified in Plus System and added Account Statement.
+5. Enabled Report Player in Profile (NOT CODED YET).
+6. Enabled Graphic Pack in Profile (NOT CODED YET).
+7. Enabled in Profile : Auto Completation , Large Map , Report Filter and Time Preferences (NOT CODED YET).
+8. Added Vacation Mod (NOT FINISHED YET).
+9. Integrate Support Section in game.
+10. Modified footer and added version and bugs (I mean detailed version.php and bugs.php).
+11. Modified all admin page , now all pictures appers correctly.
+12. Added night / day pictures. (thanks to advocaite).
+13. Activate inactive player in Admin Panel.
+14. Added Server Maintenence in Admin Panel (Not working 100% , i mean mode ban all players).
+15. Activate Player Report in Admin Panel (NOT CODED YET).
+16. Many bug fixed in Admin Panel.
+
+In future
+
+1. Automatic Conquering Protection (isn't added):
+The conquering limitations must be hard coded.
+These limitations are not that complicated but also connected to the relationship between the accounts in question.
+The different connection types are:
+Type 1 Players were not sitters and have not used the same computer or the same network (IP) recently.
+Type 2 Players have been sitters recently or have used the same network (IP).
+Type 3 Players are currently sitters or used the same PC recently.
+Rules for connection type 1
+*can conquer village when both players have not been in the same or an allied alliance within the last 2 days
+Rules for connection type 2
+*can conquer village when there has been NO active sitter connection within the last 14 days AND both players have not been in the same or an allied alliance within the last 2 days
+Rules for connection type 3
+*can NOT conquer village of each other.
+2. Alliance forum don't work 100%.
+3. Battle simulator calculate don't work 100%.
+4. Gold Club not fixed complete
+- raid statistics
+5. If you have plus account activated you cannot see the attck/deff/scout images when you attack a village (i mean img on villages : red swords etc..)
+6. Troops dont die on negative crop
+7. Fix BONUS medals
