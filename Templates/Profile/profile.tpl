@@ -138,6 +138,30 @@ INDELING CATEGORIEEN:
 				   <td></td>
 				   <td>[#0]</td>
 			 	 </tr>
+				 <tr>
+				   <td>Tribe Romans</td>
+				   <td></td>
+				   <td></td>
+				   <td>[#roman]</td>
+			 	 </tr>
+				 <tr>
+				   <td>Tribe Gauls</td>
+				   <td></td>
+				   <td></td>
+				   <td>[#gaul]</td>
+			 	 </tr>
+				 <tr>
+				   <td>Tribe Teutons</td>
+				   <td></td>
+				   <td></td>
+				   <td>[#teuton]</td>
+			 	 </tr>
+                         <tr>
+				   <td>Admin or Multihunter</td>
+				   <td></td>
+				   <td></td>
+				   <td>[#MH]</td>
+			 	 </tr>
 				 </table></p>
 				 
 				 

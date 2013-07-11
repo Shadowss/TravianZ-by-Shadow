@@ -163,7 +163,7 @@ include("menu2.tpl");
 </table><table cellpadding="1" cellspacing="1" id="villages">
     <thead>
     <tr>
-        <th colspan="3">Villages</th>
+        <th colspan="3">Villages&nbsp; [ <span style='color: Red'><?php echo count($varray);?></span> ]</th>
     </tr>
     <tr>
         <td>Name</td>
@@ -177,7 +177,7 @@ include("menu2.tpl");
     	$coor = $database->getCoor($vil['wref']);
     	echo "<tr><td class=\"nam\"><a href=\"karte.php?d=".$vil['wref']."&amp;c=".$generator->getMapCheck($vil['wref'])."\">".$vil['name']."</a>";
         if($vil['capital'] == 1) {
-        echo "<span class=\"none3\"> (capital)</span>";
+        echo "<span class=\"none3\"> <b>(capital)</b></span>";
         }
         echo "</td>";
         echo "<td class=\"hab\">".$vil['pop']."</td><td class=\"aligned_coords\">";
