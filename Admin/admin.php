@@ -135,7 +135,8 @@ $up_avl = $latest - $ver ;
 												<a href="?p=givePlusRes">Give All Res Bonus</a>
 												<a href="?p=maintenenceResetPlusBonus">Reset Res Bonus</a>
 												<br />
-												<a href="#"><b>Natars</b></a>
+												<a href="#"><b>Natars&Oasis</b></a>
+												<a href="?p=oasis">Populate Oases</b>
 												<a href="?p=natarend">Add WW Villages</a>
 												<a href="?p=natarbuildingplan">Add WW Building Plan Villages</a>
 												<br />

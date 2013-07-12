@@ -506,6 +506,8 @@ if($type==18 or $type==19 or $type==20 or $type==21){
           $data2 = mysql_fetch_assoc($query2);
 			if($data2['access']=='0' or $data2['access']=='8' or $data2['access']=='9') {
 			echo "&raquo; Send troops. (Player is banned)";
+			} else if($data2['vac_mode']=='1') {
+			echo "&raquo; Send troops. (Vacation mode on)";
                       } else if($data2['protect'] < time()) {
             echo $village->resarray['f39']? "<a href=\"a2b.php?z=".$_GET['d']."\">&raquo; Send troops." : "&raquo; Send troops. (build a rally point)"; 
           } else {
@@ -519,6 +521,8 @@ if($type==18 or $type==19 or $type==20 or $type==21){
 					<?php
 			if($data2['access']=='0' or $data2['access']=='8' or $data2['access']=='9') {
 			echo "&raquo; Send merchant(s). (banned)";
+			} else if($data2['vac_mode']=='1') {
+			echo "&raquo; Send merchant(s). (Vacation mode on)";
           } else {
             echo $building->getTypeLevel(17)? "<a href=\"build.php?z=".$_GET['d']."&id=" . $building->getTypeField(17) . "\">&raquo; Send merchant(s)." : "&raquo; Send merchant(s). (build marketplace)"; 
           }

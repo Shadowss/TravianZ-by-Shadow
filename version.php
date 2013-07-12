@@ -71,10 +71,10 @@ $automation->isWinner();
 2. Modified names of tribes with colours.</br>
 3. Modified Plus System with packages.</br>
 4. Modified in Plus System and added Account Statement.</br>
-5. Enabled Report Player in Profile.</br>
+5. Enabled Report Player in Profile. Send message to Multihunter. </br>
 6. Enabled Graphic Pack in Profile (NOT CODED YET).</br>
 7. Enabled in Profile : Auto Completation , Large Map , Report Filter and Time Preferences (NOT CODED YET).</br>
-8. Added Vacation Mod . Can be set from profile , cannot attack player on vacation mode , can view on profile (overview), cannot login on vacation mode.</br>
+8. Added Vacation Mod . Can be set from profile , cannot attack player on vacation mode , can view on profile (overview), cannot login on vacation mode. (thanks to advocaite).</br>
 9. Integrate Support Section in game.</br>
 10. Modified footer and menu and added version and bugs (I mean detailed version.php and bugs.php).</br>
 11. Modified all admin page , now all pictures appers correctly.</br>
@@ -85,6 +85,12 @@ $automation->isWinner();
 16. Many bug fixed in Admin Panel.</br>
 17. Negative crop fixed , now units die (starvation).</br>
 18. Medal fixed.</br>
+19. Added image in Profile (like beginner protection) for tribes [#roman] , [#gaul] , [#teuton]</br>
+20. Added image in profile for Multihunter and Admin [#MH] automaticaly set on install.</br>
+21. Added image in profile for Taskmaster and Nature [#TASKMASTER] , [#NATURE] , automaticaly set on install.</br>
+22. Added numbers of village in overview Villages  [ 35 ]</br>
+23. Added oassis type in Profile / Overview </br>
+24. Added in karte.php (vilview.tpl) if you are in vacation mode , you cannot send resource.</br>
 
 </div>
 </div>
