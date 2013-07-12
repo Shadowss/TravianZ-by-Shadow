@@ -138,30 +138,18 @@ INDELING CATEGORIEEN:
 				   <td></td>
 				   <td>[#0]</td>
 			 	 </tr>
-				 <tr>
-				   <td>Tribe Romans</td>
-				   <td></td>
-				   <td></td>
-				   <td>[#roman]</td>
-			 	 </tr>
-				 <tr>
-				   <td>Tribe Gauls</td>
-				   <td></td>
-				   <td></td>
-				   <td>[#gaul]</td>
-			 	 </tr>
-				 <tr>
-				   <td>Tribe Teutons</td>
-				   <td></td>
-				   <td></td>
-				   <td>[#teuton]</td>
-			 	 </tr>
-                         <tr>
-				   <td>Admin or Multihunter</td>
-				   <td></td>
-				   <td></td>
-				   <td>[#MH]</td>
-			 	 </tr>
+				<?php 
+				if($session->userinfo['tribe'] == 1) {
+				echo"<tr><td>Tribe Romans</td><td></td><td></td><td>[#roman]</td></tr>";
+				} else if($session->userinfo['tribe'] == 2) {
+				echo"<tr><td>Tribe Teutons</td><td></td><td></td><td>[#teuton]</td></tr>";
+				} else if($session->userinfo['tribe'] == 3) {
+				echo"<tr><td>Tribe Gauls</td><td></td><td></td><td>[#gaul]</td></tr>";
+				} else if($session->userinfo['access'] == 9) {
+				echo"<tr><td>Administrator</td><td></td><td></td><td>[#MH]</td></tr>";
+				} else if($session->userinfo['access'] == 8) {
+				echo"<tr><td>Multihunter</td><td></td><td></td><td>[#MH]</td></tr>";
+				} ?>
 				 </table></p>
 				 
 				 
