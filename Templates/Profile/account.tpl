@@ -140,5 +140,13 @@ if($form->getError("del") != "") {
 echo "<span class=\"error\">".$form->getError("del")."</span>";
 }
 ?>
+    <table cellpadding="1" cellspacing="1" id="gold" class="account"><thead>
+<tr>
+    <th colspan="2">Gold</th>
+</tr></thead>
+					<td colspan="2">You currently have <img src="img/x.gif" class="gold" alt="Arany"> <b><?php echo $session->gold; ?></b> pieces of gold.</td>
+				</tr>
+					</tbody>
+	</table>
     <p class="btn"><input type="image" value="" name="s1" id="btn_save" class="dynamic_img" src="img/x.gif" alt="save" /></p>
 </form>

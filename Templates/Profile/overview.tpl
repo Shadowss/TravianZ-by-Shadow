@@ -148,7 +148,6 @@ include("menu2.tpl");
 							</td>
 						</tr>
             </table>
-
         </td>
         <td class="desc1" >
             <div><?php echo nl2br($profiel[1]); ?>
@@ -163,11 +162,11 @@ include("menu2.tpl");
 </table><table cellpadding="1" cellspacing="1" id="villages">
     <thead>
     <tr>
-        <th colspan="3">Villages&nbsp; [ <span style='color: Red'><?php echo count($varray);?></span> ]</th>
+        <th colspan="4">Villages&nbsp; [ <span style='color: Red'><?php echo count($varray);?></span> ]</th>
     </tr>
     <tr>
         <td>Name</td>
-
+        <td>Oasis</td>
         <td>Inhabitants</td>
         <td>Coordinates</td>
     </tr>
@@ -179,9 +178,44 @@ include("menu2.tpl");
         if($vil['capital'] == 1) {
         echo "<span class=\"none3\"> <b>(capital)</b></span>";
         }
+        echo "</td><td class=\"oases\">";
+$prefix = "".TB_PREFIX."odata";
+$uid = $_GET['uid']; $wref = $vil['wref'];
+$sql2 = mysql_query("SELECT * FROM $prefix WHERE owner = $uid AND conqured = $wref");
+while($row = mysql_fetch_array($sql2)){
+$type = $row["type"];
+switch($type) {
+case 1:
+case 2:
+echo  "<img class='r1' src='img/x.gif' title='Lumber'>";
+break;
+case 3:
+echo  "<img class='r1' src='img/x.gif' title='Lumber'> <img class='r4' src='img/x.gif' title='Crop'>";
+break;
+case 4:
+case 5:
+echo  "<img class='r2' src='img/x.gif' title='Clay'>";
+break;
+case 6:
+echo  "<img class='r2' src='img/x.gif' title='Clay'> <img class='r4' src='img/x.gif' title='Crop'>";
+case 7:
+case 8:
+echo  "<img class='r3' src='img/x.gif' title='Iron'>";
+break;
+case 9:
+echo  "<img class='r3' src='img/x.gif' title='Iron'> <img class='r4' src='img/x.gif' title='Crop'>";
+break;
+case 10:
+case 11:
+case 12:
+echo  "<img class='r4' src='img/x.gif' title='Crop'>";
+break;
+}
+}
+
         echo "</td>";
         echo "<td class=\"hab\">".$vil['pop']."</td><td class=\"aligned_coords\">";
         echo "<div class=\"cox\">(".$coor['x']."</div><div class=\"pi\">|</div><div class=\"coy\">".$coor['y'].")</div></td></tr>";
-    }
+}
     ?>
         </tbody></table>
