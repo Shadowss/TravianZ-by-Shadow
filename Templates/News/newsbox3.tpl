@@ -1,15 +1,13 @@
-<h5><img src="img/en/t2/newsbox3.gif" alt="newsbox 3"></h5>
-<div class="news">
-<b><left>Game speed:</b> 100x</left>
-<b>Medals:</b> Every 1 week</left>
-<b>Protection:</b> 24 hours</left>
-<b>Heros:</b> Yes</left>
-<b>Oases:</b> Yes</left>
-<b>Natars:</b> Yes</left>
-<b>SMS System:</b> Yes</left>
-<b>VIP System:</b> Yes</left>
-<b>Location:</b> Romania</left>
-<b>Natars:</b> Online </left>
-<b>Last Winner:</b> kepals</left>
-<b>Server alive: 5 days!</b></left>
-</div>
+<h5><img src="../img/en/t2/newsbox3.gif" alt="newsbox 2"></h5>
+		<div class="news">
+	
+	
+	<b><center>Travian ro1</center></b><br />
+	<b>Version: <font color="Red">v7.0.0</font></b><br />
+	<b>Major Changes:</b> New index.php, chief training fixed, graphic packs now work but only for outside links. See more in readme file!<br />
+	<b>Minor Changes:</b> Admin panel updated a bit, config updated, installation system updated<br />
+	<b>Script Price:</b> FREE!<br /><br />
+	<b><u><center>Released by: Shadow</u></b><br />
+	<b>Visit: <a href="http://ragezone.com">RageZone.com</a></b><br /></center>
+
+  </div>

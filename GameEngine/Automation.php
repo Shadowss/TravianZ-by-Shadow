@@ -152,6 +152,7 @@ class Automation {
 		$this->ClearInactive();
 		$this->oasisResourcesProduce();
 		$this->pruneResource();
+	        //if ($session->villages[0]){$this->activeCropDead();}
 		$this->pruneOResource();
 		$this->checkWWAttacks();
 		if(!file_exists("GameEngine/Prevention/culturepoints.txt") or time()-filemtime("GameEngine/Prevention/culturepoints.txt")>50) {

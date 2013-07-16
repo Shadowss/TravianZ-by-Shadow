@@ -240,6 +240,14 @@ $invite_permission = $database->getAlliancePermission($session->uid, "opt4", 0);
 					include ("Templates/Alliance/chgdiplo.tpl");
 				}
 				break;
+/*
+			case 7:
+       			if(isset($_POST['s']) == 5 && isset($_POST['o']) == 7) {
+       				//cambio Avatar alleanza";
+       				include ("Templates/Alliance/avatar.tpl");
+       			} 
+       			break;
+*/
 			case 11:
 				if(isset($_POST['s']) == 5 && isset($_POST['a']) == 11) {
 					$alliance->procAlliForm($_POST);

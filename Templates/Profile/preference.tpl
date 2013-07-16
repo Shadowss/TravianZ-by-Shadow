@@ -126,6 +126,7 @@ while($data = mysql_fetch_assoc($query)) {
     </tbody>
   </table>
 </form>
+
 <table cellpadding="1" cellspacing="1" id="completion" class="set"><thead>
     <tr>
 	<th colspan="2">Auto completion</th>

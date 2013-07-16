@@ -18,6 +18,34 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `%PREFIX%uavatar`
+--
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%uavatar` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `uid` int(4) NOT NULL,
+  `avatar` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `%PREFIX%aavatar`
+--
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%aavatar` (
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `aid` int(4) NOT NULL,
+  `avatar` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+
+--
 -- Table structure for table `%PREFIX%a2b`
 --
 
@@ -1000,6 +1028,29 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%movement` (
 --
 -- Dumping data for table `%prefix%movement`
 --
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `%prefix%news`
+--
+
+CREATE TABLE `%PREFIX%news` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `message` longtext NOT NULL,
+  `date` date NOT NULL,
+  `author` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+-- 
+-- Dumping data for table `%PREFIX%news`
+-- 
+
+INSERT INTO `%PREFIX%news` VALUES (1, 'I''m testing the news system :)', '2012-01-24', 'ETTETT');
+INSERT INTO `%PREFIX%news` VALUES (2, 'News systems is working fine. It''s always something small when I''m bored. You can now share your server news via MySQL.', '2012-01-24', 'ETTETT');
+
 
 
 -- --------------------------------------------------------

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if(isset($_GET['aid'])) {
 $aid = $_GET['aid'];
 }
@@ -23,6 +23,27 @@ require("medal.php");
 $profiel=explode("".md5(skJkev3)."", $profiel);
 
 include("alli_menu.tpl"); 
+
+/*
+
+include_once ("GameEngine/config.php");
+        
+        mysql_connect(SQL_SERVER, SQL_USER, SQL_PASS);
+        mysql_select_db(SQL_DB);
+		
+		$query = mysql_query("SELECT * FROM ".TB_PREFIX."aavatar WHERE aid  = '".$aid."'")or die(mysql_error());
+		$check = mysql_num_rows($query);
+
+		if ($check==0){
+			$aavatar="noavatar.gif";
+		}	
+		else{
+		$query1 =  mysql_query("SELECT * FROM ".TB_PREFIX."aavatar WHERE aid = '".$aid."'")or die(mysql_error());
+		$aavatar1 = mysql_fetch_array($query); 
+		$aavatar=$aavatar1['avatar'];
+		}
+
+*/
 
 ?>
 <table cellpadding="1" cellspacing="1" id="profile">
@@ -90,7 +111,7 @@ include("alli_menu.tpl");
 				}
 			if($allianceinfo['forumlink'] != ''){
                 echo "<tr>";
-                echo "<td><a href='".$allianceinfo['forumlink']."'>» to the forum</td>";
+                echo "<td><a href='".$allianceinfo['forumlink']."'>� to the forum</td>";
                 echo "</tr>";
                 }else{
 			?>
@@ -105,6 +126,7 @@ include("alli_menu.tpl");
             </table>
     </td>
     <td class="desc1"><?php echo stripslashes(nl2br($profiel[1])); ?>
+	  <?php echo "<div align=\"center\"><img src=\"avatar/".$aavatar."\" width=\"90\" height=\"100\" /></div>"; ?>
     </td>
 </tr>
 </tbody>
