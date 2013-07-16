@@ -109,7 +109,9 @@ include("menu2.tpl");
                 }
                         else if($displayarray['tribe'] == 4) {
                 echo "<span style='color: Turquoise'><b>Nature</b></span>";
-                
+                }
+                else if($displayarray['tribe'] == 0) {
+                echo "<span style='color: Red'><b>Multihunter</b></span>";
                 }else if($displayarray['tribe'] == 5) {
                 echo "<span style='color: DodgerBlue'><b>Natars</b></span>";
                 }                ?></td>

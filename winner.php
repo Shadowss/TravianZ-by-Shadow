@@ -1123,7 +1123,7 @@ d17/x3f8m6l++P5/85njqecf6NH/s8/0/wHeyCdEnMVhkQAAAABJRU5ErkJggg==" align="right" 
 
 					The results: Day had long since passed into night, yet the workers in <?php echo "<a href=\"karte.php?d=$vref&c=".$generator->getMapCheck($vref)."\">$winningvillagename</a>"; ?>,
 					laboured on throught the wintery eve, every wary of the countless armies marching to destroy their work, knowing that they raced against time and the greatest
-					threat that had ever faced the free people. Their tireless struggles were rewared at <strike><b>Time</b></strike> on <strike><b>Date</b></strike> after a
+					threat that had ever faced the free people. Their tireless struggles were rewared at <strike><b><?php echo date('H:i:s'); ?></b></strike> on <strike><b><?php echo date('D:M:Y'); ?></b></strike> after a
 					nameless worker laid the dinal stone in what will forever known as the greatest and most magnificent creation in all of history since the fall of the Natars<br /><br />
 
 					Together with the alliance "<?php echo "<a href=\"allianz.php?aid=$allianceid\">$winningalliancetag</a>"; ?>", "<?php echo "<a href=\"spieler.php?uid=$owner\">$username</a>"; ?>"
@@ -1139,7 +1139,7 @@ d17/x3f8m6l++P5/85njqecf6NH/s8/0/wHeyCdEnMVhkQAAAABJRU5ErkJggg==" align="right" 
 					<br /><br />
 					Best Regards,<br />
 					<?php echo SERVER_NAME; ?> Team<br /><br /><br /><br />
-					<small><i>(By: aggenkeech & Eyas95)</i></small></p>
+					<small><i>(By: Shadow v7.0.0)</i></small></p>
 
 					<br /><br />
 					<center><a href="dorf1.php">&raquo; Continue</a></center>
