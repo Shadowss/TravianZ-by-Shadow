@@ -184,12 +184,10 @@
 	   echo "<tr>";
 	   echo "<td>15c</td>";
 	   if($row['occupied'] == 0) {
-		   echo "<td class=\"dist\"><font color=\"blue\">".getDistance($coor['x'], $coor['y'], $row['x'], $row['y'])."</font></td>";
+		   echo "<td>(".$row['x']."|".$row['y'].")</td>";
 		   echo "<td>-</td>";
 		   echo "<td><b><font color=\"green\">Unoccupied</b></font></td>";
 	   } else {
-		   echo "<td class=\"dist\"><font color=\"red\">".getDistance($coor['x'], $coor['y'], $row['x'], $row['y'])."</font></td>";
-		   echo "<td class=\"aligned_coords\"><a href=\"karte.php?d=".$row['id']."&c=".$generator->getMapCheck($row['id'])."\">(".$row['x']."|".$row['y'].")</a></td>";
 		   echo "<td><a href=\"karte.php?d=".$row['id']."&c=".$generator->getMapCheck($row['id'])."\">".$database->getVillageField($row['id'], "name")." (".$row['x']."|".$row['y'].")</a></td>";
 		   echo "<td><a href=\"spieler.php?uid=".$database->getVillageField($row['id'], "owner")."\">".$database->getUserField($database->getVillageField($row['id'], "owner"), "username", 0)."</a></td>";
 		   echo "<td><b><font color=\"red\">Occupied</b></font></td>";
@@ -239,13 +237,11 @@
 	   echo "<tr>";
 	   echo "<td>9c</td>";
 	   if($row['occupied'] == 0) {
-		   echo "<td class=\"dist\"><font color=\"blue\">".getDistance($coor['x'], $coor['y'], $row['x'], $row['y'])."</font></td>";
+		   echo "<td>(".$row['x']."|".$row['y'].")</td>";
 		   echo "<td class=\"aligned_coords\"><a href=\"karte.php?d=".$row['id']."&c=".$generator->getMapCheck($row['id'])."\">(".$row['x']."|".$row['y'].")</a></td>";
 		   echo "<td>-</td>";
 		   echo "<td><b><font color=\"green\">Unoccupied</b></font></td>";
 	   } else {
-		   echo "<td class=\"dist\"><font color=\"red\">".getDistance($coor['x'], $coor['y'], $row['x'], $row['y'])."</font></td>";
-		   echo "<td class=\"aligned_coords\"><a href=\"karte.php?d=".$row['id']."&c=".$generator->getMapCheck($row['id'])."\">(".$row['x']."|".$row['y'].")</a></td>";
 		   echo "<td><a href=\"karte.php?d=".$row['id']."&c=".$generator->getMapCheck($row['id'])."\">".$database->getVillageField($row['id'], "name")." (".$row['x']."|".$row['y'].")</a></td>";
 		   echo "<td><a href=\"spieler.php?uid=".$database->getVillageField($row['id'], "owner")."\">".$database->getUserField($database->getVillageField($row['id'], "owner"), "username", 0)."</a></td>";
 		   echo "<td><b><font color=\"red\">Occupied</b></font></td>";
@@ -300,13 +296,11 @@
 	   echo "<tr>";
 	   echo "<td>" . $field . "</td>";
 	   if($row['occupied'] == 0) {
-		   echo "<td class=\"dist\"><font color=\"blue\">".getDistance($coor['x'], $coor['y'], $row['x'], $row['y'])."</font></td>";
+		   echo "<td>(".$row['x']."|".$row['y'].")</td>";
 		   echo "<td class=\"aligned_coords\"><a href=\"karte.php?d=".$row['id']."&c=".$generator->getMapCheck($row['id'])."\">(".$row['x']."|".$row['y'].")</a></td>";
 		   echo "<td>-</td>";
 		   echo "<td><b><font color=\"green\">Unoccupied</b></font></td>";
 	   } else {
-		   echo "<td class=\"dist\"><font color=\"red\">".getDistance($coor['x'], $coor['y'], $row['x'], $row['y'])."</font></td>";
-		   echo "<td class=\"aligned_coords\"><a href=\"karte.php?d=".$row['id']."&c=".$generator->getMapCheck($row['id'])."\">(".$row['x']."|".$row['y'].")</a></td>";
 		   echo "<td><a href=\"karte.php?d=".$row['id']."&c=".$generator->getMapCheck($row['id'])."\">".$database->getVillageField($row['id'], "name")." (".$row['x']."|".$row['y'].")</a></td>";
 		   echo "<td><a href=\"spieler.php?uid=".$database->getVillageField($row['id'], "owner")."\">".$database->getUserField($database->getVillageField($row['id'], "owner"), "username", 0)."</a></td>";
 		   echo "<td><b><font color=\"red\">Occupied</b></font></td>";
