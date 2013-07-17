@@ -294,7 +294,7 @@ define("SE","South East");
 define("RANDOM","random");
 define("ACCEPT_RULES"," I accept the game rules and general terms and conditions.");
 define("ONE_PER_SERVER","Each player may only own ONE account per server.");
-define("BEFORE_REGISTER","Before you register an account you should read the <a href='../anleitung.php' target='_blank'>instructions</a> of TravianX to see the specific advantages and disadvantages of the three tribes.");
+define("BEFORE_REGISTER","Before you register an account you should read the <a href='../anleitung.php' target='_blank'>instructions</a> of Travian ro1 to see the specific advantages and disadvantages of the three tribes.");
 define("BUILDING_UPGRADING","Building:");
 define("HOURS","hours");
 

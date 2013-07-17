@@ -192,7 +192,7 @@ class Account {
 		}
 		else {
 		$userid = $database->getUserArray($_POST['user'], 0);
-		$database->removevacationmode($userid);
+		$database->removevacationmode($userid['id']);
 		if($database->login($_POST['user'],$_POST['pw'])){
 			$database->UpdateOnline("login" ,$_POST['user'],time(),$userid['id']);
 		}else if($database->sitterLogin($_POST['user'],$_POST['pw'])){
