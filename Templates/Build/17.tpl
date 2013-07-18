@@ -23,6 +23,7 @@ else if($_POST['dname']!=""){
 	$getwref = $database->getVillageByName($_POST['dname']);
 	$checkexist = $database->checkVilExist($getwref);
 }
+
 if($checkexist){
 $villageOwner = $database->getVillageField($getwref,'owner');
 $userAccess = $database->getUserField($villageOwner,'access',0);

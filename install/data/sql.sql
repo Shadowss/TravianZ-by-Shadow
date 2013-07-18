@@ -1484,6 +1484,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%users` (
   `maxevasion` mediumint(3) unsigned NOT NULL,
   `vac_time` varchar(255) NOT NULL,
   `vac_mode` int(2) unsigned NOT NULL DEFAULT '0',
+  `vactwoweeks` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 

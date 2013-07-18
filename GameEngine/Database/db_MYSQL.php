@@ -681,6 +681,24 @@ class MYSQL_DB {
 		$q ="UPDATE ".TB_PREFIX."users SET vac_mode = '1' , vac_time=".$time." WHERE id=".$uid."";
 		$result =mysql_query($q,$this->connection);
 		}
+
+/*
+
+	function setvacmode($uid,$days){
+  		$days1 =60*60*24*$days;
+  		$time =time()+$days1;
+  		$q ="SELECT * FROM ".TB_PREFIX."users WHERE id=".$uid."";
+  		$result =mysql_query($q,$this->connection);
+  		$array=mysql_fetch_assoc($resultq);
+  		if (time() > $array["vactwoweeks"]){
+  		$q1 ="UPDATE ".TB_PREFIX."users SET vac_mode = '1' , vac_time=".$time." ,vactwoweeks = ".time()+(time() *60*60*24*14)." WHERE id=".$uid."";
+  		$result1 =mysql_query($q1,$this->connection);
+  		}
+  
+  		}
+
+*/
+
 	function removevacationmode($uid){
 
 		$q ="UPDATE ".TB_PREFIX."users SET vac_mode = '0' , vac_time='0' WHERE id=".$uid."";
