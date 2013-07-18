@@ -238,7 +238,6 @@
 	   echo "<td>9c</td>";
 	   if($row['occupied'] == 0) {
 		   echo "<td>(".$row['x']."|".$row['y'].")</td>";
-		   echo "<td class=\"aligned_coords\"><a href=\"karte.php?d=".$row['id']."&c=".$generator->getMapCheck($row['id'])."\">(".$row['x']."|".$row['y'].")</a></td>";
 		   echo "<td>-</td>";
 		   echo "<td><b><font color=\"green\">Unoccupied</b></font></td>";
 	   } else {
@@ -297,7 +296,6 @@
 	   echo "<td>" . $field . "</td>";
 	   if($row['occupied'] == 0) {
 		   echo "<td>(".$row['x']."|".$row['y'].")</td>";
-		   echo "<td class=\"aligned_coords\"><a href=\"karte.php?d=".$row['id']."&c=".$generator->getMapCheck($row['id'])."\">(".$row['x']."|".$row['y'].")</a></td>";
 		   echo "<td>-</td>";
 		   echo "<td><b><font color=\"green\">Unoccupied</b></font></td>";
 	   } else {

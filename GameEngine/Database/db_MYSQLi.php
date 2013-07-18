@@ -27,6 +27,7 @@ class MYSQLi_DB {
 		if($stime > time()){
 		$time = $stime;
 		}
+		$time = time();
 		$timep = $time + PROTECTION;
 		$q = "INSERT INTO " . TB_PREFIX . "users (username,password,access,email,timestamp,tribe,act,protect,lastupdate,regtime) VALUES ('$username', '$password', " . USER . ", '$email', $time, $tribe, '$act', $timep, $time, $time)";
 		if(mysql_query($this->connection, $q)) {

@@ -25,25 +25,6 @@ $totalpop = 0;
 foreach($varray as $vil) {
 	$totalpop += $vil['pop'];
 }
-/*
-		include_once ("GameEngine/config.php");
-        
-        mysql_connect(SQL_SERVER, SQL_USER, SQL_PASS);
-        mysql_select_db(SQL_DB);
-		
-		$user =($_GET['uid']);
-		$query = mysql_query("SELECT * FROM ".TB_PREFIX."uavatar WHERE uid  = '".$user."'")or die(mysql_error());
-		$check = mysql_num_rows($query);
-
-		if ($check==0){
-			$avatar="noavatar.gif";
-		}	
-		else{
-		//$query1 =  mysql_query("SELECT * FROM ".TB_PREFIX."uavatar WHERE uid = '".$user."'")or die(mysql_error());
-		$avatar1 = mysql_fetch_array($query);
-		$avatar=$avatar1['avatar'];
-		}*/
-
 ?>
 <h1>Player profile</h1>
 
@@ -72,15 +53,6 @@ include("menu2.tpl");
 
     </tr>
     </thead><tbody>
-<?php
-/*
-    <tr>
-        <td height="27" align="center" valign="middle" ><?php echo "<div align=\"center\"><img src=\"avatar/".$avatar."\" width=\"90\" height=\"100\" /></div>"; ?></td>
-      <td rowspan="2" valign="top" class="desc1" >
-      <div><?php echo nl2br($profiel[1]); ?>            </div>      </div>        </td>
-      </tr>
-*/
-?>
  <tr>
 <td class="empty"></td><td class="empty"></td>
 </tr>

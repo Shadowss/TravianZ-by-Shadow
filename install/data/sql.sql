@@ -17,33 +17,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 -- --------------------------------------------------------
 
---
--- Struttura della tabella `%PREFIX%uavatar`
---
-
-CREATE TABLE IF NOT EXISTS `%PREFIX%uavatar` (
-  `id` int(4) NOT NULL AUTO_INCREMENT,
-  `uid` int(4) NOT NULL,
-  `avatar` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `%PREFIX%aavatar`
---
-
-CREATE TABLE IF NOT EXISTS `%PREFIX%aavatar` (
-  `id` int(4) NOT NULL AUTO_INCREMENT,
-  `aid` int(4) NOT NULL,
-  `avatar` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
 
 --
 -- Table structure for table `%PREFIX%a2b`
