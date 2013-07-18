@@ -91,6 +91,7 @@ $automation->isWinner();
 22. Added numbers of village in overview Villages  [ 35 ]</br>
 23. Added oassis type in Profile / Overview </br>
 24. Added in karte.php (vilview.tpl) if you are in vacation mode , you cannot send resource.</br>
+25. Added in reports images for every report (reinforcement , attacks , resource , peace).</br>
 
 </div>
 </div>

@@ -91,17 +91,15 @@ Rules for connection type 3</br>
 9. Palace must can be build in only one village. If you have palace in one village you cannot build another palace in other village only if you demolish in first village.</br></br>
 10. Great warehouse and grate granny must be build only if you have granny and warehouse at level 20</br></br>
 11. Regenerate troops on oasis</br></br>
-12. Hero don't lose life points. Just die on bigger attack</br></br>
-13. Must code a fuction to don't leave pleyer who have seted in past 14 days vacation mode to set another vacation mode</br></br>
-14. Artefact storage master plan can bulild great granny and great warehouse on any village except capital. Effect account.</br></br>
-15. Artefact storage masterplan effect village can build great granny and great warehouse even if artefact is inactive and even you sont have warehouse at level 20 and granny level 20</br></br>
-16. Oassis loiality from 100 to 0 directly must be 100-60-20-0</br></br>
-17. Register page must be corrected (modify travian x with server name code)</br></br>
-18. If you are banned and in vacation mode you can send resource from market (error in Templates/Build/17.tpl on line 28)</br></br>
-19. Graphic pack is enabled but must be fully coded</br></br>
-20. In profile.tpl must be coded option for sitters (access for what)</br></br>
-21. In warsim.php damage done by catapult , rams damage , and bonus by hero doesn`t work</br></br>
-22. When you attack a village and destry it with catapult , after distroy all troops will be lose (no return home)</br></br>
+12. Must code a fuction to don't leave pleyer who have seted in past 14 days vacation mode to set another vacation mode</br></br>
+13. Artefact storage master plan can bulild great granny and great warehouse on any village except capital. Effect account.</br></br>
+14. Artefact storage masterplan effect village can build great granny and great warehouse even if artefact is inactive and even you sont have warehouse at level 20 and granny level 20</br></br>
+15. Oassis loiality from 100 to 0 directly must be 100-60-20-0</br></br>
+16. If you are banned and in vacation mode you can send resource from market (error in Templates/Build/17.tpl on line 28)</br></br>
+17. Graphic pack is enabled but must be fully coded</br></br>
+18. In profile.tpl must be coded option for sitters (access for what)</br></br>
+19. In warsim.php damage done by catapult , rams damage , and bonus by hero doesn`t work</br></br>
+20. When you attack a village and destry it with catapult , after distroy all troops will be lose (no return home)</br></br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">

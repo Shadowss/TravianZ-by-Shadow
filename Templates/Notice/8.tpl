@@ -25,6 +25,8 @@ if($dataarray[13]!='' or $dataarray!=0){$colspan="11";}else{$colspan="10";}
 <td class="role">sender</td><td colspan="<?php echo $colspan; ?>"><a href="spieler.php?uid=<?php echo $database->getUserField($dataarray[1],"id",0); ?>"><?php echo ($dataarray[1] == 0)? "taskmaster" : $database->getUserField($dataarray[1],"username",0); ?></a> from the village <?php echo ($dataarray[0] == 0)? "village of the elders" : "<a href='karte.php?d=".$dataarray[0]."&amp;c=".$generator->getMapCheck($dataarray[0])."'>".$database->getVillageField($dataarray[0],name)."</a>"; ?></td></tr></thead>
 <tbody class="units"><tr>
 <td>&nbsp;</td>
+<img src="../../gpack/travian_default/img/report/adventure_report.jpg" style="display: block; margin: 0 auto; vertical-align:middle;" />
+<br>	
 <?php
 $tribe = $dataarray[2];
 $start = ($tribe-1)*10+1;

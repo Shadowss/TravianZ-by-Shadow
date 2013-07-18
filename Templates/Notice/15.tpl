@@ -29,6 +29,8 @@ if(isset($dataarray[24]) and $dataarray[24]!=0){$colspan="11";}else{$colspan="10
 <tbody class="units">
 <tr>
 <td>&nbsp;</td>
+<img src="../../gpack/travian_default/img/report/reinforcement.jpg" style="display: block; margin: 0 auto; vertical-align:middle;" />
+<br>	
 <?php
 $tribe = $dataarray[3];
 $start = ($tribe-1)*10+1;

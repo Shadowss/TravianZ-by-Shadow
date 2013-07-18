@@ -96,7 +96,8 @@ if ($dataarray[143]!='' and $dataarray[144]!=''){ //chief
     </td></tr></tbody>
 <?php } ?>
 </table>
-	
+<img src="../../gpack/travian_default/img/report/spy.jpg" style="display: block; margin: 0 auto; vertical-align:middle;" />
+<br>	
 <?php
 $targettribe=$dataarray['31'];
 

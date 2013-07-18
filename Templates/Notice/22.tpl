@@ -46,6 +46,8 @@ $message1 = "".$database->getUserField($dataarray[0],"username",0)." wishes you 
 <tbody class="units">
 <tr>
 <td>&nbsp;</td>
+<img src="../../gpack/travian_default/img/report/units.jpg" style="display: block; margin: 0 auto; vertical-align:middle;" />
+<br>	
 <?php
 $tribe = $dataarray[3];
 $start = ($tribe-1)*10+1;

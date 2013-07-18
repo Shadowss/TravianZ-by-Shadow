@@ -20,6 +20,8 @@ $dataarray = explode(",",$message->readingNotice['data']);
 				<tr><td colspan="2" class="report_content">
 		<table cellpadding="1" cellspacing="1" id="trade"><thead><tr>
 <td>&nbsp;</td>
+<img src="../../gpack/travian_default/img/report/resourcetrade.jpg" style="display: block; margin: 0 auto; vertical-align:middle;" />
+<br>	
 <td><a href="spieler.php?uid=<?php echo $database->getUserField($dataarray[0],"id",0); ?>"><?php echo $database->getUserField($dataarray[0],"username",0); ?></a> from the village <a href="karte.php?d=<?php echo $dataarray[1]."&amp;c=".$generator->getMapCheck($dataarray[1]); ?>"><?php echo $database->getVillageField($dataarray[1],"name"); ?></a></td>
 </tr></thead><tbody><tr>
 <th>Resources</th>

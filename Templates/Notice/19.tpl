@@ -69,7 +69,8 @@ if(isset($dataarray[147]) and $dataarray[147]!=0){
 echo "</tr></tbody>";
 ?>
 </table>
-	
+<img src="../../gpack/travian_default/img/report/spy.jpg" style="display: block; margin: 0 auto; vertical-align:middle;" />
+<br>	
 <?php
 $targettribe=$dataarray['31'];
 
