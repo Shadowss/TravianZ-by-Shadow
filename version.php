@@ -92,6 +92,7 @@ $automation->isWinner();
 23. Added oassis type in Profile / Overview </br>
 24. Added in karte.php (vilview.tpl) if you are in vacation mode , you cannot send resource.</br>
 25. Added in reports images for every report (reinforcement , attacks , resource , peace).</br>
+26. Added new quests (alliance , main building 5 , granary level 3 , warehouse level 5 , palace or residence , 3 settlers , new village , wall).</br>
 
 </div>
 </div>
