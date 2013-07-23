@@ -1901,17 +1901,22 @@ class MYSQLi_DB {
 	function FinishWoodcutter($wid) {
 		$time = time()-1;
 		$q = "SELECT * FROM " . TB_PREFIX . "bdata where wid = $wid and type = 1 order by master,timestamp ASC";
-		$result = mysqli_query($q);
-		$dbarray = mysqli_fetch_array($result, MYSQLI_BOTH);
+		$result = mysql_query($q);
+		$dbarray = mysql_fetch_array($result);
 		$q = "UPDATE ".TB_PREFIX."bdata SET timestamp = $time WHERE id = '".$dbarray['id']."'";
 		$this->query($q);
-		$q2 = "SELECT * FROM " . TB_PREFIX . "bdata where wid = $wid and loopcon = 1 and field <= 18 order by master,timestamp ASC";
-		if(mysqli_num_rows($q2) > 0){
-		$result2 = mysqli_query($q2);
+		$tribe = $this->getUserField($this->getVillageField($wid, "owner"), "tribe", 0);
+		if($tribe == 1){
+		$q2 = "SELECT * FROM " . TB_PREFIX . "bdata where wid = $wid and loopcon = 1 and field >= 19 order by master,timestamp ASC";
+		}else{
+		$q2 = "SELECT * FROM " . TB_PREFIX . "bdata where wid = $wid and loopcon = 1 order by master,timestamp ASC";
+		$result2 = mysql_query($q2);
+		if(mysql_num_rows($result2) > 0){
 		$dbarray2 = mysql_fetch_array($result2);
 		$wc_time = $dbarray['timestamp'];
 		$q2 = "UPDATE ".TB_PREFIX."bdata SET timestamp = timestamp - $wc_time WHERE id = '".$dbarray2['id']."'";
 		$this->query($q2);
+		}
 		}
 	}
 
