@@ -21,7 +21,7 @@ $free = $session->uid;
 							Pay by Phone               <br />
                 
             				<a href="#"
-					onclick="window.open('http://billing.micropayment.de/call2pay/event/?account=24913&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix-360+Gold&amount=999','nsrpay','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">
+					onclick="window.open('http://billing.micropayment.de/call2pay/event/?account=56387&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix-360+Gold&amount=999','nsrpay','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">
 				<img src="img/bezahlung/call2pay1.png" style="width:126px; height:38px;" alt="call2pay" /></a>
 						
 			<br />
@@ -48,7 +48,7 @@ $free = $session->uid;
 							Pay with SMS                <br />
                 
             				<a href="#"
-					onclick="window.open('http://billing.micropayment.de/handypay/event/?account=24913&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix-+360+Gold&amount=999&paytext=TravianiX+360+Gold&smstext=travianix360gold','nsrpay','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">
+					onclick="window.open('http://billing.micropayment.de/handypay/event/?account=56387&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix-+360+Gold&amount=999&paytext=TravianiX+360+Gold&smstext=travianix360gold','nsrpay','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">
 				<img src="img/bezahlung/handy2pay2.png" style="width:126px; height:38px;" alt="handy2pay" /></a>
 						
 			<br />
@@ -75,7 +75,7 @@ $free = $session->uid;
 							Pay by online banktranfer                <br />
                 
             				<a href="#"
-					onclick="window.open('http://billing.micropayment.de/ebank2pay/event/?account=24913&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix+360+Gold&amount=999&currency=EUR&paytext=travianix+360+Gold','nsrpay','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">
+					onclick="window.open('http://billing.micropayment.de/ebank2pay/event/?account=56387&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix+360+Gold&amount=999&currency=EUR&paytext=travianix+360+Gold','nsrpay','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">
 				<img src="img/bezahlung/ebank2pay2.png" style="width:181px; height:38px;" alt="ebank2pay" /></a>
 						
 			<br />
@@ -85,7 +85,7 @@ $free = $session->uid;
 		</tr>
 	</tbody>
 </table>
-<!--<table class="rate_details lang_ltr lang_de" cellpadding="1" cellspacing="1">
+<table class="rate_details lang_ltr lang_de" cellpadding="1" cellspacing="1">
 	<thead>
 
 		<tr>
@@ -96,10 +96,10 @@ $free = $session->uid;
 		<tr>
 			<td class="pic"><img src="img/bezahlung/paypal.jpg" style="99px; height:99px;" alt="Paket A" />
 
-			<div>Dauer: 24 Stunden<br />nach Geldeingang</div>
+			<div>Gold : 360<br />Cost : 9,99 Euro<br />Wait: 24 hours</div>
 			</td>
 			<td class="desc">Bezahlung per Paypal einleiten<br />
-            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RUXADDZBTCYEA" target="_blank">
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RDW6U6UGFP9F4" target="_blank">
 				<img src="img/bezahlung/paypal1.gif" style="width:126px; height:47px;" alt="Moneybookers" /></a><br />
             Mehr Information zu PayPal findest du hier:       <br />                         <a href="#"
 				onclick="window.open('https://www.paypal.com/de/cgi-bin/webscr?cmd=xpt/cps/popup/OLCWhatIsPayPal-outside','external','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">Weitere Infos</a>                <br /> </td>
@@ -118,26 +118,26 @@ $free = $session->uid;
 		<tr>
 			<td class="pic"><img src="img/bezahlung/skrill1.jpg" style="99px; height:99px;" alt="Paket A" />
 
-			<div>Dauer: 24 Stunden<br />nach Geldeingang</div>
+			<div>Gold : 360<br />Cost : 9,99 Euro<br />Wait: 24 hours</div>
 			</td>
 			<td class="desc">
-							Mit Skrill (moneybookers) kannst du mit deiner Kreditkarte oder per Ãœberweisung von deinem Konto zahlen.                <br />
+							Mit Skrill (moneybookers) kannst du mit deiner Kreditkarte oder per Überweisung von deinem Konto zahlen.                <br />
                 
             				 <?PHP echo'<form action="https://www.moneybookers.com/app/payment.pl" target="_blank">
- <input type="hidden" name="pay_to_email" value="radioleitung@netsoundradio.eu">
+ <input type="hidden" name="pay_to_email" value="novgorodschi@icloud.com">
  <input type="hidden" name="recipient_description" value="netsoundradio">
  <input type="hidden" name="transaction_id" value="112">
  <input type="hidden" name="return_url" value="http://www.merchant.com/payment_made.htm">
- <input type="hidden" name="return_url_text" value="Danke fÃ¼r deinen Einkauf">
+ <input type="hidden" name="return_url_text" value="Danke für deinen Einkauf">
  <input type="hidden" name="return_url_target" value="1">
  <input type="hidden" name="cancel_url" value="http://www.merchant.com/payment_cancelled.htm">
  <input type="hidden" name="cancel_url_target" value="1">
- <input type="hidden" name="status_url" value="mailto: radioleitung@netsoundradio.eu">
- <input type="hidden" name="status_url2" value="mailto: radioleitung@netsoundradio.eu">
+ <input type="hidden" name="status_url" value="mailto: novgorodschi@icloud.com">
+ <input type="hidden" name="status_url2" value="mailto: novgorodschi@icloud.com">
  <input type="hidden" name="new_window_redirect" value="1">
  <input type="hidden" name="dynamic_descriptor" value="Descriptor">
  <input type="hidden" name="language" value="DE">
- <input type="hidden" name="confirmation_note" value="Vielen Dank fÃ¼r deinen Einkauf! ">
+ <input type="hidden" name="confirmation_note" value="Vielen Dank für deinen Einkauf! ">
  <input type="hidden" name="merchant_fields" value="field1">
  <input type="hidden" name="title" value="">
  <input type="hidden" name="firstname" value="">
@@ -161,8 +161,8 @@ $free = $session->uid;
  <input type="hidden" name="detail1_text" value="Paket C : 600 Gold">
  <input type="hidden" name="detail2_description" value="Beschreibung:">
  <input type="hidden" name="detail2_text" value="Travian Gold ">
- <input type="hidden" name="detail3_description" value="VerkÃ¤ufer-ID:">
- <input type="hidden" name="detail3_text" value="30891295">
+ <input type="hidden" name="detail3_description" value="Verkäufer-ID:">
+ <input type="hidden" name="detail3_text" value="37115003">
  <input type="hidden" name="detail4_description" value="Weitere Angaben:">
  <input type="hidden" name="detail4_text" value="5-6 Tage Leieferzeit">
   <input type="hidden" name="rec_period" value="1">
@@ -179,7 +179,7 @@ $free = $session->uid;
 
 		</tr>
 	</tbody>
-</table>-->
+</table>
 <br /><br /><br /><br /><br /><br />
 </div>
 

@@ -80,26 +80,27 @@ Rules for connection type 2</br>
 *can conquer village when there has been NO active sitter connection within the last 14 days AND both players have not been in the same or an allied alliance within the last 2 days</br>
 Rules for connection type 3</br>
 *can NOT conquer village of each other.</br></br>
-2. Alliance forum don't work 100%.</br></br>
+2. Alliance forum don't work 100%. In warsim.php damage done by catapult , rams damage , and bonus by hero doesn`t work.</br></br>
 3. Battle simulator calculate don't work 100%.</br></br>
 4. Gold Club not fixed complete</br>
 - raid statistics</br></br>
 5. If you have plus account activated you cannot see the attck/deff/scout images when you attack a village (i mean img on villages : red swords etc..)</br></br>
 6. Capital doesnt apper on dorf1.php under village name</br></br>
 7. Time zone from preference.tpl and also all options must to coded and also must coded in profile.tpl sitters options</br></br>
-8. 403 , 404 , 500 Errors doesnt work.</br></br>
-9. Palace must can be build in only one village. If you have palace in one village you cannot build another palace in other village only if you demolish in first village.</br></br>
-10. Great warehouse and grate granny must be build only if you have granny and warehouse at level 20</br></br>
-11. Regenerate troops on oasis</br></br>
-12. Must code a fuction to don't leave pleyer who have seted in past 14 days vacation mode to set another vacation mode</br></br>
-13. Artefact storage master plan can bulild great granny and great warehouse on any village except capital. Effect account.</br></br>
-14. Artefact storage masterplan effect village can build great granny and great warehouse even if artefact is inactive and even you sont have warehouse at level 20 and granny level 20</br></br>
-15. Oassis loiality from 100 to 0 directly must be 100-60-20-0</br></br>
-16. If you are banned and in vacation mode you can send resource from market (error in Templates/Build/17.tpl on line 28)</br></br>
-17. Graphic pack is enabled but must be fully coded</br></br>
-18. In profile.tpl must be coded option for sitters (access for what)</br></br>
-19. In warsim.php damage done by catapult , rams damage , and bonus by hero doesn`t work</br></br>
-20. When you attack a village and destry it with catapult , after distroy all troops will be lose (no return home)</br></br>
+8. Palace must can be build in only one village. If you have palace in one village you cannot build another palace in other village only if you demolish in first village.</br></br>
+9. Great warehouse and grate granny must be build only if you have granny and warehouse at level 20</br></br>
+10. Regenerate troops on oasis</br></br>
+11. Must code a fuction to don't leave pleyer who have seted in past 14 days vacation mode to set another vacation mode</br></br>
+12. Artefact storage master plan can bulild great granny and great warehouse on any village except capital. Effect account.</br></br>
+13. Artefact storage masterplan effect village can build great granny and great warehouse even if artefact is inactive and even you sont have warehouse at level 20 and granny level 20</br></br>
+14. Oassis loiality from 100 to 0 directly must be 100-60-20-0</br></br>
+15. If you are banned and in vacation mode you can send resource from market (error in Templates/Build/17.tpl on line 28)</br></br>
+16. Graphic pack is enabled but must be fully coded</br></br>
+17. In profile.tpl must be coded option for sitters (access for what)</br></br>
+18. When you attack a village and destry it with catapult , after distroy all troops will be lose (no return home)</br></br>
+19. When you have two villanges and destroy capital , capital must dissapear from map. Here is a bug don`t dissapear just stay on 0 population.</br></br>
+20. Troops don`t consume crop from villange when you send as reinforcements on oassis. Must to consume from villang when troops are reinforcement on anexed oassis.</br></br>
+21. When you try to steal an artefact (you have treasurey level 10) and attack with another player (with treasury level 20 and 2 artefacts) , you steal both artefact. Here is a bug , if you have level 10 treasurey you can steal both artefact even second artefact is large artefact and need treasurey level 20</br></br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">

@@ -1,9 +1,9 @@
-﻿<?php
+<?php
 include("Templates/Plus/pmenu.tpl");
 $name = $session->uid;
 //echo"<br>Benutzer-Id : $name<br>";
 //$free = $session->uid;
-//echo"<br>Veriable free : ?account=24913&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix-30+Gold&amount=150&free=$free<br>";
+//echo"<br>Veriable free : ?account=56387&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix-30+Gold&amount=150&free=$free<br>";
 ?>
 <!-- Hinweis -->
 
@@ -24,11 +24,11 @@ $name = $session->uid;
 							Pay by Phone               <br />
                 
             				<a href="#"
-					onclick="window.open('http://billing.micropayment.de/call2pay/event/?account=24913&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix-60+Gold&amount=199','nsrpay','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">
+					onclick="window.open('http://billing.micropayment.ch/call2pay/event/?account=56387&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix-60+Gold&amount=199','nsrpay','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">
 				<img src="img/bezahlung/call2pay1.png" style="width:126px; height:38px;" alt="call2pay" /></a>
 						
 			<br />
-                More Info about micropayment can be found here:                                <a href="https://www.micropayment.de/" target="_blank"><br />More Info</a>
+                More Info about micropayment can be found here:                                <a href="https://www.micropayment.ch/" target="_blank"><br />More Info</a>
                             </td>
 
 		</tr>
@@ -51,11 +51,11 @@ $name = $session->uid;
 							Pay with SMS                <br />
                 
             				<a href="#"
-					onclick="window.open('http://billing.micropayment.de/handypay/event/?account=24913&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix-60+Gold&amount=199&paytext=TravianiX+60+Gold&smstext=travianix60gold','nsrpay','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">
+					onclick="window.open('http://billing.micropayment.ch/handypay/event/?account=56387&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix-60+Gold&amount=199&paytext=TravianiX+60+Gold&smstext=travianix60gold','nsrpay','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">
 				<img src="img/bezahlung/handy2pay2.png" style="width:126px; height:38px;" alt="handy2pay" /></a>
 						
 			<br />
-				More Info about micropayment can be found here:                                <a href="https://www.micropayment.de/" target="_blank"><br />More Info</a>
+				More Info about micropayment can be found here:                                <a href="https://www.micropayment.ch/" target="_blank"><br />More Info</a>
                             </td>
 
 		</tr>
@@ -78,17 +78,17 @@ $name = $session->uid;
 							Pay by online banktransfer                <br />
                 
             				<a href="#"
-					onclick="window.open('http://billing.micropayment.de/ebank2pay/event/?account=24913&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix+60+Gold&amount=199&currency=EUR&paytext=travianix+60+Gold','nsrpay','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">
+					onclick="window.open('http://billing.micropayment.ch/ebank2pay/event/?account=56387&project=trvnx&theme=default&gfx=x-surfer&bgcolor=ffffff&title=travianix+60+Gold&amount=199&currency=EUR&paytext=travianix+60+Gold','nsrpay','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">
 				<img src="img/bezahlung/ebank2pay2.png" style="width:181px; height:38px;" alt="ebank2pay" /></a>
 						
 			<br />
-                More Info about micropayment can be found here:                                <a href="https://www.micropayment.de/" target="_blank"><br />More Info</a>
+                More Info about micropayment can be found here:                                <a href="https://www.micropayment.ch/" target="_blank"><br />More Info</a>
                                             </td>
 
 		</tr>
 	</tbody>
 </table>
-<!--<table class="rate_details lang_ltr lang_de" cellpadding="1" cellspacing="1">
+<table class="rate_details lang_ltr lang_de" cellpadding="1" cellspacing="1">
 	<thead>
 
 		<tr>
@@ -99,17 +99,17 @@ $name = $session->uid;
 		<tr>
 			<td class="pic"><img src="img/bezahlung/paypal.jpg" style="99px; height:99px;" alt="Paket A" />
 
-			<div>Wait: 24 hours/div>
+			<div>Gold : 60<br />Cost : 1,99 Euro<br />Wait: 24 hours</div>
 			</td>
 			<td class="desc">Payment by <br />
-            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WZDGPHRW2439S" target="_blank">
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PS2CGCWUQHLU6" target="_blank">
 				<img src="img/bezahlung/paypal1.gif" style="width:126px; height:47px;" alt="Moneybookers" /></a><br />
 			More Info about PayPal can be found here: <br />                              <a href="#"
-				onclick="window.open('https://www.paypal.com/de/cgi-bin/webscr?cmd=xpt/cps/popup/OLCWhatIsPayPal-outside','external','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">More Info</a>                <br /> </td>
+				onclick="window.open('https://www.paypal.com/en/cgi-bin/webscr?cmd=xpt/cps/popup/OLCWhatIsPayPal-outside','external','scrollbars=yes,status=yes,resizable=yes,toolbar=yes,width=800,height=600');return false;">More Info</a>                <br /> </td>
 
 		</tr>
 	</tbody>
-</table>-->
+</table>
 <br /><br /><br /><br /><br /><br />
 </div>
 

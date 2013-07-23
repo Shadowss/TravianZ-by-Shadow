@@ -93,6 +93,8 @@ $automation->isWinner();
 24. Added in karte.php (vilview.tpl) if you are in vacation mode , you cannot send resource.</br>
 25. Added in reports images for every report (reinforcement , attacks , resource , peace).</br>
 26. Added new quests (alliance , main building 5 , granary level 3 , warehouse level 5 , palace or residence , 3 settlers , new village , wall).</br>
+27. Winner decoded end time fixed , 403 , 404 , 500 errors are now decoded.</br>
+28. Populate oasis automation function added and fixed.</br>
 
 </div>
 </div>
