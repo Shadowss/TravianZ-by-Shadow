@@ -95,7 +95,10 @@ $automation->isWinner();
 26. Added new quests (alliance , main building 5 , granary level 3 , warehouse level 5 , palace or residence , 3 settlers , new village , wall).</br>
 27. Winner decoded end time fixed , 403 , 404 , 500 errors are now decoded.</br>
 28. Populate and regenerate oasis automation function added and fixed.</br>
-
+29. Fixed palace , now cannot be build more than one palace / accout.</br>
+30. Now you need a warehouse and granary level 20 to build great granary and great warehouse.</br>
+31. Cannot send attacks and send resource to banned / vacation players.</br>
+32. Now banned palyer and vacation mode player cannot recive resource from marketplace.</br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
