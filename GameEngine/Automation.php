@@ -152,7 +152,6 @@ class Automation {
 		$this->ClearInactive();
 		$this->oasisResourcesProduce();
 		$this->pruneResource();
-	        //if ($session->villages[0]){$this->activeCropDead();}
 		$this->pruneOResource();
 		$this->checkWWAttacks();
 		if(!file_exists("GameEngine/Prevention/culturepoints.txt") or time()-filemtime("GameEngine/Prevention/culturepoints.txt")>50) {
@@ -615,10 +614,8 @@ class Automation {
 			$q = "UPDATE ".TB_PREFIX."fdata set f".$indi['field']." = ".$indi['level'].", f".$indi['field']."t = ".$indi['type']." where vref = ".$indi['wid'];
 			if($database->query($q)) {
 				$level = $database->getFieldLevel($indi['wid'],$indi['field']);
-				$pop = $this->getPop($indi['type'],($level-1));
-				$database->modifyPop($indi['wid'],$pop[0],0);
+				$this->recountPop($indi['wid']);
 				$this->procClimbers($database->getVillageField($indi['wid'],'owner'));
-				$database->addCP($indi['wid'],$pop[1]);
 
 					if($indi['type'] == 10) {
 					  $max=$database->getVillageField($indi['wid'],"maxstore");
