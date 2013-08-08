@@ -139,24 +139,14 @@ if (mysql_num_rows(mysql_query("SELECT id FROM ".TB_PREFIX."users WHERE access =
         }    
     }
 	
-	//je staat voor 3e / 5e / 10e keer in de top 3 aanvallers
-//Pak de top10 aanvallers
-$result = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id > 5 and ap > 0 ORDER BY ap DESC, id DESC Limit 10");
-while($row = mysql_fetch_array($result)){
-
-$query1="SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 1 AND plaats<=3 order by week desc limit 1";
-$result1=mysql_query($query1);
-$array1=mysql_fetch_array($result1);
-$row1=0;
-$i=$array1['week'];
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 1 AND plaats<=3 AND week = $i";
-while(mysql_num_rows(mysql_query($query2)) > 0 && $i > 0){
-$row1++;
-$i--;
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 1 AND plaats<=3 AND week = $i";
-}
-
-
+	//je staat voor 3e / 5e / 10e keer in de top 3 aanvallers 
+	//Pak de top10 aanvallers
+    $result = mysql_query("SELECT * FROM ".TB_PREFIX."users ORDER BY ap DESC, id DESC Limit 10");
+    while($row = mysql_fetch_array($result)){ 
+	
+			$query1="SELECT count(*) FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 1 AND plaats<=3";
+			$result1=mysql_query($query1);
+	 		$row1=mysql_fetch_row($result1);
  
 		
 		//2x in gestaan, dit is 3e dus lintje (brons)
@@ -179,22 +169,14 @@ $query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND ca
 		}
 		
 	}
-		//je staat voor 3e / 5e / 10e keer in de top 10 aanvallers
-//Pak de top10 aanvallers
-$result = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id > 5 and ap > 0 ORDER BY ap DESC, id DESC Limit 10");
-while($row = mysql_fetch_array($result)){
-
-$query1="SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 1 AND plaats<=10 order by week desc limit 1";
-$result1=mysql_query($query1);
-$array1=mysql_fetch_array($result1);
-$row1=0;
-$i=$array1['week'];
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 1 AND plaats<=10 AND week = $i";
-while(mysql_num_rows(mysql_query($query2)) > 0 && $i > 0){
-$row1++;
-$i--;
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 1 AND plaats<=10 AND week = $i";
-}
+	//je staat voor 3e / 5e / 10e keer in de top 10 aanvallers 
+    //Pak de top10 aanvallers
+    $result = mysql_query("SELECT * FROM ".TB_PREFIX."users ORDER BY ap DESC, id DESC Limit 10");
+    while($row = mysql_fetch_array($result)){ 
+    
+            $query1="SELECT count(*) FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 1 AND plaats<=10";
+            $result1=mysql_query($query1);
+             $row1=mysql_fetch_row($result1);
  
         
         //2x in gestaan, dit is 3e dus lintje (brons)
@@ -217,22 +199,14 @@ $query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND ca
         }
         
     }
-		//je staat voor 3e / 5e / 10e keer in de top 3 verdedigers
-//Pak de top10 verdedigers
-$result = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id > 5 and dp > 0 ORDER BY dp DESC, id DESC Limit 10");
-while($row = mysql_fetch_array($result)){
-
-$query1="SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 2 AND plaats<=3 order by week desc limit 1";
-$result1=mysql_query($query1);
-$array1=mysql_fetch_array($result1);
-$row1=0;
-$i=$array1['week'];
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 2 AND plaats<=3 AND week = $i";
-while(mysql_num_rows(mysql_query($query2)) > 0 && $i > 0){
-$row1++;
-$i--;
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 2 AND plaats<=3 AND week = $i";
-}
+	//je staat voor 3e / 5e / 10e keer in de top 3 verdedigers 
+	//Pak de top10 verdedigers
+    $result = mysql_query("SELECT * FROM ".TB_PREFIX."users ORDER BY dp DESC, id DESC Limit 10");
+    while($row = mysql_fetch_array($result)){ 
+	
+			$query1="SELECT count(*) FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 2 AND plaats<=3";
+			$result1=mysql_query($query1);
+	 		$row1=mysql_fetch_row($result1);
  
 		
 		//2x in gestaan, dit is 3e dus lintje (brons)
@@ -255,22 +229,14 @@ $query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND ca
 		}
 		
 	}
-	//je staat voor 3e / 5e / 10e keer in de top 3 verdedigers
-//Pak de top10 verdedigers
-$result = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id > 5 and dp > 0 ORDER BY dp DESC, id DESC Limit 10");
-while($row = mysql_fetch_array($result)){
-
-$query1="SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 2 AND plaats<=10 order by week desc limit 1";
-$result1=mysql_query($query1);
-$array1=mysql_fetch_array($result1);
-$row1=0;
-$i=$array1['week'];
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 2 AND plaats<=10 AND week = $i";
-while(mysql_num_rows(mysql_query($query2)) > 0 && $i > 0){
-$row1++;
-$i--;
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 2 AND plaats<=10 AND week = $i";
-}
+    //je staat voor 3e / 5e / 10e keer in de top 3 verdedigers 
+    //Pak de top10 verdedigers
+    $result = mysql_query("SELECT * FROM ".TB_PREFIX."users ORDER BY dp DESC, id DESC Limit 10");
+    while($row = mysql_fetch_array($result)){ 
+    
+            $query1="SELECT count(*) FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 2 AND plaats<=10";
+            $result1=mysql_query($query1);
+             $row1=mysql_fetch_row($result1);
  
         
         //2x in gestaan, dit is 3e dus lintje (brons)
@@ -294,22 +260,14 @@ $query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND ca
         
     }	
 
-		//je staat voor 3e / 5e / 10e keer in de top 3 klimmers
-//Pak de top10 klimmers
-$result = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id > 5 and Rc > 0 ORDER BY Rc DESC, id DESC Limit 10");
-while($row = mysql_fetch_array($result)){
-
-$query1="SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 3 AND plaats<=3 order by week desc limit 1";
-$result1=mysql_query($query1);
-$array1=mysql_fetch_array($result1);
-$row1=0;
-$i=$array1['week'];
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 3 AND plaats<=3 AND week = $i";
-while(mysql_num_rows(mysql_query($query2)) > 0 && $i > 0){
-$row1++;
-$i--;
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 3 AND plaats<=3 AND week = $i";
-}
+	//je staat voor 3e / 5e / 10e keer in de top 3 klimmers 
+	//Pak de top10 klimmers
+    $result = mysql_query("SELECT * FROM ".TB_PREFIX."users ORDER BY Rc DESC, id DESC Limit 10");
+    while($row = mysql_fetch_array($result)){ 
+	
+			$query1="SELECT count(*) FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 3 AND plaats<=3";
+			$result1=mysql_query($query1);
+	 		$row1=mysql_fetch_row($result1);
  
 		
 		//2x in gestaan, dit is 3e dus lintje (brons)
@@ -330,23 +288,14 @@ $query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND ca
 			$quer="insert into ".TB_PREFIX."medal(userid, categorie, plaats, week, points, img) values('".$row['id']."', '8', '0', '".$week."', 'Ten', '".$img."')";
 			$resul=mysql_query($quer);
 		}
-	}
-//je staat voor 3e / 5e / 10e keer in de top 3 klimmers
-//Pak de top10 klimmers
-$result = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id > 5 and Rc > 0 ORDER BY Rc DESC, id DESC Limit 10");
-while($row = mysql_fetch_array($result)){
-
-$query1="SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 3 AND plaats<=10 order by week desc limit 1";
-$result1=mysql_query($query1);
-$array1=mysql_fetch_array($result1);
-$row1=0;
-$i=$array1['week'];
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 3 AND plaats<=10 AND week = $i";
-while(mysql_num_rows(mysql_query($query2)) > 0 && $i > 0){
-$row1++;
-$i--;
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 3 AND plaats<=10 AND week = $i";
-}
+	}//je staat voor 3e / 5e / 10e keer in de top 3 klimmers 
+    //Pak de top10 klimmers
+    $result = mysql_query("SELECT * FROM ".TB_PREFIX."users ORDER BY Rc DESC, id DESC Limit 10");
+    while($row = mysql_fetch_array($result)){ 
+    
+            $query1="SELECT count(*) FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 3 AND plaats<=10";
+            $result1=mysql_query($query1);
+             $row1=mysql_fetch_row($result1);
  
         
         //2x in gestaan, dit is 3e dus lintje (brons)
@@ -369,22 +318,14 @@ $query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND ca
         }
     }
     
-	//je staat voor 3e / 5e / 10e keer in de top 3 klimmers
-//Pak de top3 rank climbers
-$result = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id > 5 and clp > 0 ORDER BY clp DESC, id DESC Limit 10");
-while($row = mysql_fetch_array($result)){
-
-$query1="SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 10 AND plaats<=3 order by week desc limit 1";
-$result1=mysql_query($query1);
-$array1=mysql_fetch_array($result1);
-$row1=0;
-$i=$array1['week'];
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 10 AND plaats<=3 AND week = $i";
-while(mysql_num_rows(mysql_query($query2)) > 0 && $i > 0){
-$row1++;
-$i--;
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 10 AND plaats<=3 AND week = $i";
-}
+    //je staat voor 3e / 5e / 10e keer in de top 3 klimmers 
+    //Pak de top3 rank climbers 
+    $result = mysql_query("SELECT * FROM ".TB_PREFIX."users ORDER BY clp DESC, id DESC Limit 10");
+    while($row = mysql_fetch_array($result)){ 
+    
+            $query1="SELECT count(*) FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 10 AND plaats<=3";
+            $result1=mysql_query($query1);
+             $row1=mysql_fetch_row($result1);
  
         
         //2x in gestaan, dit is 3e dus lintje (brons)
@@ -406,22 +347,14 @@ $query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND ca
             $resul=mysql_query($quer);
         }
     }
-    	//je staat voor 3e / 5e / 10e keer in de top 10klimmers
-//Pak de top3 rank climbers
-$result = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id > 5 and clp > 0 ORDER BY clp DESC, id DESC Limit 10");
-while($row = mysql_fetch_array($result)){
-
-$query1="SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 10 AND plaats<=10 order by week desc limit 1";
-$result1=mysql_query($query1);
-$array1=mysql_fetch_array($result1);
-$row1=0;
-$i=$array1['week'];
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 10 AND plaats<=10 AND week = $i";
-while(mysql_num_rows(mysql_query($query2)) > 0 && $i > 0){
-$row1++;
-$i--;
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 10 AND plaats<=10 AND week = $i";
-}
+    //je staat voor 3e / 5e / 10e keer in de top 10klimmers 
+    //Pak de top3 rank climbers 
+    $result = mysql_query("SELECT * FROM ".TB_PREFIX."users ORDER BY clp DESC, id DESC Limit 10");
+    while($row = mysql_fetch_array($result)){ 
+    
+            $query1="SELECT count(*) FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 10 AND plaats<=10";
+            $result1=mysql_query($query1);
+             $row1=mysql_fetch_row($result1);
  
         
         //2x in gestaan, dit is 3e dus lintje (brons)
@@ -444,22 +377,14 @@ $query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND ca
         }
     }    	
 
-		//je staat voor 3e / 5e / 10e keer in de top 10 overvallers
-//Pak de top10 overvallers
-$result = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id > 5 and RR > 0 ORDER BY RR DESC, id DESC Limit 10");
-while($row = mysql_fetch_array($result)){
-
-$query1="SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 4 AND plaats<=3 order by week desc limit 1";
-$result1=mysql_query($query1);
-$array1=mysql_fetch_array($result1);
-$row1=0;
-$i=$array1['week'];
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 4 AND plaats<=3 AND week = $i";
-while(mysql_num_rows(mysql_query($query2)) > 0 && $i > 0){
-$row1++;
-$i--;
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 4 AND plaats<=3 AND week = $i";
-}
+	//je staat voor 3e / 5e / 10e keer in de top 10 overvallers 
+	//Pak de top10 overvallers
+    $result = mysql_query("SELECT * FROM ".TB_PREFIX."users ORDER BY RR DESC, id DESC Limit 10");
+    while($row = mysql_fetch_array($result)){ 
+	
+			$query1="SELECT count(*) FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 4 AND plaats<=3";
+			$result1=mysql_query($query1);
+	 		$row1=mysql_fetch_row($result1);
  
 		
 		//2x in gestaan, dit is 3e dus lintje (brons)
@@ -480,23 +405,14 @@ $query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND ca
 			$quer="insert into ".TB_PREFIX."medal(userid, categorie, plaats, week, points, img) values('".$row['id']."', '9', '0', '".$week."', 'Ten', '".$img."')";
 			$resul=mysql_query($quer);
 		}
-	} 
-//je staat voor 3e / 5e / 10e keer in de top 10 overvallers
-//Pak de top10 overvallers
-$result = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id > 5 and RR > 0 ORDER BY RR DESC, id DESC Limit 10");
-while($row = mysql_fetch_array($result)){
-
-$query1="SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 4 AND plaats<=10 order by week desc limit 1";
-$result1=mysql_query($query1);
-$array1=mysql_fetch_array($result1);
-$row1=0;
-$i=$array1['week'];
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 4 AND plaats<=10 AND week = $i";
-while(mysql_num_rows(mysql_query($query2)) > 0 && $i > 0){
-$row1++;
-$i--;
-$query2 = "SELECT * FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 4 AND plaats<=10 AND week = $i";
-}
+	} //je staat voor 3e / 5e / 10e keer in de top 10 overvallers 
+    //Pak de top10 overvallers
+    $result = mysql_query("SELECT * FROM ".TB_PREFIX."users ORDER BY RR DESC, id DESC Limit 10");
+    while($row = mysql_fetch_array($result)){ 
+    
+            $query1="SELECT count(*) FROM ".TB_PREFIX."medal WHERE userid='".$row['id']."' AND categorie = 4 AND plaats<=10";
+            $result1=mysql_query($query1);
+             $row1=mysql_fetch_row($result1);
  
         
         //2x in gestaan, dit is 3e dus lintje (brons)
