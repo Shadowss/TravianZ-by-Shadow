@@ -280,27 +280,37 @@ if($academy == 0 && ($mainbuilding <= 2 || $barrack <= 2)) {
    include("soon/academy.tpl");
 }
 if($embassy == 0 || $mainbuilding >= 2 && $mainbuilding <= 4) {
+//Fix Castle
+//id user
+$user = $session->uid;
+
+//connect to DB
+mysql_connect(SQL_SERVER, SQL_USER, SQL_PASS);
+mysql_select_db(SQL_DB);
+
 //loop search village user
 $query = mysql_query("SELECT * FROM ".TB_PREFIX."vdata WHERE owner = ".$user."");
 while($villaggi_array = mysql_fetch_array($query)){
 
-//loop structure village
-  $query1 = mysql_query("SELECT * FROM ".TB_PREFIX."fdata WHERE vref = ".$villaggi_array['wref']."");
-  $strutture= mysql_fetch_array($query1);
+	//loop structure village
+	$query1 = mysql_query("SELECT * FROM ".TB_PREFIX."fdata WHERE vref = ".$villaggi_array['wref']."");
+	$strutture= mysql_fetch_array($query1);
 
 //search Castle in array structure village 
-$test =  in_array(26,$strutture);
-if ($test){  
-  break;
-  }
+$test =	in_array(26,$strutture);
+if ($test){	
+	break;
+	}
 
 }
 
 
 //if Castle no ready include palace.tpl
 if (!$test){
-  include("soon/palace.tpl");
-} 
+	include("soon/palace.tpl");
+}
+
+//end Fix
 }
 if($blacksmith == 0 && ($academy <= 2 || $mainbuilding <= 2)) {
    include("soon/blacksmith.tpl");
