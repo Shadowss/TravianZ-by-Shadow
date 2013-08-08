@@ -1,12 +1,20 @@
 <?php
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-|              .: PLEASE DONT'T REMOVE OR CHANGE THIS NOTICE :.               	|
+|              .: PLEASE DONT'T REMOVE OR CHANGE THIS NOTICE :.                 |
 | ---------------------------------------------------------------------------   |
-|  Filename       quest_core.tpl	                                       	    |
+|  Filename       quest_core.tpl	                                       	  |
 |  Version        0.1                                                           |
 |  Developed by:  DesPlus <desplus@gmail.com>                                   |
 |  Edited by:     Marvin                                                        |
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+|              .: PLEASE DONT'T REMOVE OR CHANGE THIS NOTICE :.                 |
+| ---------------------------------------------------------------------------   |
+|  Filename       quest_core.tpl	                                       	  |
+|  Version        1.0                                                           |
+|  Updated by:    Shadow <cata7007@gmail.com>                                   |
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 include("GameEngine/Village.php");
@@ -251,6 +259,13 @@ if (isset($qact)){
 	$database->updateUserField($_SESSION['username'],'gold',$gold,0);
 	break;
 
+	case '24':
+	$database->updateUserField($_SESSION['username'],'quest','22',0);
+	$_SESSION['qst']= 22;
+
+	//Give Reward
+	$database->modifyResource($session->villages[0],200,200,700,450,1);
+	break;
 
       case '28':
 	$dataarray[3] = 1;
