@@ -167,11 +167,10 @@
 				while(1) {
 					if(count($this->rankarray) > 1) {
 						$key = key($this->rankarray);
-						for($key=0;$key<count($this->rankarray);$key++){
 						if($this->rankarray[$key]["id"] == $id) {
 							return $key;
 							break;
-						} else {
+					} else {
 							if(!next($this->rankarray)) {
 								return false;
 								break;
@@ -185,23 +184,25 @@
 
 			public function searchRank($name, $field) {
 				while(1) {
-					$key = key($this->rankarray);
+				$key = key($this->rankarray);
+				for($key=0;$key<count($this->rankarray);$key++){
 					if($this->rankarray[$key][$field] == $name) {
 						return $key;
 						break;
+				}
+				}
+					if(!next($this->rankarray)) {
+				if($field != "userid"){
+					return $name;
+					break;
+					}else{
+					return 0;
+					break;
 					}
-					}
-						if(!next($this->rankarray)) {
-						if($field != "userid"){
-							return $name;
-							break;
-						}else{
-							return 0;
-							break;
-						}
-						}
-						}
+				}
+
 			}
+		}
 
 			public function procRankArray() {
 				global $database, $multisort;
