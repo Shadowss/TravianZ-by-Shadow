@@ -152,7 +152,7 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	</table>
 	</p>
 
-<!-- <LEFT BOX - ADMIN RELATED>
+<!-- <LEFT BOX - ADMIN RELATED> -->
 
 	<span><center><strong>ADMIN RELATED</strong></center></span><br />
 	<span class="f9 c6 cc2">Admin Name:</span><span class="cc3"><input type="text" name="aname" id="aname"></span><br /><br />
@@ -161,9 +161,9 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	  <option value="false">No</option>
 	  <option value="true" selected="selected">Yes</option></select></span><br /><br />
 
-<!-- </LEFT BOX - ADMIN RELATED> -->
 
-<!-- <RIGHT BOX - GPACK RELATED>
+
+<!-- <RIGHT BOX - GPACK RELATED> -->
 
 	<span><center><strong>GPACK RELATED</strong></center></span><br />
 
@@ -174,9 +174,6 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<span class="f9 c6 c2">GPack Design:</span><span class="c3"><select name="gp_locate">
 	  <option value="gpack/travian_default/" selected="selected">Travian Default
 	  <option value="gpack/travianx_v1/">TravianX v1 by Dzoki</option></select></span><br /><br />
-
--->
-<!-- </RIGHT BOX - GPACK RELATED> -->
 
 
 	<p>
