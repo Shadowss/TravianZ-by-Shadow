@@ -351,7 +351,7 @@ if($_POST['password'] != ""){
 		unset($vname);
 		unset($effect);;
 		$vname = 'Builders Sketch';
-		$effect = '';
+		$effect = '(WE&GE)';
 		for($i > 1; $i < 6; $i++) {
 			Artefact($uid, 6, 1, 'Slight storage masterplan', '' . $vname . '', '' . $desc . '', '' . $effect . '', 'type6.gif');
 		}
@@ -360,7 +360,7 @@ if($_POST['password'] != ""){
 		unset($vname);
 		unset($effect);
 		$vname = 'Babylonian Tablet';
-		$effect = '';
+		$effect = '(WE&GE)';
 		for($i > 1; $i < 4; $i++) {
 			Artefact($uid, 6, 2, 'Great storage masterplan', '' . $vname . '', '' . $desc . '', '' . $effect . '', 'type6.gif');
 		}

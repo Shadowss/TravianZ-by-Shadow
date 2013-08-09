@@ -137,6 +137,22 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	</table>
 	</p>
 
+		<p>
+	<span class="f10 c">ADMIN RELATED</span>
+	<table>
+	<tr><td><span class="f9 c6">Admin Name:</span></td><td><input type="text" name="aname" id="aname"></td></tr>
+	<tr><td><span class="f9 c6">Admin Email:</span></td><td><input name="aemail" type="text" id="aemail"></td></tr>
+
+	<td><span class="f9 c6">Admin Rank:</span></td><td>
+				<select name="admin_rank">
+				<option value="True">No</option>
+				<option value="False" selected="selected">Yes</option>
+				</select>
+		</td></tr><tr></tr>
+	</table>
+	</p>
+
+
 	<p>
 	<span class="f10 c">SQL RELATED</span>
 	<table><tr>
@@ -146,37 +162,33 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<td><span class="f9 c6">DB name:</span></td><td><input type="text" name="sdb" id="sdb"></td></tr><tr>
 	<td><span class="f9 c6">Prefix:</span></td><td><input type="text" name="prefix" id="prefix" value="s1_" size="5"></td></tr>
 	<td><span class="f9 c6">Type:</span></td><td><select name="connectt">
-	  <option value="0">MYSQL</option>
-	  <option value="1" selected="selected">MYSQLi</option>
+	  <option value="0" selected="selected">MYSQL</option>
+	  <option value="1">MYSQLi</option>
 	</select></td></tr>
 	</table>
 	</p>
 
-<!-- <LEFT BOX - ADMIN RELATED> -->
 
-	<span><center><strong>ADMIN RELATED</strong></center></span><br />
-	<span class="f9 c6 cc2">Admin Name:</span><span class="cc3"><input type="text" name="aname" id="aname"></span><br /><br />
-	<span class="f9 c6 cc2">Admin Email:</span><span class="cc3"><input name="aemail" type="text" id="aemail"></span><br /><br />
-	<span class="f9 c6 cc2">Admin rank:</span><span class="cc3" style="position: absolute;right:20%;"><select name="admin_rank">
-	  <option value="false">No</option>
-	  <option value="true" selected="selected">Yes</option></select></span><br /><br />
+		<p>
+	<span class="f10 c">GPACK RELATED</span>
+	<table>
+	<td><span class="f9 c6">Gpack:</span></td><td>
+				<select name="gpack">
+				<option value="True" selected="selected">No</option>
+				<option value="False">Yes</option>
+				</select>
+		</td></tr><tr></tr>
+	<td><span class="f9 c6">Gpack Design:</span></td><td>
+				<select name="gp_locate">
+				<option value="gpack/travian_default/" selected="selected">Travian Default</option>
+				<option value="gpack/travianx_v1/">TravianX v1 by Dzoki</option>
+				</select>
+		</td></tr><tr></tr>
 
+	</table>
+	</p>
 
-
-<!-- <RIGHT BOX - GPACK RELATED> -->
-
-	<span><center><strong>GPACK RELATED</strong></center></span><br />
-
-
-	<span class="f9 c6 c2">GPack:</span><span class="c3"><select name="gpack">
-	  <option value="false" selected="selected">No</option>
-	  <option value="true" disabled="disabled">Yes</option></select></span><br /><br />
-	<span class="f9 c6 c2">GPack Design:</span><span class="c3"><select name="gp_locate">
-	  <option value="gpack/travian_default/" selected="selected">Travian Default
-	  <option value="gpack/travianx_v1/">TravianX v1 by Dzoki</option></select></span><br /><br />
-
-
-	<p>
+<p>
 	<span class="f10 c">NEWSBOX OPTIONS</span>
 	<table><tr>
 	<td><span class="f9 c6">Newsbox 1:</span></td><td><select name="box1">

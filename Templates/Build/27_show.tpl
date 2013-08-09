@@ -56,7 +56,9 @@
         
                 <tr>
                     <th>Bonus</th>
-                    <td>NOT CODED</td>
+                    <td>
+			    <i><?php echo $artefact['name']; ?></i> gives <b><?php echo $artefact['effect']; ?> & <?php echo $artefact['effect2']; ?> & <?php echo $artefact['bad_effect']; ?> BONUS </b>
+			  </td>
                 </tr>
                
             <tr>

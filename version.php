@@ -99,6 +99,12 @@ $automation->isWinner();
 30. Now you need a warehouse and granary level 20 to build great granary and great warehouse.</br>
 31. Cannot send attacks and send resource to banned / vacation players.</br>
 32. Now banned palyer and vacation mode player cannot recive resource from marketplace.</br>
+33. Fix message replay , now can be viwed from who came message.</br>
+34. Added in instalation Nature Regeneration Time.</br>
+35. Fix oasis.tpl in instalation files.</br>
+36. Fix ranking search from everyware.</br>
+37. Fix "Finish all constructions for 2 gold." now you dont lose gold when you simply click.</br>
+38. Fix bonus on artefacts , now show what bonus gives you.</br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
