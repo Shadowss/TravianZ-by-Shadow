@@ -871,6 +871,24 @@ class MYSQL_DB {
 		return $this->mysql_fetch_all($result);
 	}
 
+	//fix market log	
+	function getMarketLog() {
+        	$q = "SELECT id,wid,log from " . TB_PREFIX . "market_log where id != 0 ORDER BY id ASC";
+        	$result = mysql_query($q, $this->connection);
+        	return $this->mysql_fetch_all($result);
+        }
+	function getMarketLogVillage($village) {
+		$q = "SELECT wref,owner,name from " . TB_PREFIX . "vdata where wref =$village ";
+        	$result = mysql_query($q, $this->connection);
+        	return $this->mysql_fetch_all($result);
+        }
+	function getMarketLogUsers($id_user) {
+        	$q = "SELECT id,username from " . TB_PREFIX . "users where id =$id_user ";
+        	$result = mysql_query($q, $this->connection);
+        	return $this->mysql_fetch_all($result);
+        }
+	//end fix
+
 	function getCoor($wref) {
 		if ($wref !=""){
 		$q = "SELECT x,y FROM " . TB_PREFIX . "wdata where id = $wref";
