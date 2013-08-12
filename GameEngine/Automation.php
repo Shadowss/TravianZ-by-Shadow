@@ -4386,6 +4386,7 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
  			       }
         		}
         	} 
+	}
 
 	private function artefactOfTheFool() {
 		global $database;

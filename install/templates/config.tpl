@@ -16,7 +16,6 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<table><tr>
 	<td><span class="f9 c6">Server name:</span></td><td width="140"><input type="text" name="servername" id="servername" value="TravianZ"></td></tr><tr>
 	<td><span class="f9 c6">Server speed:</span></td><td><input name="speed" type="text" id="speed" value="1" size="2"></td></tr><tr>
-	<td><span class="f9 c6">Timezone:</span></td><td><input name="timezone" type="text" id="timezone" value="0" size="2"></td></tr><tr>
 	<td><span class="f9 c6">Troop speed:</span></td><td width="140"><input type="text" name="incspeed" id="incspeed" value="1" size="2"></td></tr><tr>
 	<td><span class="f9 c6">Evasion speed:</span></td><td><input name="evasionspeed" type="text" id="evasionspeed" value="1" size="2"></td></tr><tr>
 	<td><span class="f9 c6">Trader capacity (1 = 1x...):</span></td><td width="140"><input type="text" name="tradercap" id="tradercap" value="1" size="2"></td></tr><tr>
@@ -295,23 +294,6 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 <br />
 	<span class="f10 c">Server Start Settings</span>
 	<table>
-	<tr>
-<td><span class="f9 c6">Local Zone:</span></td><td>
-				<select name="localzone">
-				<option value="Europe/Amsterdam">Europe/Amsterdam</option>
-				<option value="Europe/Berlin">Europe/Berlin</option>
-				<option value="Europe/Madrid">Europe/Madrid</option>
-				<option value="Europe/Rome" selected="selected">Europe/Rome</option>
-				<option value="Europe/Moscow">Europe/Moscow</option>
-				<option value="Europe/Zurich">Europe/Zurich</option>
-				<option value="Europe/Paris">Europe/Paris</option>
-				<option value="Europe/Monaco">Europe/Monaco</option>
-				<option value="Europe/Dublin">Europe/Dublin</option>
-				<option value="Europe/London">Europe/London</option>
-				</select> 
-		</td>
-</tr>
-
 	<tr><td><span class="f9 c6">Start Date:</span></td><td width="140"><input type="text" name="start_date" id="start_date" value="<?php echo date('m/d/Y'); ?>"></td></tr>
 	<tr><td><span class="f9 c6">Start Time:</span></td><td width="140"><input type="text" name="start_time" id="start_time" value="<?php echo date('H:i'); ?>"></td></tr>
 	</table>
