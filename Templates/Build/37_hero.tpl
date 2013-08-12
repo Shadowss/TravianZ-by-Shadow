@@ -18,7 +18,7 @@ if (isset($_POST['name'])) {
         $hero_info = mysql_fetch_array($hero); 
         echo "Hero name has been changed"; 
     } 
-     
+  
     $hero = $units->Hero($session->uid); 
 ?>
 
