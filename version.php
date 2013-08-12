@@ -63,7 +63,7 @@ $automation->isWinner();
 <?php include("Templates/header.tpl"); ?>
 <div id="mid">
 <?php include("Templates/menu.tpl"); ?>
-<?php include("Templates/support.tpl"); ?>
+<?php include("Templates/version.tpl"); ?>
 <h1>Version Changes</h1>
 <div id="products">
 

@@ -10,6 +10,12 @@
 ##                                                                             ##
 #################################################################################
 
+ob_start();
+// ***** LocalZone
+// Choose your Localzone.
+//define("LOCALZONE","%LOCALZONE%");
+date_default_timezone_set('%LOCALZONE%');
+
 //////////////////////////////////
 // *****  ERROR REPORTING  *****//
 //////////////////////////////////
@@ -31,6 +37,10 @@ define("COMMENCE","%STARTTIME%");
 // ***** Server Start Date / Time
 define("START_DATE", "%SSTARTDATE%");
 define("START_TIME", "%SSTARTTIME%");
+
+// ***** Timezone
+// Choose your Timezone.
+define("TIMEZONE","%TIMEZONE%");
 
 // ***** Language
 // Choose your server language.
