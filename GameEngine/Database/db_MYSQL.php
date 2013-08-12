@@ -520,7 +520,7 @@ class MYSQL_DB {
 	}
 
 	function populateOasis() {
-		$q = "SELECT * FROM " . TB_PREFIX . "wdata where oasistype != 0";
+		$q = "SELECT C. * FROM " . TB_PREFIX . "wdata AS C INNER JOIN " . TB_PREFIX . "odata AS A ON C.id = A.wref WHERE A.conqured =0";
 		$result = mysql_query($q, $this->connection);
 		while($row = mysql_fetch_array($result)) {
 			$wid = $row['id'];
@@ -531,6 +531,9 @@ class MYSQL_DB {
 	}
 
 	function populateOasisUnits($wid, $high) {
+		$q2 = "SELECT C. * FROM " . TB_PREFIX . "wdata AS C INNER JOIN " . TB_PREFIX . "odata AS A ON C.id = A.wref WHERE A.conqured =0";
+		$result2 = mysql_query($q2, $this->connection);
+		while($row = mysql_fetch_array($result2)) {
 		$basearray = $this->getMInfo($wid);
 		$basearray = $this->getOasisInfo($wid);
 		if($basearray2['high'] == 0){
@@ -586,11 +589,12 @@ class MYSQL_DB {
 			  $q = "UPDATE " . TB_PREFIX . "units SET u33 = u33 + '".rand(0,5)."', u37 = u37 + '".rand(0,5)."', u38 = u38 + '".rand(0,5)."', u39 = u39 + '".rand(0,5)."' WHERE vref = '" . $wid . "' AND (u33 <= ".$max." OR u37 <= ".$max." OR u38 <= ".$max.")";
 			  $result = mysql_query($q, $this->connection);
 			  break;
-		  }
+			  }
+		}
 	}
 
 	function populateOasisUnits2() {
-	$q2 = "SELECT * FROM " . TB_PREFIX . "wdata where oasistype != 0";
+	$q2 = "SELECT C. * FROM " . TB_PREFIX . "wdata AS C INNER JOIN " . TB_PREFIX . "odata AS A ON C.id = A.wref WHERE A.conqured =0";
 	$result2 = mysql_query($q2, $this->connection);
 	while($row = mysql_fetch_array($result2)) {
 		$wid = $row['id'];
@@ -2923,6 +2927,18 @@ class MYSQL_DB {
 			$result = mysql_query($q, $this->connection);
 		}
 	}
+
+	function populateOasisdata2() {
+        	$q2 = "SELECT C. * FROM " . TB_PREFIX . "wdata AS C INNER JOIN " . TB_PREFIX . "odata AS A ON C.id = A.wref WHERE A.conqured =0";
+        	$result2 = mysql_query($q2, $this->connection);
+        	while($row = mysql_fetch_array($result2)) {
+        		$wid = $row['id'];
+        		$basearray = $this->getOMInfo($wid);
+        		//We switch type of oasis and instert record with apropriate infomation.
+        		$q = "INSERT into " . TB_PREFIX . "odata VALUES ('" . $basearray['id'] . "'," . $basearray['oasistype'] . ",0,400,400,400,400,400,400," . time() . ",100,2,'Unoccupied Oasis')";
+        		$result = mysql_query($q, $this->connection);
+        	}
+       	}
 
 	public function getAvailableExpansionTraining() {
 		global $building, $session, $technology, $village;
