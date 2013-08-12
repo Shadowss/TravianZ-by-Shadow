@@ -65,43 +65,20 @@ $automation->isWinner();
 <?php include("Templates/menu.tpl"); ?>
 <?php include("Templates/herofix.tpl"); ?>
 <div id="products">
-<form action="<?php echo $_SERVER['PHP_SELF']?>" method="post"> 
-<table border="0">
-<tr><td>Username UID:</td><td>
-<input type="text" name="username" maxlength="60" disabled="disabled" value="<?php echo $session->uid; ?>">
-</td></tr>
-<tr><td>Village ID (Current Village):</td><td>
-<input type="text" name="village" maxlength="60" disabled="disabled" value="<?php echo $village->wid; ?>">
-</td></tr>
-<tr><td colspan="2" align="right"> 
-<input type="submit" name="submit" value="Kill hero :("> 
-</td></tr> 
-</table> 
-</form> 
 <?php
-error_reporting (E_ALL ^ E_NOTICE);
-if (isset($_POST['submit'])) { // if form has been submitted
-// checks it against the database
-$check = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id  = '".$session->uid."'")or die(mysql_error());
-//Gives error if user dosen't exist
-$check2 = mysql_num_rows($check);
-if ($check2 == 0) {die('Username id or Village id is wrong. <a href=dorf1.php>Click Here to go back to your village</a>');}
-//Gives error if user dosen't exist
-$check2 = mysql_num_rows($check);
-if ($check2 == 0) {die('Username uid or Village id is wrong. <a href=dorf1.php>Click Here to go back to your village</a>');}                    
-$sql = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id  = '".$session->uid."'")or die(mysql_error());
-while($row = mysql_fetch_array($sql)){};
-$sql = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id  = '".$session->uid."'")or die(mysql_error());
-while($row = mysql_fetch_array($sql)){
-$gold = $row["gold"];};
-if ($gold < 0 ) {die('Sorry you dont have enough gold');}
-else { 
-mysql_query("UPDATE ".TB_PREFIX."hero SET `dead` = 1  WHERE wref ='".$village->wid."'")or die(mysql_error());
 
-echo "<h2>R.I.P Hero :((</h2>";}}?>
-<br>
-</div>
-</div>
+$sql = mysql_query("SELECT * FROM ".TB_PREFIX."hero WHERE uid = '".$session->uid."'")or die('You Dont have a hero. Please train one');
+while($row = mysql_fetch_array($sql)){
+$die = $row["dead"];
+};
+
+
+
+mysql_query("UPDATE ".TB_PREFIX."hero SET `dead` = 1 WHERE uid = '".$session->uid."'");
+header("Location: dorf1.php");
+
+?>
+
 </br></br></br></br><div id="side_info">
 <?php
 include("Templates/multivillage.tpl");
