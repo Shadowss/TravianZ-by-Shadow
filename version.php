@@ -105,6 +105,10 @@ $automation->isWinner();
 36. Fix ranking search from everyware.</br>
 37. Fix "Finish all constructions for 2 gold." now you dont lose gold when you simply click.</br>
 38. Fix bonus on artefacts , now show what bonus gives you.</br>
+39. Fix settler bug , now you cannot train settlers if you dont have resource. And also modifyResource function updated.</br>
+40. Fix brewerey now can be build only on capital.</br>
+41. Fix treasurey and palace , now cannot be build on WW village.</br>
+42. Fix greatbarraks.</br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
