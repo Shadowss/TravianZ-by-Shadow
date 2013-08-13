@@ -520,7 +520,7 @@ class MYSQL_DB {
 	}
 
 	function populateOasis() {
-		$q = "SELECT C. * FROM " . TB_PREFIX . "wdata AS C INNER JOIN " . TB_PREFIX . "odata AS A ON C.id = A.wref WHERE A.conqured =0";
+		$q = "SELECT * FROM " . TB_PREFIX . "wdata where oasistype != 0";
 		$result = mysql_query($q, $this->connection);
 		while($row = mysql_fetch_array($result)) {
 			$wid = $row['id'];
@@ -531,20 +531,21 @@ class MYSQL_DB {
 	}
 
 	function populateOasisUnits($wid, $high) {
-		$q2 = "SELECT C. * FROM " . TB_PREFIX . "wdata AS C INNER JOIN " . TB_PREFIX . "odata AS A ON C.id = A.wref WHERE A.conqured =0";
-		$result2 = mysql_query($q2, $this->connection);
-		while($row = mysql_fetch_array($result2)) {
-		$basearray = $this->getMInfo($wid);
 		$basearray = $this->getOasisInfo($wid);
-		if($basearray2['high'] == 0){
+		if($high == 0){
 		  $max = rand(15,30);
-		  }elseif($basearray2['high'] == 1){
-		  $max = rand(70,90);
-		  }elseif($basearray2['high'] == 2){
-		  $max = rand(100,140);
+		  }elseif($high == 1){
+	          $max = rand(50,70);
+      		  }elseif($high == 2){
+	      	  $max = rand(90,120);	
+      		  }
+      		  $max2 = 0;
+      		  $rand = rand(0,3);
+      		  if($rand == 1){
+      		  $max2 = 3;
 		  }
 		  //each Troop is a Set for oasis type like mountains have rats spiders and snakes fields tigers elphants clay wolves so on stonger one more not so less
-		  switch($basearray['oasistype']) {
+		  switch($basearray['type']) {
 			case 1:
 			case 2:
 			  //+25% lumber per hour
@@ -553,7 +554,7 @@ class MYSQL_DB {
 			  break;
 			case 3:
 			  //+25% lumber and +25% crop per hour
-			  $q = "UPDATE " . TB_PREFIX . "units SET  u35 = u35 + '".rand(0,5)."', u36 = u36 + '".rand(0,5)."', u37 = u37 + '".rand(0,5)."', u38 = u38 + '".rand(0,5)."' WHERE vref = '" . $wid . "' AND (u36 <= ".$max." OR u37 <= ".$max." OR u38 <= ".$max.")";
+			  $q = "UPDATE " . TB_PREFIX . "units SET  u35 = u35 + '".rand(0,5)."', u36 = u36 + '".rand(0,5)."', u37 = u37 + '".rand(0,5)."', u38 = u38 + '".rand(0,5)."', u40 = u40 + '".rand(0,$max2)."' WHERE vref = '" . $wid . "' AND (u36 <= ".$max." OR u37 <= ".$max." OR u38 <= ".$max." OR u40 <= ".$max.")";
 			  $result = mysql_query($q, $this->connection);
 			  break;
 			case 4:
@@ -564,7 +565,7 @@ class MYSQL_DB {
 			  break;
 			case 6:
 			  //+25% clay and +25% crop per hour
-			  $q = "UPDATE " . TB_PREFIX . "units SET u36 = u36 + '".rand(0,5)."', u37 = u37 + '".rand(0,5)."', u38 = u38 + '".rand(0,5)."' WHERE vref = '" . $wid . "' AND (u36 <= ".$max." OR u37 <= ".$max." OR u38 <= ".$max.")";
+			  $q = "UPDATE " . TB_PREFIX . "units SET u36 = u36 + '".rand(0,5)."', u37 = u37 + '".rand(0,5)."', u38 = u38 + '".rand(0,5)."', u40 = u40 + '".rand(0,$max2)."' WHERE vref = '" . $wid . "' AND (u36 <= ".$max." OR u37 <= ".$max." OR u38 <= ".$max." OR u40 <= ".$max.")";
 			  $result = mysql_query($q, $this->connection);
 			  break;
 			case 7:
@@ -575,7 +576,7 @@ class MYSQL_DB {
 			  break;
 			case 9:
 			  //+25% iron and +25% crop
-			  $q = "UPDATE " . TB_PREFIX . "units SET u31 = u31 + '".rand(0,5)."', u32 = u32 + '".rand(0,5)."', u34 = u34 + '".rand(0,5)."' WHERE vref = '" . $wid . "' AND (u31 <= ".$max." OR u32 <= ".$max." OR u34 <= ".$max.")";
+			  $q = "UPDATE " . TB_PREFIX . "units SET u31 = u31 + '".rand(0,5)."', u32 = u32 + '".rand(0,5)."', u34 = u34 + '".rand(0,5)."', u40 = u40 + '".rand(0,$max2)."' WHERE vref = '" . $wid . "' AND (u31 <= ".$max." OR u32 <= ".$max." OR u34 <= ".$max." OR u40 <= ".$max.")";
 			  $result = mysql_query($q, $this->connection);
 			  break;
 			case 10:
@@ -586,7 +587,7 @@ class MYSQL_DB {
 			  break;
 			case 12:
 			  //+50% crop per hour
-			  $q = "UPDATE " . TB_PREFIX . "units SET u33 = u33 + '".rand(0,5)."', u37 = u37 + '".rand(0,5)."', u38 = u38 + '".rand(0,5)."', u39 = u39 + '".rand(0,5)."' WHERE vref = '" . $wid . "' AND (u33 <= ".$max." OR u37 <= ".$max." OR u38 <= ".$max.")";
+			  $q = "UPDATE " . TB_PREFIX . "units SET u33 = u33 + '".rand(0,5)."', u37 = u37 + '".rand(0,5)."', u38 = u38 + '".rand(0,5)."', u39 = u39 + '".rand(0,5)."', u40 = u40 + '".rand(0,$max2)."' WHERE vref = '" . $wid . "' AND (u33 <= ".$max." OR u37 <= ".$max." OR u38 <= ".$max." OR u39 <= ".$max." OR u40 <= ".$max.")";
 			  $result = mysql_query($q, $this->connection);
 			  break;
 			  }
@@ -594,7 +595,7 @@ class MYSQL_DB {
 	}
 
 	function populateOasisUnits2() {
-	$q2 = "SELECT C. * FROM " . TB_PREFIX . "wdata AS C INNER JOIN " . TB_PREFIX . "odata AS A ON C.id = A.wref WHERE A.conqured =0";
+	$q2 = "SELECT * FROM " . TB_PREFIX . "wdata where oasistype != 0";
 	$result2 = mysql_query($q2, $this->connection);
 	while($row = mysql_fetch_array($result2)) {
 		$wid = $row['id'];
@@ -2945,18 +2946,6 @@ class MYSQL_DB {
 			$result = mysql_query($q, $this->connection);
 		}
 	}
-
-	function populateOasisdata2() {
-        	$q2 = "SELECT C. * FROM " . TB_PREFIX . "wdata AS C INNER JOIN " . TB_PREFIX . "odata AS A ON C.id = A.wref WHERE A.conqured =0";
-        	$result2 = mysql_query($q2, $this->connection);
-        	while($row = mysql_fetch_array($result2)) {
-        		$wid = $row['id'];
-        		$basearray = $this->getOMInfo($wid);
-        		//We switch type of oasis and instert record with apropriate infomation.
-        		$q = "INSERT into " . TB_PREFIX . "odata VALUES ('" . $basearray['id'] . "'," . $basearray['oasistype'] . ",0,400,400,400,400,400,400," . time() . ",100,2,'Unoccupied Oasis')";
-        		$result = mysql_query($q, $this->connection);
-        	}
-       	}
 
 	public function getAvailableExpansionTraining() {
 		global $building, $session, $technology, $village;
