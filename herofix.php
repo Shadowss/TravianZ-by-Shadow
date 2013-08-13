@@ -79,6 +79,12 @@ header("Location: dorf1.php");
 
 ?>
 
+<?php 
+
+mysql_query("UPDATE ".TB_PREFIX."units SET `hero` = '0' WHERE `vref` = '".$village->wid."'"); 
+
+?>
+
 </br></br></br></br><div id="side_info">
 <?php
 include("Templates/multivillage.tpl");

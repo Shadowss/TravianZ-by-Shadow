@@ -144,19 +144,21 @@ if (isset($_POST['name'])) {
 		<td class="up"></td> 
         <td class="rem"><?php echo $hero_info['points']; ?></td> 
 	<?php }else{ ?>
+    <tr> 
         <th title="until the next level">Experience:</th> 
         <td class="val">100%</td> 
-		<td class="xp"><img class="bar" src="img/x.gif" style="width:200px;" alt="100%" title="100%" /></td>
-		<td class="up"></td> 
+        <td class="xp"><img class="bar" src="img/x.gif" style="width:200px;" alt="100%" title="100%" /></td>
+        <td class="up"> 
 		<!-- //fix delete hero -->
 					<?php 
-// Added by Shadow - cata7007@gmail.com / Skype : cata7007
-//					echo"<a href=\"build.php?id=".$id."&active=1\">Active</a>"; 
+					//echo"<a href=\"build.php?id=".$id."&active=1\">Active</a>"; 
 					echo "<div class=\"abort\"><a href=\"build.php?id=".$id."&delete=1\"><img src=\"img/x.gif\" class=\"del\" title=\"Delete Hero\" alt=\"Delete Hero\" /></a></div>";
 					?>
 		<!-- //end fix -->
+		</td>  
         <td class="rem"><?php echo $hero_info['points']; ?></td> 
-	<?php } ?>
+    </tr>
+    <?php } ?>
     </tr> 
     </tbody> 
     </table> 
