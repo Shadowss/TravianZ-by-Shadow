@@ -1,4 +1,5 @@
 <?php
+// Added by Shadow - cata7007@gmail.com / Skype : cata7007
 $normalA = $database->getOwnArtefactInfoByType($village->wid,6);  
 $largeA = $database->getOwnUniqueArtefactInfo($session->uid,6,2);
 
@@ -159,6 +160,7 @@ include("avaliable/academy.tpl");
 if($palace == 0 && $palace1 == 0 && $village->natar == 0 && $embassy >= 1 && $mainbuilding >= 5 && $id != 39 && $id != 40 && $residence == 0 && $residence1 == 0) {
 
 //Fix Castle
+// Added by Shadow - cata7007@gmail.com / Skype : cata7007
 //id user
 $user = $session->uid;
 

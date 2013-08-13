@@ -150,6 +150,7 @@ if (isset($_POST['name'])) {
 		<td class="up"></td> 
 		<!-- //fix delete hero -->
 					<?php 
+// Added by Shadow - cata7007@gmail.com / Skype : cata7007
 //					echo"<a href=\"build.php?id=".$id."&active=1\">Active</a>"; 
 					echo "<div class=\"abort\"><a href=\"build.php?id=".$id."&delete=1\"><img src=\"img/x.gif\" class=\"del\" title=\"Delete Hero\" alt=\"Delete Hero\" /></a></div>";
 					?>
@@ -171,7 +172,7 @@ if (isset($_POST['name'])) {
     Your hero has conquered <b><?php echo $database->VillageOasisCount($village->wid); ?></b> <a href="build.php?id=<?php echo $id; ?>&land">oases</a>.</p> 
 	 
     <?php  
-
+	// Added by Shadow - cata7007@gmail.com / Skype : cata7007
 	//FIX hero
       if($_GET['active'] == 1){
             mysql_query("UPDATE ".TB_PREFIX."hero SET `dead` = '0', `health` = '100', `trainingtime` = '".$training_time2."' WHERE `uid` = '".$session->uid."'");

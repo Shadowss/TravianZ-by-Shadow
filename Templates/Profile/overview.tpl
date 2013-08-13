@@ -3,7 +3,8 @@
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
 ##  Filename       overview.tpl                                                ##
-##  Developed by:  Dzoki                                                       ##
+##  Developed by:  Dzoki  									 ##
+##  Modified by :  Shadow / Skype : cata7007                                   ##
 ##  License:       TravianX Project                                            ##
 ##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##

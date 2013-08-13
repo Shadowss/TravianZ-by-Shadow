@@ -210,7 +210,7 @@ $coor['y'] = "";
 <?php
 $error = '';
 if(isset($_POST['ft'])=='check'){
-
+// Added by Shadow - cata7007@gmail.com / Skype : cata7007
 	if(!$checkexist){
 		$error = '<span class="error"><b>No Coordinates selected</b></span>';
 	}elseif($getwref == $village->wid){

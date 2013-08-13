@@ -30,7 +30,7 @@
 	</ul>
 
 	<div class="lbox">
-	TravianX Team
+	TravianX Team - <b>Version Modified by Shadow <colour=red>v.7.0.0</colour></b>
 	</div>
 	<br>
 

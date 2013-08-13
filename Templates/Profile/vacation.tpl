@@ -23,6 +23,7 @@
   
      </tbody></table>
     <?php
+// Added by Shadow - cata7007@gmail.com / Skype : cata7007
 if($form->getError("vac") != "") {
 echo "<span class=\"error\">".$form->getError("vac")."</span>";
 }

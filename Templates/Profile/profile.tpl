@@ -139,6 +139,7 @@ INDELING CATEGORIEEN:
 				   <td>[#0]</td>
 			 	 </tr>
 				<?php 
+				// Added by Shadow - cata7007@gmail.com / Skype : cata7007
 				if($session->userinfo['tribe'] == 1) {
 				echo"<tr><td>Tribe Romans</td><td></td><td></td><td>[#roman]</td></tr>";
 				} else if($session->userinfo['tribe'] == 2) {
