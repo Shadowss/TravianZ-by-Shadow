@@ -2456,9 +2456,8 @@ if($data['t11'] > 0){
 					}
 $palaceimg = "<img src=\"".GP_LOCATE."img/g/g26.gif\" height=\"20\" width=\"15\" alt=\"Palace\" title=\"Palace\" />";
 $crannyimg = "<img src=\"".GP_LOCATE."img/g/g23.gif\" height=\"20\" width=\"15\" alt=\"Cranny\" title=\"Cranny\" />";
-$wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15\" alt=\"Wall\" title=\"Wall\" />";
 				$info_spy = "".$spy_pic.",".$palaceimg." Residance/Palace Level : ".$rplevel."
-				<br>".$crannyimg." Cranny level: ".$crannylevel."<br>".$wallimg." Wall Level : ".$walllevel."";
+				<br>".$crannyimg." Cranny level: ".$crannylevel."<br><br>Wall Level : ".$walllevel."";
 
 				}
 
@@ -3033,7 +3032,7 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 			$toF = $database->getVillage($data['to']);
 			$fromF = $database->getVillage($data['from']);
 
-			//check to see if we're only sending a hero between own villages and there's a Mansion at target village
+						//check to see if we're only sending a hero between own villages and there's a Mansion at target village
 			if($data['t11'] != 0) {
 				if($database->getVillageField($data['from'],"owner") == $database->getVillageField($data['to'],"owner")) {
 					for($i=1;$i<=10;$i++) { if($data['t'.$i]>0) { $NonHeroPresent = 1; break; } }
@@ -3045,9 +3044,9 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 						$HeroTransfer = 1;
 					}
 				}
-			} 
-			if(!$HeroTransfer){
-  			//check if there is defence from town in to town
+			} if(!$HeroTransfer)
+		   {
+  //check if there is defence from town in to town
 				$check=$database->getEnforce($data['to'],$data['from']);
 				if (!isset($check['id'])){
 					//no:
@@ -4370,22 +4369,6 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 		$q = "UPDATE ".TB_PREFIX."alidata set max = $max where leader = $leader";
 		$database->query($q);
 		}
-	}
-
-	private function checkReviveHero(){
-		global $database,$session;
-		$herodata=$database->getHero($session->uid,1);
-		if ($herodata[0]['dead']==1){
-			mysql_query("UPDATE " . TB_PREFIX . "units SET hero = 0 WHERE vref = ".$session->villages[0]."");
-		}
-    	if($herodata[0]['trainingtime'] <= time()) {
-        		if($herodata[0]['trainingtime'] != 0) {
-        			if($herodata[0]['dead'] == 0) {
-        				mysql_query("UPDATE " . TB_PREFIX . "hero SET trainingtime = '0' WHERE uid = " . $session->uid . "");
-						mysql_query("UPDATE " . TB_PREFIX . "units SET hero = 1 WHERE vref = ".$session->villages[0]."");
- 			       }
-        		}
-        	} 
 	}
 
 	private function artefactOfTheFool() {
