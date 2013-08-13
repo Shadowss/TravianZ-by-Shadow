@@ -36,6 +36,27 @@ if (isset($_POST['name'])) {
   Level <?php echo $hero_info['level']; ?> <span class="info">( <?php echo"<img class=\"unit u".$hero_info['unit']."\" src=\"img/x.gif\" alt=\"".$technology->getUnitName($hero_info['unit'])."\" title=\"".$technology->getUnitName($hero_info['unit'])."\" /> ".$technology->getUnitName($hero_info['unit']); ?> )</span></th>
 	</tr></thead> 
     <tbody><tr> 
+		<tr>
+			<td>
+
+				<?php 
+				// Added by Shadow - cata7007@gmail.com / Skype : cata7007
+				if($session->userinfo['tribe'] == 1) {
+				echo"<center><img src=\"gpack/travian_default/img/q/introRomans.jpg\" alt=\"".$technology->getUnitName($hero_info['unit'])."\" title=\"".$technology->getUnitName($hero_info['unit'])."\" />";
+				} else if($session->userinfo['tribe'] == 2) {
+				echo"<center><img src=\"gpack/travian_default/img/q/introTeutons.jpg\" alt=\"".$technology->getUnitName($hero_info['unit'])."\" title=\"".$technology->getUnitName($hero_info['unit'])."\" />";
+				} else if($session->userinfo['tribe'] == 3) {
+				echo"<center><img src=\"gpack/travian_default/img/q/introGauls.jpg\" alt=\"".$technology->getUnitName($hero_info['unit'])."\" title=\"".$technology->getUnitName($hero_info['unit'])."\" />";
+				} ?>
+
+
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<table id="" cellpadding="1" cellspacing="1"> 
+
         <th>Offence</th> 
         <td class="val"><?php echo $hero['atk']; ?></td> 
         <td class="xp"><img class="bar" src="img/x.gif" style="width:<?php echo (2*$hero_info['attack'])+1; ?>px;" alt="<?php echo $hero['atk']; ?>" title="<?php echo $hero['atk']; ?>" /></td> 
@@ -157,11 +178,14 @@ if (isset($_POST['name'])) {
 		<!-- //end fix -->
 		</td>  
         <td class="rem"><?php echo $hero_info['points']; ?></td> 
-    </tr>
+    </tr> 
     <?php } ?>
     </tr> 
     </tbody> 
     </table> 
+				</tr>
+			    </tbody> 
+		    </table>
 	<?php if(isset($_GET['e'])){ 
         echo "<p><font size=\"1\" color=\"red\"><b>Error: name too short</b></font></p>"; 
     } 
