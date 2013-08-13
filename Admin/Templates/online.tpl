@@ -13,7 +13,7 @@
 $active = $admin->getUserActive();
 ?>
 <style>
-.del {width:12px; height:12px; background-image: url(img/admin/icon/del.gif);}
+.del {width:12px; height:12px; background-image: url(img/admin/del.gif);}
 </style>
 
 <table id="member">
