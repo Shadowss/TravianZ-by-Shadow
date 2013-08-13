@@ -592,7 +592,6 @@ class MYSQL_DB {
 			  break;
 			  }
 		}
-	}
 
 	function populateOasisUnits2() {
 	$q2 = "SELECT * FROM " . TB_PREFIX . "wdata where oasistype != 0";
