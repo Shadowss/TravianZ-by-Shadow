@@ -23,11 +23,6 @@ else {
 }
 $automation->isWinner();
 ?>
-    
-<-- <script type="text/javascript">
-    window.addEvent('domready', start);
-    </script>  -->
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -87,7 +82,7 @@ $automation->isWinner();
 14. Added Server Maintenence in Admin Panel (Not working 100% , i mean mode ban all players).</br>
 15. Activate Player Report in Admin Panel (NOT CODED YET).</br>
 16. Many bug fixed in Admin Panel.</br>
-17. Negative crop fixed , now units die (starvation).</br>
+17. Negative crop fixed , now units die (starvation). IN BETA TEST , NOT WORK CORECTLY!!!</br>
 18. Medal fixed.</br>
 19. Added image in Profile (like beginner protection) for tribes [#roman] , [#gaul] , [#teuton]</br>
 20. Added image in profile for Multihunter and Admin [#MH] automaticaly set on install.</br>
@@ -108,11 +103,13 @@ $automation->isWinner();
 35. Fix oasis.tpl in instalation files.</br>
 36. Fix ranking search from everyware.</br>
 37. Fix "Finish all constructions for 2 gold." now you dont lose gold when you simply click.</br>
-38. Fix bonus on artefacts , now show what bonus gives you.</br>
-39. Fix settler bug , now you cannot train settlers if you dont have resource. And also modifyResource function updated.</br>
+38. Fix bonus on artefacts , now show what bonus gives you.(thanks to brainiacX)</br>
+39. Fix settler bug , now you cannot train settlers if you dont have resource. And also modifyResource function updated. (thanks to brainiacX)</br>
 40. Fix brewerey now can be build only on capital.</br>
 41. Fix treasurey and palace , now cannot be build on WW village.</br>
 42. Fix greatbarraks.</br>
+43. Fix eraseble hero , now you can delete your hero.</br>
+44. Fix desapear hero when you send as reinforcement (temporary fix).</br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
