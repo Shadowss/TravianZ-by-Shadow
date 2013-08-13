@@ -1,4 +1,16 @@
 <?php
+
+##################################################################
+## Page:        winner.php                                      ##
+## Description: When the player builds Wonder of the World      ##
+##              to level 100 the winner details are shown.      ##
+##              tells the players the game is over              ##
+## Authors:     aggenkeech - and a little help from Eyas95      ##
+## Decoded by:     Shadow - Skype : cata7007                    ##
+## Created:     31/03/2012                                      ##
+##################################################################
+
+
 include("GameEngine/Village.php");
 $start = $generator->pageLoadTimeStart();
 if(isset($_GET['newdid'])) { $_SESSION['wid'] = $_GET['newdid']; header("Location: ".$_SERVER['PHP_SELF']);}

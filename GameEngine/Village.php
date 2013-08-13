@@ -291,5 +291,8 @@ class Village {
 };
 $village = new Village;
 $building = new Building;
-include('Units_-.php');
+// Activate starvation mode by Shadow
+//include('Units_-.php');
+//include('Units_-2.php');
+//include('Units_-3.php');
 ?>

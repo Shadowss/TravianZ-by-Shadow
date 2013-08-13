@@ -5,6 +5,7 @@
 ##              to level 100 the winner details are shown.      ##
 ##              tells the players the game is over              ##
 ## Authors:     aggenkeech - and a little help from Eyas95      ##
+## Decoded by:     Shadow - Skype : cata7007                    ##
 ## Created:     31/03/2012                                      ##
 ##################################################################
 include("GameEngine/Village.php");
