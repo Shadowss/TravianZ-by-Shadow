@@ -17,6 +17,7 @@
                    }else{
                     $active = "Active";
                    }
+			// Added by Shadow - cata7007@gmail.com / Skype : cata7007
                     if ($artefact['type'] == 8){$kind=$artefact['kind']; $effecty=$artefact['effect2'];}else{$kind=$artefact['type']; $effecty=$artefact['effect'];}
                     	 switch($kind){
                     	 case 1:
@@ -48,6 +49,8 @@
                  }
 
                    $bonus=$betterorbadder." ".$effecty."";
+			// Added by Shadow - cata7007@gmail.com / Skype : cata7007
+
 ?>
 
        <div class="artefact image-6">
