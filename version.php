@@ -82,7 +82,7 @@ $automation->isWinner();
 14. Added Server Maintenence in Admin Panel (Not working 100% , i mean mode ban all players).</br>
 15. Activate Player Report in Admin Panel (NOT CODED YET).</br>
 16. Many bug fixed in Admin Panel.</br>
-17. Negative crop fixed , now units die (starvation). IN BETA TEST , NOT WORK CORECTLY!!!</br>
+17. Negative crop fixed , now units die (starvation). WORKS LIKE REAL TRAVIAN !!!</br>
 18. Medal fixed.</br>
 19. Added image in Profile (like beginner protection) for tribes [#roman] , [#gaul] , [#teuton]</br>
 20. Added image in profile for Multihunter and Admin [#MH] automaticaly set on install.</br>
@@ -110,6 +110,7 @@ $automation->isWinner();
 42. Fix greatbarraks.</br>
 43. Fix eraseble hero , now you can delete your hero.</br>
 44. Fix desapear hero when you send as reinforcement (temporary fix).</br>
+45. Fix message problem with '</br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
