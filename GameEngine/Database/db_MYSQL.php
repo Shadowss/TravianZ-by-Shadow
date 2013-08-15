@@ -3444,6 +3444,40 @@ class MYSQL_DB {
 		$q = "DELETE from " . TB_PREFIX . "prisoners where id = '$id'";
 		mysql_query($q, $this->connection);
 	}
+ 	function getHeroDead($id) {
+    		$q = "SELECT dead FROM " . TB_PREFIX . "hero WHERE `uid` = $id";
+    		$result = mysql_query($q, $this->connection);
+    		$notend= mysql_fetch_array($result);
+     		return $notend['dead'];
+   	}
+
+	function HeroNotInVil($id) {
+               $heronum=0;
+    $outgoingarray = $this->getMovement(3, $id, 0);
+    if(!empty($outgoingarray)) {
+     foreach($outgoingarray as $out) {
+      
+      $heronum += $out['t11'];
+     }
+    }
+    $returningarray = $this->getMovement(4, $id, 1);
+    if(!empty($returningarray)) {
+     foreach($returningarray as $ret) {
+      if($ret['attack_type'] != 1) {
+       
+       $heronum += $ret['t11'];
+      }
+
+
+     }
+    }
+    return $heronum;
+   }
+
+       function KillMyHero($id) {
+  	       $q = "UPDATE " . TB_PREFIX . "hero set dead = 1 where uid = ".$id;
+               return mysql_query($q, $this->connection);
+       }
 };
 
 $database = new MYSQL_DB;

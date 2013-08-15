@@ -129,6 +129,28 @@ class Session {
                 		}
             		}
 
+ function CheckHeroReal () {
+global $database;
+   $hero=0;
+
+   
+    foreach($this->villages as $myvill){
+     $q1 = "SELECT SUM(hero) from " . TB_PREFIX . "enforcement where `from` = ".$myvill;       //hero in reinf
+     $result1 = mysql_query($q1, $database->connection);
+     $he1=mysql_fetch_array($result1);
+     $hero+=$he1[0];
+     $q2 = "SELECT SUM(hero) from " . TB_PREFIX . "units where `vref` = ".$myvill;   //hero in my vill
+     $result2 = mysql_query($q2, $database->connection);
+     $he2=mysql_fetch_array($result2);
+     $hero+=$he2[0];
+     $hero+=$database->HeroNotInVil($myvill); //hero not in vill
+     }
+     if(!$database->getHeroDead($this->uid) and !$hero){
+      $database->KillMyHero($this->uid);}
+
+      
+     }
+
 			private function PopulateVar() {
 				global $database;
 				$this->userarray = $this->userinfo = $database->getUserArray($_SESSION['username'], 0);
@@ -163,6 +185,7 @@ class Session {
 				if($this->userarray['b4'] > $this->time) {
 					$this->bonus4 = 1;
 				}
+                                $this->CheckHeroReal();
 			}
 
 			private function SurfControl(){
