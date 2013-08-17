@@ -3381,7 +3381,6 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 			$start = 41;
 			$end = 50;
 			break;
-		
 		}
 		for($i=$start;$i<=$end;$i++) {
 			$k = $i-$start+1;
@@ -3426,7 +3425,6 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 		 }else{
 			$upkeep += $array['t11'] * 6;
 		 }
-
 			$who=$database->getVillageField($vid,"owner");
 			$artefact = count($database->getOwnUniqueArtefactInfo2($who,4,3,0));
 			$artefact1 = count($database->getOwnUniqueArtefactInfo2($vid,4,1,1));
@@ -3453,7 +3451,6 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 			}
 			}
 			}
-         
 		return $upkeep;
 	}
 
@@ -4138,7 +4135,7 @@ $crop*=1.25;
     $hungry=array();
     $hungry=${u.$maxtype};
      $killunits = floor($difcrop/$hungry['crop']);
-     echo "to kill ".$killunits;
+     //echo "to kill ".$killunits;
      
      if($killunits > 0){
      if (isset($enf)){
