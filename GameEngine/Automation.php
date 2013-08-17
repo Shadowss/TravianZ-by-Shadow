@@ -3351,6 +3351,7 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 
 	public function getUpkeep($array,$type,$vid=0,$prisoners=0) {
 		global $database,$session,$village;
+
 		if($vid==0) { $vid=$village->wid; }
 		$buildarray = array();
 		if($vid!=0){ $buildarray = $database->getResourceLevel($vid); }
@@ -3372,7 +3373,7 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 			$start = 21;
 			$end = 30;
 			break;
-			case 4:
+                        case 4:
 			$start = 31;
 			$end = 40;
 			break;
@@ -3380,6 +3381,7 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 			$start = 41;
 			$end = 50;
 			break;
+		
 		}
 		for($i=$start;$i<=$end;$i++) {
 			$k = $i-$start+1;
@@ -3424,9 +3426,11 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 		 }else{
 			$upkeep += $array['t11'] * 6;
 		 }
-			$artefact = count($database->getOwnUniqueArtefactInfo2($session->uid,4,3,0));
+
+			$who=$database->getVillageField($vid,"owner");
+			$artefact = count($database->getOwnUniqueArtefactInfo2($who,4,3,0));
 			$artefact1 = count($database->getOwnUniqueArtefactInfo2($vid,4,1,1));
-			$artefact2 = count($database->getOwnUniqueArtefactInfo2($session->uid,4,2,0));
+			$artefact2 = count($database->getOwnUniqueArtefactInfo2($who,4,2,0));
 			if($artefact > 0){
 			$upkeep /= 2;
 			$upkeep = round($upkeep);
@@ -3438,7 +3442,7 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 			$upkeep = round($upkeep);
 			$upkeep *= 3;
 			}
-			$foolartefact = $database->getFoolArtefactInfo(4,$vid,$session->uid);
+			$foolartefact = $database->getFoolArtefactInfo(4,$vid,$who);
 			if(count($foolartefact) > 0){
 			foreach($foolartefact as $arte){
 			if($arte['bad_effect'] == 1){
@@ -3449,6 +3453,7 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 			}
 			}
 			}
+         
 		return $upkeep;
 	}
 
@@ -3600,33 +3605,38 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 	}
 
 	private function bountyGetCropProd() {
-		global $bid4,$bid8,$bid9,$session;
-		$crop = $grainmill = $bakery = 0;
-		$cropholder = array();
-		for($i=1;$i<=38;$i++) {
-			if($this->bountyresarray['f'.$i.'t'] == 4) {
-				array_push($cropholder,'f'.$i);
-			}
-			if($this->bountyresarray['f'.$i.'t'] == 8) {
-				$grainmill = $this->bountyresarray['f'.$i];
-			}
-			if($this->bountyresarray['f'.$i.'t'] == 9) {
-				$bakery = $this->bountyresarray['f'.$i];
-			}
-		}
-		for($i=0;$i<=count($cropholder)-1;$i++) { $crop+= $bid4[$this->bountyresarray[$cropholder[$i]]]['prod']; }
-		if($grainmill >= 1) {
-			$crop += $crop /100 * $bid8[$grainmill]['attri'];
-		}
-		if($bakery >= 1) {
-			$crop += $crop /100 * $bid9[$bakery]['attri'];
-		}
-		if($this->bountyocounter[3] != 0) {
-			$crop += $crop*0.25*$this->bountyocounter[3];
-		}
-		$crop *= SPEED;
-		return round($crop);
-	}
+  global $bid4,$bid8,$bid9,$session;
+  $crop = $grainmill = $bakery = 0;
+  $cropholder = array();
+  for($i=1;$i<=38;$i++) {
+   if($this->bountyresarray['f'.$i.'t'] == 4) {
+    array_push($cropholder,'f'.$i);
+   }
+   if($this->bountyresarray['f'.$i.'t'] == 8) {
+    $grainmill = $this->bountyresarray['f'.$i];
+   }
+   if($this->bountyresarray['f'.$i.'t'] == 9) {
+    $bakery = $this->bountyresarray['f'.$i];
+   }
+  }
+  for($i=0;$i<=count($cropholder)-1;$i++) { $crop+= $bid4[$this->bountyresarray[$cropholder[$i]]]['prod']; }
+  if($grainmill >= 1) {
+   $crop += $crop /100 * $bid8[$grainmill]['attri'];
+  }
+  if($bakery >= 1) {
+   $crop += $crop /100 * $bid9[$bakery]['attri'];
+  }
+  if($this->bountyocounter[3] != 0) {
+   $crop += $crop*0.25*$this->bountyocounter[3];
+  }
+$who=$database->getVillageField($bountyresarray['vref'],"owner");
+$croptrue=$database->getUserField($who,"b4",0);
+if($croptrue > time()) {
+$crop*=1.25;
+}
+  $crop *= SPEED;
+  return round($crop);
+ }
 
 	private function trainingComplete() {
 	if(file_exists("GameEngine/Prevention/training.txt")) {
@@ -4063,11 +4073,11 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
   	$starvarray = array();
   	$starvarray = $database->getStarvation();
   		foreach ($starvarray as $starv){
-		//echo $starv['wref']."<br>";
+		
   	$unitarrays = $this->getAllUnits($starv['wref']);
-  	$howweeating=$this->getUpkeep($unitarrays, 0);
+  	$howweeating=$this->getUpkeep($unitarrays, 0,$starv['wref']);
   	$upkeep = $starv['pop'] + $howweeating;
-   
+         //echo "<br><br>".$starv['pop']." upkeep <br><br>";
     		// get enforce
     	$enforcearray = $database->getEnforceVillage($starv['wref'],0);
     	$maxcount = 0;
@@ -4109,10 +4119,10 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
        if($skolko<0){$golod=true;}
        if($golod){
        $starvsec = (abs($skolko)/3600);
-       $difcrop = ($timedif*$starvsec);      //ñæèðàþò êðîïà çà ïðîøåäøåå âðåìÿ
+       $difcrop = ($timedif*$starvsec);      //Ã±Ã¦Ã¨Ã°Ã Ã¾Ã² ÃªÃ°Ã®Ã¯Ã  Ã§Ã  Ã¯Ã°Ã®Ã¸Ã¥Ã¤Ã¸Ã¥Ã¥ Ã¢Ã°Ã¥Ã¬Ã¿
        $newcrop = 0;
        $oldcrop = $database->getVillageField($starv['wref'], 'crop');
-       if ($oldcrop > 100){                                  //åñëè çåðíî åñòü òî ïîñëàòü âñå íàõ
+       if ($oldcrop > 100){                                  //Ã¥Ã±Ã«Ã¨ Ã§Ã¥Ã°Ã­Ã® Ã¥Ã±Ã²Ã¼ Ã²Ã® Ã¯Ã®Ã±Ã«Ã Ã²Ã¼ Ã¢Ã±Ã¥ Ã­Ã Ãµ
        $difcrop = $difcrop-$oldcrop;
        if($difcrop < 0){
        $difcrop = 0;
@@ -4121,13 +4131,14 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
      }
 
     }
-	      // echo "eated ".$difcrop." in vil ".$starv['wref']."<br>";
+	       //echo "eated ".$difcrop." in vil ".$starv['wref']."<br>";
+
     if($difcrop > 0){  
     global ${u.$maxtype};
     $hungry=array();
     $hungry=${u.$maxtype};
      $killunits = floor($difcrop/$hungry['crop']);
-    // echo "to kill ".$killunits;
+     echo "to kill ".$killunits;
      
      if($killunits > 0){
      if (isset($enf)){
@@ -4173,7 +4184,7 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
      $database->setVillageField($starv['wref'], 'starv', 0);
      $database->setVillageField($starv['wref'], 'starvupdate', 0);
     }
-
+//echo "<br>".$crop.">".$upkeep."<br> in ".$starv['wref'];
    unset ($starv,$unitarrays,$enforcearray,$enforce,$starvarray);
   }
 
