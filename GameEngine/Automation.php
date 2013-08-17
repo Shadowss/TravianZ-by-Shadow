@@ -3626,10 +3626,12 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
   if($this->bountyocounter[3] != 0) {
    $crop += $crop*0.25*$this->bountyocounter[3];
   }
+if(!empty($bountyresarray['vref']) &&  is_numeric($bountyresarray['vref'])){
 $who=$database->getVillageField($bountyresarray['vref'],"owner");
 $croptrue=$database->getUserField($who,"b4",0);
 if($croptrue > time()) {
 $crop*=1.25;
+}
 }
   $crop *= SPEED;
   return round($crop);
