@@ -2,14 +2,17 @@
 ob_start(); // Enesure, that no more header already been sent error not showing up again
 mb_internal_encoding("UTF-8"); // Add for utf8 varriables.
 
-#################################################################################
+################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
 ##  Filename       Session.php                                                 ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Developed by:  Advocaite & Dzoki & Donnchadh                     	       ##
+##  Fixed by:      Shadow - Doubleing Troops , STARVATION , HERO FIXED COMPL.  ##
+##  License:       TravianZ Project                                            ##
+##  Copyright:     TravianZ (c) 2012-2013. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
+
 if(!file_exists('GameEngine/config.php') && !file_exists('../../GameEngine/config.php') && !file_exists('../../config.php')) {
 header("Location: install/");
 }
@@ -128,28 +131,30 @@ class Session {
                     			return false;
                 		}
             		}
+			
 
- function CheckHeroReal () {
-global $database;
-   $hero=0;
+			/***************************
+			Function to check Real Hero
+			Made by: Shadow and brainiacX
+			***************************/
 
-   
-    foreach($this->villages as $myvill){
-     $q1 = "SELECT SUM(hero) from " . TB_PREFIX . "enforcement where `from` = ".$myvill;       //hero in reinf
-     $result1 = mysql_query($q1, $database->connection);
-     $he1=mysql_fetch_array($result1);
-     $hero+=$he1[0];
-     $q2 = "SELECT SUM(hero) from " . TB_PREFIX . "units where `vref` = ".$myvill;   //hero in my vill
-     $result2 = mysql_query($q2, $database->connection);
-     $he2=mysql_fetch_array($result2);
-     $hero+=$he2[0];
-     $hero+=$database->HeroNotInVil($myvill); //hero not in vill
-     }
-     if(!$database->getHeroDead($this->uid) and !$hero){
-      $database->KillMyHero($this->uid);}
-
-      
-     }
+ 			function CheckHeroReal () {
+				global $database;
+   				$hero=0;
+    			foreach($this->villages as $myvill){
+     				$q1 = "SELECT SUM(hero) from " . TB_PREFIX . "enforcement where `from` = ".$myvill;       //hero in reinf
+     				$result1 = mysql_query($q1, $database->connection);
+     				$he1=mysql_fetch_array($result1);
+     				$hero+=$he1[0];
+     				$q2 = "SELECT SUM(hero) from " . TB_PREFIX . "units where `vref` = ".$myvill;   //hero in my vill
+     				$result2 = mysql_query($q2, $database->connection);
+     				$he2=mysql_fetch_array($result2);
+     				$hero+=$he2[0];
+     				$hero+=$database->HeroNotInVil($myvill); //hero not in vill
+     				}
+     				if(!$database->getHeroDead($this->uid) and !$hero){
+      				$database->KillMyHero($this->uid);} 
+     			}
 
 			private function PopulateVar() {
 				global $database;
