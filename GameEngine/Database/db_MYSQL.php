@@ -1,13 +1,15 @@
 <?php
 
-/** --------------------------------------------------- **\
- * | ********* DO NOT REMOVE THIS COPYRIGHT NOTICE ********* |
- * +---------------------------------------------------------+
- * | Credits:     All the developers including the leaders:  |
- * |              Advocaite & Dzoki & Donnchadh              |
- * |                                                         |
- * | Copyright:   TravianX Project All rights reserved       |
- * \** --------------------------------------------------- **/
+################################################################################
+##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+## --------------------------------------------------------------------------- ##
+##  Filename       db_MYSQL.php                                                ##
+##  Developed by:  Advocaite & Dzoki & Donnchadh                     	       ##
+##  Fixed by:      Shadow - Doubleing Troops , STARVATION , HERO FIXED COMPL.  ##
+##  License:       TravianZ Project                                            ##
+##  Copyright:     TravianZ (c) 2012-2013. All rights reserved.                ##
+##                                                                             ##
+#################################################################################
 
 
 class MYSQL_DB {
@@ -486,7 +488,14 @@ class MYSQL_DB {
 			if($OasisInfo['conqured'] == 0 || $OasisInfo['conqured'] != 0 && $OasisInfo['loyalty'] < 99 / min(3,(4-$this->VillageOasisCount($OasisInfo['conqured']))) && $troopcount == 0) {
 				$CoordsVillage = $this->getCoor($vref);
 				$CoordsOasis = $this->getCoor($wref);
-				if(abs($CoordsOasis['x']-$CoordsVillage['x'])<=3 && abs($CoordsOasis['y']-$CoordsVillage['y'])<=3) {
+				$max = 2 * WORLD_MAX + 1;
+                		$x1 = intval($CoordsOasis['x']);
+                		$y1 = intval($CoordsOasis['y']);
+                		$x2 = intval($CoordsVillage['x']);
+                		$y2 = intval($CoordsVillage['y']);
+                		$distanceX = min(abs($x2 - $x1), abs($max - abs($x2 - $x1)));
+                		$distanceY = min(abs($y2 - $y1), abs($max - abs($y2 - $y1)));
+                	if ($distanceX<=3 && $distanceY<=3) {
 					return True;
 				} else {
 					return False;
@@ -554,7 +563,7 @@ class MYSQL_DB {
 			  break;
 			case 3:
 			  //+25% lumber and +25% crop per hour
-			  $q = "UPDATE " . TB_PREFIX . "units SET  u35 = u35 + '".rand(0,5)."', u36 = u36 + '".rand(0,5)."', u37 = u37 + '".rand(0,5)."', u38 = u38 + '".rand(0,5)."', u40 = u40 + '".rand(0,$max2)."' WHERE vref = '" . $wid . "' AND (u36 <= ".$max." OR u37 <= ".$max." OR u38 <= ".$max." OR u40 <= ".$max.")";
+			  $q = "UPDATE " . TB_PREFIX . "units SET  u35 = u35 + '".rand(0,5)."', u36 = u36 + '".rand(0,5)."', u37 = u37 + '".rand(0,5)."', u38 = u38 + '".rand(0,5)."', u40 = u40 + '".rand(0,$max2)."' WHERE vref = '" . $wid . "' AND (u36 <= ".$max." OR u37 <= ".$max." OR u38 <= ".$max.")";
 			  $result = mysql_query($q, $this->connection);
 			  break;
 			case 4:
@@ -565,7 +574,7 @@ class MYSQL_DB {
 			  break;
 			case 6:
 			  //+25% clay and +25% crop per hour
-			  $q = "UPDATE " . TB_PREFIX . "units SET u36 = u36 + '".rand(0,5)."', u37 = u37 + '".rand(0,5)."', u38 = u38 + '".rand(0,5)."', u40 = u40 + '".rand(0,$max2)."' WHERE vref = '" . $wid . "' AND (u36 <= ".$max." OR u37 <= ".$max." OR u38 <= ".$max." OR u40 <= ".$max.")";
+			  $q = "UPDATE " . TB_PREFIX . "units SET u36 = u36 + '".rand(0,5)."', u37 = u37 + '".rand(0,5)."', u38 = u38 + '".rand(0,5)."', u40 = u40 + '".rand(0,$max2)."' WHERE vref = '" . $wid . "' AND (u36 <= ".$max." OR u37 <= ".$max." OR u38 <= ".$max.")";
 			  $result = mysql_query($q, $this->connection);
 			  break;
 			case 7:
@@ -576,7 +585,7 @@ class MYSQL_DB {
 			  break;
 			case 9:
 			  //+25% iron and +25% crop
-			  $q = "UPDATE " . TB_PREFIX . "units SET u31 = u31 + '".rand(0,5)."', u32 = u32 + '".rand(0,5)."', u34 = u34 + '".rand(0,5)."', u40 = u40 + '".rand(0,$max2)."' WHERE vref = '" . $wid . "' AND (u31 <= ".$max." OR u32 <= ".$max." OR u34 <= ".$max." OR u40 <= ".$max.")";
+			  $q = "UPDATE " . TB_PREFIX . "units SET u31 = u31 + '".rand(0,5)."', u32 = u32 + '".rand(0,5)."', u34 = u34 + '".rand(0,5)."', u40 = u40 + '".rand(0,$max2)."' WHERE vref = '" . $wid . "' AND (u31 <= ".$max." OR u32 <= ".$max." OR u34 <= ".$max.")";
 			  $result = mysql_query($q, $this->connection);
 			  break;
 			case 10:
@@ -587,7 +596,7 @@ class MYSQL_DB {
 			  break;
 			case 12:
 			  //+50% crop per hour
-			  $q = "UPDATE " . TB_PREFIX . "units SET u33 = u33 + '".rand(0,5)."', u37 = u37 + '".rand(0,5)."', u38 = u38 + '".rand(0,5)."', u39 = u39 + '".rand(0,5)."', u40 = u40 + '".rand(0,$max2)."' WHERE vref = '" . $wid . "' AND (u33 <= ".$max." OR u37 <= ".$max." OR u38 <= ".$max." OR u39 <= ".$max." OR u40 <= ".$max.")";
+			  $q = "UPDATE " . TB_PREFIX . "units SET u33 = u33 + '".rand(0,5)."', u37 = u37 + '".rand(0,5)."', u38 = u38 + '".rand(0,5)."', u39 = u39 + '".rand(0,5)."', u40 = u40 + '".rand(0,$max2)."' WHERE vref = '" . $wid . "' AND (u33 <= ".$max." OR u37 <= ".$max." OR u38 <= ".$max." OR u39 <= ".$max.")";
 			  $result = mysql_query($q, $this->connection);
 			  break;
 			  }
@@ -1504,42 +1513,62 @@ class MYSQL_DB {
 	/////////////ADDED BY BRAINIAC - THANK YOU
 
 	 function modifyResource($vid, $wood, $clay, $iron, $crop, $mode) {
-    $q="SELECT wood,clay,iron,crop,maxstore,maxcrop from " . TB_PREFIX . "vdata where wref = ".$vid."";
+    		$q="SELECT wood,clay,iron,crop,maxstore,maxcrop from " . TB_PREFIX . "vdata where wref = ".$vid."";
                 $result = mysql_query($q, $this->connection);
-    $checkres= $this->mysql_fetch_all($result);
+    		$checkres= $this->mysql_fetch_all($result);
                 if(!$mode){
-    $nwood=$checkres[0]['wood']-$wood;
-    $nclay=$checkres[0]['clay']-$clay;
-    $niron=$checkres[0]['iron']-$iron;
-    $ncrop=$checkres[0]['crop']-$crop;
-    if($nwood<0 or $nclay<0 or $niron<0 or $ncrop<0){$shit=true;}
-    $dwood=($nwood<0)?0:$nwood;
-    $dclay=($nclay<0)?0:$nclay;
-    $diron=($niron<0)?0:$niron;
-    $dcrop=($ncrop<0)?0:$ncrop;
-    }else{
-    $nwood=$checkres[0]['wood']+$wood;
-    $nclay=$checkres[0]['clay']+$clay;
-    $niron=$checkres[0]['iron']+$iron;
-    $ncrop=$checkres[0]['crop']+$crop;
-    $dwood=($nwood>$checkres[0]['maxstore'])?$checkres[0]['maxstore']:$nwood;
-    $dclay=($nclay>$checkres[0]['maxstore'])?$checkres[0]['maxstore']:$nclay;
-    $diron=($niron>$checkres[0]['maxstore'])?$checkres[0]['maxstore']:$niron;
-    $dcrop=($ncrop>$checkres[0]['maxcrop'])?$checkres[0]['maxcrop']:$ncrop;
-    }
-    if(!$shit){
-    $q = "UPDATE " . TB_PREFIX . "vdata set wood = $dwood, clay = $dclay, iron = $diron, crop = $dcrop where wref = ".$vid;
-    return mysql_query($q, $this->connection); }else{return false;}
-   }
+    		$nwood=$checkres[0]['wood']-$wood;
+    		$nclay=$checkres[0]['clay']-$clay;
+    		$niron=$checkres[0]['iron']-$iron;
+    		$ncrop=$checkres[0]['crop']-$crop;
+    		if($nwood<0 or $nclay<0 or $niron<0 or $ncrop<0){$shit=true;}
+    		$dwood=($nwood<0)?0:$nwood;
+    		$dclay=($nclay<0)?0:$nclay;
+    		$diron=($niron<0)?0:$niron;
+    		$dcrop=($ncrop<0)?0:$ncrop;
+    	}else{
+    		$nwood=$checkres[0]['wood']+$wood;
+    		$nclay=$checkres[0]['clay']+$clay;
+    		$niron=$checkres[0]['iron']+$iron;
+    		$ncrop=$checkres[0]['crop']+$crop;
+    		$dwood=($nwood>$checkres[0]['maxstore'])?$checkres[0]['maxstore']:$nwood;
+    		$dclay=($nclay>$checkres[0]['maxstore'])?$checkres[0]['maxstore']:$nclay;
+    		$diron=($niron>$checkres[0]['maxstore'])?$checkres[0]['maxstore']:$niron;
+    		$dcrop=($ncrop>$checkres[0]['maxcrop'])?$checkres[0]['maxcrop']:$ncrop;
+    		}
+    	if(!$shit){
+    		$q = "UPDATE " . TB_PREFIX . "vdata set wood = $dwood, clay = $dclay, iron = $diron, crop = $dcrop where wref = ".$vid;
+    			return mysql_query($q, $this->connection); }else{return false;}
+   	}
 
 	function modifyOasisResource($vid, $wood, $clay, $iron, $crop, $mode) {
-		if(!$mode) {
-			$q = "UPDATE " . TB_PREFIX . "odata set wood = wood - $wood, clay = clay - $clay, iron = iron - $iron, crop = crop - $crop where wref = $vid";
-		} else {
-			$q = "UPDATE " . TB_PREFIX . "odata set wood = wood + $wood, clay = clay + $clay, iron = iron + $iron, crop = crop + $crop where wref = $vid";
-		}
-		return mysql_query($q, $this->connection);
-	}
+		$q="SELECT wood,clay,iron,crop,maxstore,maxcrop from " . TB_PREFIX . "odata where wref = ".$vid."";
+                $result = mysql_query($q, $this->connection);
+    		$checkres= $this->mysql_fetch_all($result);
+                if(!$mode){
+    		$nwood=$checkres[0]['wood']-$wood;
+    		$nclay=$checkres[0]['clay']-$clay;
+    		$niron=$checkres[0]['iron']-$iron;
+    		$ncrop=$checkres[0]['crop']-$crop;
+    		if($nwood<0 or $nclay<0 or $niron<0 or $ncrop<0){$shit=true;}
+    		$dwood=($nwood<0)?0:$nwood;
+    		$dclay=($nclay<0)?0:$nclay;
+    		$diron=($niron<0)?0:$niron;
+    		$dcrop=($ncrop<0)?0:$ncrop;
+    	}else{
+    		$nwood=$checkres[0]['wood']+$wood;
+    		$nclay=$checkres[0]['clay']+$clay;
+    		$niron=$checkres[0]['iron']+$iron;
+    		$ncrop=$checkres[0]['crop']+$crop;
+    		$dwood=($nwood>$checkres[0]['maxstore'])?$checkres[0]['maxstore']:$nwood;
+    		$dclay=($nclay>$checkres[0]['maxstore'])?$checkres[0]['maxstore']:$nclay;
+    		$diron=($niron>$checkres[0]['maxstore'])?$checkres[0]['maxstore']:$niron;
+    		$dcrop=($ncrop>$checkres[0]['maxcrop'])?$checkres[0]['maxcrop']:$ncrop;
+    		}
+    	if(!$shit){
+    		$q = "UPDATE " . TB_PREFIX . "odata set wood = $dwood, clay = $dclay, iron = $diron, crop = $dcrop where wref = ".$vid;
+    			return mysql_query($q, $this->connection); }else{return false;}
+   	}
 
 	function getFieldLevel($vid, $field) {
 		$q = "SELECT f" . $field . " from " . TB_PREFIX . "fdata where vref = $vid";
@@ -2564,12 +2593,13 @@ class MYSQL_DB {
 	$time += $queued[count($queued) - 1]['timestamp'] - $now;
 	$time2 += $queued[count($queued) - 1]['timestamp'] - $now;
 	}
-	if($queued[count($queued) - 1]['unit'] == $unit){
-	$time = $amt*$queued[count($queued) - 1]['eachtime'];
-			$q = "UPDATE " . TB_PREFIX . "training SET amt = amt + $amt, timestamp = timestamp + $time WHERE id = ".$queued[count($queued) - 1]['id']."";
-	}else{
+	// TROOPS MAKE SUM IN BARAKS , ETC
+	//if($queued[count($queued) - 1]['unit'] == $unit){
+	//$time = $amt*$queued[count($queued) - 1]['eachtime'];
+	//$q = "UPDATE " . TB_PREFIX . "training SET amt = amt + $amt, timestamp = timestamp + $time WHERE id = ".$queued[count($queued) - 1]['id']."";
+	//}else{
 			$q = "INSERT INTO " . TB_PREFIX . "training values (0,$vid,$unit,$amt,$pop,$time,$each,$time2)";
-	}
+	//}
 		} else {
 			$q = "DELETE FROM " . TB_PREFIX . "training where id = $vid";
 		}
@@ -3444,6 +3474,12 @@ class MYSQL_DB {
 		$q = "DELETE from " . TB_PREFIX . "prisoners where id = '$id'";
 		mysql_query($q, $this->connection);
 	}
+
+	/***************************
+	Function to get Hero Dead
+	Made by: Shadow and brainiacX
+	***************************/
+
  	function getHeroDead($id) {
     		$q = "SELECT dead FROM " . TB_PREFIX . "hero WHERE `uid` = $id";
     		$result = mysql_query($q, $this->connection);
@@ -3451,28 +3487,34 @@ class MYSQL_DB {
      		return $notend['dead'];
    	}
 
+	/***************************
+	Function to check Hero Not in Village
+	Made by: Shadow and brainiacX
+	***************************/
+
 	function HeroNotInVil($id) {
-               $heronum=0;
-    $outgoingarray = $this->getMovement(3, $id, 0);
-    if(!empty($outgoingarray)) {
-     foreach($outgoingarray as $out) {
-      
-      $heronum += $out['t11'];
-     }
-    }
-    $returningarray = $this->getMovement(4, $id, 1);
-    if(!empty($returningarray)) {
-     foreach($returningarray as $ret) {
-      if($ret['attack_type'] != 1) {
-       
-       $heronum += $ret['t11'];
-      }
+                $heronum=0;
+    		$outgoingarray = $this->getMovement(3, $id, 0);
+    		if(!empty($outgoingarray)) {
+     		foreach($outgoingarray as $out) {
+      		$heronum += $out['t11'];
+     		}
+    	}
+    		$returningarray = $this->getMovement(4, $id, 1);
+    		if(!empty($returningarray)) {
+     		foreach($returningarray as $ret) {
+      		if($ret['attack_type'] != 1) {
+       		$heronum += $ret['t11'];
+      		}
+     		}
+    	}
+    		return $heronum;
+   	}
 
-
-     }
-    }
-    return $heronum;
-   }
+	/***************************
+	Function to Kill hero if not found
+	Made by: Shadow and brainiacX
+	***************************/
 
        function KillMyHero($id) {
   	       $q = "UPDATE " . TB_PREFIX . "hero set dead = 1 where uid = ".$id;
