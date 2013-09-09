@@ -442,7 +442,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%chat` (
 
 CREATE TABLE IF NOT EXISTS `%PREFIX%config` (
   `medalinterval` int(11) NOT NULL,
-  `lastgavemedal` int(11) NOT NULL,
+  `lastgavemedal` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
