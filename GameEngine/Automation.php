@@ -1001,7 +1001,7 @@ class Automation {
 		$data_num = 0;
 		foreach($dataarray as $data) {
 			//set base things
-			//$battle->resolveConflict($data);
+			$battle->resolveConflict($data);
 			$tocoor = $database->getCoor($data['from']);
 			$fromcoor = $database->getCoor($data['to']);
 			$isoasis = $database->isVillageOases($data['to']);
@@ -2135,8 +2135,8 @@ class Automation {
 				$tblevel = $bdo['f'.$rand];
 				$tbgid = $bdo['f'.$rand.'t'];
 				$tbid = $rand;
-                $needed_cata = round((($battlepart[5] * (pow($tblevel,2) + $tblevel + 1)) / (8 * (round(200 * pow(1.0205,$battlepart[6]))/200) / (1 * $bid34[$stonemason]['attri']/100))) + 0.5);
-                if (($battlepart[4]/2)>$needed_cata)
+                		$needed_cata = round((($battlepart[5] * (pow($tblevel,2) + $tblevel + 1)) / (8 * (round(200 * pow(1.0205,$battlepart[6]))/200) / (1 * $bid34[$stonemason]['attri']/100))) + 0.5);
+                		if (($battlepart[4]/2)>$needed_cata)
 				{
 					$info_cat .= "<br><tbody class=\"goods\"><tr><th>Information</th><td colspan=\"11\">
 					<img class=\"unit u".$catp_pic."\" src=\"img/x.gif\" alt=\"Catapult\" title=\"Catapult\" /> ".$this->procResType($tbgid)." destroyed.</td></tr></tbody>";
@@ -2666,11 +2666,6 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 				if($type !== 1)
 				{
 					$reference = $database->sendResource($steal[0],$steal[1],$steal[2],$steal[3],0,0);
-					if ($isoasis == 0){
-                    $database->modifyResource($to['wref'],$steal[0],$steal[1],$steal[2],$steal[3],0);
-					}else{
-					$database->modifyOasisResource($to['wref'],$steal[0],$steal[1],$steal[2],$steal[3],0);
-					}
 					$database->addMovement(6,$to['wref'],$from['wref'],$reference,$AttackArrivalTime,$endtime,1,0,0,0,0,$data['ref']);
 					$totalstolengain=$steal[0]+$steal[1]+$steal[2]+$steal[3];
 					$totalstolentaken=($totalstolentaken-($steal[0]+$steal[1]+$steal[2]+$steal[3]));
