@@ -111,6 +111,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%activate` (
   `timestamp` int(11) unsigned NOT NULL DEFAULT '0',
   `location` text NOT NULL,
   `act2` varchar(10) NOT NULL,
+  `reflink` int(4) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -436,6 +437,23 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%chat` (
 
 -- --------------------------------------------------------
 
+--
+-- Table structure for table `%prefix%config`
+--
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%config` (
+  `lastgavemedal` int(11) unsigned NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+INSERT INTO `%PREFIX%config` VALUES (0);
+
+--
+-- Dumping data for table `%prefix%config`
+--
+
+
+-- --------------------------------------------------------
+
+-- 
 
 --
 -- Table structure for table `%prefix%deleting`
@@ -1486,6 +1504,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%users` (
   `vac_time` varchar(255) NOT NULL,
   `vac_mode` int(2) unsigned NOT NULL DEFAULT '0',
   `vactwoweeks` varchar(255) NOT NULL,
+  `reflink` int(4) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
