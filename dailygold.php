@@ -12,12 +12,16 @@
 
 
 include("GameEngine/Village.php");
-
+$amount = $_SESSION['amount'];
 $start = $generator->pageLoadTimeStart();
 if(isset($_GET['newdid'])) {
 	$_SESSION['wid'] = $_GET['newdid'];
 	header("Location: ".$_SERVER['PHP_SELF']);
 }
+else {
+	$building->procBuild($_GET);
+}
+$automation->isWinner();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
