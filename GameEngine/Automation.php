@@ -4090,7 +4090,10 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 		}
 	}
 
-	/////// FUNCTION MAKED BY THE SMARTES GUY (brainiacX) :D
+	/************************************************
+	Function for starvation - by brainiacX and Shadow
+	References: 
+	************************************************/
 
 	private function starvation() {
  		if(file_exists("GameEngine/Prevention/starvation.txt")) {
@@ -4232,7 +4235,10 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
   		}
  	}
 
-		/////// FUNCTION MAKED BY THE SMARTES GUY (brainiacX) :D
+	/************************************************
+	Function for starvation - by brainiacX and Shadow
+	References: 
+	************************************************/
 
 	private function procNewClimbers() {
 		if(file_exists("GameEngine/Prevention/climbers.txt")) {
@@ -4431,10 +4437,16 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
         		}
         	}
 	}
+
+	/************************************************
+	Function for automate medals - by yi12345 and Shadow
+	References: 
+	************************************************/
 	
 	function medals(){
-    global $ranking,$database;
-      //we mogen de lintjes weggeven
+    		global $ranking,$database;
+
+      //we may give away ribbons
 
       $giveMedal = false;
       $q = "SELECT * FROM ".TB_PREFIX."config";
@@ -4451,8 +4463,11 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
         $time = $row['lastgavemedal'] + MEDALINTERVAL;
         if ($time < time()) $giveMedal = true;
       }
+
       if($giveMedal && MEDALINTERVAL > 0){
-      //bepaal welke week we zitten
+
+      //determine which week we are
+
       $q = "SELECT * FROM ".TB_PREFIX."medal order by week DESC LIMIT 0, 1";
       $result = mysql_query($q);
       if(mysql_num_rows($result)) {
@@ -4463,6 +4478,7 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
       }
 
       //Do same for ally week
+
       $q = "SELECT * FROM ".TB_PREFIX."allimedal order by week DESC LIMIT 0, 1";
       $result = mysql_query($q);
       if(mysql_num_rows($result)) {
@@ -4940,6 +4956,11 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
       $database->query($q);
   }
   }
+
+	/************************************************
+	Function for automate medals - by yi12345 and Shadow
+	References: 
+	************************************************/
  
  	private function artefactOfTheFool() {
 	 global $database;

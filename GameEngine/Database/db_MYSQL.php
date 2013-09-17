@@ -4,7 +4,7 @@
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
 ##  Filename       db_MYSQL.php                                                ##
-##  Developed by:  Advocaite & Dzoki & Donnchadh                     	       ##
+##  Developed by:  Advocaite & Dzoki & Donnchadh & yi12345                     ##
 ##  Fixed by:      Shadow - Doubleing Troops , STARVATION , HERO FIXED COMPL.  ##
 ##  License:       TravianZ Project                                            ##
 ##  Copyright:     TravianZ (c) 2012-2013. All rights reserved.                ##
@@ -695,6 +695,7 @@ class MYSQL_DB {
 	Function to vacation mode - by advocaite
 	References: 
 	*****************************************/
+
 	function setvacmode($uid,$days){
 		$days1 =60*60*24*$days;
 		$time =time()+$days1;
@@ -709,7 +710,7 @@ class MYSQL_DB {
   		$time =time()+$days1;
   		$q ="SELECT * FROM ".TB_PREFIX."users WHERE id=".$uid."";
   		$result =mysql_query($q,$this->connection);
-  		$array=mysql_fetch_assoc($resultq);
+  		$array=mysql_fetch_assoc($result);
   		if (time() > $array["vactwoweeks"]){
   		$q1 ="UPDATE ".TB_PREFIX."users SET vac_mode = '1' , vac_time=".$time." ,vactwoweeks = ".time()+(time() *60*60*24*14)." WHERE id=".$uid."";
   		$result1 =mysql_query($q1,$this->connection);
@@ -724,6 +725,7 @@ class MYSQL_DB {
 		$q ="UPDATE ".TB_PREFIX."users SET vac_mode = '0' , vac_time='0' WHERE id=".$uid."";
 		$result =mysql_query($q,$this->connection);
 		}
+
 	function getvacmodexy($wref){
 		$q = "SELECT id,oasistype,occupied FROM " . TB_PREFIX . "wdata where id = $wref";
 		$result = mysql_query($q, $this->connection);
@@ -742,12 +744,15 @@ class MYSQL_DB {
 		return false;
 		}
 		}	
-		
 		} else {
-			return false;
+		return false;
 		}
 	}
  
+	/*****************************************
+	Function to vacation mode - by advocaite
+	References: 
+	*****************************************/
 
 	function getProfileVillages($uid) {
 		$q = "SELECT capital,wref,name,pop,created from " . TB_PREFIX . "vdata where owner = $uid order by pop desc";
@@ -1607,9 +1612,9 @@ class MYSQL_DB {
 		return mysql_query($q, $this->connection);
 	}
 
-	function updateOasis2($vid) {
+	function updateOasis2($vid, $time) {
 		$time = time();
-		$q = "UPDATE " . TB_PREFIX . "odata set lastupdated2 = $time where wref = $vid";
+		$q = "UPDATE " . TB_PREFIX . "odata set lastupdated2 = lastupdated2 + $time where wref = $vid";
 		return mysql_query($q, $this->connection);
 	}
 

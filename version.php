@@ -109,8 +109,14 @@ $automation->isWinner();
 41. Fix treasurey and palace , now cannot be build on WW village.</br>
 42. Fix greatbarraks.</br>
 43. Fix eraseble hero , now you can delete your hero.</br>
-44. Fix desapear hero when you send as reinforcement (temporary fix).</br>
+44. Fix desapear hero when you send as reinforcement.</br>
 45. Fix message problem with '</br>
+46. Fix train hero for unit pretorian</br>
+47. Fix merchant quantity</br>
+48. Fix battle system for catapults</br>
+49. Fix delete player in admin panel</br>
+50. Added automated system for give medals and also added in instalation file</br>
+51. Fix special characters when send troops</br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
