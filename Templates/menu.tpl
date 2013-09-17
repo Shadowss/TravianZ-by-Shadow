@@ -52,6 +52,7 @@ div.c1 {text-align: center}
                     <a href="support.php"><b><?php echo SUPPORT;?></b></a> 
 			<a href="version.php"><b><font color='Red'><?php echo Version;?></font></b></a> 
 			<a href="bugs.php"><b><font color='Blue'><?php echo Bugs;?></font></b></a> 
+			<a href="dailygold.php"><b><font color='Gray'><?php echo Dailygold;?></font></b></a> 
         <br></p>
 
 		<?php

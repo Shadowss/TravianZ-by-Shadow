@@ -13,6 +13,7 @@
 // Added by Shadow - cata7007@gmail.com / Skype : cata7007
 
 include('GameEngine/Account.php');
+$reflink = substr ($_GET['id'],4);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -52,7 +53,9 @@ if(REG_OPEN == true){ ?>
 <form name="snd" method="post" action="anmelden.php">
 <input type="hidden" name="invited" value="<?php echo filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT); ?>" />
 <input type="hidden" name="ft" value="a1" />
-
+<!-- FIX REFLINK -->
+<input type="hidden" name="reflink" value="<?php echo $reflink; ?>" />
+<!-- end FIX -->
 <table cellpadding="1" cellspacing="1" id="sign_input">
 	<tbody>
 		<tr class="top">
@@ -151,7 +154,16 @@ echo $form->getError('agree');
 	<input type="image" value="anmelden" name="s1" id="btn_signup" class="dynamic_img" src="img/x.gif" alt="register"/>
 </p>
 </form>
+<?php 
+$time_left=COMMENCE-time(); 
 
+if ($time_left > 0) 
+{ 
+    echo ("<center><big>Activation Availble in: <b><font color=red><span id=\"timer1\">".date('H:i:s', $time_left+0*3600)."</span></font></b></big></center>"); 
+//GMT Time, edit 0*3600 to correct your local time  
+     
+} 
+?> 
 <p class="info"><?php echo ONE_PER_SERVER; ?></p>
 </div>
 <?php }else{ ?>

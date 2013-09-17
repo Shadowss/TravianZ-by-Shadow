@@ -1505,6 +1505,8 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%users` (
   `vac_mode` int(2) unsigned NOT NULL DEFAULT '0',
   `vactwoweeks` varchar(255) NOT NULL,
   `reflink` int(4) NOT NULL,
+  `dailygold` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `dailygoldtime` int(4) int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
