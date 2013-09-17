@@ -135,9 +135,10 @@ $neutral = (($neutralarray[0]['alli1']>0 and $neutralarray[0]['alli2']>0 and $do
 	}else{
 	$map_content .= "<div id='i_".$row."_".$i."' class='".$image."'></div>\r";
 	}
+
 	//Map create
 	$map_gen .= "<area id='a_".$row."_".$i."' shape='poly' coords='".$coorarray[$coorindex]."' title='".$donnees['ville_name']."' href='karte.php?d=".$donnees['map_id']."&c=".$generator->getMapCheck($donnees['map_id'])."' />\n";
-	
+
 	//Javascript map info
 	if($yrow!=7){
 		$map_js .= "[".$donnees['map_x'].",".$donnees['map_y'].",".$donnees['map_fieldtype'].",". ((!empty($donnees['map_oasis'])) ? $donnees['map_oasis'] : 0) .",\"d=".$donnees['map_id']."&c=".$generator->getMapCheck($donnees['map_id'])."\",\"".$image."\"";
@@ -168,11 +169,19 @@ $neutral = (($neutralarray[0]['alli1']>0 and $neutralarray[0]['alli2']>0 and $do
 		$regcount += 1;
 	}
 	else {$map_js .= "]";}
-	
+
 	if($i == 6 && $row <= 5){	$row += 1;	$i = -1;}
 	$i++;
 	$i2++;
 	$coorindex+=1;
+
+    if($session->plus) {
+    	$wref = $village->wid;
+        $toWref = $maparray[$index]['id'];
+    	if ($database->checkAttack($wref,$toWref) != 0) {
+			echo '<img style="margin-right:45px;" class="att1" src="img/x.gif" />';
+		}
+    }
 }
 ?>
 <div id="content"  class="map">
