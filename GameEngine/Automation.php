@@ -4,7 +4,7 @@
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
 ##  Filename       Automation.php                                              ##
-##  Developed by:  Mr.php , Advocaite , brainiacX                     	       ##
+##  Developed by:  Mr.php , Advocaite , brainiacX , yi12345           	       ##
 ##  Fixed by:      Shadow - Doubleing Troops , STARVATION , HERO FIXED COMPL.  ##
 ##  License:       TravianZ Project                                            ##
 ##  Copyright:     TravianZ (c) 2012-2013. All rights reserved.                ##
@@ -265,16 +265,16 @@ class Automation {
 	}
 
 	   private function getfieldDistance($coorx1, $coory1, $coorx2, $coory2) {
-   $max = 2 * WORLD_MAX + 1;
-   $x1 = intval($coorx1);
-   $y1 = intval($coory1);
-   $x2 = intval($coorx2);
-   $y2 = intval($coory2);
-   $distanceX = min(abs($x2 - $x1), abs($max - abs($x2 - $x1)));
-   $distanceY = min(abs($y2 - $y1), abs($max - abs($y2 - $y1)));
-   $dist = sqrt(pow($distanceX, 2) + pow($distanceY, 2));
-   return round($dist, 1);
-   }
+   		$max = 2 * WORLD_MAX + 1;
+   		$x1 = intval($coorx1);
+   		$y1 = intval($coory1);
+   		$x2 = intval($coorx2);
+   		$y2 = intval($coory2);
+   		$distanceX = min(abs($x2 - $x1), abs($max - abs($x2 - $x1)));
+   		$distanceY = min(abs($y2 - $y1), abs($max - abs($y2 - $y1)));
+   		$dist = sqrt(pow($distanceX, 2) + pow($distanceY, 2));
+   	   return round($dist, 1);
+   	}	
 
 	 public function getTypeLevel($tid,$vid) {
 		global $village,$database;
@@ -2453,10 +2453,40 @@ if($data['t11'] > 0){
 						$walllevel =0;
 						$rplevel =0;
 					}
+
+		/**************************
+		    City Wall by Shadow
+		**************************/
+
+               if($session->userinfo['tribe'] == 1) {
+					$walltitle = 'City Wall';
+                    $iconClass = 'gebIcon g3' . $tribe . 'Icon';
+				} else if($session->userinfo['tribe'] == 2) {
+					$walltitle = 'Earth Wall';
+                    $iconClass = 'gebIcon g3' . $tribe . 'Icon';
+				} else if($session->userinfo['tribe'] == 3) {
+					$walltitle = 'Palisade';
+                    $iconClass = 'gebIcon g3' . $tribe . 'Icon';
+				}
+                else
+                {
+                    /**
+                     * @todo Not sure what Natar Wall should be called, also using City Wall for the icon for now
+                     */
+                    $walltitle = "Natar Wall";
+                    $iconClass = 'gebIcon g31Icon';
+                }
+
+		/**************************
+		    City Wall by Shadow
+		**************************/
+
 $palaceimg = "<img src=\"".GP_LOCATE."img/g/g26.gif\" height=\"20\" width=\"15\" alt=\"Palace\" title=\"Palace\" />";
 $crannyimg = "<img src=\"".GP_LOCATE."img/g/g23.gif\" height=\"20\" width=\"15\" alt=\"Cranny\" title=\"Cranny\" />";
 $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15\" alt=\"Wall\" title=\"Wall\" />";
+//$wallimg = "<img class=\"" . $iconClass . "\" src=\"img/x.gif\" height=\"20\" width=\"15\" alt=\"Wall\" title=\"".$walltitle."\" />";
 				$info_spy = "".$spy_pic.",".$palaceimg." Residance/Palace Level : ".$rplevel."
+
 				<br>".$crannyimg." Cranny level: ".$crannylevel."<br>".$wallimg." Wall Level : ".$walllevel."";
 
 				}
