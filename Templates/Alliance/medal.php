@@ -29,6 +29,9 @@ $profiel = preg_replace("/\[ally]/s",'Confederacies<br>'.$database->getAllianceD
 $profiel = preg_replace("/\[nap]/s",'NAPs<br>'.$database->getAllianceDipProfile($aid,2), $profiel, 1); 
 $profiel = preg_replace("/\[diplomatie]/s",'Confederacies<br>'.$database->getAllianceDipProfile($aid,1).'<br>NAPs<br>'.$database->getAllianceDipProfile($aid,2).'<br>At war with<br>'.$database->getAllianceWar($aid), $profiel, 1); 
 
+$profiel = preg_replace("/\[#TEAM]/is",'<img src="'.$gpack.'img/t/team.png" border="0" onmouseout="med_closeDescription()" onmousemove="med_mouseMoveHandler(arguments[0],\'<table><tr><td>Travian Team</td></tr></table>\')">', $profiel, 1);
+
+
 foreach($varmedal as $medal) {
 
 switch ($medal['categorie']) {

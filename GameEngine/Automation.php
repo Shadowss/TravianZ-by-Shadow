@@ -2457,7 +2457,7 @@ if($data['t11'] > 0){
 		/**************************
 		    City Wall by Shadow
 		**************************/
-
+	       
                if($session->userinfo['tribe'] == 1) {
 					$walltitle = 'City Wall';
                     $iconClass = 'gebIcon g3' . $tribe . 'Icon';
@@ -2487,7 +2487,7 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15
 //$wallimg = "<img class=\"" . $iconClass . "\" src=\"img/x.gif\" height=\"20\" width=\"15\" alt=\"Wall\" title=\"".$walltitle."\" />";
 				$info_spy = "".$spy_pic.",".$palaceimg." Residance/Palace Level : ".$rplevel."
 
-				<br>".$crannyimg." Cranny level: ".$crannylevel."<br>".$wallimg." Wall Level : ".$walllevel."";
+				<br>".$crannyimg." Cranny level: ".$crannylevel."<br>".$wallimg." Wall level : ".$walllevel."";
 
 				}
 

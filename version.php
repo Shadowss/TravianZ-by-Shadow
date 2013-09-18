@@ -117,6 +117,10 @@ $automation->isWinner();
 49. Fix delete player in admin panel</br>
 50. Added automated system for give medals and also added in instalation file</br>
 51. Fix special characters when send troops</br>
+52. Fix reference link</br>
+53. Fix bug 10 from NarcisRO list : If you have plus account activated you cannot see the attck/deff/scout images when you attack a village (i mean img on villages : red swords etc..) - NOT DONE</br>
+54. Fix forum surveys - NOT DONE</br>
+55. Fix wall image when spy someone for every tribe - NOT DONE</br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
