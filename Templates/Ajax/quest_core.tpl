@@ -1,21 +1,19 @@
 <?php
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-|              .: PLEASE DONT'T REMOVE OR CHANGE THIS NOTICE :.                 |
-| ---------------------------------------------------------------------------   |
-|  Filename       quest_core.tpl	                                       	  |
-|  Version        0.1                                                           |
-|  Developed by:  DesPlus <desplus@gmail.com>                                   |
-|  Edited by:     Marvin                                                        |
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-|              .: PLEASE DONT'T REMOVE OR CHANGE THIS NOTICE :.                 |
-| ---------------------------------------------------------------------------   |
-|  Filename       quest_core.tpl	                                       	  |
-|  Version        1.0                                                           |
-|  Updated by:    Shadow <cata7007@gmail.com>                                   |
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#################################################################################
+##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+## --------------------------------------------------------------------------- ##
+##  Project:       TravianZ      					       		 ##
+##  Version:       01.09.2013 						       	 ##
+##  Filename       quest_core.tpl                                              ##
+##  Developed by:  DesPlus and Marvin                                          ##
+##  Fixed by:      Shadow / Skype : cata7007                                   ##
+##  License:       TravianZ Project                                            ##
+##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
+##  URLs:          http://travian.shadowss.ro 				       	 ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       	 ##
+##                                                                             ##
+#################################################################################
 
 include("GameEngine/Village.php");
 include("GameEngine/Data/cp.php");

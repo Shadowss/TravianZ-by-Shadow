@@ -1,5 +1,20 @@
 <?php
 
+#################################################################################
+##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+## --------------------------------------------------------------------------- ##
+##  Project:       TravianZ      					       ##
+##  Version:       01.09.2013 						       ##
+##  Filename       allianz.php                                                 ##
+##  Developed by:  Dzoki                                                       ##
+##  Fixed by:      Shadow                                                      ##
+##  License:       TravianX Project                                            ##
+##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  URLs:          http://travian.shadowss.ro 				       ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       ##
+##                                                                             ##
+#################################################################################
+
 if(isset($_GET['aid']) && !is_numeric($_GET['aid'])) die('Hacking Attemp');
 	   include ("GameEngine/Village.php");
 	   include ("GameEngine/Chat.php");

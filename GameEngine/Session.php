@@ -2,14 +2,18 @@
 ob_start(); // Enesure, that no more header already been sent error not showing up again
 mb_internal_encoding("UTF-8"); // Add for utf8 varriables.
 
-################################################################################
+#################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       Session.php                                                 ##
-##  Developed by:  Advocaite & Dzoki & Donnchadh                     	       ##
+##  Project:       TravianZ                        		       	       ##
+##  Version:       01.09.2013 						       ##
+##  Filename       Session.ph   p                                              ##
+##  Developed by:  Mr.php , Advocaite , brainiacX , yi12345 , Shadow  	       ##
 ##  Fixed by:      Shadow - Doubleing Troops , STARVATION , HERO FIXED COMPL.  ##
 ##  License:       TravianZ Project                                            ##
-##  Copyright:     TravianZ (c) 2012-2013. All rights reserved.                ##
+##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
+##  URLs:          http://travian.shadowss.ro 				       ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       ##
 ##                                                                             ##
 #################################################################################
 

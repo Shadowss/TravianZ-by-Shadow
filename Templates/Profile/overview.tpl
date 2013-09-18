@@ -1,12 +1,17 @@
 <?php
+
 #################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       overview.tpl                                                ##
-##  Developed by:  Dzoki  									 ##
-##  Modified by :  Shadow / Skype : cata7007                                   ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Project:       TravianZ      					       		 ##
+##  Version:       01.09.2013 						       	 ##
+##  Filename       tutorial.php                                                ##
+##  Developed by:  Dzoki                                                       ##
+##  Fixed by:      Shadow / Skype : cata7007                                   ##
+##  License:       TravianZ Project                                            ##
+##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
+##  URLs:          http://travian.shadowss.ro 				       	 ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       	 ##
 ##                                                                             ##
 #################################################################################
 

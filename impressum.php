@@ -2,10 +2,15 @@
 #################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       anleitung.php                                               ##
+##  Project:       TravianZ                        		       	       ##
+##  Version:       01.09.2013 						       ##
+##  Filename       impressum.php                                               ##
 ##  Developed by:  Dzoki                                                       ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Fixed by:      Shadow / Skype : cata7007                                   ##
+##  License:       TravianZ Project                                            ##
+##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
+##  URLs:          http://travian.shadowss.ro 				       ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       ##
 ##                                                                             ##
 #################################################################################
 
