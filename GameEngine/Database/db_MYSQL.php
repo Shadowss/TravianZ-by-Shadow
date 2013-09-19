@@ -1,17 +1,13 @@
 <?php
 
-#################################################################################
+################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Project:       TravianZ                        		       	       ##
-##  Version:       01.09.2013 						       ##
 ##  Filename       db_MYSQL.php                                                ##
-##  Developed by:  Mr.php , Advocaite , brainiacX , yi12345 , Shadow  	       ##
+##  Developed by:  Advocaite & Dzoki & Donnchadh & yi12345                     ##
 ##  Fixed by:      Shadow - Doubleing Troops , STARVATION , HERO FIXED COMPL.  ##
 ##  License:       TravianZ Project                                            ##
-##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
-##  URLs:          http://travian.shadowss.ro 				       ##
-##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       ##
+##  Copyright:     TravianZ (c) 2012-2013. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 
@@ -1867,13 +1863,13 @@ class MYSQL_DB {
 		return mysql_query($q, $this->connection);
 	}
 
-	function addNotice($uid, $wref, $aid, $type, $topic, $data, $time = 0) {
-		if($time == 0) {
-			$time = time();
-		}
-		$q = "INSERT INTO " . TB_PREFIX . "ndata (id, uid, toWref, ally, topic, ntype, data, time, viewed) values (0,'$uid','$wref','$aid','$topic',$type,'$data',$time,0)";
-		return mysql_query($q, $this->connection) or die(mysql_error());
-	}
+        function addNotice($uid, $toWref, $ally, $type, $topic, $data, $time = 0) {
+        	if($time == 0) {
+        	$time = time();
+        	}
+        	$q = "INSERT INTO " . TB_PREFIX . "ndata (id, uid, toWref, ally, topic, ntype, data, time, viewed) values (0,'$uid','$toWref','$ally','$topic',$type,'$data',$time,0)";
+        	return mysql_query($q, $this->connection) or die(mysql_error());
+        }
 
 	function getNotice($uid) {
 		$q = "SELECT * FROM " . TB_PREFIX . "ndata where uid = $uid and del = 0 ORDER BY time DESC";

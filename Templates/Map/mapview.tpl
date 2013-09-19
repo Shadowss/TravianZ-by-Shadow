@@ -174,7 +174,6 @@ $neutral = (($neutralarray[0]['alli1']>0 and $neutralarray[0]['alli2']>0 and $do
 	$i++;
 	$i2++;
 	$coorindex+=1;
-
     if($session->plus) {
     	$wref = $village->wid;
         $toWref = $maparray[$index]['id'];
