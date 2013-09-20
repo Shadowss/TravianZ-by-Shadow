@@ -137,14 +137,14 @@ $neutral = (($neutralarray[0]['alli1']>0 and $neutralarray[0]['alli2']>0 and $do
 	}
 
 	//Map create
-	$map_gen .= "<area id='a_".$row."_".$i."' shape='poly' coords='".$coorarray[$coorindex]."' title='".$donnees['ville_name']."' href='karte.php?d=".$donnees['map_id']."&c=".$generator->getMapCheck($donnees['map_id'])."' />\n";
+	$map_gen .= "<area id='a_".$row."_".$i."' shape='poly' coords='".$coorarray[$coorindex]."' title='".htmlspecialchars($donnees['ville_name'])."' href='karte.php?d=".$donnees['map_id']."&c=".$generator->getMapCheck($donnees['map_id'])."' />\n";
 
 	//Javascript map info
 	if($yrow!=7){
 		$map_js .= "[".$donnees['map_x'].",".$donnees['map_y'].",".$donnees['map_fieldtype'].",". ((!empty($donnees['map_oasis'])) ? $donnees['map_oasis'] : 0) .",\"d=".$donnees['map_id']."&c=".$generator->getMapCheck($donnees['map_id'])."\",\"".$image."\"";
 		if($donnees['map_occupied']){
 			if($donnees['map_fieldtype'] != 0){
-				$map_js.= ",\"".$donnees['ville_name']."\",\"".$donnees['user_username']."\",\"".$donnees['ville_pop']."\",\"".$donnees['aliance_name']."\",\"".$donnees['user_tribe']."\"]\n";
+				$map_js.= ",\"".htmlspecialchars($donnees['ville_name'])."\",\"".htmlspecialchars($donnees['user_username'])."\",\"".$donnees['ville_pop']."\",\"".htmlspecialchars($donnees['aliance_name'])."\",\"".$donnees['user_tribe']."\"]\n";
 			}
 		}
 		elseif($donnees['map_oasis'] != 0){
@@ -174,13 +174,33 @@ $neutral = (($neutralarray[0]['alli1']>0 and $neutralarray[0]['alli2']>0 and $do
 	$i++;
 	$i2++;
 	$coorindex+=1;
-    if($session->plus) {
-    	$wref = $village->wid;
-        $toWref = $maparray[$index]['id'];
-    	if ($database->checkAttack($wref,$toWref) != 0) {
-			echo '<img style="margin-right:45px;" class="att1" src="img/x.gif" />';
+
+
+/* attack/raid on you! */
+$aantal = count($database->getMovement(3,$village->wid,1));
+$aantal1 = count($database->getMovement(3,$village->wid,1));
+$aantal2 = $database->getMovement(3,$village->wid,1);
+for($i=0;$i<$aantal1;$i++){
+	if($aantal2[$i]['attack_type'] == 2) { $aantal -= 1; }
+	if($aantal2[$i]['attack_type'] == 1) { $aantal -= 1; }
+}
+
+if($aantal > 0){
+	if(!empty($NextArrival1)) { reset($NextArrival1); }
+	foreach($aantal2 as $receive) {
+		if ($receive['attack_type'] != 2 && $receive['attack_type'] != 1) {
+			$action = 'att1';
+			$aclass = 'a1';
+			$title = ''.OWN_ATTACKING_TROOPS.'';
+			$short = ''.ATTACK.'';
+			$NextArrival1[] = $receive['endtime'];
 		}
-    }
+	}
+	echo '<tr><td class="typ"><a href="build.php?id=39"><img src="img/x.gif" class="'.$action.'" alt="'.$title.'" title="'.$title.'" /></a><span class="'.$aclass.'">&raquo;</span></td>
+	<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">in&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat(min($NextArrival1)-time()).'</span>&nbsp;'.HOURS.'</div></div></td></tr>';
+	$timer += 1;
+}
+
 }
 ?>
 <div id="content"  class="map">

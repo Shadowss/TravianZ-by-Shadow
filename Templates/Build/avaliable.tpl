@@ -122,7 +122,7 @@ if($mainbuilding >= 10 && $warehouse == 20 && $village->capital == 0 && $largeA[
 }
 if($mainbuilding >= 10 && $granary == 20 && $village->capital == 0 && $largeA['owner'] == $session->uid || $normalA['vref'] == $village->wid ) {
     include("avaliable/greatgranary.tpl");
-}  
+} 
 if((($trapper == 0 && $trapper1 == 0) || $trapper == 20) && $rallypoint >= 1 && $session->tribe == 3 && $id != 39 && $id != 40) {
 include("avaliable/trapper.tpl");
 }

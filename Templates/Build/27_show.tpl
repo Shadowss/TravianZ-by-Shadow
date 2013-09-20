@@ -43,9 +43,7 @@
                     	 break;
                     	 case 8:
                     	 if($artefact['type'] == 8 && $artefact['bad_effect']==1){$betterorbadder="spies increase ability with";}else{$betterorbadder="spies decrease ability with";}
-
-                    	 break;
-
+			 break;
                  }
 
                    $bonus=$betterorbadder." ".$effecty."";

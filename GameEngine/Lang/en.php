@@ -302,11 +302,17 @@ define("HOURS","hours");
 //ATTACKS ETC.
 define("TROOP_MOVEMENTS","Troop Movements:");
 define("ARRIVING_REINF_TROOPS","Arriving reinforcing troops");
+define("ARRIVING_ATTACKING_TROOPS","Arriving attacker troops");
 define("ARRIVING_REINF_TROOPS_SHORT","Reinf.");
 define("OWN_ATTACKING_TROOPS","Own attacking troops");
 define("ATTACK","Attack");
 define("OWN_REINFORCING_TROOPS","Own reinforcing troops");
 define("TROOPS_DORF","Troops:");
+define("NEWVILLAGE","New village");
+define("FOUNDNEWVILLAGE","Founding New village");
+define("UNDERATTACK","The village is under attack");
+define("OASISATTACK","The Oasis is under attack");
+define("OASISATTACKS","Oasis Attack");
 
 
 //LOGIN.php
