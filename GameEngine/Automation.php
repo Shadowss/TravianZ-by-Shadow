@@ -1736,14 +1736,6 @@ class Automation {
 				}
 			}
 
-			if ($isoasis == 0) {
-				$database->modifyResource($data["to"], $steal[0], $steal[1], $steal[2], $steal[3], false);
-				$this->pruneResource();
-			} else {
-				$database->modifyOasisResource($data["to"], $steal[0], $steal[1], $steal[2], $steal[3], false);
-				$this->pruneOResource();
-			}
-
 			//work out time of return
 			$start = ($owntribe-1)*10+1;
 			$end = ($owntribe*10);

@@ -175,32 +175,13 @@ $neutral = (($neutralarray[0]['alli1']>0 and $neutralarray[0]['alli2']>0 and $do
 	$i2++;
 	$coorindex+=1;
 
-
-/* attack/raid on you! */
-$aantal = count($database->getMovement(3,$village->wid,1));
-$aantal1 = count($database->getMovement(3,$village->wid,1));
-$aantal2 = $database->getMovement(3,$village->wid,1);
-for($i=0;$i<$aantal1;$i++){
-	if($aantal2[$i]['attack_type'] == 2) { $aantal -= 1; }
-	if($aantal2[$i]['attack_type'] == 1) { $aantal -= 1; }
-}
-
-if($aantal > 0){
-	if(!empty($NextArrival1)) { reset($NextArrival1); }
-	foreach($aantal2 as $receive) {
-		if ($receive['attack_type'] != 2 && $receive['attack_type'] != 1) {
-			$action = 'att1';
-			$aclass = 'a1';
-			$title = ''.OWN_ATTACKING_TROOPS.'';
-			$short = ''.ATTACK.'';
-			$NextArrival1[] = $receive['endtime'];
-		}
-	}
-	echo '<tr><td class="typ"><a href="build.php?id=39"><img src="img/x.gif" class="'.$action.'" alt="'.$title.'" title="'.$title.'" /></a><span class="'.$aclass.'">&raquo;</span></td>
-	<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">in&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat(min($NextArrival1)-time()).'</span>&nbsp;'.HOURS.'</div></div></td></tr>';
-	$timer += 1;
-}
-
+    if($session->plus) {
+        $wref = $village->wid;
+        $toWref = $maparray[$index]['id'];
+        if ($database->checkAttack($wref,$toWref) != 0) {
+            echo '<img style="margin-right:45px;" class="span.m3" src="img/x.gif" />';
+        }
+    } 
 }
 ?>
 <div id="content"  class="map">
