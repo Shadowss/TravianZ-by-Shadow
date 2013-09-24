@@ -10,8 +10,13 @@
 ##                                                                             ##
 #################################################################################
 
-$aantal = (count($database->getMovement(4,$village->wid,1))+count($database->getMovement(3,$village->wid,1))+count($database->getMovement(3,$village->wid,0))+count($database->getMovement(7,$village->wid,1))+count($database->getMovement(5,$village->wid,0))+count($database->getMovement(6,$village->wid,0))-count($database->getMovement(8,$village->wid,1))-count($database->getMovement(9,$village->wid,0)));
-
+$oases = 0;
+$array = $database->getOasis($village->wid);
+foreach($array as $conqured){
+$oases += count($database->getMovement(6,$village->wid,0));
+}
+$aantal = (count($database->getMovement(4,$village->wid,1))+count($database->getMovement(3,$village->wid,1))+count($database->getMovement(3,$village->wid,0))+count($database->getMovement(7,$village->wid,1))+count($database->getMovement(5,$village->wid,0))+$oases-count($database->getMovement(8,$village->wid,1))-count($database->getMovement(9,$village->wid,0)));
+  
 if($aantal > 0){
 	echo	'<table id="movements" cellpadding="1" cellspacing="1"><thead><tr><th colspan="3">'.TROOP_MOVEMENTS.'</th></tr></thead><tbody>';
 }
@@ -51,7 +56,7 @@ if($aantal > 0){
 	if ($receive['attack_type'] == 2) {
 		$action = 'def1';
 		$aclass = 'd1';
-		$title = ''.OWN_REINFORCING_TROOPS.'';
+		$title = ''.ARRIVING_REINF_TROOPS.'';
 		$short = ''.ARRIVING_REINF_TROOPS_SHORT.'';
 		$NextArrival[] = $receive['endtime'];
 	}
@@ -134,8 +139,13 @@ if($lala > 0){
 
 /* Found NEW VILLAGE by Shadow */
 
-$aantal = count($database->getMovement(5,$village->wid,0));
-$aantal2 = $database->getMovement(5,$village->wid,0);
+$aantal = 0;
+$aantal2 = array();
+$array = $database->getOasis($village->wid);
+foreach($array as $conqured){
+$aantal += count($database->getMovement(6,$conqured['wref'],0));
+$aantal2 = array_merge($database->getMovement(6,$conqured['wref'],0), $aantal2);
+} 
 if($aantal > 0){
 	if(!empty($NextArrival5)) { reset($NextArrival5); }	
 			foreach($aantal2 as $receive) {
@@ -159,10 +169,17 @@ $aantal2 = $database->getMovement(6,$village->wid,0);
 if($aantal > 0){
 	if(!empty($NextArrival6)) { reset($NextArrival6); }	
 			foreach($aantal2 as $receive) {
+				if($receive['attack_type'] == 2){
+				$action = 'def3';
+        			$aclass = 'd3';
+        			$title = ''.ARRIVING_REINF_TROOPS.'';
+        			$short = ''.ARRIVING_REINF_TROOPS_SHORT.'';
+      				}else{ 
 				$action = 'att3';
-				$aclass = 'a1';
+				$aclass = 'a3';
 				$title = ''.OASISATTACK.'';
 				$short = ''.OASISATTACKS.'';
+				}
 				$NextArrival6[] = $receive['endtime'];
 			}
 			
