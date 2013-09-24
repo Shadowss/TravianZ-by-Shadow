@@ -472,6 +472,15 @@ class Battle {
                         // Berekening van de Basic defence bonus "Residence" 
                         $dp += ((2*(pow($residence,2)))*(pow($factor,$def_wall))); 
                         $cdp += ((2*(pow($residence,2)))*(pow($factor,$def_wall))); 
+			if($def_tribe == 1){
+      			$bonus = 10;
+      			}else if($def_tribe == 2){
+      			$bonus = 6;
+      			}else if($def_tribe == 3){
+      			$bonus = 8;
+      			}
+      			$dp += $def_wall*$bonus;
+      			$cdp += $def_wall*$bonus; 
                 } 
                 else 
         { 
@@ -505,7 +514,7 @@ class Battle {
 
 				$result['Winner'] = ($winner)? "attacker" : "defender";
 
-				// Formule voor de berekening van de Moraal
+				// Formula for calculating the Moral
 				if($attpop > $defpop) {
 						if ($rap < $rdp) {
 								$moralbonus = min(1.5, pow($attpop / $defpop, (0.2*($rap/$rdp))));
@@ -529,11 +538,14 @@ class Battle {
 					$Mfactor = 1.5;
 				}
 				if ($Mfactor < 1.25778){$Mfactor=1.25778;}elseif ($Mfactor > 1.5){$Mfactor=1.5;}
-				// Formule voor het berekenen verloren drives
+				// Formula for calculating lost drives
 				// $type = 1 Raid, 0 Normal
-				if($type == 1)
-				{
+				if($type == 1){
+				if($rap > 0){
 						$holder = pow((($rdp*$moralbonus)/$rap),$Mfactor);
+						}else{
+						$holder = pow(($rdp*$moralbonus),$Mfactor);
+						}
 						$holder = $holder / (1 + $holder);
 						// Attacker
 						$result[1] = $holder;

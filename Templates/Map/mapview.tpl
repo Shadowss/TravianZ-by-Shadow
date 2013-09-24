@@ -129,22 +129,32 @@ $neutral = (($neutralarray[0]['alli1']>0 and $neutralarray[0]['alli2']>0 and $do
 //echo in_array($targetalliance,$friendarray);
 	$image = ($donnees['map_occupied'] == 1 && $donnees['map_fieldtype'] > 0)?(($donnees['ville_user'] == $session->uid)? ($donnees['ville_pop']>=100? $donnees['ville_pop']>= 250?$donnees['ville_pop']>=500? 'b30': 'b20' :'b10' : 'b00') : (($targetalliance != 0)? ($friend==1? ($donnees['ville_pop']>=100? $donnees['ville_pop']>= 250?$donnees['ville_pop']>=500? 'b31': 'b21' :'b11' : 'b01') : ($war==1? ($donnees['ville_pop']>=100? $donnees['ville_pop']>= 250?$donnees['ville_pop']>=500? 'b32': 'b22' :'b12' : 'b02') : ($neutral==1? ($donnees['ville_pop']>=100? $donnees['ville_pop']>= 250?$donnees['ville_pop']>=500? 'b35': 'b25' :'b15' : 'b05') : ($targetalliance == $session->alliance? ($donnees['ville_pop']>=100? $donnees['ville_pop']>= 250?$donnees['ville_pop']>=500? 'b33': 'b23' :'b13' : 'b03') : ($donnees['ville_pop']>=100? $donnees['ville_pop']>= 250?$donnees['ville_pop']>=500? 'b34': 'b24' :'b14' : 'b04'))))) : ($donnees['ville_pop']>=100? $donnees['ville_pop']>= 250?$donnees['ville_pop']>=500? 'b34': 'b24' :'b14' : 'b04'))) : $donnees['map_image'];
 
+	// Map Attacks
+
+    	if($session->plus) {
+        $wref = $village->wid;
+        $toWref = $donnees['map_id'];
+        if ($database->checkAttack($wref,$toWref) != 0) {
+        $att = '<img style="margin-right:45px;" class="att1" src="img/x.gif" />';
+        }
+    	}
+
 	// Map content
 	if($donnees['ville_user']==3 && $donnees['ville_name']=='WW Buildingplan'){
 	$map_content .= "<div id='i_".$row."_".$i."' class='o99'></div>\r";
 	}else{
-	$map_content .= "<div id='i_".$row."_".$i."' class='".$image."'></div>\r";
+	$map_content .= "<div id='i_".$row."_".$i."' class='".$image."'>$att</div>\r";
 	}
 
 	//Map create
-	$map_gen .= "<area id='a_".$row."_".$i."' shape='poly' coords='".$coorarray[$coorindex]."' title='".htmlspecialchars($donnees['ville_name'])."' href='karte.php?d=".$donnees['map_id']."&c=".$generator->getMapCheck($donnees['map_id'])."' />\n";
+	$map_gen .= "<area id='a_".$row."_".$i."' shape='poly' coords='".$coorarray[$coorindex]."' title='".$donnees['ville_name']."' href='karte.php?d=".$donnees['map_id']."&c=".$generator->getMapCheck($donnees['map_id'])."' />\n";
 
 	//Javascript map info
 	if($yrow!=7){
 		$map_js .= "[".$donnees['map_x'].",".$donnees['map_y'].",".$donnees['map_fieldtype'].",". ((!empty($donnees['map_oasis'])) ? $donnees['map_oasis'] : 0) .",\"d=".$donnees['map_id']."&c=".$generator->getMapCheck($donnees['map_id'])."\",\"".$image."\"";
 		if($donnees['map_occupied']){
 			if($donnees['map_fieldtype'] != 0){
-				$map_js.= ",\"".htmlspecialchars($donnees['ville_name'])."\",\"".htmlspecialchars($donnees['user_username'])."\",\"".$donnees['ville_pop']."\",\"".htmlspecialchars($donnees['aliance_name'])."\",\"".$donnees['user_tribe']."\"]\n";
+				$map_js.= ",\"".$donnees['ville_name']."\",\"".$donnees['user_username']."\",\"".$donnees['ville_pop']."\",\"".$donnees['aliance_name']."\",\"".$donnees['user_tribe']."\"]\n";
 			}
 		}
 		elseif($donnees['map_oasis'] != 0){
@@ -174,14 +184,6 @@ $neutral = (($neutralarray[0]['alli1']>0 and $neutralarray[0]['alli2']>0 and $do
 	$i++;
 	$i2++;
 	$coorindex+=1;
-
-    if($session->plus) {
-        $wref = $village->wid;
-        $toWref = $maparray[$index]['id'];
-        if ($database->checkAttack($wref,$toWref) != 0) {
-            echo '<img style="margin-right:45px;" class="span.m3" src="img/x.gif" />';
-        }
-    } 
 }
 ?>
 <div id="content"  class="map">

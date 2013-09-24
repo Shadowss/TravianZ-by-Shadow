@@ -1,5 +1,5 @@
 <?php
-		if($session->access!=BANNED){
+		if($session->access != BANNED && $session->gold >= 2){
 		$finish = 0;
 		foreach($building->buildArray as $jobs) {
 		if($jobs['wid']==$village->wid){

@@ -170,7 +170,7 @@ switch ($medal['categorie']) {
         $bonus[$medal['id']]=1;
 		break;
 	 case "9":
-        $titel="Receiving this medal shows that you were in the top 3 Robbers of the week ".$medal['points']." in a row.";
+        $titel="Receiving this medal shows that you were in the top 3 Climbers of the week ".$medal['points']." in a row.";
         $bonus[$medal['id']]=1;
 		break;
      	 case "10":

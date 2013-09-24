@@ -3595,10 +3595,10 @@ class MYSQL_DB {
 	***************************/
 
        function checkAttack($wref, $toWref){
-                $q = "SELECT * FROM ".TB_PREFIX."movement WHERE `from` = '$wref' AND `to` = '$toWref' AND `proc` = '0' AND `sort_type` = '3'";
+            	$q = "SELECT * FROM ".TB_PREFIX."movement WHERE `from` = '$wref' AND `to` = '$toWref' AND `proc` = '0' AND `sort_type` = '3'";
 		$result = mysql_query($q, $this->connection);
-			if(mysql_num_rows($result)) {
-			return mysql_fetch_array($result);
+		if(mysql_num_rows($result)) {
+		return mysql_fetch_array($result);
 		} else {
 		return false;
 		}
