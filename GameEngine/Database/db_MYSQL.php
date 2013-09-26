@@ -3592,14 +3592,14 @@ class MYSQL_DB {
 
 	/***************************
 	Function checkAttack
-	Made by: Shadow
+	Made by: Advocaite
 	***************************/
 
        function checkAttack($wref, $toWref){
-            	$q = "SELECT * FROM ".TB_PREFIX."movement WHERE `from` = '$wref' AND `to` = '$toWref' AND `proc` = '0' AND `sort_type` = '3'";
+            	$q = "SELECT * FROM " . TB_PREFIX . "movement, " . TB_PREFIX . "attacks where " . TB_PREFIX . "movement.from = $wref and " . TB_PREFIX . "movement.to = $toWref and " . TB_PREFIX . "movement.ref = " . TB_PREFIX . "attacks.id and " . TB_PREFIX . "movement.proc = 0 and " . TB_PREFIX . "movement.sort_type = 3 and (" . TB_PREFIX . "attacks.attack_type = 3 or " . TB_PREFIX . "attacks.attack_type = 4) ORDER BY endtime ASC";
 		$result = mysql_query($q, $this->connection);
 		if(mysql_num_rows($result)) {
-		return mysql_fetch_array($result);
+		return true;
 		} else {
 		return false;
 		}
@@ -3607,18 +3607,33 @@ class MYSQL_DB {
 
 	/***************************
 	Function checkEnforce
-	Made by: Shadow
+	Made by: Advocaite
 	***************************/
 
-       function checkEnforce($vid, $from) {
-		$q = "SELECT * from " . TB_PREFIX . "enforcement where `from` = $from and vref = $vid";
-      		$result = mysql_query($q, $this->connection);
-			if(!empty($result)) {
-			return mysql_insert_id($this->connection);
-		}else{
-		return true;
-		}
-	}
+	function checkEnforce($wref, $toWref) {
+    		$q = "SELECT * FROM " . TB_PREFIX . "movement, " . TB_PREFIX . "attacks where " . TB_PREFIX . "movement.from = $wref and " . TB_PREFIX . "movement.to = $toWref and " . TB_PREFIX . "movement.ref = " . TB_PREFIX . "attacks.id and " . TB_PREFIX . "movement.proc = 0 and " . TB_PREFIX . "movement.sort_type = 3 and " . TB_PREFIX . "attacks.attack_type = 2 ORDER BY endtime ASC";
+        	$result = mysql_query($q, $this->connection);
+    		if(mysql_num_rows($result)) {
+    		return true;
+     		}else{
+    		return false;
+    		}
+  	}	
+
+	/***************************
+  	Function checkScout
+  	Made by: yi12345
+  	***************************/
+
+	function checkScout($wref, $toWref) {
+    		$q = "SELECT * FROM " . TB_PREFIX . "movement, " . TB_PREFIX . "attacks where " . TB_PREFIX . "movement.from = $wref and " . TB_PREFIX . "movement.to = $toWref and " . TB_PREFIX . "movement.ref = " . TB_PREFIX . "attacks.id and " . TB_PREFIX . "movement.proc = 0 and " . TB_PREFIX . "movement.sort_type = 3 and " . TB_PREFIX . "attacks.attack_type = 1 ORDER BY endtime ASC";
+        	$result = mysql_query($q, $this->connection);
+    		if(mysql_num_rows($result)) {
+     		return true;
+    		}else{
+    		return false;
+     		}
+   	}  
 
 };
 

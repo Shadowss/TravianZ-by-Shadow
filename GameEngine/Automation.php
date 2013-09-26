@@ -2451,37 +2451,9 @@ if($data['t11'] > 0){
 						$rplevel =0;
 					}
 
-		/**************************
-		    City Wall by Shadow
-		**************************/
-	       
-               if($session->userinfo['tribe'] == 1) {
-					$walltitle = 'City Wall';
-                    $iconClass = 'gebIcon g3' . $tribe . 'Icon';
-				} else if($session->userinfo['tribe'] == 2) {
-					$walltitle = 'Earth Wall';
-                    $iconClass = 'gebIcon g3' . $tribe . 'Icon';
-				} else if($session->userinfo['tribe'] == 3) {
-					$walltitle = 'Palisade';
-                    $iconClass = 'gebIcon g3' . $tribe . 'Icon';
-				}
-                else
-                {
-                    /**
-                     * @todo Not sure what Natar Wall should be called, also using City Wall for the icon for now
-                     */
-                    $walltitle = "Natar Wall";
-                    $iconClass = 'gebIcon g31Icon';
-                }
-
-		/**************************
-		    City Wall by Shadow
-		**************************/
-
 $palaceimg = "<img src=\"".GP_LOCATE."img/g/g26.gif\" height=\"20\" width=\"15\" alt=\"Palace\" title=\"Palace\" />";
 $crannyimg = "<img src=\"".GP_LOCATE."img/g/g23.gif\" height=\"20\" width=\"15\" alt=\"Cranny\" title=\"Cranny\" />";
-$wallimg = "<img src=\"".GP_LOCATE."img/g/g33Icon.gif\" height=\"20\" width=\"15\" alt=\"Wall\" title=\"Wall\" />";
-//$wallimg = "<img class=\"" . $iconClass . "\" src=\"img/x.gif\" height=\"20\" width=\"15\" alt=\"Wall\" title=\"".$walltitle."\" />";
+$wallimg = "<img src=\"".GP_LOCATE."img/g/g3".$targettribe."Icon.gif\" height=\"20\" width=\"15\" alt=\"Wall\" title=\"Wall\" />";
 				$info_spy = "".$spy_pic.",".$palaceimg." Residance/Palace Level : ".$rplevel."
 
 				<br>".$crannyimg." Cranny level: ".$crannylevel."<br>".$wallimg." Wall level : ".$walllevel."";

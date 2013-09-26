@@ -13,7 +13,7 @@
 $oases = 0;
 $array = $database->getOasis($village->wid);
 foreach($array as $conqured){
-$oases += count($database->getMovement(6,$village->wid,0));
+$oases += count($database->getMovement(6,$conqured['wref'],0));
 }
 $aantal = (count($database->getMovement(4,$village->wid,1))+count($database->getMovement(3,$village->wid,1))+count($database->getMovement(3,$village->wid,0))+count($database->getMovement(7,$village->wid,1))+count($database->getMovement(5,$village->wid,0))+$oases-count($database->getMovement(8,$village->wid,1))-count($database->getMovement(9,$village->wid,0)));
   
@@ -25,6 +25,9 @@ $NextArrival = array();
 $NextArrival1 = array();
 $NextArrival2 = array();
 $NextArrival3 = array();
+$NextArrival4 = array();
+$NextArrival5 = array();
+$NextArrival6 = array();
 
 /* Units coming back from Reinf,attack,raid,evasion or reinf to my town */
 $aantal = count($database->getMovement(4,$village->wid,1))+count($database->getMovement(7,$village->wid,1));
@@ -81,7 +84,7 @@ if($aantal > 0){
 		if ($receive['attack_type'] != 2 && $receive['attack_type'] != 1) {
 			$action = 'att1';
 			$aclass = 'a1';
-			$title = ''.OWN_ATTACKING_TROOPS.'';
+			$title = ''.UNDERATTACK.'';
 			$short = ''.ATTACK.'';
 			$NextArrival1[] = $receive['endtime'];
 		}
@@ -139,13 +142,13 @@ if($lala > 0){
 
 /* Found NEW VILLAGE by Shadow */
 
-$aantal = 0;
-$aantal2 = array();
-$array = $database->getOasis($village->wid);
-foreach($array as $conqured){
-$aantal += count($database->getMovement(6,$conqured['wref'],0));
-$aantal2 = array_merge($database->getMovement(6,$conqured['wref'],0), $aantal2);
-} 
+$aantal = count($database->getMovement(5,$village->wid,0));
+$aantal2 = $database->getMovement(5,$village->wid,0); 
+$aantal = count($aantal2);
+for($i=0;$i<$aantal;$i++){
+if($aantal2[$i]['attack_type'] == 2)
+$aantal -= 1;
+}
 if($aantal > 0){
 	if(!empty($NextArrival5)) { reset($NextArrival5); }	
 			foreach($aantal2 as $receive) {
@@ -157,15 +160,20 @@ if($aantal > 0){
 			}
 			
 	echo '<tr><td class="typ"><a href="build.php?id=39"><img src="img/x.gif" class="'.$action.'" alt="'.$title.'" title="'.$title.'" /></a><span class="'.$aclass.'">&raquo;</span></td>
-	<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.HOURS.'</div></div></td></tr>';
+	<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">in&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.HOURS.'</div></div></td></tr>';
 	$timer += 1;
 
 }
 
 /* Attacks on Oasis (to my oasis) by Shadow */
 
-$aantal = count($database->getMovement(6,$village->wid,0));
-$aantal2 = $database->getMovement(6,$village->wid,0);
+$aantal = 0;
+$aantal2 = array();
+$array = $database->getOasis($village->wid);
+foreach($array as $conqured){
+$aantal += count($database->getMovement(6,$conqured['wref'],0));
+$aantal2 = array_merge($database->getMovement(6,$conqured['wref'],0), $aantal2);
+}  
 if($aantal > 0){
 	if(!empty($NextArrival6)) { reset($NextArrival6); }	
 			foreach($aantal2 as $receive) {
@@ -184,7 +192,7 @@ if($aantal > 0){
 			}
 			
 	echo '<tr><td class="typ"><a href="build.php?id=39"><img src="img/x.gif" class="'.$action.'" alt="'.$title.'" title="'.$title.'" /></a><span class="'.$aclass.'">&raquo;</span></td>
-	<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.HOURS.'</div></div></td></tr>';
+	<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">in&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.HOURS.'</div></div></td></tr>';
 	$timer += 1;
 
 }
