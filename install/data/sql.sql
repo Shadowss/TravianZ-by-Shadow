@@ -442,7 +442,8 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%chat` (
 --
 
 CREATE TABLE IF NOT EXISTS `%PREFIX%config` (
-  `lastgavemedal` int(11) unsigned NOT NULL
+  `lastgavemedal` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`lastgavemedal`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 INSERT INTO `%PREFIX%config` VALUES (0);
 
@@ -783,7 +784,8 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%forum_survey` (
   `vote7` int(11) unsigned NOT NULL DEFAULT '0',
   `vote8` int(11) unsigned NOT NULL DEFAULT '0',
   `voted` text NOT NULL,
-  `ends` int(11) unsigned NOT NULL
+  `ends` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`topic`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
@@ -1543,7 +1545,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%users` (
   `vactwoweeks` varchar(255) NOT NULL,
   `reflink` int(4) NOT NULL,
   `dailygold` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `dailygoldtime` int(4) int(11) unsigned NOT NULL DEFAULT '0',
+  `dailygoldtime` int(4) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 

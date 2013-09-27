@@ -3,15 +3,15 @@
 #################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Project:       TravianZ      					       		 ##
-##  Version:       01.09.2013 						       	 ##
+##  Project:       TravianZ      					       ##
+##  Version:       01.09.2013 						       ##
 ##  Filename       quest_core.tpl                                              ##
 ##  Developed by:  DesPlus and Marvin                                          ##
 ##  Fixed by:      Shadow / Skype : cata7007                                   ##
 ##  License:       TravianZ Project                                            ##
 ##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
-##  URLs:          http://travian.shadowss.ro 				       	 ##
-##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       	 ##
+##  URLs:          http://travian.shadowss.ro 				       ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       ##
 ##                                                                             ##
 #################################################################################
 
@@ -689,7 +689,7 @@ if ($ironL<4 || $clayL<4 || $woodL<4 || $cropL<6){?>
 
 
 ////////////////// DE AICI INCEPE TOT \\\\\\\\\\\\\\\\\\\\\\\
-// Added by Shadow - cata7007@gmail.com / Skype : cata7007
+// Added by Shadow - cata7007@gmail.com / Skype : cata7007\\\\
 <?php } elseif($_SESSION['qst']== 28){
 
 $aid = $session->alliance;
@@ -791,7 +791,7 @@ if ($wall==0){?>
 {"markup":"\n\t\t<div id=\"qstd\"><h1> <img class=\"point\" src=\"img\/x.gif\" alt=\"\" title=\"\"\/> Task 28: Build a <?php echo $unarray[$session->userinfo['tribe']];?><\/h1><br \/><i>&rdquo;That's what I'm talking about. A <?php echo $unarray[$session->userinfo['tribe']];?> Very useful. It increases the defence of the troops in the village.&rdquo;<\/i><br \/><br \/><div class=\"rew\"><p class=\"ta_aw\"><input type=\"hidden\" id=\"qst_val\" value=\"2\" \/>Your reward:<\/p><img src=\"img\/x.gif\" class=\"r1\" alt=\"Lumber\" title=\"Lumber\" \/>1700&nbsp;&nbsp;<img src=\"img\/x.gif\" class=\"r2\" alt=\"Clay\" title=\"Clay\" \/>2100&nbsp;&nbsp;<img src=\"img\/x.gif\" class=\"r3\" alt=\"Iron\" title=\"Iron\" \/>1900&nbsp;&nbsp;<img src=\"img\/x.gif\" class=\"r4\" alt=\"Crop\" title=\"Crop\" \/>1400&nbsp;&nbsp;<\/div><br \/><span id=\"qst_accpt\"><a href=\"javascript: qst_next('','23');\">Continue with the next task.<\/a><\/span><\/div>\n\t\t<div id=\"qstbg\" class=\"intro\"><\/div>\n\t\t","number":36,"reward":{"wood":1700,"clay":2100,"iron":1900,"crop":1400},"qgsrc":"q_l<?php echo $session->userinfo['tribe'];?>g","msrc":"<?php echo $messagelol; ?>","altstep":99}
 <?php } ?>
 
-// Added by Shadow - cata7007@gmail.com / Skype : cata7007
+// Added by Shadow - cata7007@gmail.com / Skype : cata7007\\\\\\\\\\
 /////////////////////// AICI SE TERMINA TOTUL \\\\\\\\\\\\\\\\\\\\\\\
 
 // End tasks message
@@ -1124,7 +1124,7 @@ if ($ironL<4 || $clayL<4 || $woodL<4 || $cropL<6){?>
 <?php } ?>
 
 ////////////////// DE AICI INCEPE TOT \\\\\\\\\\\\\\\\\\\\\\\
-// Added by Shadow - cata7007@gmail.com / Skype : cata7007
+// Added by Shadow - cata7007@gmail.com / Skype : cata7007\\\\
 
 <?php } elseif($_SESSION['qst']== 28){
 
@@ -1227,7 +1227,7 @@ if ($wall==0){?>
 {"markup":"\n\t\t<div id=\"qstd\"><h1> <img class=\"point\" src=\"img\/x.gif\" alt=\"\" title=\"\"\/> Task 28: Build a <?php echo $unarray[$session->userinfo['tribe']];?><\/h1><br \/><i>&rdquo;That's what I'm talking about. A <?php echo $unarray[$session->userinfo['tribe']];?> Very useful. It increases the defence of the troops in the village.&rdquo;<\/i><br \/><br \/><div class=\"rew\"><p class=\"ta_aw\"><input type=\"hidden\" id=\"qst_val\" value=\"2\" \/>Your reward:<\/p><img src=\"img\/x.gif\" class=\"r1\" alt=\"Lumber\" title=\"Lumber\" \/>1700&nbsp;&nbsp;<img src=\"img\/x.gif\" class=\"r2\" alt=\"Clay\" title=\"Clay\" \/>2100&nbsp;&nbsp;<img src=\"img\/x.gif\" class=\"r3\" alt=\"Iron\" title=\"Iron\" \/>1900&nbsp;&nbsp;<img src=\"img\/x.gif\" class=\"r4\" alt=\"Crop\" title=\"Crop\" \/>1400&nbsp;&nbsp;<\/div><br \/><span id=\"qst_accpt\"><a href=\"banned.php\">Continue with the next task.<\/a><\/span><\/div>\n\t\t<div id=\"qstbg\" class=\"intro\"><\/div>\n\t\t","number":36,"reward":{"wood":1700,"clay":2100,"iron":1900,"crop":1400},"qgsrc":"q_l<?php echo $session->userinfo['tribe'];?>g","msrc":"<?php echo $messagelol; ?>","altstep":99}
 <?php } ?>
 
-// Added by Shadow - cata7007@gmail.com / Skype : cata7007
+// Added by Shadow - cata7007@gmail.com / Skype : cata7007\\\\\\\\\\
 /////////////////////// AICI SE TERMINA TOTUL \\\\\\\\\\\\\\\\\\\\\\\
 
 // End tasks message

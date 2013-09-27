@@ -118,9 +118,14 @@ $automation->isWinner();
 50. Added automated system for give medals and also added in instalation file</br>
 51. Fix special characters when send troops</br>
 52. Fix reference link</br>
-53. Fix bug 10 from NarcisRO list : If you have plus account activated you cannot see the attck/deff/scout images when you attack a village (i mean img on villages : red swords etc..) - NOT DONE</br>
+53. Fix bug 10 from NarcisRO list : If you have plus account activated you cannot see the attck/deff/scout images when you attack a village (i mean img on villages : red swords etc..)</br>
 54. Fix forum surveys - NOT DONE</br>
-55. Fix wall image when spy someone for every tribe - NOT DONE</br>
+55. Fix wall image when spy someone for every tribe</br>
+56. Fix the top romans/teutons/gauls icon must show you the first rank of each race,not the whole page</br>
+57. Fix destroy village bug</br>
+58. Fix conquer oasis.</br>
+59. Fix movements.tpl (now show purple sword if your oasis is attacked or if you found new village)</br>
+60. Fixed movements on rally point if your oasis is under attack</br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">

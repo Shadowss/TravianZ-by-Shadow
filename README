@@ -50,6 +50,20 @@ This version
 44. Fix desapear hero when you send as reinforcement (temporary fix).
 45. Fix message problem with '
 46. Added image for each tribe in hero mansion.
+47. Fix merchant quantity
+48. Fix battle system for catapults
+49. Fix delete player in admin panel
+50. Added automated system for give medals and also added in instalation file
+51. Fix special characters when send troops
+52. Fix reference link
+53. Fix bug 10 from NarcisRO list : If you have plus account activated you cannot see the attck/deff/scout images when you attack a village (i mean img on villages : red swords etc..)
+54. Fix forum surveys - NOT DONE
+55. Fix wall image when spy someone for every tribe
+56. Fix the top romans/teutons/gauls icon must show you the first rank of each race,not the whole page
+57. Fix destroy village bug
+58. Fix conquer oasis.
+59. Fix movements.tpl (now show purple sword if your oasis is attacked or if you found new village)
+60. Fixed movements on rally point if your oasis is under attack
 
 In future
 
@@ -75,24 +89,16 @@ Rules for connection type 3
 4. Gold Club not fixed complete
 - raid statistics
 
-5. If you have plus account activated you cannot see the attck/deff/scout images when you attack a village (i mean img on villages : red swords etc..)
+5. Capital doesnt apper on dorf1.php under village name
 
-6. Capital doesnt apper on dorf1.php under village name
+6. Time zone from preference.tpl and also all options must to coded and also must coded in profile.tpl sitters options
 
-7. Time zone from preference.tpl and also all options must to coded and also must coded in profile.tpl sitters options
+7. Must code a fuction to don't leave pleyer who have seted in past 14 days vacation mode to set another vacation mode
 
-8. Must code a fuction to don't leave pleyer who have seted in past 14 days vacation mode to set another vacation mode
+8. Graphic pack is enabled but must be fully coded
 
-9. Artefact storage master plan can bulild great granny and great warehouse on any village except capital. Effect account. Templates/Build/available.tpl (if($mainbuilding >= 10 && $village->capital == 0)
+9. In profile.tpl must be coded option for sitters (access for what)
 
-10. Artefact storage masterplan effect village can build great granny and great warehouse even if artefact is inactive and even you dont have warehouse at level 20 and granny level 20
+10. Troops don`t consume crop from villange when you send as reinforcements on oassis. Must to consume from villang when troops are reinforcement on anexed oassis.
 
-11. Oassis loiality from 100 to 0 directly must be 100-60-20-0
-
-12. Graphic pack is enabled but must be fully coded
-
-13. In profile.tpl must be coded option for sitters (access for what)
-
-14. Troops don`t consume crop from villange when you send as reinforcements on oassis. Must to consume from villang when troops are reinforcement on anexed oassis.
-
-15. When you try to steal an artefact (you have treasurey level 10) and attack with another player (with treasury level 20 and 2 artefacts) , you steal both artefact. Here is a bug , if you have level 10 treasurey you can steal both artefact even second artefact is large artefact and need treasurey level 20
+11. When you try to steal an artefact (you have treasurey level 10) and attack with another player (with treasury level 20 and 2 artefacts) , you steal both artefact. Here is a bug , if you have level 10 treasurey you can steal both artefact even second artefact is large artefact and need treasurey level 20

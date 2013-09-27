@@ -3592,7 +3592,7 @@ class MYSQL_DB {
 
 	/***************************
 	Function checkAttack
-	Made by: Advocaite
+	Made by: Shadow
 	***************************/
 
        function checkAttack($wref, $toWref){
@@ -3607,7 +3607,7 @@ class MYSQL_DB {
 
 	/***************************
 	Function checkEnforce
-	Made by: Advocaite
+	Made by: Shadow
 	***************************/
 
 	function checkEnforce($wref, $toWref) {
