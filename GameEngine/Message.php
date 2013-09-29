@@ -320,7 +320,9 @@ class Message {
 		$allmembersQ = mysql_query("SELECT id FROM ".TB_PREFIX."users WHERE alliance='".$session->alliance."'");
 		$userally = $database->getUserField($session->uid,"alliance",0);
 		$permission=mysql_fetch_array(mysql_query("SELECT opt7 FROM ".TB_PREFIX."ali_permission WHERE uid='".$session->uid."'"));
-
+		$flood = mysql_num_rows(mysql_query("SELECT * FROM ".TB_PREFIX."mdata WHERE owner='".$session->uid."' AND ".time()." - time < 60"));
+		if($flood > 5)
+			die("Flood");
 		if(WORD_CENSOR) {
 		$topic = $this->wordCensor($topic);
 		$text = $this->wordCensor($text);
