@@ -405,13 +405,11 @@ class Message {
 		global $session, $database;
 		$user = $database->getUserField($recieve, "id", 1);
 
-
 		$q = "SELECT * FROM ".TB_PREFIX."mdata WHERE owner='".$session->uid."' AND time > ".time()." - 60";
 		$res = mysql_query($q) or die(mysql_error(). " query  ".$q);
 		$flood = mysql_num_rows($res);
 		if($flood > 5)
 			return; //flood
-		echo $flood;
 
 		if(WORD_CENSOR) {
 			$topic = $this->wordCensor($topic);
