@@ -317,10 +317,18 @@ class Message {
 
 	private function sendAMessage($topic,$text) {
 		global $session,$database;
+
+
+		$q = "SELECT * FROM ".TB_PREFIX."mdata WHERE owner='".$session->uid."' AND time > ".time()." - 60";
+		$res = mysql_query($q) or die(mysql_error(). " query  ".$q);
+		$flood = mysql_num_rows($res);
+		if($flood > 5)
+			return; //flood
+			
+			
 		$allmembersQ = mysql_query("SELECT id FROM ".TB_PREFIX."users WHERE alliance='".$session->alliance."'");
 		$userally = $database->getUserField($session->uid,"alliance",0);
 		$permission=mysql_fetch_array(mysql_query("SELECT opt7 FROM ".TB_PREFIX."ali_permission WHERE uid='".$session->uid."'"));
-
 		if(WORD_CENSOR) {
 		$topic = $this->wordCensor($topic);
 		$text = $this->wordCensor($text);
@@ -396,6 +404,13 @@ class Message {
 	private function sendMessage($recieve, $topic, $text) {
 		global $session, $database;
 		$user = $database->getUserField($recieve, "id", 1);
+
+		$q = "SELECT * FROM ".TB_PREFIX."mdata WHERE owner='".$session->uid."' AND time > ".time()." - 60";
+		$res = mysql_query($q) or die(mysql_error(). " query  ".$q);
+		$flood = mysql_num_rows($res);
+		if($flood > 5)
+			return; //flood
+
 		if(WORD_CENSOR) {
 			$topic = $this->wordCensor($topic);
 			$text = $this->wordCensor($text);
