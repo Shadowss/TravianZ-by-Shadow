@@ -126,6 +126,8 @@ $automation->isWinner();
 58. Fix conquer oasis.</br>
 59. Fix movements.tpl (now show purple sword if your oasis is attacked or if you found new village)</br>
 60. Fixed movements on rally point if your oasis is under attack</br>
+61. Fixed vulnerability attack on message.</br>
+62. Fixed scouting all player when create natars.</br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">

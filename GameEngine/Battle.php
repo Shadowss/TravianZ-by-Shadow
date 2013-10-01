@@ -15,7 +15,7 @@ class Battle {
 
 		public function procSim($post) {
 				global $form;
-				// Recivimos el formulario y procesamos
+				// Receive the form and process
 				if(isset($post['a1_v']) && (isset($post['a2_v1']) || isset($post['a2_v2']) || isset($post['a2_v3']) || isset($post['a2_v4']))) {
 								$_POST['mytribe'] = $post['a1_v'];
 								$target = array();
@@ -79,7 +79,7 @@ class Battle {
 		}
 
 		private function simulate($post) {
-				// Establecemos los arrays con las unidades del atacante y defensor
+				// We set the arrays with attacking and defending units
 				$attacker = array('u1'=>0,'u2'=>0,'u3'=>0,'u4'=>0,'u5'=>0,'u6'=>0,'u7'=>0,'u8'=>0,'u9'=>0,'u10'=>0,'u11'=>0,'u12'=>0,'u13'=>0,'u14'=>0,'u15'=>0,'u16'=>0,'u17'=>0,'u18'=>0,'u19'=>0,'u20'=>0,'u21'=>0,'u22'=>0,'u23'=>0,'u24'=>0,'u25'=>0,'u26'=>0,'u27'=>0,'u28'=>0,'u29'=>0,'u30'=>0,'u31'=>0,'u32'=>0,'u33'=>0,'u34'=>0,'u35'=>0,'u36'=>0,'u37'=>0,'u38'=>0,'u39'=>0,'u40'=>0,'u41'=>0,'u42'=>0,'u43'=>0,'u44'=>0,'u45'=>0,'u46'=>0,'u47'=>0,'u48'=>0,'u49'=>0,'u50'=>0);
 				$start = ($post['a1_v']-1)*10+1;
 				$index = 1;
@@ -218,16 +218,16 @@ class Battle {
 		//1 raid 0 normal
 		function calculateBattle($Attacker,$Defender,$def_wall,$att_tribe,$def_tribe,$residence,$attpop,$defpop,$type,$def_ab1,$def_ab2,$def_ab3,$def_ab4,$def_ab5,$def_ab6,$def_ab7,$def_ab8,$att_ab1,$att_ab2,$att_ab3,$att_ab4,$att_ab5,$att_ab6,$att_ab7,$att_ab8,$tblevel,$stonemason,$walllevel,$AttackerID,$DefenderID,$AttackerWref,$DefenderWref) {
 				global $bid34,$bid35,$database;
-				// Definieer de array met de eenheden
+				// Define the array, with the units
 				$calvary = array(4,5,6,15,16,23,24,25,26,45,46);
 				$catapult = array(8,18,28,48);
 				$rams = array(7,17,27,47);
 				$catp = $ram = 0;
-				// Array om terug te keren met het resultaat van de berekening
+				// Array to return the results of the calculation
 				$result = array();
 				$involve = 0;
 				$winner = false;
-				// bij 0 alle deelresultaten
+				// At 0 all partial results
 				$cap = $ap = $dp = $cdp = $rap = $rdp = 0;
 
 		//exit($type);
@@ -275,7 +275,7 @@ class Battle {
 		$defhero[$fromvillage] = $this->getBattleHero($reinfowner);
 		}
 		}
-		// Berekenen het totaal aantal punten van Aanvaller
+		// Calculate the total number of points Attacker
 		$start = ($att_tribe-1)*10+1;
 		$end = ($att_tribe*10);
 		if($att_tribe == 3){
@@ -341,11 +341,11 @@ class Battle {
 
 
 								$abcount +=1;
-								// Punten van de catavult van de aanvaller
+								// Points catapult the attacker
 								if(in_array($i,$catapult)) {
 										$catp += $Attacker['u'.$i];
 								}
-								 // Punten van de Rammen van de aanvaller
+								 // Points of the Rams attacker
 				if(in_array($i,$rams))
 				{
 					$ram += $Attacker['u'.$i];
@@ -366,7 +366,7 @@ class Battle {
 		}
 
 				//
-				// Berekent het totaal aantal punten van de Defender
+				// Calculate the total points of the Defender
 				//
 		$start = ($def_tribe-1)*10+1;
 		$end = ($def_tribe*10);
@@ -456,20 +456,20 @@ class Battle {
 				}
 
                 // 
-                // Formule voor de berekening van de bonus verdedigingsmuur "en" Residence "; 
+                // Formula for calculating the bonus defensive wall "and" Residence "; 
                 // 
                 if($def_wall > 0) { 
-                        // Stel de factor berekening voor de "Muur" als het type van de beschaving 
+                        // Set the factor calculation for the "wall" as the type of the civilization 
                         // Factor = 1030 Romeinse muur 
                         // Factor = 1020 Wall Germanen 
                         // Factor = 1025 Wall Galliers 
                         $factor = ($def_tribe == 1)? 1.030 : (($def_tribe == 2)? 1.020 : 1.025); 
-                        // Verdediging infantery = Infantery * Muur (%) 
+                        // Defense infantery = Infantery * Wall (%) 
                         $dp *= pow($factor,$def_wall); 
-                        // Verdediging Cavelerie = Cavelerie * Muur (%) 
+                        // Defense cavalery = cavalery = * Wall (%) 
                         $cdp *= pow($factor,$def_wall); 
 
-                        // Berekening van de Basic defence bonus "Residence" 
+                        // Calculation of the Basic defense bonus "Residence"
                         $dp += ((2*(pow($residence,2)))*(pow($factor,$def_wall))); 
                         $cdp += ((2*(pow($residence,2)))*(pow($factor,$def_wall))); 
 			if($def_tribe == 1){
@@ -484,13 +484,13 @@ class Battle {
                 } 
                 else 
         { 
-                        // Berekening van de Basic defence bonus "Residence" 
+                        // Calculation of the Basic defense bonus "Residence" 
                         $dp += (2*(pow($residence,2))); 
                         $cdp += (2*(pow($residence,2))); 
                 }  
 
 				//
-				// Formule voor het berekenen van punten aanvallers (Infanterie & Cavalry)
+				// Formula for calculating points attackers (Infantry & Cavalry)
 				//
 				if($AttackerWref != 0){
 						$rap = ($ap+$cap)+(($ap+$cap)/100*$bid35[$this->getTypeLevel(35,$AttackerWref)]['attri']);
@@ -498,14 +498,14 @@ class Battle {
 						$rap = $ap+$cap;
 				}
 				//
-				// Formule voor de berekening van Defensive Punten
+				// Formula for calculating Defensive Points
 				//
 						 if ($rap==0)
 				 $rdp = ($dp) + ($cdp) + 10;
 			else
 				 $rdp = ($dp * ($ap/$rap)) + ($cdp * ($cap/$rap)) + 10;
 				//
-				// En de Winnaar is....:
+				// And the Winner is....:
 				//
 				$result['Attack_points'] = $rap;
 				$result['Defend_points'] = $rdp;
@@ -576,7 +576,7 @@ class Battle {
 						// Defender
 						$result[2] = (!$winner)?  pow(($rap/($rdp*$moralbonus)),$Mfactor) : 1;
 						$result[2] = round($result[2],8);
-						// Als aangevallen met "Hero"
+						// If attacked with "Hero"
 						$ku = ($att_tribe-1)*10+9;
 			$kings = $Attacker['u'.$ku];
 
@@ -605,7 +605,7 @@ class Battle {
 			$catp -= ($winner)? round($catp*$result[1]/100) : round($catp*$result[2]/100);
 
 				}
-				// Formule voor de berekening van katapulten nodig
+				// Formula for the calculation of catapults needed
 				 if($catp > 0 && $tblevel != 0) {
 			$wctp = pow(($rap/$rdp),1.5);
 			$wctp = ($wctp >= 1)? 1-0.5/$wctp : 0.5*$wctp;
@@ -639,9 +639,9 @@ class Battle {
 			}else{
 			$need = round((($moralbonus * (pow($tblevel,2) + $tblevel + 1)) / (8 * (round(200 * pow(1.0205,$att_ab['a8']))/200) / ($bid34[$stonemason]['attri']/100) / $strongerbuildings / $good_effect * $bad_effect)) + 0.5);
 			}
-			// Aantal katapulten om het gebouw neer te halen
+			// Number catapults to take down the building
 			$result[3] = $need;
-			// Aantal Katapulten die handeling
+			// Number Catapults that act
 			$result[4] = $wctp;
 			$result[5] = $moralbonus;
 			$result[6] = $att_ab['a8'];
@@ -679,10 +679,10 @@ class Battle {
 			}else{
 			$need = round((($moralbonus * (pow($walllevel,2) + $walllevel + 1)) / (8 * (round(200 * pow(1.0205,$att_ab['a7']))/200) / ($bid34[$stonemason]['attri']/100) / $strongerbuildings / $good_effect * $bad_effect)) + 0.5);
 			}
-			// Aantal katapulten om het gebouw neer te halen
+			// Number catapults to take down the building
 			$result[7] = $need;
 
-			// Aantal Katapulten die handeling
+			// Number Catapults that act
 			$result[8] = $wctp;
 		}
 

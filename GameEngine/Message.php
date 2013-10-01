@@ -317,14 +317,16 @@ class Message {
 
 	private function sendAMessage($topic,$text) {
 		global $session,$database;
-
+		
+		// Vulnerability closed by Shadow
 
 		$q = "SELECT * FROM ".TB_PREFIX."mdata WHERE owner='".$session->uid."' AND time > ".time()." - 60";
 		$res = mysql_query($q) or die(mysql_error(). " query  ".$q);
 		$flood = mysql_num_rows($res);
 		if($flood > 5)
-			return; //flood
-			
+		return; //flood
+
+		// Vulnerability closed by Shadow
 			
 		$allmembersQ = mysql_query("SELECT id FROM ".TB_PREFIX."users WHERE alliance='".$session->alliance."'");
 		$userally = $database->getUserField($session->uid,"alliance",0);
@@ -405,11 +407,15 @@ class Message {
 		global $session, $database;
 		$user = $database->getUserField($recieve, "id", 1);
 
+		// Vulnerability closed by Shadow
+
 		$q = "SELECT * FROM ".TB_PREFIX."mdata WHERE owner='".$session->uid."' AND time > ".time()." - 60";
 		$res = mysql_query($q) or die(mysql_error(). " query  ".$q);
 		$flood = mysql_num_rows($res);
 		if($flood > 5)
-			return; //flood
+		return; //flood
+
+		// Vulnerability closed by Shadow
 
 		if(WORD_CENSOR) {
 			$topic = $this->wordCensor($topic);
