@@ -343,20 +343,19 @@ if($session->access != BANNED){
         }
         }
         $to_owner = $database->getVillageField($data['to_vid'],"owner");
-        $artefact_2 = count($database->getOwnUniqueArtefactInfo2($to_owner,7,3,0));
-        $artefact1_2 = count($database->getOwnUniqueArtefactInfo2($data['to_vid'],7,1,1));
-        $artefact2_2 = count($database->getOwnUniqueArtefactInfo2($to_owner,7,2,0));
-        $foolartefact2 = $database->getFoolArtefactInfo(7,$data['to_vid'],$to_owner);
-        
-        $q = mysql_query("SELECT vref FROM ".TB_PREFIX."fdata WHERE f99 >= '1' and f99t = '40' and vref = ".$data['to_vid']."");
+          
+        $q = mysql_query("SELECT vref FROM ".TB_PREFIX."fdata WHERE f99t = '40' AND vref = ".$data['to_vid']."");
         $isThere = mysql_num_rows($q);
         if($isThere > 0)
         {
-         $iswwvilla == TRUE ;  
+         $iswwvilla = 1;
+
         }else{
-         $iswwvilla == FALSE ;  
-        }
-       
+         $artefact_2 = count($database->getOwnUniqueArtefactInfo2($to_owner,7,3,0));
+        $artefact1_2 = count($database->getOwnUniqueArtefactInfo2($data['to_vid'],7,1,1));
+        $artefact2_2 = count($database->getOwnUniqueArtefactInfo2($to_owner,7,2,0));
+        $foolartefact2 = $database->getFoolArtefactInfo(7,$data['to_vid'],$to_owner);
+        $iswwvilla = 0;
         $good_artefact = 0;
         if(count($foolartefact2) > 0){
         foreach($foolartefact2 as $arte){
@@ -364,9 +363,12 @@ if($session->access != BANNED){
         $good_artefact = 1;
         }
         }
+        }  
         }
-        if (isset($post['ctar1'])){if($artefact_2 > 0 or $artefact1_2  > 0 or $artefact2_2 > 0 or $good_artefact == 1 and $iswwvilla == 0){$post['ctar1'] =  99;}else{$post['ctar1'] = $post['ctar1'];}}else{ $post['ctar1'] = 0;}
-        if (isset($post['ctar2'])){if($artefact_2 > 0 or $artefact1_2  > 0 or $artefact2_2 > 0 or $good_artefact == 1 and $iswwvilla == 0){$post['ctar2'] =  99;}else{$post['ctar2'] = $post['ctar2'];}}else{ $post['ctar2'] = 0;}
+       
+        
+        if (isset($post['ctar1'])){if($artefact_2 > 0 or $artefact1_2  > 0 or $artefact2_2 > 0 or $good_artefact == 1 or $iswwvilla == 0){$post['ctar1'] =  99;}else{$post['ctar1'] = $post['ctar1'];}}else{ $post['ctar1'] = 0;}
+        if (isset($post['ctar2'])){if($artefact_2 > 0 or $artefact1_2  > 0 or $artefact2_2 > 0 or $good_artefact == 1 or $iswwvilla == 0){$post['ctar2'] =  99;}else{$post['ctar2'] = $post['ctar2'];}}else{ $post['ctar2'] = 0;}
         if (isset($post['spy'])){$post['spy'] = $post['spy'];}else{ $post['spy'] = 0;}
         $abdata = $database->getABTech($village->wid);
         $reference =  $database->addAttack(($village->wid),$data['u1'],$data['u2'],$data['u3'],$data['u4'],$data['u5'],$data['u6'],$data['u7'],$data['u8'],$data['u9'],$data['u10'],$data['u11'],$data['type'],$post['ctar1'],$post['ctar2'],$post['spy'],$abdata['b1'],$abdata['b2'],$abdata['b3'],$abdata['b4'],$abdata['b5'],$abdata['b6'],$abdata['b7'],$abdata['b8']);
