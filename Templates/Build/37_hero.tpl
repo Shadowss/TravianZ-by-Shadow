@@ -1,13 +1,19 @@
 <?php
 
-/*-------------------------------------------------------*\ 
-| ********* DO NOT REMOVE THIS COPYRIGHT NOTICE ********* | 
-+---------------------------------------------------------+ 
-| Developed by:  Manni < manuel_mannhardt@web.de >        | 
-|                Dzoki < dzoki.travian@gmail.com >        |
-| Reworked by: 	 Esfomeado < vps1992@live.com.pt >        |
-| Copyright:     TravianX Project All rights reserved     | 
-\*-------------------------------------------------------*/ 
+#################################################################################
+##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+## --------------------------------------------------------------------------- ##
+##  Project:       TravianZ      					       		 		  	   ##
+##  Version:       01.09.2013 						       	 				   ##
+##  Filename       37_hero.tpl                                                 ##
+##  Developed by:  Dzoki , Manni , Esfomeado                                   ##
+##  Fixed by:      Shadow / Skype : cata7007                                   ##
+##  License:       TravianZ Project                                            ##
+##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
+##  URLs:          http://travian.shadowss.ro 				       	 		   ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       	   ##
+##                                                                             ##
+#################################################################################
 
 include_once("GameEngine/Data/hero_full.php"); 
 

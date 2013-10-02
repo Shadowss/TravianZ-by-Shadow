@@ -4,15 +4,15 @@
 #################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Project:       TravianZ                        		       	       ##
-##  Version:       01.09.2013 						       ##
+##  Project:       TravianZ                        		       	       		   ##
+##  Version:       01.09.2013 						       					   ##
 ##  Filename       mapview.php                                                 ##
-##  Developed by:  Advocaite , yi12345 , Shadow , MisterX		       ##
-##  Fixed by:      Shadow & MisterX - Attack image view on map		       ##
+##  Developed by:  Advocaite , yi12345 , Shadow , MisterX		       		   ##
+##  Fixed by:      Shadow & MisterX - Attack image view on map		       	   ##
 ##  License:       TravianZ Project                                            ##
 ##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
-##  URLs:          http://travian.shadowss.ro 				       ##
-##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       ##
+##  URLs:          http://travian.shadowss.ro 				       			   ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       	   ##
 ##                                                                             ##
 #################################################################################
 

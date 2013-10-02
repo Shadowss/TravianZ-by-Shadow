@@ -104,7 +104,8 @@ foreach($varray as $vil){
 	$timeriron = floor(($maxs-$iron)/$prod_iron*3600);
 	$timer1 = $generator->getTimeFormat(min($timerwood,$timerclay,$timeriron));
 	$timer2 = $generator->getTimeFormat(floor(($maxc-$crop)/$prod_crop*3600));
-  
+    $vname = $vdata['name'];
+	if(defined($vname)) $vname = constant($vname);
 	echo '<tr class="'.$class.'">
 		<td class="vil fc"><a href="dorf1.php?newdid='.$vid.'">'.$vdata['name'].'</a></td>
 		<td class="lum '.$critW.'" title="'.$wood.'/'.$maxs.'">'.$percentW.'%</td> 

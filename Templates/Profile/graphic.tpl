@@ -1,4 +1,21 @@
-<?php if(GP_ENABLE) {
+<?php
+
+#################################################################################
+##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+## --------------------------------------------------------------------------- ##
+##  Project:       TravianZ      					       		 		  	   ##
+##  Version:       01.09.2013 						       	 				   ##
+##  Filename       graphic.php                                                 ##
+##  Developed by:  Dzoki                                                       ##
+##  Fixed by:      Shadow / Skype : cata7007                                   ##
+##  License:       TravianZ Project                                            ##
+##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
+##  URLs:          http://travian.shadowss.ro 				       	 		   ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       	   ##
+##                                                                             ##
+#################################################################################
+
+ if(GP_ENABLE) {
 ?>
 <h1>Player profile</h1>
 

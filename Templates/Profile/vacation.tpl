@@ -1,6 +1,23 @@
 <h1>Player profile</h1>
 
-<?php include("menu.tpl"); ?>
+<?php 
+
+#################################################################################
+##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+## --------------------------------------------------------------------------- ##
+##  Project:       TravianZ      					       		 		  	   ##
+##  Version:       01.09.2013 						       	 				   ##
+##  Filename       vacation.php                                                ##
+##  Developed by:  Advocaite                                                   ##
+##  Fixed by:      Shadow / Skype : cata7007                                   ##
+##  License:       TravianZ Project                                            ##
+##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
+##  URLs:          http://travian.shadowss.ro 				       	 		   ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       	   ##
+##                                                                             ##
+#################################################################################
+
+include("menu.tpl"); ?>
 <form action="spieler.php" method="POST">
 <input type="hidden" name="ft" value="p4">
 <input type="hidden" name="uid" value="<?php echo $session->uid; ?>" />

@@ -1,13 +1,19 @@
 <?php
 
-/** --------------------------------------------------- **\
-| ********* DO NOT REMOVE THIS COPYRIGHT NOTICE ********* |
-+---------------------------------------------------------+
-| Credits:     All the developers including the leaders:  |
-|              Advocaite & Dzoki & Donnchadh              |
-|                                                         |
-| Copyright:   TravianX Project All rights reserved       |
-\** --------------------------------------------------- **/
+#################################################################################
+##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+## --------------------------------------------------------------------------- ##
+##  Project:       TravianZ                                                    ##
+##  Version:       01.09.2013                    			       			   ## 
+##  Filename       create_account.php                                          ##
+##  Developed by:  Dzoki , Advocaite , Donnchadh , yi12345 , Shadow , MisterX  ## 
+##  Fixed by:      Shadow & MisterX - Scouting all players , artefact names.   ##
+##  License:       TravianZ Project                                            ##
+##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
+##  URLs:          http://travian.shadowss.ro                		           ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/              ## 
+##                                                                             ##
+#################################################################################
 
 
 		include_once ("GameEngine/Session.php");
@@ -137,7 +143,7 @@ if($_POST['password'] != ""){
   		$multiplier = NATARS_UNITS;
   		$q = "SELECT * FROM " . TB_PREFIX . "vdata WHERE capital = '1' and owner > '5'";
   		$array = $database->query_return($q);
-        	$sendspytroops = 1500 * $multiplier;
+        $sendspytroops = 1500 * $multiplier;
   		foreach($array as $vill){
   		$ref = $database->addAttack($natar['wref'], 0, 0, 0, $sendspytroops, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0, 0);
   		$database->addMovement(3, $natar['wref'], $vill['wref'], $ref, time(), time()+10000);
@@ -456,11 +462,11 @@ Now begins the final stretch, when the greatest armies of the Free people and th
 
 Facts:
 To steal one, the following things must happen:
-you must attack the village (NO Raid!)
+You must attack the village (NO Raid!)
 WIN the Attack
-destroy the treasury
-an empty treasury lvl 10 MUST be in the village where that attack came from
-have a hero in an attack
+Destroy the treasury
+An empty treasury lvl 10 MUST be in the village where that attack came from
+Have a hero in an attack
 
 If not, the next attack on that village, winning with a hero and empty treasury will take the building plan.
 

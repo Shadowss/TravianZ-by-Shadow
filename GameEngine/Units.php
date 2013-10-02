@@ -3,9 +3,15 @@
 #################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       Units.php                                                   ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Project:       TravianZ                        		       	       		   ##
+##  Version:       01.09.2013 						       					   ##
+##  Filename       Units.php	                                               ##
+##  Developed by:  Advocaite , yi12345 , Shadow  	       					   ##
+##  Fixed by:      Shadow - Doubleing Troops , Catapult fix if have artefact.  ##
+##  License:       TravianZ Project                                            ##
+##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
+##  URLs:          http://travian.shadowss.ro 				       			   ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       	   ##
 ##                                                                             ##
 #################################################################################
 
@@ -348,8 +354,8 @@ if($session->access != BANNED){
         $isThere = mysql_num_rows($q);
         if($isThere > 0)
         {
-         $iswwvilla = 1;
-                  $artefact_2 = count($database->getOwnUniqueArtefactInfo2($to_owner,7,3,0));
+        $iswwvilla = 1;
+        $artefact_2 = count($database->getOwnUniqueArtefactInfo2($to_owner,7,3,0));
         $artefact1_2 = count($database->getOwnUniqueArtefactInfo2($data['to_vid'],7,1,1));
         $artefact2_2 = count($database->getOwnUniqueArtefactInfo2($to_owner,7,2,0));
         $foolartefact2 = $database->getFoolArtefactInfo(7,$data['to_vid'],$to_owner);
@@ -362,7 +368,7 @@ if($session->access != BANNED){
         }
         } 
         }else{
-         $artefact_2 = count($database->getOwnUniqueArtefactInfo2($to_owner,7,3,0));
+        $artefact_2 = count($database->getOwnUniqueArtefactInfo2($to_owner,7,3,0));
         $artefact1_2 = count($database->getOwnUniqueArtefactInfo2($data['to_vid'],7,1,1));
         $artefact2_2 = count($database->getOwnUniqueArtefactInfo2($to_owner,7,2,0));
         $foolartefact2 = $database->getFoolArtefactInfo(7,$data['to_vid'],$to_owner);
