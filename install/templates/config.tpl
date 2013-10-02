@@ -165,8 +165,8 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 
 	<td><span class="f9 c6">Admin Rank:</span></td><td>
 				<select name="admin_rank">
-				<option value="True">No</option>
-				<option value="False" selected="selected">Yes</option>
+				<option value="False">No</option>
+				<option value="True" selected="selected">Yes</option>
 				</select>
 		</td></tr><tr></tr>
 	</table>
