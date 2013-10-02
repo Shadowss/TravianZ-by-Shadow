@@ -90,9 +90,10 @@ if(isset($_GET['daily'])){
 		{
 
 			$zeit_vergangen=$timestamp-$data3['dailygoldtime'];
+			$tempo=number_format((86400-$zeit_vergangen)/60/60, 1, ',', ' ');
 			echo "<h1>Daily Bonus</h1><br><br><br>";
 			echo "Already won <b>1 gold</b><br><br>";
-			echo "Remaining time: Total <b>86400</b>second. <b>$zeit_vergangen</b> seconds have passed.";
+			echo "Remaining time: Total <b>$tempo</b>hours. <b>$zeit_vergangen</b> seconds have passed.";
 			
 		}
 	}
