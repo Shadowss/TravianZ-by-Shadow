@@ -14,9 +14,11 @@
 include("GameEngine/Village.php");
 $start = $generator->pageLoadTimeStart();
 $message->procMessage($_POST);
+/*
 if($_GET['t'] == 1){
 $automation->isWinner();
 }
+*/
 if(isset($_GET['newdid'])) {
 	$_SESSION['wid'] = $_GET['newdid'];
 if(isset($_GET['t'])) {
