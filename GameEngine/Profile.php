@@ -105,8 +105,7 @@ class Profile {
 		$set =true;
 		}
 		else {
-		//echo "Minimum days is 2";die();exit();
-		$form->addError("pw",LOGIN_PW_ERROR);
+		echo "Minimum days is 2";die();exit();
 		}
 
 		if($set){
@@ -116,7 +115,6 @@ class Profile {
 		$session->Logout();
 		header("Location: login.php");
 		}else{
-		$_SESSION['errorarray'] = $form->getErrors();
 		header("Location: spieler.php?s=5");
 		}
 
