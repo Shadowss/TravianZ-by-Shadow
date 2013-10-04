@@ -1,4 +1,4 @@
-<Files "*.tpl">
+<Files "*.php">
 	Order Deny,Allow
 	Deny from all
 ErrorDocument 403 http://travian.shadowss.ro/403.php
