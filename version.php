@@ -128,6 +128,8 @@ $automation->isWinner();
 60. Fixed movements on rally point if your oasis is under attack</br>
 61. Fixed vulnerability attack on message.</br>
 62. Fixed scouting all player when create natars.</br>
+63. Fixed catapult if have artefact for random target. Now can target WW even have that artefact like says.</br>
+64. Added graphic pack T4 (buildings , village view , building in construction , etc.)</br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">

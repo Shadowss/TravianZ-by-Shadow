@@ -194,14 +194,14 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<table>
 	<td><span class="f9 c6">Gpack:</span></td><td>
 				<select name="gpack">
-				<option value="True" selected="selected">No</option>
-				<option value="False">Yes</option>
+				<option value="False">No</option>
+				<option value="True" selected="selected">Yes</option>
 				</select>
 		</td></tr><tr></tr>
 	<td><span class="f9 c6">Gpack Design:</span></td><td>
 				<select name="gp_locate">
-				<option value="gpack/travian_default/" selected="selected">Travian Default</option>
-				<option value="gpack/travianx_v1/">TravianX v1 by Dzoki</option>
+				<option value="gpack/travian_default/">Travian Default</option>
+				<option value="gpack/travian_t4/" selected="selected">TravianZ T4 by Shadow</option>
 				</select>
 		</td></tr><tr></tr>
 

@@ -83,17 +83,14 @@ Rules for connection type 3</br>
 3. Battle simulator calculate don't work 100%.</br></br>
 4. Gold Club not fixed complete</br>
 - raid statistics</br></br>
-5. If you have plus account activated you cannot see the attck/deff/scout images when you attack a village (i mean img on villages : red swords etc..)</br></br>
-6. Capital doesnt apper on dorf1.php under village name</br></br>
-7. Time zone from preference.tpl and also all options must to coded and also must coded in profile.tpl sitters options</br></br>
-8. Must code a fuction to don't leave pleyer who have seted in past 14 days vacation mode to set another vacation mode</br></br>
-9. Artefact storage master plan can bulild great granny and great warehouse on any village except capital. Effect account. Templates/Build/available.tpl (if($mainbuilding >= 10 && $village->capital == 0)</br></br>
-10. Artefact storage masterplan effect village can build great granny and great warehouse even if artefact is inactive and even you dont have warehouse at level 20 and granny level 20</br></br>
-11. Oassis loiality from 100 to 0 directly must be 100-60-20-0</br></br>
-12. Graphic pack is enabled but must be fully coded</br></br>
-13. In profile.tpl must be coded option for sitters (access for what)</br></br>
-14. Troops don`t consume crop from villange when you send as reinforcements on oassis. Must to consume from villang when troops are reinforcement on anexed oassis.</br></br>
-15. When you try to steal an artefact (you have treasurey level 10) and attack with another player (with treasury level 20 and 2 artefacts) , you steal both artefact. Here is a bug , if you have level 10 treasurey you can steal both artefact even second artefact is large artefact and need treasurey level 20</br></br>
+5. Capital doesnt apper on dorf1.php under village name</br></br>
+6. Time zone from preference.tpl and also all options must to coded and also must coded in profile.tpl sitters options</br></br>
+7. Must code a fuction to don't leave pleyer who have seted in past 14 days vacation mode to set another vacation mode</br></br>
+8. Oassis loiality from 100 to 0 directly must be 100-60-20-0</br></br>
+9. Graphic pack is enabled but must be fully coded</br></br>
+10. In profile.tpl must be coded option for sitters (access for what)</br></br>
+11. Troops don`t consume crop from villange when you send as reinforcements on oassis. Must to consume from villang when troops are reinforcement on anexed oassis.</br></br>
+12. When you try to steal an artefact (you have treasurey level 10) and attack with another player (with treasury level 20 and 2 artefacts) , you steal both artefact. Here is a bug , if you have level 10 treasurey you can steal both artefact even second artefact is large artefact and need treasurey level 20</br></br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">

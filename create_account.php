@@ -98,9 +98,8 @@ if($_POST['password'] != ""){
 		}
 
 /**
- * Creating account & capital village
- */
-// Added by Shadow - cata7007@gmail.com / Skype : cata7007
+ * Creating account & capital village - Fixed by Shadow - cata7007@gmail.com / Skype : cata7007
+ */ 
 
 		$username = "Natars";
 		$password = md5($_POST['password']);
