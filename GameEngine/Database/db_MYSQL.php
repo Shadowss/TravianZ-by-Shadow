@@ -3206,6 +3206,11 @@ class MYSQL_DB {
 	}
 
 	public function canClaimArtifact($from,$vref,$type,$kind) {
+	$numArtefatti = mysql_query("SELECT * FROM " . TB_PREFIX . "artefacts WHERE vref = $from");
+ 	$numArtefatti2 = mysql_num_rows($numArtefatti);
+ 	if($numArtefatti2 > 0){ 
+ 		return FALSE;
+ 		}
 	$type2 = $type3 = 0;
 	if(count($this->getOwnUniqueArtefactInfo2($this->getVillagefield($from,"owner"),2,2,0)) > 0 && $type == 2){
 	$type2 = 1;
