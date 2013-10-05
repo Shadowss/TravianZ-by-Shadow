@@ -1,5 +1,0 @@
-<Files "*.tpl">
-	Order Deny,Allow
-	Deny from all
-Options -Indexes  
-</Files>
