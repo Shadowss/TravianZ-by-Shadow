@@ -1683,7 +1683,7 @@ class MYSQL_DB {
 
 	function setVillageName($vid, $name) {
 		$name = trim($name);
-		iif((!empty($name)) && ($name == htmlspecialchars($name)))
+		if((!empty($name)) && ($name == htmlspecialchars($name)))
 		{
 		$q = "UPDATE " . TB_PREFIX . "vdata set name = '$name' where wref = $vid";
 		return mysql_query($q, $this->connection);
