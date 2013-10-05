@@ -3,15 +3,15 @@
 #################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Project:       TravianZ                        		       	       		   ##
-##  Version:       01.09.2013 						       					   ##
+##  Project:       TravianZ                        		       	       ##
+##  Version:       01.09.2013 						       ##
 ##  Filename       Account.php	                                               ##
-##  Developed by:  Songer , Dzoki , Advocaite , yi12345 , Shadow  	       	   ##
-##  Fixed by:      Shadow - Vacation mode									   ##
+##  Developed by:  Songer , Dzoki , Advocaite , yi12345 , Shadow  	       ##
+##  Fixed by:      Shadow - Vacation mode				       ##
 ##  License:       TravianZ Project                                            ##
 ##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
-##  URLs:          http://travian.shadowss.ro 				       			   ##
-##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       	   ##
+##  URLs:          http://travian.shadowss.ro 				       ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       ##
 ##                                                                             ##
 #################################################################################
 
@@ -51,6 +51,9 @@ class Account {
 		if(!isset($_POST['name']) || trim($_POST['name']) == "") {
 			$form->addError("name",USRNM_EMPTY);
 		}
+		if($username != htmlspecialchars($username)){
+            		$form->addError("name", USRNM_CHARSPECIAL);
+        	}
 		else {
 			if(strlen($_POST['name']) < USRNM_MIN_LENGTH) {
 				$form->addError("name",USRNM_SHORT);
@@ -95,6 +98,12 @@ class Account {
 		if(!isset($_POST['vid'])) {
 			$form->addError("tribe",TRIBE_EMPTY);
 		}
+		if(($_POST['vid'] > 3 ) || ($_POST['vid'] < 1)){
+            		$form->addError("tribe",TRIBE_INVALID);
+        	}
+        	if(($_POST['kid'] > 4) || ($_POST['kid'] < 0)) {
+            		$form->addError("tribe",TRIBE_INVALID);
+        	}
 		if(!isset($_POST['agb'])) {
 			$form->addError("agree",AGREE_ERROR);
 		}
