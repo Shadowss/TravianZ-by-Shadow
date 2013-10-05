@@ -49,7 +49,7 @@ define("WORLD_MAX", "%MAX%");
 // ***** Graphic Pack
 // True = enabled, false = disabled
 //!!!!!!!!!!!! DO NOT ENABLE !!!!!!!!!!!!
-define("GP_ENABLE", "%GPACK%");
+define("GP_ENABLE", "%GP_ENABLE%");
 // Graphic pack location (default: gpack/travian_default/)
 define("GP_LOCATE", "%GP_LOCATE%");
 
