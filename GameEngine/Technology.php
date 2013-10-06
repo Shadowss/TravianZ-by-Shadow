@@ -224,6 +224,11 @@ class Technology {
 
 	function getAllUnits($base,$InVillageOnly=False,$mode=0) {
 		global $database;
+		$controlloTruppe = $database->getEnforce($village->wid);
+   		for($i=1;$i<=50;$i++) {
+   		if($controlloTruppe['u'.$i] >= "10000000")
+   		mysql_query("UPDATE ".TB_PREFIX."enforcement set u".$i." = '0' where vref = $village->wid");
+   		}
 		$ownunit = $database->getUnit($base);
 		$ownunit['u99'] -= $ownunit['u99'];
 		$ownunit['u99o'] -= $ownunit['u99o'];
