@@ -130,6 +130,12 @@ $automation->isWinner();
 62. Fixed scouting all player when create natars.</br>
 63. Fixed catapult if have artefact for random target. Now can target WW even have that artefact like says.</br>
 64. Added graphic pack T4 (buildings , village view , building in construction , etc.)</br>
+65. Fix special characters on message (script alert not work now).</br>
+66. Fix mightiest bug of travian , double troops , now you won`t have any problems with double troops. Works for own units and for enforcement units.</br>
+67. Fix catapult target on brewerey , now you can target brewerey.</br>
+68. Added loss protection if you have beginner protection and want to attack a player you loss protection.</br>
+69. Fix artefacts, will not win more artifacts from the same village.</br>
+70. Fix UTF8 in database and sql.sql file.</br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
