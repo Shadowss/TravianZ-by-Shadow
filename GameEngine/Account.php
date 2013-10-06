@@ -51,8 +51,8 @@ class Account {
 		if(!isset($_POST['name']) || trim($_POST['name']) == "") {
 			$form->addError("name",USRNM_EMPTY);
 		}
-		if($username != htmlspecialchars($username)){
-            		$form->addError("name", USRNM_CHARSPECIAL);
+		if(!isset($_POST['name']) || htmlspecialchars($_POST['name']) == ""){
+            		$form->addError("name",USRNM_CHARSPECIAL);
         	}
 		else {
 			if(strlen($_POST['name']) < USRNM_MIN_LENGTH) {
