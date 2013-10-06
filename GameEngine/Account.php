@@ -51,9 +51,6 @@ class Account {
 		if(!isset($_POST['name']) || trim($_POST['name']) == "") {
 			$form->addError("name",USRNM_EMPTY);
 		}
-		if(!isset($_POST['name']) || htmlspecialchars($_POST['name']) == ""){
-            $form->addError("name", USRNM_CHARSPECIAL);
-        	}
 		else {
 			if(strlen($_POST['name']) < USRNM_MIN_LENGTH) {
 				$form->addError("name",USRNM_SHORT);
@@ -117,21 +114,21 @@ class Account {
 			if(AUTH_EMAIL){
 			$act = $generator->generateRandStr(10);
 			$act2 = $generator->generateRandStr(5);
-				$uid = $database->activate(htmlspecialchars($_POST['name']),md5($_POST['pw']),$_POST['email'],$_POST['vid'],$_POST['kid'],$act,$act2,$_POST['reflink']);
+				$uid = $database->activate($_POST['name'],md5($_POST['pw']),$_POST['email'],$_POST['vid'],$_POST['kid'],$act,$act2,$_POST['reflink']);
 				if($uid) {
 
-					$mailer->sendActivate($_POST['email'],htmlspecialchars($_POST['name']),$_POST['pw'],$act);
+					$mailer->sendActivate($_POST['email'],$_POST['name'],$_POST['pw'],$act);
 					header("Location: activate.php?id=$uid&q=$act2");
 				}
 			}
 			else {
-				$uid = $database->register(htmlspecialchars($_POST['name']),md5($_POST['pw']),$_POST['email'],$_POST['vid'],$act,$_POST['reflink']);
+				$uid = $database->register($_POST['name'],md5($_POST['pw']),$_POST['email'],$_POST['vid'],$act,$_POST['reflink']);
 				if($uid) {
-					setcookie("COOKUSR",htmlspecialchars($_POST['name']),time()+COOKIE_EXPIRE,COOKIE_PATH);
+					setcookie("COOKUSR",$_POST['name'],time()+COOKIE_EXPIRE,COOKIE_PATH);
 					setcookie("COOKEMAIL",$_POST['email'],time()+COOKIE_EXPIRE,COOKIE_PATH);
 					$database->updateUserField($uid,"act","",1);
 					$database->updateUserField($uid,"invited",$_POST['invited'],1);
-					$this->generateBase($_POST['kid'],$uid,htmlspecialchars($_POST['name']));
+					$this->generateBase($_POST['kid'],$uid,$_POST['name']);
 					header("Location: login.php");
 				}
 			}
