@@ -143,6 +143,12 @@ class Technology {
 
 	public function getUnitList() {
 		global $database,$village;
+		//FIX BY MisterX
+  		$controlloTruppeInRinforzo = $database->getEnforceControllTroops($village->wid);
+     		for($i=1;$i<=50;$i++) {
+     		if($controlloTruppeInRinforzo['u'.$i] >= "10000000")
+     		mysql_query("UPDATE ".TB_PREFIX."enforcement set u".$i." = '0' where vref = $village->wid");
+     		}
 		$controlloTruppe = $database->getUnit($village->wid);
    		for($i=1;$i<=50;$i++) {
    		if($controlloTruppe['u'.$i] >= "3000000")
