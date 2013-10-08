@@ -3567,6 +3567,30 @@ class MYSQL_DB {
     		$notend= mysql_fetch_array($result);
      		return $notend['dead'];
    	}
+	
+	/***************************
+	Function to get Hero In Revive
+	Made by: Shadow
+	***************************/
+
+ 	function getHeroInRevive($id) {
+    		$q = "SELECT inrevive FROM " . TB_PREFIX . "hero WHERE `uid` = $id";
+    		$result = mysql_query($q, $this->connection);
+    		$notend= mysql_fetch_array($result);
+     		return $notend['inrevive'];
+   	}
+	
+	/***************************
+	Function to get Hero In Train
+	Made by: Shadow
+	***************************/
+
+ 	function getHeroInTraining($id) {
+    		$q = "SELECT intraining FROM " . TB_PREFIX . "hero WHERE `uid` = $id";
+    		$result = mysql_query($q, $this->connection);
+    		$notend= mysql_fetch_array($result);
+     		return $notend['intraining'];
+   	}
 
 	/***************************
 	Function to check Hero Not in Village

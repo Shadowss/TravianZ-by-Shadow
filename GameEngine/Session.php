@@ -146,18 +146,21 @@ class Session {
 				global $database;
    				$hero=0;
     			foreach($this->villages as $myvill){
-     				$q1 = "SELECT SUM(hero) from " . TB_PREFIX . "enforcement where `from` = ".$myvill;       //hero in reinf
+     				$q1 = "SELECT SUM(hero) from " . TB_PREFIX . "enforcement where `from` = ".$myvill;       // check if hero is send as reinforcement
      				$result1 = mysql_query($q1, $database->connection);
      				$he1=mysql_fetch_array($result1);
      				$hero+=$he1[0];
-     				$q2 = "SELECT SUM(hero) from " . TB_PREFIX . "units where `vref` = ".$myvill;   //hero in my vill
+     				$q2 = "SELECT SUM(hero) from " . TB_PREFIX . "units where `vref` = ".$myvill;   // check if hero is on my account (all villages)
      				$result2 = mysql_query($q2, $database->connection);
      				$he2=mysql_fetch_array($result2);
      				$hero+=$he2[0];
-     				$hero+=$database->HeroNotInVil($myvill); //hero not in vill
+     				$hero+=$database->HeroNotInVil($myvill); // check if hero is not in village (come back from attack , raid , etc.)
      				}
-     				if(!$database->getHeroDead($this->uid) and !$hero){
-      				$database->KillMyHero($this->uid);} 
+     				if(!$database->getHeroDead($this->uid) and !$hero){ // check if hero is already dead
+					}elseif(!$database->getHeroInRevive($this->uid) and !$hero){ // check if hero is already in revive
+					}elseif(!$database->getHeroInTraining($this->uid) and !$hero){ // check if hero is in training
+      				$database->KillMyHero($this->uid);
+					} 
      			}
 
 			private function PopulateVar() {

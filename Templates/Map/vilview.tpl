@@ -520,7 +520,7 @@ if($type==18 or $type==19 or $type==20 or $type==21){
           $data1 = mysql_fetch_assoc($query1);
           $query2 = mysql_query('SELECT * FROM `' . TB_PREFIX . 'users` WHERE `id` = ' . $data1['owner']);
           $data2 = mysql_fetch_assoc($query2);
-			// Added by Shadow - cata7007@gmail.com / Skype : cata7007
+			// Vacation mode added by Shadow - cata7007@gmail.com / Skype : cata7007
 			if($data2['access']=='0' or $data2['access']=='8' or $data2['access']=='9') {
 			echo "&raquo; Send troops. (Player is banned)";
 			} else if($data2['vac_mode']=='1') {
