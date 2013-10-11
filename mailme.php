@@ -2,14 +2,14 @@
 
 ### start config ### 
 
-$strEmpfaenger = 'cata7007@gmail.com'; 
+$strEmpfaenger = 'admin@travianz.com'; 
 
-$strFrom = "From: Travian ro1 Support <cata7007@gmail.com>\n"; 
-$strFrom .= "X-Sender: <cata7007@gmail.com>\n"; 
+$strFrom = "From: Travian ro1 Support <admin@travianz.com>\n"; 
+$strFrom .= "X-Sender: <admin@travianz.com>\n"; 
 $strFrom .= "X-Mailer: PHP\n"; 
 $strFrom .= "X-Priority: 3\n"; 
-$strFrom .= "Errors-To: <cata7007@gmail.com>\n"; 
-$strFrom .= "Return-Path: <cata7007@gmail.com>\n"; 
+$strFrom .= "Errors-To: <admin@travianz.com>\n"; 
+$strFrom .= "Return-Path: <admin@travianz.com>\n"; 
 $strFrom .= "Reply-To: " . $_POST['Emailadress'] . "\n"; 
 $strFrom .= "Content-Type: text; charset=iso-8859-15\n"; 
 
