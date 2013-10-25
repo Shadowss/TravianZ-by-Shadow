@@ -127,7 +127,7 @@ include ("GameEngine/Lang/".LANG.".php");
 									<td><?php
 
 										   $users1 = mysql_num_rows(mysql_query("SELECT * FROM " . TB_PREFIX . "users WHERE tribe!=0 AND tribe!=4 AND tribe!=5"));
-                                           					   $users2 = mysql_num_rows(mysql_query("SELECT * FROM s2_users WHERE tribe!=0 AND tribe!=4 AND tribe!=5")); 
+                                           $users2 = mysql_num_rows(mysql_query("SELECT * FROM s2_users WHERE tribe!=0 AND tribe!=4 AND tribe!=5")); 
 										   echo $users;
 
 									?></td>
@@ -143,7 +143,7 @@ include ("GameEngine/Lang/".LANG.".php");
 									<td><?php
 
 										   $active1 = mysql_num_rows(mysql_query("SELECT * FROM " . TB_PREFIX . "users WHERE " . time() . "-timestamp < (3600*24) AND tribe!=0 AND tribe!=4 AND tribe!=5"));
-                                           					   $active2 = mysql_num_rows(mysql_query("SELECT * FROM s2_users WHERE " . time() . "-timestamp < (3600*24) AND tribe!=0 AND tribe!=4 AND tribe!=5")); 
+                                           $active2 = mysql_num_rows(mysql_query("SELECT * FROM s2_users WHERE " . time() . "-timestamp < (3600*24) AND tribe!=0 AND tribe!=4 AND tribe!=5")); 
 										   echo $active;
 
 									?></td>
@@ -159,7 +159,7 @@ include ("GameEngine/Lang/".LANG.".php");
 									<td><?php
 
 										   $online1 = mysql_num_rows(mysql_query("SELECT * FROM " . TB_PREFIX . "users WHERE " . time() . "-timestamp < (60*5) AND tribe!=0 AND tribe!=4 AND tribe!=5"));
-                                           					   $online2 = mysql_num_rows(mysql_query("SELECT * FROM s2_users WHERE " . time() . "-timestamp < (60*5) AND tribe!=0 AND tribe!=4 AND tribe!=5")); 
+                                           $online2 = mysql_num_rows(mysql_query("SELECT * FROM s2_users WHERE " . time() . "-timestamp < (60*5) AND tribe!=0 AND tribe!=4 AND tribe!=5")); 
 										   echo $online;
 
 									?></td>

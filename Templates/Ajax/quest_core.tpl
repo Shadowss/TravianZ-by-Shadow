@@ -67,11 +67,11 @@ if (isset($qact)){
 	
 	//Give Reward
 	if(!$session->plus){
-		mysql_query("UPDATE ".TB_PREFIX."users set plus = ('".mktime(date("H"),date("i"), date("s"),date("m") , date("d"), date("Y"))."')+86400 where `username`='".$_SESSION['username']."'") or die(mysql_error());
+	mysql_query("UPDATE ".TB_PREFIX."users set plus = ('".mktime(date("H"),date("i"), date("s"),date("m") , date("d"), date("Y"))."')+86400 where `username`='".$_SESSION['username']."'") or die(mysql_error());
 	} else {
-		$plus=$database->getUserField($_SESSION['username'],'plus','username');
-		$plus+=86400;
-		$database->updateUserField($_SESSION['username'],'plus',$plus,0);
+	$plus=$database->getUserField($_SESSION['username'],'plus','username');
+	$plus+=86400;
+	$database->updateUserField($_SESSION['username'],'plus',$plus,0);
 	}
 	break;
 
@@ -148,11 +148,11 @@ if (isset($qact)){
 		
 	//Give Reward
 	if(!$session->plus){
-		mysql_query("UPDATE ".TB_PREFIX."users set plus = ('".mktime(date("H"),date("i"), date("s"),date("m") , date("d"), date("Y"))."')+172800 where `username`='".$_SESSION['username']."'") or die(mysql_error());
+	mysql_query("UPDATE ".TB_PREFIX."users set plus = ('".mktime(date("H"),date("i"), date("s"),date("m") , date("d"), date("Y"))."')+172800 where `username`='".$_SESSION['username']."'") or die(mysql_error());
 	} else {
-		$plus=$database->getUserField($_SESSION['username'],'plus','username');
-		$plus+=172800;
-		$database->updateUserField($_SESSION['username'],'plus',$plus,0);
+	$plus=$database->getUserField($_SESSION['username'],'plus','username');
+	$plus+=172800;
+	$database->updateUserField($_SESSION['username'],'plus',$plus,0);
 	}
 	break;
 	

@@ -154,6 +154,12 @@ class Units {
                                 $form->addError("error","You can't send negative units.");
                                 break;
                             }
+							
+							if($post['t'.$i]>10000000)
+							{
+							$form->addError("error","Bug attempt!");
+							break;
+							}
 
 			    if(preg_match('/[^0-9]/',$post['t'.$i]))
               		    {
@@ -174,12 +180,17 @@ class Units {
                                 $form->addError("error","You can't send negative units.");
                                 break;
                             }
-			    if(preg_match('/[^0-9]/',$post['t11']))
-              		    {
-                		$form->addError("error","Special characters can't entered");
-                		break;
-              		} 
-                }
+							if($post['t11']>2)
+							{
+							$form->addError("error","Bug attempt!");
+							break;
+							}
+							if(preg_match('/[^0-9]/',$post['t11']))
+							{
+							$form->addError("error","Special characters can't entered");
+							break;
+						} 
+					}
                 if ($database->isVillageOases($id) == 0) {
                 if($database->hasBeginnerProtection($id)==1) {
                     $form->addError("error","Player is under beginners protection. You can't attack him");

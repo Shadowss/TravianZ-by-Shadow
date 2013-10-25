@@ -12,16 +12,12 @@
 
 
 include("GameEngine/Village.php");
-$amount = $_SESSION['amount'];
+
 $start = $generator->pageLoadTimeStart();
 if(isset($_GET['newdid'])) {
 	$_SESSION['wid'] = $_GET['newdid'];
 	header("Location: ".$_SERVER['PHP_SELF']);
 }
-else {
-	$building->procBuild($_GET);
-}
-$automation->isWinner();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -67,14 +63,19 @@ $automation->isWinner();
 <?php include("Templates/menu.tpl"); ?>
 		<div id="content"  class="village2">
 
-
+<h1 align="left">Daily bonus </h1>
+<p align="left"><br>
+  <br><br>
+  Every 24 hours you can claim your gold daily.   <img src="../gpack/travian_default/img/misc/dailygold.png" width="48" height="48" align="baseline" /><br>
+    Time and Gold!!</p>
+  <br><br>
 <?php
-
-if(isset($_GET['daily'])){
 			
 			$timestamp=time(60*60*24);
 			$query3 = mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id = ".$session->uid);
 			$data3 = mysql_fetch_assoc($query3);
+
+
 
 	if($data3['dailygold'] == 1 && $session->access > 1)
 	{
@@ -82,19 +83,22 @@ if(isset($_GET['daily'])){
 		{
 			$entsperren = mysql_query("UPDATE ".TB_PREFIX."users SET dailygold = '0' WHERE id = ".$session->uid);
 			$entsperren2 = mysql_query("UPDATE ".TB_PREFIX."users SET dailygoldtime = '0' WHERE id = ".$session->uid) or die(mysql_error());
-			echo "<h1>Daily Bonus</h1><br><br><br>";
-			echo "<font color=blue><b>Daily Bonus</b></font> Time.<br>Click on the link below and get the 1 gold.<br><br><br>";
-			echo "<h3><a href=\"?daily\">Go to get 1 gold</a></h3>";
+			
+			echo "<h3><a href=\"?daily\">and 50 more here! :)</a></h3>";
+			
+
 		}
 		else
 		{
-
-			$zeit_vergangen=$timestamp-$data3['dailygoldtime'];
-			$tempo=number_format((86400-$zeit_vergangen)/60/60, 1, ',', ' ');
-			echo "<h1>Daily Bonus</h1><br><br><br>";
-			echo "Already won <b>1 gold</b><br><br>";
-			echo "Remaining time: Total <b>$tempo</b>hours. <b>$zeit_vergangen</b> seconds have passed.";
 			
+			$zeit_vergangen=$timestamp-$data3['dailygoldtime'];
+			$seconds = 86400-$zeit_vergangen;
+			$hours = floor($seconds / 3600);
+			$seconds -= $hours * 3600;
+			$minutes = floor($seconds / 60);
+			$seconds -= $minutes * 60;
+			echo "You have earned today <b>50 gold</b><br><br>";
+			echo "You are almost lacking <b>$hours:$minutes:$seconds h</b>"; 
 		}
 	}
 
@@ -105,9 +109,8 @@ if(isset($_GET['daily'])){
 
 		if($session->access != 0)
 		{
-			$goldok = mysql_query("UPDATE ".TB_PREFIX."users SET gold=gold+1 WHERE id = ".$session->uid);
-			echo "<h1>Daily Bonus</h1><br><br><br>";
-			echo "Won<font color=red><b> 1 gold</b></font>. <br> You can get back after a day.";
+			$goldok = mysql_query("UPDATE ".TB_PREFIX."users SET gold=gold+50 WHERE id = ".$session->uid);
+			echo "UAUUUU 50 Gold. In about 24 hours you can go back for more ...";
 		}
 
 		$dailytime=time(60*60*24);
@@ -115,21 +118,10 @@ if(isset($_GET['daily'])){
 		$goldtime=mysql_query("UPDATE ".TB_PREFIX."users SET dailygoldtime='".$dailytime."' WHERE id = ".$session->uid) or die(mysql_error());
 	}
 
-}
 
+?>
 
-else{ ?>
-<h1>Daily Bonus</h1><br><br><br>
-Gold Award in one day by one day to get one, and again after 24 hours is possible.
-Day 60 seconds * 60 minutes * 24 hours = 86,400 seconds to go through, and the remaining time can be shown
-Acquisition and the remaining time is gold, please click on the link below.<br><br><br>
-
-<h3><a href="?daily">Go to get 1 gold</a></h3>
-
-<?php } ?>
-
-
-</div>
+  </div>
 </br></br></br></br><div id="side_info">
 <?php
 include("Templates/multivillage.tpl");
@@ -149,11 +141,11 @@ include("Templates/res.tpl");
 <div id="stime">
 <div id="ltime">
 <div id="ltimeWrap">
-Calculated in <b><?php
+Calculado em <b><?php
 echo round(($generator->pageLoadTimeEnd()-$start)*1000);
 ?></b> ms
 
-<br />Server time: <span id="tp1" class="b"><?php echo date('H:i:s'); ?></span>
+<br />Hora do Server: <span id="tp1" class="b"><?php echo date('H:i:s'); ?></span>
 </div>
 	</div>
 </div>

@@ -160,8 +160,8 @@ class Session {
 					}elseif(!$database->getHeroInRevive($this->uid) and !$hero){ // check if hero is already in revive
 					}elseif(!$database->getHeroInTraining($this->uid) and !$hero){ // check if hero is in training
       				$database->KillMyHero($this->uid);
-					} 
-     			}
+				} 
+     		}
 
 			private function PopulateVar() {
 				global $database;
