@@ -490,6 +490,8 @@ if($type==18 or $type==19 or $type==20 or $type==21){
         $test = "<a href=\"a2b.php?id=".$_GET['d']."&amp;s=1\">&raquo;  Found new village.</a>";
       } elseif($village->unitarray['u'.$session->tribe.'0'] >= 3 AND !$enough_cp) {
         $test = "&raquo; Found new village. ($cps/$need_cps culture points)";
+	  } elseif(!$village->resarray['f39']) {
+        $test = "&raquo; Found new village. (build a rally point)"; 
       } else {
         $test = "&raquo; Found new village. (".$village->unitarray['u'.$session->tribe.'0']."/3 settlers available)";
       }

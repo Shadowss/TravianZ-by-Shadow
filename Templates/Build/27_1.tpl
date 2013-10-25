@@ -111,12 +111,14 @@
         		$coor2 = mysql_fetch_assoc($query);
 
         		
-        		$dist = haversine($coor['x'], $coor['y'], $coor2['x'], $coor2['y']);
+        		//$dist = haversine($coor['x'], $coor['y'], $coor2['x'], $coor2['y']);
+				$dist = round(getDistance($coor['x'], $coor['y'], $coor2['x'], $coor2['y']),1);
 
         		$rows[$dist] = $row;
 
         	}
-        	ksort($rows, SORT_DESC);
+        	//ksort($rows, SORT_DESC);
+			ksort($rows);
         	foreach($rows as $row) {
                 $wref = $village->wid;
                 $coor = $database->getCoor($wref);
