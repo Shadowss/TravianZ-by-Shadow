@@ -61,13 +61,15 @@
 			if(isset($post['ft'])) {
 				switch($post['ft']) {
 					case "ali1":
-						$this->createAlliance($post);
+                                         $postz = preg_replace("/[^a-zA-Z0-9_-\s]/", "", $post);
+						$this->createAlliance($postz);
 						break;
 				}
 
 			}
 			if(isset($_POST['dipl']) and isset($_POST['a_name'])) {
-				$this->changediplomacy($post);
+                            $postz = preg_replace("/[^a-zA-Z0-9_-\s]/", "", $post);
+				$this->changediplomacy($postz);
 			}
 
 			if(isset($post['s'])) {
@@ -95,7 +97,8 @@
 							$this->quitally($post);
 							break;
 						case 100:
-							$this->changeAliName($post);
+                                              $postz = preg_replace("/[^a-zA-Z0-9_-\s]/", "", $post);
+							$this->changeAliName($postz);
 							break;
 					}
 				}
@@ -271,7 +274,7 @@
 				$_SESSION['valuearray'] = $post;
 				//header("Location: build.php?id=".$post['id']);
 			} else {
-				$database->setAlliName($database->RemoveXSS($session->alliance), $database->RemoveXSS($get['ally2']), $database->RemoveXSS($get['ally1']));
+				$database->setAlliName($session->alliance, $get['ally2'], $get['ally1']);
 				// log the notice
 				$database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid=' . $session->uid . '">' . addslashes($session->username) . '</a> has changed the alliance name.');
 			}
@@ -334,7 +337,10 @@
 			$UserData = $database->getUserArray($post['a_user'], 0);
 			if($this->userPermArray['opt2'] == 0) {
 				$form->addError("perm", NO_PERMISSION);
+                            echo $UserData['id'];
+
 			} else if($UserData['id'] != $session->uid){
+                            if ($post['a_user'] != $session->uid) {
 				$database->updateUserField($post['a_user'], 'alliance', 0, 1);
 				$database->deleteAlliPermissions($post['a_user']);
 				$database->deleteAlliance($session->alliance);
@@ -349,6 +355,7 @@
 				$this->updateMax($newleader);
 				}
 				}
+                            }
 			}else{
 			header("Location: banned.php");
 			}
@@ -367,23 +374,22 @@
 			header("Location: banned.php");
 			}
 		}
-
 		/*****************************************
-    		Function to vote on forum survey
-    		*****************************************/
-    		public function Vote($post) {
-      			global $database, $session;
-      			if($session->access != BANNED){
-      			if($database->checkSurvey($post['tid']) && !$database->checkVote($post['tid'], $session->uid)){
-      			$survey = $database->getSurvey($post['tid']);
-      			$text = ''.$survey['voted'].','.$session->uid.',';
-      			$database->Vote($post['tid'], $post['vote'], $text);
-      			}
-      			header("Location: allianz.php?s=2&fid2=".$post['fid2']."&pid=".$post['pid']."&tid=".$post['tid']);
-      		}else{
-      		header("Location: banned.php");
-      			}
-    		} 
+		Function to vote on forum survey
+		*****************************************/
+		public function Vote($post) {
+			global $database, $session;
+			if($session->access != BANNED){
+			if($database->checkSurvey($post['tid']) && !$database->checkVote($post['tid'], $session->uid)){
+			$survey = $database->getSurvey($post['tid']);
+			$text = ''.$survey['voted'].','.$session->uid.',';
+			$database->Vote($post['tid'], $post['vote'], $text);
+			}
+			header("Location: allianz.php?s=2&fid2=".$post['fid2']."&pid=".$post['pid']."&tid=".$post['tid']);
+			}else{
+			header("Location: banned.php");
+			}
+		}
 		/*****************************************
 		Function to quit from alliance
 		*****************************************/
