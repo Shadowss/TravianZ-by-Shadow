@@ -1017,6 +1017,14 @@ div#map div#map_coords input.text {
     margin-right: 8px;
     width: 28px;
 }
+div#qstd div#map_coords input.text {
+    margin-right: 8px;
+    width: 28px;
+}
+div#qstd input.text {
+    margin-right: 8px;
+    width: 28px;
+}
 div#map table#map_infobox {
     position: absolute;
     z-index: 50;
