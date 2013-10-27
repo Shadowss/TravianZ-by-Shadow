@@ -1693,6 +1693,34 @@ class MYSQL_DB {
 		$result = mysql_query($q, $this->connection);
 		return mysql_result($result, 0);
 	}
+	
+	function getFieldDistance($wid) {
+        $q = "SELECT * FROM " . TB_PREFIX . "vdata where owner > 4 and wref != $wid";
+        $array = $this->query_return($q);
+        $coor = $this->getCoor($wid);
+        $x1 = intval($coor['x']);
+        $y1 = intval($coor['y']);
+        $prevdist = 0;
+        $q2 = "SELECT * FROM " . TB_PREFIX . "vdata where owner = 4";
+        $array2 = mysql_fetch_array(mysql_query($q2));
+        $vill = $array2['wref'];
+        if(mysql_num_rows(mysql_query($q)) > 0){
+            foreach($array as $village){
+                $coor2 = $this->getCoor($village['wref']);
+                $max = 2 * WORLD_MAX + 1;
+                $x2 = intval($coor2['x']);
+                $y2 = intval($coor2['y']);
+                $distanceX = min(abs($x2 - $x1), abs($max - abs($x2 - $x1)));
+                $distanceY = min(abs($y2 - $y1), abs($max - abs($y2 - $y1)));
+                $dist = sqrt(pow($distanceX, 2) + pow($distanceY, 2));
+                if($dist < $prevdist or $prevdist == 0){
+                    $prevdist = $dist;
+                    $vill = $village['wref'];
+                }
+            }
+        }
+        return $vill;
+    	}  
 
 	function getVSumField($uid, $field) {
 		if($field != "cp"){
