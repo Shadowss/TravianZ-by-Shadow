@@ -77,9 +77,7 @@ for ($i=1;$i<=20;$i++) {
         }
     }
 	echo "<img src=\"img/x.gif\" class=\"building d$i $img\" alt=\"$text\" />";
-	}
-}
-//set event last quest firework..hooooray!!
+	//set event last quest firework..hooooray!!
     if ($_SESSION['qst']==38) {
         if ($i<8) {
             $dte=array("tur","purp","yell","oran","green","red","blue");
@@ -87,7 +85,7 @@ for ($i=1;$i<=20;$i++) {
             echo "<img src=\"img/x.gif\" class=\"building e$i rocket $im\" alt=\"$text\" />";
         }
     }
-}    
+	}
 }
     if ($_SESSION['qst']==38) {
         $database->updateUserField($_SESSION['username'],'quest','40',0);
