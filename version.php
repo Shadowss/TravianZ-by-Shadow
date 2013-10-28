@@ -150,6 +150,10 @@ $automation->isWinner();
 82. Fix counter timer if timer < 0 = display 0:00:00 and not display like your time pc. </br>
 83. Fix quest_core , now is like real travian. </br>
 84. Fix update oasis unit. </br>
+85. Fixed Registration hack. </br>
+86. Fixed Village hack hidden village and <name> ! </br>
+87. Fixed hidden Alliance name  and fixed the bug of kicking your self if you are founder or anything else. </br>
+88. Capital header added on capital villages. </br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
