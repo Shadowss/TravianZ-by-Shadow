@@ -1748,7 +1748,8 @@ class MYSQL_DB {
 
 	function updateOasis2($vid, $time) {
 		$time = time();
-		$q = "UPDATE " . TB_PREFIX . "odata set lastupdated2 = lastupdated2 + $time where wref = $vid";
+		$time2 = NATURE_REGTIME;
+		$q = "UPDATE " . TB_PREFIX . "odata set lastupdated2 = $time + $time2 where wref = $vid";
 		return mysql_query($q, $this->connection);
 	}
 
