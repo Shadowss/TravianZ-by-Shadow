@@ -139,6 +139,17 @@ $automation->isWinner();
 71. Fixed Username HACK on register.</br>
 72. Fixed Village hack in profile . </br>
 73. Fixed a Bug where Founder or a user in alliance can kick himself.</br>
+74. Fixed new village must build a rally point. </br>
+75. Fix sorting distance artefact village . </br>
+76. Fix to conquer oasis: can conquer 1 attack if nature troop die. </br>
+77. Fix report scout by Natars. Now report player can see.. </br>
+78. Fix area and location like real travian. </br>
+79. Fix field natar village set to type=3. </br>
+80. Fix natar village area 400/400 or WORLD_MAX not the random area. </br>
+81. Fix create_account : cannot create natar if already exist. </br>
+82. Fix counter timer if timer < 0 = display 0:00:00 and not display like your time pc. </br>
+83. Fix quest_core , now is like real travian. </br>
+84. Fix update oasis unit. </br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
