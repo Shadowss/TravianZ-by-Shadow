@@ -83,7 +83,7 @@ Rules for connection type 3</br>
 3. Battle simulator calculate don't work 100%.</br></br>
 4. Gold Club not fixed complete</br>
 - raid statistics</br></br>
-5. Capital doesnt apper on dorf1.php under village name</br></br>
+5.<s> Capital doesnt apper on dorf1.php under village name</s></br></br>
 6. Time zone from preference.tpl and also all options must to coded and also must coded in profile.tpl sitters options</br></br>
 7. Must code a fuction to don't leave pleyer who have seted in past 14 days vacation mode to set another vacation mode</br></br>
 8. Oassis loiality from 100 to 0 directly must be 100-60-20-0</br></br>
