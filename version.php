@@ -136,6 +136,9 @@ $automation->isWinner();
 68. Added loss protection if you have beginner protection and want to attack a player you loss protection.</br>
 69. Fix artefacts, will not win more artifacts from the same village.</br>
 70. Fix UTF8 in database and sql.sql file.</br>
+71. Fixed Username HACK on register.</br>
+72. Fixed Village hack in profile . </br>
+73. Fixed a Bug where Founder or a user in alliance can kick himself.</br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
