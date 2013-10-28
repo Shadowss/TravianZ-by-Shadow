@@ -174,8 +174,8 @@ if($_POST['password'] != ""){
         mysql_query($q3) or die(mysql_error());
         $q4 = "UPDATE " . TB_PREFIX . "users SET desc2 = '$desc' WHERE id = $uid";
         mysql_query($q4) or die(mysql_error());
-		$q5 = "UPDATE " . TB_PREFIX . "users SET desc1 = '$desc1' WHERE id = $uid";
-		mysql_query($q5) or die(mysql_error());
+	$q5 = "UPDATE " . TB_PREFIX . "users SET desc1 = '$desc1' WHERE id = $uid";
+	mysql_query($q5) or die(mysql_error());
 		
 /**
  * SCOUTING ALL PLAYERS FIX BY MisterX
@@ -185,7 +185,7 @@ if($_POST['password'] != ""){
   		$multiplier = NATARS_UNITS;
   		$q = "SELECT * FROM " . TB_PREFIX . "vdata WHERE owner > '5'";
   		$array = $database->query_return($q);
-        $sendspytroops = 1500 * $multiplier;
+        	$sendspytroops = 1500 * $multiplier;
   		foreach($array as $vill){
   		$ref = $database->addAttack($natar['wref'], 0, 0, 0, $sendspytroops, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0, 0);
   		$database->addMovement(3, $natar['wref'], $vill['wref'], $ref, time(), time()+10000);
@@ -197,7 +197,7 @@ if($_POST['password'] != ""){
 		function Artefact($uid, $type, $size, $art_name, $village_name, $desc, $effect, $img) {
 			global $database;
 			$kid = rand(1, 4);
-			$wid = $database->generateBase($kid);
+			$wid = $database->generateBase($kid, 1);
 			$database->addArtefact($wid, $uid, $type, $size, $art_name, $desc, $effect, $img);
 			$database->setFieldTaken($wid);
 			$database->addVillage($wid, $uid, $village_name, '0');
