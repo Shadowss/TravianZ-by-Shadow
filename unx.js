@@ -34,7 +34,9 @@ qact2=false;
 if(qact3===undefined){
 qact3=false;
 }
-}
+
+var gi='ajax.php?f=qst';var ci=(Math.abs(quest.number)+1)/(Math.abs(quest.last)+1);return gi+'&cr='+bi(4,ci)+'&qact='+qact+'&qact2='+qact2+'&qact3='+qact3;}
+
 function qst_next2(jf,act,act2,act3){
 
 var id;
