@@ -533,7 +533,7 @@ class MYSQL_DB {
 		if($this->VillageOasisCount($vref) < floor(($HeroMansionLevel-5)/5)) {
 			$OasisInfo = $this->getOasisInfo($wref);
 			$troopcount = $this->countOasisTroops($wref);
-			if($OasisInfo['conqured'] == 0 || $OasisInfo['conqured'] != 0 && $OasisInfo['loyalty'] < 99 / min(3,(4-$this->VillageOasisCount($OasisInfo['conqured']))) && $troopcount == 0) {
+			if($OasisInfo['conqured'] == 0 || $OasisInfo['conqured'] != 0 && intval($OasisInfo['loyalty']) < 99 / min(3,(4-$this->VillageOasisCount($OasisInfo['conqured']))) && $troopcount == 0) {
 				$CoordsVillage = $this->getCoor($vref);
 				$CoordsOasis = $this->getCoor($wref);
 				//if(abs($CoordsOasis['x']-$CoordsVillage['x'])<=3 && abs($CoordsOasis['y']-$CoordsVillage['y'])<=3) {
@@ -571,7 +571,7 @@ class MYSQL_DB {
 			$OasisInfo = $this->getOasisInfo($wref);
 			if($OasisInfo['conqured'] != 0) {
 			$LoyaltyAmendment = floor(100 / min(3,(4-$this->VillageOasisCount($OasisInfo['conqured']))));
-			$q = "UPDATE `".TB_PREFIX."odata` SET loyalty=loyalty-$LoyaltyAmendment WHERE wref=$wref";
+			$q = "UPDATE `".TB_PREFIX."odata` SET loyalty=loyalty-$LoyaltyAmendment, lastupdated=".time()." WHERE wref=$wref";
 			return mysql_query($q, $this->connection);
 			}
 		}
