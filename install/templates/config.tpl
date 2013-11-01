@@ -200,8 +200,8 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 		</td></tr><tr></tr>
 	<td><span class="f9 c6">Gpack Design:</span></td><td>
 				<select name="gp_locate">
-				<option value="gpack/travian_default/">Travian Default</option>
-				<option value="gpack/travian_t4/" selected="selected">TravianZ T4 by Shadow</option>
+				<option value="gpack/travian_default/" selected="selected">Travian Default</option>
+				<option value="gpack/travian_t4/">TravianZ T4 by Shadow</option>
 				</select>
 		</td></tr><tr></tr>
 
