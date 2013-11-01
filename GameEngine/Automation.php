@@ -1,17 +1,17 @@
-﻿<?php
+<?php
 
 #################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Project:       TravianZ                        		       	       		   ##
-##  Version:       01.09.2013 						       					   ##
+##  Project:       TravianZ                        		       	       ##
+##  Version:       01.09.2013 						       ##
 ##  Filename       Automation.php                                              ##
 ##  Developed by:  Mr.php , Advocaite , brainiacX , yi12345 , Shadow  	       ##
 ##  Fixed by:      Shadow - Doubleing Troops , STARVATION , HERO FIXED COMPL.  ##
 ##  License:       TravianZ Project                                            ##
 ##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
-##  URLs:          http://travian.shadowss.ro 				       			   ##
-##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       	   ##
+##  URLs:          http://travian.shadowss.ro 				       ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       ##
 ##                                                                             ##
 #################################################################################
 
@@ -204,7 +204,7 @@ class Automation {
 		if(!file_exists("GameEngine/Prevention/sendunits.txt") or time()-filemtime("GameEngine/Prevention/sendunits.txt")>50) {
 			$this->sendunitsComplete();
 		}
-		if(!file_exists("GameEngine/Prevention/loyalty.txt") or time()-filemtime("GameEngine/Prevention/loyalty.txt")>50) {
+		if(!file_exists("GameEngine/Prevention/loyalty.txt") or time()-filemtime("GameEngine/Prevention/loyalty.txt")>60) {
 			$this->loyaltyRegeneration();
 		}
 		if(!file_exists("GameEngine/Prevention/sendreinfunits.txt") or time()-filemtime("GameEngine/Prevention/sendreinfunits.txt")>50) {
@@ -225,11 +225,16 @@ class Automation {
 		$this->artefactOfTheFool();
 	}
 
-	private function loyaltyRegeneration() {
-	if(file_exists("GameEngine/Prevention/loyalty.txt")) {
-			unlink("GameEngine/Prevention/loyalty.txt");
-		}
-		global $database;
+    private function loyaltyRegeneration() {
+    	if(file_exists("GameEngine/Prevention/loyalty.txt")) {
+            unlink("GameEngine/Prevention/loyalty.txt");
+    }
+    //create new file to check filetime
+    //not every click regenerate but 1 minute or after
+    
+    		$ourFileHandle = fopen("GameEngine/Prevention/loyalty.txt", 'w');
+    		fclose($ourFileHandle);    
+    		global $database;  
 		$array = array();
 		$q = "SELECT * FROM ".TB_PREFIX."vdata WHERE loyalty<>100";
 		$array = $database->query_return($q);
@@ -242,8 +247,8 @@ class Automation {
 				} else {
 					$value = 0;
 				}
-				$newloyalty = min(100,$loyalty['loyalty']+$value*(time()-$loyalty['lastupdate'])/(60*60));
-				$q = "UPDATE ".TB_PREFIX."vdata SET loyalty = $newloyalty WHERE wref = '".$loyalty['wref']."'";
+				$newloyalty = min(100,$loyalty['loyalty']+$value*(time()-$loyalty['lastupdated'])/(60*60));
+				$q = "UPDATE ".TB_PREFIX."odata SET loyalty = $newloyalty, lastupdated=".time()." WHERE wref = '".$loyalty['wref']."'";
 				$database->query($q);
 			}
 		}
@@ -264,9 +269,9 @@ class Automation {
 				$database->query($q);
 			}
 		}
-		if(file_exists("GameEngine/Prevention/loyalty.txt")) {
-			unlink("GameEngine/Prevention/loyalty.txt");
-		}
+		//if(file_exists("GameEngine/Prevention/loyalty.txt")) {
+		//	unlink("GameEngine/Prevention/loyalty.txt");
+		//}
 	}
 
 	   private function getfieldDistance($coorx1, $coory1, $coorx2, $coory2) {
@@ -2386,10 +2391,10 @@ if($data['t11'] > 0){
                 } else {
                     $OasisInfo = $database->getOasisInfo($data['to']);
 					if ($OasisInfo['conqured'] != 0) {
-						$Oloyaltybefore =  $OasisInfo['loyalty'];
+						$Oloyaltybefore =  intval($OasisInfo['loyalty']);
 						$database->modifyOasisLoyalty($data['to']);
 						$OasisInfo = $database->getOasisInfo($data['to']);
-						$Oloyaltynow =  $OasisInfo['loyalty'];
+						$Oloyaltynow =  intval($OasisInfo['loyalty']);
 						$info_chief = $hero_pic.",Your hero has reduced oasis loyalty to ".$Oloyaltynow." from ".$Oloyaltybefore." and gained ".$heroxp." XP";
 					} else {
 						if ($heroxp == 0) {
