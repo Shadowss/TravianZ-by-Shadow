@@ -4465,7 +4465,7 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g3".$targettribe."Icon.gif\" height=\"
 	Function for automate medals - by yi12345 and Shadow
 	References: 
 	************************************************/
-	
+/*	
 	function medals(){
     		global $ranking,$database;
 
@@ -4979,7 +4979,7 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g3".$targettribe."Icon.gif\" height=\"
       $database->query($q);
   }
   }
-
+*/
 	/************************************************
 	Function for automate medals - by yi12345 and Shadow
 	References: 
