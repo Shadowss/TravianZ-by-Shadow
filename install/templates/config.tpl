@@ -98,6 +98,8 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
         <option value="86400">24 hours</option>
         </select>
     </td></tr><tr></tr> 
+<?php
+/*
 	<td><span class="f9 c6">Medal Interval:</span></td><td>
         <select name="medalinterval">
         <option value="0">none</option>
@@ -110,6 +112,8 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
         <option value="(3600*24*7)" selected="selected">7 days</option>
         </select>
     </td></tr><tr></tr> 
+*/
+?>
 	<td><span class="f9 c6">Storage Multipler:</span></td><td width="140"><input type="text" name="storage_multiplier" id="storage_multiplier" value="1"></td></tr><tr>
 	<td><span class="f9 c6">Tourn Threshold:</span></td><td width="140"><input type="text" name="ts_threshold" id="ts_threshold" value="20"></td></tr><tr>
 	<td><span class="f9 c6">Great Workshop:</span></td><td>
