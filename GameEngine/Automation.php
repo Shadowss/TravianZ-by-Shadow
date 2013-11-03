@@ -221,7 +221,7 @@ class Automation {
 		$this->updateStore();
 		$this->CheckBan();
 		$this->regenerateOasisTroops();
-		$this->medals();
+		//$this->medals();
 		$this->artefactOfTheFool();
 	}
 
