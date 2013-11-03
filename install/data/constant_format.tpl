@@ -124,7 +124,7 @@ define("PLUS_TIME",%PLUS_TIME%);
 //+25% production lenght
 define("PLUS_PRODUCTION",%PLUS_PRODUCTION%);
 // ***** Medal Interval check
-define("MEDALINTERVAL",%MEDALINTERVAL%); 
+// define("MEDALINTERVAL",%MEDALINTERVAL%); 
 // ***** Great Workshop
 define("GREAT_WKS",%GREAT_WKS%);
 // ***** Tourn threshold
