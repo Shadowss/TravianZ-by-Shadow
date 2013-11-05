@@ -744,7 +744,7 @@ class Building {
         if($finish != 2){
             $demolition=$database->finishDemolition($village->wid);
             $tech=$technology->finishTech();
-            if ($finish==1 || $demolition>0 || $tect>0) {
+            if ($finish==1 || $demolition>0 || $tech>0) {
                 $logging->goldFinLog($village->wid);
                 $database->modifyGold($session->uid,2,0);
             }
