@@ -35,6 +35,25 @@ class Building {
 		}
 		}
 	}
+	
+	public function canProcess($id,$tid) {
+           	//add fix by ronix
+                global $session;
+        if($session->access==BANNED){
+            header("Location: banned.php");
+                        exit;
+        } else {
+            if ($this->checkResource($id,$tid)!=4) {
+                if($tid >= 19) {
+                    header("Location: dorf2.php");
+                             }
+                else {
+                    header("Location: dorf1.php");
+                              }
+                                exit;
+             		}
+        	}
+    	}  
 
 	public function procBuild($get) {
 		global $session;
@@ -44,11 +63,13 @@ class Building {
 			}
 			else {
 				$session->changeChecker();
+				$this->canProcess($village->resarray['f'.$get['a'].'t'],$get['a']);
 				$this->upgradeBuilding($get['a']);
 			}
 		}
 		if(isset($get['a']) && $get['c'] == $session->checker && isset($get['id'])) {
 			$session->changeChecker();
+			$this->canProcess($get['a'],$get['id']);
 			$this->constructBuilding($get['id'],$get['a']);
 		}
 		if(isset($get['buildingFinish'])) {
@@ -574,7 +595,7 @@ class Building {
 					return 3;
 				}
 				else {
-					if($village->awood-$wood > 0 && $village->aclay-$clay > 0 && $village->airon-$iron > 0 && $village->acrop-$crop >0){
+					if($village->awood>=$wood && $village->aclay>=$clay && $village->airon>=$iron && $village->acrop>=$crop){
 						return 4;
 					}
 					else {
