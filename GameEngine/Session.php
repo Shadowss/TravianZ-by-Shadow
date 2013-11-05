@@ -36,7 +36,7 @@ include ("Form.php");
 include ("Generator.php");
 include ("Multisort.php");
 include ("Ranking.php");
-include ("Automation.php");
+//include ("Automation.php");
 include ("Lang/" . LANG . ".php");
 include ("Logging.php");
 include ("Message.php");
@@ -225,5 +225,5 @@ class Session {
 $session = new Session;
 $form = new Form;
 $message = new Message;
-
+include_once ("Automation.php");
 ?>
