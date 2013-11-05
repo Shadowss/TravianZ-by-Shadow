@@ -2160,7 +2160,8 @@ class MYSQL_DB {
 
 	function finishDemolition($wid) {
 		$q = "UPDATE " . TB_PREFIX . "demolition SET timetofinish=" . time() . " WHERE vref=" . $wid;
-		return mysql_query($q, $this->connection);
+		$result= mysql_query($q, $this->connection);
+		return mysql_affected_rows();
 	}
 
 	function delDemolition($wid) {
