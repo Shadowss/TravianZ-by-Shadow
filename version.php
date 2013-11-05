@@ -153,7 +153,12 @@ $automation->isWinner();
 85. Fixed Registration hack. </br>
 86. Fixed Village hack hidden village and <name> ! </br>
 87. Fixed hidden Alliance name  and fixed the bug of kicking your self if you are founder or anything else. </br>
-88. Capital header added on capital villages. </br>
+88. Fix conquer artefact. </br>
+88. Fix ranking and Quest 4. </br>
+88. Fix finishAll building/demolition/tecknology. </br>
+88. Fix conquer Occupied Oasis. </br>
+88. Fix NPC trade on settler in village or palace. </br>
+88. Fix bug when paste address to update building or resource , now not possible to upgrade. </br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
