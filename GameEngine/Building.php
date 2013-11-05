@@ -56,7 +56,7 @@ class Building {
     	}  
 
 	public function procBuild($get) {
-		global $session;
+		global $session, $village;
 		if(isset($get['a']) && $get['c'] == $session->checker && !isset($get['id'])) {
 			if($get['a'] == 0) {
 				$this->removeBuilding($get['d']);
