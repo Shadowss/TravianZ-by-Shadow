@@ -1,4 +1,3 @@
-
 	<br>
 
 	<h4>&nbsp;&nbsp;Disclaimer</h4>
@@ -30,7 +29,7 @@
 	</ul>
 
 	<div class="lbox">
-	TravianX Team - <b>Version Modified by Shadow <colour=red>v.7.0.0</colour></b>
+	TravianZ Team - <b>Version Modified by Shadow <colour=red>v.7.0.0</colour></b>
 	</div>
 	<br>
 
