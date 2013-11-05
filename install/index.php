@@ -10,7 +10,7 @@ if(!isset($_GET['s'])) {
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>TravianX Installation</title>
+	<title>TravianZ Installation - Version Modified by Shadow v.7.0.0</title>
 	<link rel="shortcut icon" href="favicon.ico" />
 	<meta http-equiv="cache-control" content="max-age=0" />
 	<meta http-equiv="pragma" content="no-cache" />
