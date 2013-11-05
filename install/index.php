@@ -50,7 +50,7 @@ if(!isset($_GET['s'])) {
 					}
 					?>
 				<div class="headline"><center>
-				<span class="f18 c5">TravianX Installation Script</span>
+				<span class="f18 c5">TravianZ Installation Script - Version Modified by Shadow v.7.0.0</span>
 				</center></div>
 
 				<?php
