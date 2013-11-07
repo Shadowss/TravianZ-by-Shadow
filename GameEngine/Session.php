@@ -225,5 +225,5 @@ class Session {
 $session = new Session;
 $form = new Form;
 $message = new Message;
-include_once ("Automation.php");
+//include_once ("Automation.php");
 ?>
