@@ -247,7 +247,7 @@ class Account {
 			$kid = $_POST['kid'];
 		}
 
-		$wid = $database->generateBase($kid);
+		$wid = $database->generateBase($kid,0);
 		$database->setFieldTaken($wid);
 		$database->addVillage($wid,$uid,$username,1);
 		$database->addResourceFields($wid,$database->getVillageType($wid));
