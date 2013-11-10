@@ -2489,22 +2489,23 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g3".$targettribe."Icon.gif\" height=\"
 			$data_fail = ''.$from['owner'].','.$from['wref'].','.$owntribe.','.$unitssend_att.','.$unitsdead_att.','.$steal[0].','.$steal[1].','.$steal[2].','.$steal[3].','.$battlepart['bounty'].','.$to['owner'].','.$to['wref'].','.addslashes($to['name']).','.$targettribe.',,,'.$rom.','.$unitssend_deff[1].','.$unitsdead_deff[1].','.$ger.','.$unitssend_deff[2].','.$unitsdead_deff[2].','.$gal.','.$unitssend_deff[3].','.$unitsdead_deff[3].','.$nat.','.$unitssend_deff[4].','.$unitsdead_deff[4].','.$natar.','.$unitssend_deff[5].','.$unitsdead_deff[5].',,,'.$data['t11'].','.$dead11.','.$unitstraped_att.',,';
 
 			//Undetected and detected in here.
-                      if($scout){
-                      }
-                        for($i=1;$i<=10;$i++){
-                            if($battlepart['casualties_attacker'][$i]){
-                                if($from['owner'] == 3){
-                                    $database->addNotice($to['owner'],$to['wref'],$targetally,0,''.addslashes($from['name']).' scouts '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
-                                    break;
-                                }else if($unitsdead_att == $unitssend_att && $defspy){ //fix by ronix
-                                    $database->addNotice($to['owner'],$to['wref'],$targetally,20,''.addslashes($from['name']).' scouts '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
-                                    break;
-                                }else if($defspy){ //fix by ronix
-                                    $database->addNotice($to['owner'],$to['wref'],$targetally,21,''.addslashes($from['name']).' scouts '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
-                                    break;
-                                }
-                            }
-                        }  
+			if($scout)
+			{
+			for($i=1;$i<=10;$i++){
+			if($battlepart['casualties_attacker'][$i]){
+			if($from['owner'] == 3){
+				$database->addNotice($to['owner'],$to['wref'],$targetally,0,''.addslashes($from['name']).' scouts '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
+			break;
+			}else if($unitsdead_att == $unitssend_att && $defspy){ //fix by ronix
+				$database->addNotice($to['owner'],$to['wref'],$targetally,20,''.addslashes($from['name']).' scouts '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
+			break;
+			}else if($defspy){ //fix by ronix
+				$database->addNotice($to['owner'],$to['wref'],$targetally,21,''.addslashes($from['name']).' scouts '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
+			break;
+						}
+					}
+				}
+			}
 			else {
 			if($type == 3 && $totalsend_att - ($totaldead_att+$totaltraped_att) > 0){
 			$prisoners = $database->getPrisoners($to['wref']);
