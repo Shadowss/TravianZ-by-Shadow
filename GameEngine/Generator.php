@@ -106,8 +106,9 @@ public function procMtime($time, $pref = 3) {
 			break;
 		}
 		*/
--       $time += 3600*0; //Edit this yourself
-+       $time += 0; //Edit this yourself
+//-       $time += 3600*0; //Edit this yourself
+//+       $time += 0; //Edit this yourself
+$time -= 3600*TIMEZONE; //Edit this yourself
 
 $today = date('d',time())-1;
 if (date('Ymd',time()) == date('Ymd',$time)) {
