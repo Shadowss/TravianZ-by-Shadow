@@ -38,8 +38,8 @@ class Process {
 		$text = preg_replace("'%SERVERNAME%'", $_POST['servername'], $text);
 		$text = preg_replace("'%SSTARTDATE%'", $_POST['start_date'], $text);
 		$text = preg_replace("'%SSTARTTIME%'", $_POST['start_time'], $text);
-		$text = preg_replace("'%LOCALZONE%'", $_POST['localzone'], $text);
-                $text = preg_replace("'%TIMEZONE%'", $_POST['timezone'], $text);
+		//$text = preg_replace("'%LOCALZONE%'", $_POST['localzone'], $text);
+                //$text = preg_replace("'%TIMEZONE%'", $_POST['timezone'], $text);
 		$text = preg_replace("'%LANG%'", $_POST['lang'], $text);
 		$text = preg_replace("'%SPEED%'", $_POST['speed'], $text);
 		$text = preg_replace("'%INCSPEED%'", $_POST['incspeed'], $text);
