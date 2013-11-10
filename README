@@ -25,8 +25,8 @@ This version
 19. Added image in Profile (like beginner protection) for tribes [#roman] , [#gaul] , [#teuton]
 20. Added image in profile for Multihunter and Admin [#MH] automaticaly set on install.
 21. Added image in profile for Taskmaster and Nature [#TASKMASTER] , [#NATURE] , automaticaly set on install.
-22. Added numbers of village in overview Villages  [ 35 ]
-23. Added oassis type in Profile / Overview 
+22. Added numbers of village in overview Villages [ 35 ]
+23. Added oassis type in Profile / Overview
 24. Added in karte.php (vilview.tpl) if you are in vacation mode , you cannot send resource.
 25. Added in reports images for every report (reinforcement , attacks , resource , peace).
 26. Added new quests (alliance , main building 5 , granary level 3 , warehouse level 5 , palace or residence , 3 settlers , new village , wall).
@@ -47,9 +47,9 @@ This version
 41. Fix treasurey and palace , now cannot be build on WW village.
 42. Fix greatbarraks.
 43. Fix eraseble hero , now you can delete your hero.
-44. Fix desapear hero when you send as reinforcement (temporary fix).
+44. Fix desapear hero when you send as reinforcement.
 45. Fix message problem with '
-46. Added image for each tribe in hero mansion.
+46. Fix train hero for unit pretorian
 47. Fix merchant quantity
 48. Fix battle system for catapults
 49. Fix delete player in admin panel
@@ -64,6 +64,39 @@ This version
 58. Fix conquer oasis.
 59. Fix movements.tpl (now show purple sword if your oasis is attacked or if you found new village)
 60. Fixed movements on rally point if your oasis is under attack
+61. Fixed vulnerability attack on message.
+62. Fixed scouting all player when create natars.
+63. Fixed catapult if have artefact for random target. Now can target WW even have that artefact like says.
+64. Added graphic pack T4 (buildings , village view , building in construction , etc.)
+65. Fix special characters on message (script alert not work now).
+66. Fix mightiest bug of travian , double troops , now you won`t have any problems with double troops. Works for own units and for enforcement units.
+67. Fix catapult target on brewerey , now you can target brewerey.
+68. Added loss protection if you have beginner protection and want to attack a player you loss protection.
+69. Fix artefacts, will not win more artifacts from the same village.
+70. Fix UTF8 in database and sql.sql file.
+71. Fixed Username HACK on register.
+72. Fixed Village hack in profile .
+73. Fixed a Bug where Founder or a user in alliance can kick himself.
+74. Fixed new village must build a rally point.
+75. Fix sorting distance artefact village .
+76. Fix to conquer oasis: can conquer 1 attack if nature troop die.
+77. Fix report scout by Natars. Now report player can see..
+78. Fix area and location like real travian.
+79. Fix field natar village set to type=3.
+80. Fix natar village area 400/400 or WORLD_MAX not the random area.
+81. Fix create_account : cannot create natar if already exist.
+82. Fix counter timer if timer < 0 = display 0:00:00 and not display like your time pc.
+83. Fix quest_core , now is like real travian.
+84. Fix update oasis unit.
+85. Fixed Registration hack.
+86. Fixed Village hack hidden village and !
+87. Fixed hidden Alliance name and fixed the bug of kicking your self if you are founder or anything else.
+88. Fix conquer artefact.
+89. Fix ranking and Quest 4.
+90. Fix finishAll building/demolition/tecknology.
+91. Fix conquer Occupied Oasis.
+92. Fix NPC trade on settler in village or palace.
+93. Fix bug when paste address to update building or resource , now not possible to upgrade.
 
 In future
 
