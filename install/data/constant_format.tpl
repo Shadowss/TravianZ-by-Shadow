@@ -26,8 +26,8 @@ define("SERVER_NAME","%SERVERNAME%");
 
 // ***** LocalZone
 // Choose your Localzone.
-define("LOCALZONE","%LOCALZONE%");
-//date_default_timezone_set('%LOCALZONE%');
+//define("LOCALZONE","%LOCALZONE%");
+date_default_timezone_set('%LOCALZONE%');
 
 // ***** Started
 // Defines when has server started.
