@@ -210,7 +210,7 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<span class="f10 c">GPACK RELATED</span>
 	<table>
 	<td><span class="f9 c6">Gpack:</span></td><td>
-				<select name="gp">
+				<select name="gpack">
 				<option value="False">No</option>
 				<option value="True" selected="selected">Yes</option>
 				</select>
