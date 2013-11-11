@@ -40,8 +40,6 @@ date_default_timezone_set($t_zone);
 	<link href="../gpack/travian_default/lang/en/lang.css?e21d2" rel="stylesheet" type="text/css" />
 </head>
 <body>
-//and add this code..
-//added by ronix
 <script LANGUAGE="JavaScript">
 function refresh(tz) {
      var dt = new Array();
