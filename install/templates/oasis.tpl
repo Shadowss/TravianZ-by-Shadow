@@ -10,10 +10,10 @@
 <form action="include/oasis.php" method="post" id="dataform">
 <p>
 	<span class="f10 c">Populate Oasis</span>
-		<table>
-			<tr><td><b>Warning</b>: This can take some time. Do not click, just wait till the next page has been loaded!</td></tr>
-			<tr><td><center><input type="submit" name="Submit" id="Submit" value="Create.."></center></td></tr>
-		</table>
+        <table>
+            <tr><td><b>Warning</b>: This can take some time. Wait till the next page has been loaded! Click Create to proceed..</td></tr>
+            <tr><td><center><input type="submit" name="Submit" id="Submit" value="Create.." onClick="return proceed()"></center></td></tr>
+        </table>
 </p>
 </form>
 </div>
