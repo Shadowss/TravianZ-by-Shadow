@@ -15,23 +15,21 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<span class="f10 c">SERVER RELATED</span>
 	<table><tr>
 	<td><span class="f9 c6">Server name:</span></td><td width="140"><input type="text" name="servername" id="servername" value="TravianZ - by Shadow"></td></tr><tr>
-	<td><span class="f9 c6">Local Zone:</span></td><td>
-				<select name="localzone">
-				<option value="Europe/Amsterdam">Europe/Amsterdam</option>
-				<option value="Europe/Berlin">Europe/Berlin</option>
-				<option value="Europe/Madrid">Europe/Madrid</option>
-				<option value="Europe/Rome" selected="selected">Europe/Rome</option>
-				<option value="Europe/Moscow">Europe/Moscow</option>
-				<option value="Europe/Zurich">Europe/Zurich</option>
-				<option value="Europe/Paris">Europe/Paris</option>
-				<option value="Europe/Monaco">Europe/Monaco</option>
-				<option value="Europe/Dublin">Europe/Dublin</option>
-				<option value="Europe/London">Europe/London</option>
-				</select> 
-		</td>
-</tr>
-<tr>
-	<td><span class="f9 c6">Timezone:</span></td><td><input name="timezone" type="text" id="timezone" value="0" size="2"></td></tr><tr>
+	//add timezone by ronix    
+	<td><span class="f9 c6">Server Timezone:</span></td><td>
+        <select name="tzone" onChange="refresh(this.value)">
+        <option value="1,Africa/Dakar" <?php if ($tz==1) echo "selected";?>>Africa</option>
+        <option value="2,America/New_York" <?php if ($tz==2) echo "selected";?>>America</option>
+        <option value="3,Antarctica/Casey" <?php if ($tz==3) echo "selected";?>>Antarctica</option>
+        <option value="4,Arctic/Longyearbyen" <?php if ($tz==4) echo "selected";?>>Arctic</option>
+        <option value="5,Asia/Kuala_Lumpur" <?php if ($tz==5) echo "selected";?>>Asia</option>
+        <option value="6,Atlantic/Azores" <?php if ($tz==6) echo "selected";?>>Atlantic</option>
+        <option value="7,Australia/Melbourne" <?php if ($tz==7) echo "selected";?>>Australia</option>
+        <option value="8,Europe/Berlin" <?php if ($tz==8) echo "selected";?>>Europe</option>
+        <option value="9,Indian/Maldives" <?php if ($tz==9) echo "selected";?>>Indian</option>
+        <option value="10,Pacific/Fiji" <?php if ($tz==10) echo "selected";?>>Pacific</option>
+        </select>
+    	</td></tr><tr>
 	<td><span class="f9 c6">Server speed:</span></td><td><input name="speed" type="text" id="speed" value="1" size="2"></td></tr><tr>
 	<td><span class="f9 c6">Troop speed:</span></td><td width="140"><input type="text" name="incspeed" id="incspeed" value="1" size="2"></td></tr><tr>
 	<td><span class="f9 c6">Evasion speed:</span></td><td><input name="evasionspeed" type="text" id="evasionspeed" value="1" size="2"></td></tr><tr>
