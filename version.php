@@ -159,6 +159,11 @@ $automation->isWinner();
 91. Fix conquer Occupied Oasis. </br>
 92. Fix NPC trade on settler in village or palace. </br>
 93. Fix bug when paste address to update building or resource , now not possible to upgrade. </br>
+94. Fix spy : When defender has no spy's in his village, an incomming spy attack should be unnoticed, and the defender shouldn't get a report and also there shouldn't appear red swords in dorf.1 when there are no own spy's in village.</br>
+95. Fix village to destroy and less query. </br>
+96. Fix settler to raid (1 unit of settler can carry 3000 resource...wow!!)</br>
+97. Fix dorf3 , now timer works corectly. </br>
+98. Added timezone in instalation file , and can be edited after installation on config. </br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
