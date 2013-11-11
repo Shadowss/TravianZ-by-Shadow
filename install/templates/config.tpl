@@ -24,7 +24,7 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
         <option value="5,Asia/Kuala_Lumpur" <?php if ($tz==5) echo "selected";?>>Asia</option>
         <option value="6,Atlantic/Azores" <?php if ($tz==6) echo "selected";?>>Atlantic</option>
         <option value="7,Australia/Melbourne" <?php if ($tz==7) echo "selected";?>>Australia</option>
-        <option value="8,Europe/Berlin" <?php if ($tz==8) echo "selected";?>>Europe</option>
+        <option value="8,Europe/Bucharest" <?php if ($tz==8) echo "selected";?>>Europe</option>
         <option value="9,Indian/Maldives" <?php if ($tz==9) echo "selected";?>>Indian</option>
         <option value="10,Pacific/Fiji" <?php if ($tz==10) echo "selected";?>>Pacific</option>
         </select>
