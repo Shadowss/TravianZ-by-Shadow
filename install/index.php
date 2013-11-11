@@ -12,7 +12,7 @@ $tz=(isset($_GET['t']))? $_GET['t']:1;
         case 5: $t_zone="Asia/Kuala_Lumpur";break;
         case 6: $t_zone="Atlantic/Azores";break;
         case 7: $t_zone="Australia/Melbourne";break;
-        case 8: $t_zone="Europe/Berlin";break;
+        case 8: $t_zone="Europe/Bucharest";break;
         case 9: $t_zone="Indian/Maldives";break;
         case 10: $t_zone="Pacific/Fiji";break;
     }
