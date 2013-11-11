@@ -8,6 +8,6 @@
 	<b>Minor Changes:</b> Admin panel updated a bit, config updated, installation system updated<br />
 	<b>Script Price:</b> FREE!<br /><br />
 	<b><u><center>Released by: Shadow</u></b><br />
-	<b>Visit: <a href="http://ragezone.com">RageZone.com</a></b><br /></center>
+	<b>Visit: <a href="http://forum.ragezone.com/f583/travianz-version-modified-shadow-many-967580/">RageZone.com</a></b><br /></center>
 
   </div>
