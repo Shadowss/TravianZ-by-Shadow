@@ -15,7 +15,6 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<span class="f10 c">SERVER RELATED</span>
 	<table><tr>
 	<td><span class="f9 c6">Server name:</span></td><td width="140"><input type="text" name="servername" id="servername" value="TravianZ - by Shadow"></td></tr><tr>
-	//add timezone by ronix    
 	<td><span class="f9 c6">Server Timezone:</span></td><td>
         <select name="tzone" onChange="refresh(this.value)">
         <option value="1,Africa/Dakar" <?php if ($tz==1) echo "selected";?>>Africa</option>
