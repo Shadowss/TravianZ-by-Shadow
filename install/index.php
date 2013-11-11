@@ -3,6 +3,20 @@
 if(!isset($_GET['s'])) {
 	$_GET['s']=0;
 }
+$tz=(isset($_GET['t']))? $_GET['t']:1;
+    switch($tz) {
+        case 1: $t_zone="Africa/Dakar";break;
+        case 2: $t_zone="America/New_York";break;
+        case 3: $t_zone="Antarctica/Casey";break;
+        case 4: $t_zone="Arctic/Longyearbyen";break;
+        case 5: $t_zone="Asia/Kuala_Lumpur";break;
+        case 6: $t_zone="Atlantic/Azores";break;
+        case 7: $t_zone="Australia/Melbourne";break;
+        case 8: $t_zone="Europe/Berlin";break;
+        case 9: $t_zone="Indian/Maldives";break;
+        case 10: $t_zone="Pacific/Fiji";break;
+    }
+date_default_timezone_set($t_zone);
 ?>
 
  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -26,6 +40,20 @@ if(!isset($_GET['s'])) {
 	<link href="../gpack/travian_default/lang/en/lang.css?e21d2" rel="stylesheet" type="text/css" />
 </head>
 <body>
+//and add this code..
+//added by ronix
+<script LANGUAGE="JavaScript">
+function refresh(tz) {
+     var dt = new Array();
+    dt=tz.split(",");
+    tz=dt[0];
+    location="?s=1&t="+tz;
+}
+function proceed() {
+    document.dataform.Submit.disabled=true;
+    return(true);
+}
+</script>
 	<div class="wrapper">
 		<img class="c1" src="img/x.gif" id="msfilter" alt="" name="msfilter" />
 
