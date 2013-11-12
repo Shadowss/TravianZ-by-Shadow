@@ -2750,18 +2750,26 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g3".$targettribe."Icon.gif\" height=\"
                             $q = "DELETE FROM ".TB_PREFIX."enforcement where from = ".$data['to'];
                             $database->query($q);
 
-                            $getprisoners = $database->getPrisoners($data['to']);								}
-								$getprisoners = $database->getPrisoners3($data['to']);
-								foreach($getprisoners as $pris) {
-								$troops = 0;
-								for($i=1;$i<12;$i++){
-								$troops += $pris['t'.$i];
-								}
-								$database->modifyUnit($pris['wref'],array("99o"),array($troops),array(0));
-								$database->deletePrisoners($pris['id']);
-								}
-						}
-						}
+                            $getprisoners = $database->getPrisoners($data['to']);
+                            foreach($getprisoners as $pris) {
+                         $troops = 0;
+                         for($i=1;$i<12;$i++){
+                         $troops += $pris['t'.$i];
+                        }
+                                $database->modifyUnit($pris['wref'],array("99o"),array($troops),array(0));
+                                $database->deletePrisoners($pris['id']);
+                            }
+                                $getprisoners = $database->getPrisoners3($data['to']);
+                                foreach($getprisoners as $pris) {
+                                $troops = 0;
+                                for($i=1;$i<12;$i++){
+                                $troops += $pris['t'.$i];
+                                }
+                                $database->modifyUnit($pris['wref'],array("99o"),array($troops),array(0));
+                                $database->deletePrisoners($pris['id']);
+                        }
+                        }
+                        }
 			}else{
 			//units attack string for battleraport
 			$unitssend_att1 = ''.$data['t1'].','.$data['t2'].','.$data['t3'].','.$data['t4'].','.$data['t5'].','.$data['t6'].','.$data['t7'].','.$data['t8'].','.$data['t9'].','.$data['t10'].'';
