@@ -598,24 +598,32 @@ class Automation {
 			unlink("GameEngine/Prevention/culturepoints.txt");
 		}
 		global $database,$session;
-		$time = time()-600; // 10minutes
-		$array = array();
-		$q = "SELECT id, lastupdate FROM ".TB_PREFIX."users WHERE lastupdate < $time";
-		$array = $database->query_return($q);
+		//fix by ronix
+                if (SPEED >10)
+                  $speed=10;
+                 else
+                  $speed=SPEED;
+                $dur_day=86400/$speed; //24 hours/speed
+                if ($dur_day<3600) $dur_day=3600;
+                $time = time()-600; // recount every 10minutes
+                
+                $array = array();
+                $q = "SELECT id, lastupdate FROM ".TB_PREFIX."users WHERE lastupdate < $time";
+                $array = $database->query_return($q);
 
-		foreach($array as $indi) {
-			if($indi['lastupdate'] <= $time && $indi['lastupdate'] > 0){
-				$cp = $database->getVSumField($indi['id'], 'cp') * (time()-$indi['lastupdate'])/86400; // 24 hours
+                foreach($array as $indi) {
+                        if($indi['lastupdate'] <= $time && $indi['lastupdate'] > 0){
+                                $cp = $database->getVSumField($indi['id'], 'cp') * (time()-$indi['lastupdate'])/$dur_day;
 
-				$newupdate = time();
-				$q = "UPDATE ".TB_PREFIX."users set cp = cp + $cp, lastupdate = $newupdate where id = '".$indi['id']."'";
-				$database->query($q);
-			}
-		}
-		if(file_exists("GameEngine/Prevention/culturepoints.txt")) {
-			unlink("GameEngine/Prevention/culturepoints.txt");
-		}
-}
+                                $newupdate = time();
+                                $q = "UPDATE ".TB_PREFIX."users set cp = cp + $cp, lastupdate = $newupdate where id = '".$indi['id']."'";
+                                $database->query($q);
+                        }
+                }
+                if(file_exists("GameEngine/Prevention/culturepoints.txt")) {
+                        unlink("GameEngine/Prevention/culturepoints.txt");
+                }
+}  
 
 	private function buildComplete() {
 	if(file_exists("GameEngine/Prevention/build.txt")) {
