@@ -3,11 +3,15 @@
 #################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       Battle.php                                                  ##
-##  Developed by:  Dzoki & Dixie  Reworked buy Advocaite love it or hate it    ##
-##  Thanks to:     Akakori & Elmar                                             ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Project:       TravianZ                        		       	       ##
+##  Version:       01.09.2013 						       ##
+##  Filename       Automation.php                                              ##
+##  Developed by:  Mr.php , Advocaite , brainiacX , yi12345 , Shadow  	       ##
+##  Fixed by:      Shadow - Doubleing Troops , STARVATION , HERO FIXED COMPL.  ##
+##  License:       TravianZ Project                                            ##
+##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
+##  URLs:          http://travian.shadowss.ro 				       ##
+##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       ##
 ##                                                                             ##
 #################################################################################
 
