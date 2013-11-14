@@ -164,6 +164,9 @@ $automation->isWinner();
 96. Fix settler to raid (1 unit of settler can carry 3000 resource...wow!!)</br>
 97. Fix dorf3 , now timer works corectly. </br>
 98. Added timezone in instalation file , and can be edited after installation on config. </br>
+99. The damage must be calculate for all troops as a defender. </br>
+100. Battle system is fixed and it`s work like real travian. </br>
+101. War Simulator system is fixed and it`s work like real travian. </br>
 </div>
 </div>
 </br></br></br></br><div id="side_info">
