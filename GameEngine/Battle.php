@@ -5,7 +5,7 @@
 ## --------------------------------------------------------------------------- ##
 ##  Project:       TravianZ                        		       	       ##
 ##  Version:       01.09.2013 						       ##
-##  Filename       Automation.php                                              ##
+##  Filename       Battle.php                                                  ##
 ##  Developed by:  Mr.php , Advocaite , brainiacX , yi12345 , Shadow  	       ##
 ##  Fixed by:      Shadow - Doubleing Troops , STARVATION , HERO FIXED COMPL.  ##
 ##  License:       TravianZ Project                                            ##
