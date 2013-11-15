@@ -37,6 +37,14 @@ if ($_SESSON['access'] == MULTIHUNTER) die("<br /><br /><br /><br /><br /><br />
 		<td><?php echo SERVER_NAME;?></td>
 	</tr>
 	<tr>
+		<td>Medal Interval</td>
+		<td><?php echo (MEDALINTERVAL/3600/24);?> days</td>
+	</tr>
+	<tr>
+		<td>Peace</td>
+		<td><?php echo PEACE;?></td>
+	</tr>
+	<tr>
 		<td>Server Started</td>
 		<td><?php echo date("d.m.y H:i",COMMENCE);?></td>
 	</tr>
