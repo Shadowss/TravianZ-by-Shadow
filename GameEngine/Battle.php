@@ -588,7 +588,7 @@ class Battle {
                  if($catp > 0 && $tblevel != 0) {
             $wctp = pow(($rap/$rdp),1.5);
             $wctp = ($wctp >= 1)? 1-0.5/$wctp : 0.5*$wctp;
-            $wctp *= $catp;
+            $wctp *= $catp+($att_ab8/1.5);
             $artowner = $database->getVillageField($DefenderWref,"owner");
             $bartefact = count($database->getOwnUniqueArtefactInfo2($artowner,1,3,0));
             $bartefact1 = count($database->getOwnUniqueArtefactInfo2($DefenderWref,1,1,1));
@@ -614,9 +614,9 @@ class Battle {
             }
             }
             if($stonemason==0){
-            $need = round((($moralbonus * (pow($tblevel,2) + $tblevel + 1)) / (8 * (round(200 * pow(1.0205,$att_ab['a8']))/200) / $strongerbuildings / $good_effect * $bad_effect)) + 0.5);
+            $need = round((($moralbonus * (pow($tblevel,2) + $tblevel + 1)) / (8 * (round(200 * pow(1.0205,$att_ab8))/200) / $strongerbuildings / $good_effect * $bad_effect)) + 0.5);
             }else{
-            $need = round((($moralbonus * (pow($tblevel,2) + $tblevel + 1)) / (8 * (round(200 * pow(1.0205,$att_ab['a8']))/200) / ($bid34[$stonemason]['attri']/100) / $strongerbuildings / $good_effect * $bad_effect)) + 0.5);
+            $need = round((($moralbonus * (pow($tblevel,2) + $tblevel + 1)) / (8 * (round(200 * pow(1.0205,$att_ab8))/200) / ($bid34[$stonemason]['attri']/100) / $strongerbuildings / $good_effect * $bad_effect)) + 0.5);
             }
             // Number catapults to take down the building
             $result[3] = $need;
@@ -628,7 +628,7 @@ class Battle {
         if($ram > 0 && $walllevel != 0) {
             $wctp = pow(($rap/$rdp),1.5);
             $wctp = ($wctp >= 1)? 1-0.5/$wctp : 0.5*$wctp;
-            $wctp *= $ram/2;
+            $wctp *= ($ram/2) + ($att_ab7/1.5);
             $artowner = $database->getVillageField($DefenderWref,"owner");
             $bartefact = count($database->getOwnUniqueArtefactInfo2($artowner,1,3,0));
             $bartefact1 = count($database->getOwnUniqueArtefactInfo2($DefenderWref,1,1,1));
@@ -654,9 +654,9 @@ class Battle {
             }
             }
             if($stonemason==0){
-            $need = round((($moralbonus * (pow($walllevel,2) + $walllevel + 1)) / (8 * (round(200 * pow(1.0205,$att_ab['a7']))/200) / $strongerbuildings / $good_effect * $bad_effect)) + 0.5);
+            $need = round((($moralbonus * (pow($walllevel,2) + $walllevel + 1)) / (8 * (round(200 * pow(1.0205,$att_ab7))/200) / $strongerbuildings / $good_effect * $bad_effect)) + 0.5);
             }else{
-            $need = round((($moralbonus * (pow($walllevel,2) + $walllevel + 1)) / (8 * (round(200 * pow(1.0205,$att_ab['a7']))/200) / ($bid34[$stonemason]['attri']/100) / $strongerbuildings / $good_effect * $bad_effect)) + 0.5);
+            $need = round((($moralbonus * (pow($walllevel,2) + $walllevel + 1)) / (8 * (round(200 * pow(1.0205,$att_ab7))/200) / ($bid34[$stonemason]['attri']/100) / $strongerbuildings / $good_effect * $bad_effect)) + 0.5);
             }
             // Number catapults to take down the building
             $result[7] = $need;
