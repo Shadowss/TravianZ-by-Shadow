@@ -167,6 +167,13 @@ $automation->isWinner();
 99. The damage must be calculate for all troops as a defender. </br>
 100. Battle system is fixed and it`s work like real travian. </br>
 101. War Simulator system is fixed and it`s work like real travian. </br>
+102. Fix calculation culturepoint according to the speed server.</br>
+103. Fix to delete hero table when delete user from admin.</br>
+104. Fix link to coor village from admin.</br>
+105. Fix return troops if village destroy.</br>
+106. Fix link list multivillage.</br>
+107. Fix rally point to list troops own/other village/oasis.</br>
+
 </div>
 </div>
 </br></br></br></br><div id="side_info">
