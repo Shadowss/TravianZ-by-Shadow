@@ -2785,7 +2785,17 @@ class MYSQL_DB {
   		$result = mysql_query($q, $this->connection);
   		return mysql_fetch_assoc($result);
  	}
-
+ 	
+ 	function getOasisEnforce($ref, $mode=0) {
+        if (!$mode) {
+            $q = "SELECT e.*,o.conqured FROM ".TB_PREFIX."enforcement as e LEFT JOIN ".TB_PREFIX."odata as o ON e.vref=o.wref where o.conqured = $ref AND e.from !=$ref";
+        }else{
+            $q = "SELECT e.*,o.conqured FROM ".TB_PREFIX."enforcement as e LEFT JOIN ".TB_PREFIX."odata as o ON e.from=o.wref where o.conqured = $ref AND e.vref !=$ref";
+        }
+        $result = mysql_query($q, $this->connection);
+        return $this->mysql_fetch_all($result);
+        } 
+ 	
 	function addEnforce($data) {
 		$q = "INSERT into " . TB_PREFIX . "enforcement (vref,`from`) values (" . $data['to'] . "," . $data['from'] . ")";
 		mysql_query($q, $this->connection);
