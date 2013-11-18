@@ -18,7 +18,7 @@ if ($_SESSON['access'] == MULTIHUNTER) die("<br /><br /><br /><br /><br /><br />
 <style>
 	.del {width:12px; height:12px; background-image: url(img/admin/icon/del.gif);}
 </style>
-<h2><center>Made by Dzoki - modified by Shadow</center></h2>
+<h2><center>Made by Dzoki / Modified by Shadow</center></h2>
 <table id="member">
 	<thead>
 		<tr>
