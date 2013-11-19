@@ -130,26 +130,27 @@ class Units {
                     $id = $generator->getBaseID($coor['x'],$coor['y']);
                     if (!$database->getVillageState($id)){
                         $form->addError("error","Coordinates do not exist");
-                    }
-		//check vaction mode- by advocaite
+                
+                //check vaction mode- by advocaite
 
 		if($database->getvacmodexy($id)){
 		$form->addError("error","User is on vacation mode");
 		}
    		//END Vaction mode check
-    		if ($session->tribe == 1){$Gtribe = "";}elseif  ($session->tribe == 2){$Gtribe = "1";}elseif ($session->tribe ==  3){$Gtribe = "2";}elseif ($session->tribe == 4){$Gtribe = "3";}elseif  ($session->tribe == 5){$Gtribe = "4";}
-                for($i=1; $i<12; $i++)
-                {
-                  if(isset($post['t'.$i]))
+                    }
+		if ($session->tribe == 1){$Gtribe = "";}elseif  ($session->tribe == 2){$Gtribe = "1";}elseif ($session->tribe ==  3){$Gtribe = "2";}elseif ($session->tribe == 4){$Gtribe = "3";}elseif  ($session->tribe == 5){$Gtribe = "4";}
+            		for($i=1; $i<12; $i++)
+            		{
+                	if(isset($post['t'.$i]))
                 
-                  {
+                	{
                      
                     if ($i<10) $troophave=$village->unitarray['u'.$Gtribe.$i];
                     if ($i==10)$troophave=$village->unitarray['u'.floor(intval($Gtribe)+1)*$i];
                     if ($i==11)$troophave=$village->unitarray['hero'];
                                         
                     if (intval($post['t'.$i]) > $troophave)
-                    		{
+                    {
                                 $form->addError("error","You can't send more units than you have");
                                 break;
                             }
@@ -159,12 +160,12 @@ class Units {
                                 $form->addError("error","You can't send negative units.");
                                 break;
                             }
-							
-							if($post['t'.$i]>10000000)
-							{
-							$form->addError("error","Bug attempt!");
-							break;
-							}
+                            
+                            if($post['t'.$i]>30000000)
+                            {
+                                $form->addError("error","Bug attempt!");
+                                break;
+                            }
 
 			    if(preg_match('/[^0-9]/',$post['t'.$i]))
               		    {
@@ -185,17 +186,17 @@ class Units {
                                 $form->addError("error","You can't send negative units.");
                                 break;
                             }
-							if($post['t11']>2)
-							{
-							$form->addError("error","Bug attempt!");
-							break;
-							}
-							if(preg_match('/[^0-9]/',$post['t11']))
-							{
-							$form->addError("error","Special characters can't entered");
-							break;
-						} 
-					}
+                            if($post['t11']>2)
+                            {
+                                $form->addError("error","Bug attempt!");
+                                break;
+                            }
+			    if(preg_match('/[^0-9]/',$post['t11']))
+              		    {
+                		$form->addError("error","Special characters can't entered");
+                		break;
+              		} 
+                }
                 if ($database->isVillageOases($id) == 0) {
                 if($database->hasBeginnerProtection($id)==1) {
                     $form->addError("error","Player is under beginners protection. You can't attack him");
@@ -249,7 +250,7 @@ class Units {
     }
     
         public function returnTroops($wref) {
-        global $database, $admin, $technology;
+        global $database, $generator;
 
         $getenforce=$database->getEnforceVillage($wref,0);
                 
@@ -311,7 +312,7 @@ class Units {
             }else{
                 $fastertroops = 1;
             }
-            $time = round($admin->procDistanceTime($fromCor,$toCor,min($speeds),$enforce['from'])/$fastertroops);
+            $time = round($generator->procDistanceTime($fromCor,$toCor,min($speeds),$enforce['from'])/$fastertroops);
             
             $foolartefact2 = $database->getFoolArtefactInfo(2,$enforce['from'],$from['owner']);
             if(count($foolartefact2) > 0){
@@ -326,9 +327,9 @@ class Units {
             }
             $reference =  $database->addAttack($enforce['from'],$enforce['u'.$start],$enforce['u'.($start+1)],$enforce['u'.($start+2)],$enforce['u'.($start+3)],$enforce['u'.($start+4)],$enforce['u'.($start+5)],$enforce['u'.($start+6)],$enforce['u'.($start+7)],$enforce['u'.($start+8)],$enforce['u'.($start+9)],$enforce['hero'],2,0,0,0,0);
             $database->addMovement(4,$wref,$enforce['from'],$reference,time(),($time+time()));
-            $technology->checkReinf($enforce['id']);
+            $database->deleteReinf($enforce['id']);
         }
-    }  
+    }
     
     private function sendTroops($post) {
         global $form, $database, $village, $generator, $session;
@@ -538,11 +539,12 @@ header("Location: banned.php");
 }
     }}
 
-    private function sendTroopsBack($post) {
+        private function sendTroopsBack($post) {
         global $form, $database, $village, $generator, $session, $technology;
 if($session->access != BANNED){
         $enforce=$database->getEnforceArray($post['ckey'],0);
-        if(($enforce['from']==$village->wid) || ($enforce['vref']==$village->wid)){
+        $enforceoasis=$database->getOasisEnforceArray($post['ckey'], 0);
+        if(($enforce['from']==$village->wid) || ($enforce['vref']==$village->wid) || ($enforceoasis['conqured']==$village->wid)){
             $to = $database->getVillage($enforce['from']);
             $Gtribe = "";
             if ($database->getUserField($to['owner'],'tribe',0) ==  '2'){ $Gtribe = "1"; } else if  ($database->getUserField($to['owner'],'tribe',0) == '3'){ $Gtribe =  "2"; } else if ($database->getUserField($to['owner'],'tribe',0) ==  '4'){ $Gtribe = "3"; }else if  ($database->getUserField($to['owner'],'tribe',0) == '5'){ $Gtribe =  "4"; }
@@ -676,7 +678,7 @@ if($session->access != BANNED){
 header("Location: banned.php");
 }
     }
-
+    
     public function Settlers($post) {
         global $form, $database, $village, $session;
         if($session->access != BANNED){
