@@ -13,7 +13,6 @@ include("Session.php");
 include("Building.php");
 include("Market.php");
 include("Technology.php");
-include("Automation.php");
 
 class Village {
 
