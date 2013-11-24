@@ -25,7 +25,7 @@ class MYSQL_DB {
 		mysql_query("SET NAMES 'UTF8'");  //Fix utf8 phpmyadmin by gm4st3r
 	}
 
-	function register($username, $password, $email, $tribe, $act, $reflink) {
+	function register($username, $password, $email, $tribe, $act) {
 		$time = time();
         	$stime = strtotime(START_DATE)-strtotime(date('m/d/Y'))+strtotime(START_TIME);
 		if($stime > time()){
@@ -33,7 +33,7 @@ class MYSQL_DB {
 		}
 		$timep = $time + PROTECTION;
 		$time = time();
-		$q = "INSERT INTO " . TB_PREFIX . "users (username,password,access,email,timestamp,tribe,act,protect,lastupdate,regtime,reflink) VALUES ('$username', '$password', " . USER . ", '$email', $time, $tribe, '$act', $timep, $time, $time, '$reflink')";
+		$q = "INSERT INTO " . TB_PREFIX . "users (username,password,access,email,timestamp,tribe,act,protect,lastupdate,regtime) VALUES ('$username', '$password', " . USER . ", '$email', $time, $tribe, '$act', $timep, $time, $time)";
 		if(mysql_query($q, $this->connection)) {
 			return mysql_insert_id($this->connection);
 		} else {
@@ -41,9 +41,9 @@ class MYSQL_DB {
 		}
 	}
 
-	function activate($username, $password, $email, $tribe, $locate, $act, $act2, $reflink) {
+	function activate($username, $password, $email, $tribe, $locate, $act, $act2) {
 		$time = time();
-		$q = "INSERT INTO " . TB_PREFIX . "activate (username,password,access,email,tribe,timestamp,location,act,act2,reflink) VALUES ('$username', '$password', " . USER . ", '$email', $tribe, $time, $locate, '$act', '$act2', '$reflink')";
+		$q = "INSERT INTO " . TB_PREFIX . "activate (username,password,access,email,tribe,timestamp,location,act,act2) VALUES ('$username', '$password', " . USER . ", '$email', $tribe, $time, $locate, '$act', '$act2')";
 				if(mysql_query($q, $this->connection)) {
 			return mysql_insert_id($this->connection);
 		} else {
@@ -738,69 +738,6 @@ class MYSQL_DB {
 			return false;
 		}
 	}
-
-	/*****************************************
-	Function to vacation mode - by advocaite
-	References: 
-	*****************************************/
-
-	function setvacmode($uid,$days){
-		$days1 =60*60*24*$days;
-		$time =time()+$days1;
-		$q ="UPDATE ".TB_PREFIX."users SET vac_mode = '1' , vac_time=".$time." WHERE id=".$uid."";
-		$result =mysql_query($q,$this->connection);
-		}
-
-/*
-
-	function setvacmode($uid,$days){
-  		$days1 =60*60*24*$days;
-  		$time =time()+$days1;
-  		$q ="SELECT * FROM ".TB_PREFIX."users WHERE id=".$uid."";
-  		$result =mysql_query($q,$this->connection);
-  		$array=mysql_fetch_assoc($result);
-  		if (time() > $array["vactwoweeks"]){
-  		$q1 ="UPDATE ".TB_PREFIX."users SET vac_mode = '1' , vac_time=".$time." ,vactwoweeks = ".time()+(time() *60*60*24*14)." WHERE id=".$uid."";
-  		$result1 =mysql_query($q1,$this->connection);
-  		}
-  
-  		}
-
-*/
-
-	function removevacationmode($uid){
-
-		$q ="UPDATE ".TB_PREFIX."users SET vac_mode = '0' , vac_time='0' WHERE id=".$uid."";
-		$result =mysql_query($q,$this->connection);
-		}
-
-	function getvacmodexy($wref){
-		$q = "SELECT id,oasistype,occupied FROM " . TB_PREFIX . "wdata where id = $wref";
-		$result = mysql_query($q, $this->connection);
-		$dbarray = mysql_fetch_array($result);
-		if($dbarray['occupied'] != 0 && $dbarray['oasistype'] == 0) {
-		$q1 = "SELECT owner FROM " . TB_PREFIX . "vdata where wref = ".$dbarray['id']."";
-		$result1 = mysql_query($q1, $this->connection);
-		$dbarray1 = mysql_fetch_array($result1);
-                if($dbarray1['owner'] != 0){
-		$q2 = "SELECT vac_mode,vac_time FROM " . TB_PREFIX . "users where id = ".$dbarray1['owner']."";
-		$result2 = mysql_query($q2, $this->connection);
-		$dbarray2 = mysql_fetch_array($result2);	
-		if($dbarray2['vac_mode'] ==1){
-		return true;
-		}else{
-		return false;
-		}
-		}	
-		} else {
-		return false;
-		}
-	}
- 
-	/*****************************************
-	Function to vacation mode - by advocaite
-	References: 
-	*****************************************/
 
 	function getProfileVillages($uid) {
 		$q = "SELECT capital,wref,name,pop,created from " . TB_PREFIX . "vdata where owner = $uid order by pop desc";
@@ -2159,10 +2096,10 @@ class MYSQL_DB {
 	}
 
 	function finishDemolition($wid) {
-		$q = "UPDATE " . TB_PREFIX . "demolition SET timetofinish=" . time() . " WHERE vref=" . $wid;
-		$result= mysql_query($q, $this->connection);
-		return mysql_affected_rows();
-	}
+        	$q = "UPDATE " . TB_PREFIX . "demolition SET timetofinish=" . time() . " WHERE vref=" . $wid;
+        	$result= mysql_query($q, $this->connection);
+        	return mysql_affected_rows();
+    	}  
 
 	function delDemolition($wid) {
 		$q = "DELETE FROM " . TB_PREFIX . "demolition WHERE vref=" . $wid;
@@ -2780,12 +2717,6 @@ class MYSQL_DB {
 		return mysql_fetch_assoc($result);
 	}
 	
-	function getEnforceControllTroops($vid) {
-  		$q = "SELECT * from " . TB_PREFIX . "enforcement where  vref = $vid";
-  		$result = mysql_query($q, $this->connection);
-  		return mysql_fetch_assoc($result);
- 	}
- 	
     	function getOasisEnforce($ref, $mode=0) {
         if (!$mode) {
             $q = "SELECT e.*,o.conqured FROM ".TB_PREFIX."enforcement as e LEFT JOIN ".TB_PREFIX."odata as o ON e.vref=o.wref where o.conqured = $ref AND e.from !=$ref";
@@ -2794,9 +2725,9 @@ class MYSQL_DB {
         }
         $result = mysql_query($q, $this->connection);
         return $this->mysql_fetch_all($result);
-    	} 
-        
-        function getOasisEnforceArray($id, $mode=0) {
+    	}
+    	
+    	function getOasisEnforceArray($id, $mode=0) {
         if (!$mode) {
             $q = "SELECT e.*,o.conqured FROM ".TB_PREFIX."enforcement as e LEFT JOIN ".TB_PREFIX."odata as o ON e.vref=o.wref where e.id = $id";
         }else{
@@ -2805,7 +2736,13 @@ class MYSQL_DB {
         $result = mysql_query($q, $this->connection);
         return mysql_fetch_assoc($result);
     	}
- 	
+	
+	function getEnforceControllTroops($vid) {
+  		$q = "SELECT * from " . TB_PREFIX . "enforcement where  vref = $vid";
+  		$result = mysql_query($q, $this->connection);
+  		return mysql_fetch_assoc($result);
+ 	}
+
 	function addEnforce($data) {
 		$q = "INSERT into " . TB_PREFIX . "enforcement (vref,`from`) values (" . $data['to'] . "," . $data['from'] . ")";
 		mysql_query($q, $this->connection);
@@ -3303,7 +3240,7 @@ class MYSQL_DB {
 		return mysql_query($q, $this->connection);
 	}
 
-	public function canClaimArtifact($from,$vref,$type,$kind) {
+    public function canClaimArtifact($from,$vref,$type,$kind) {
     //fix by Ronix
     global $session, $form;
     $type1 = $type2 = $type3 = 0;
@@ -3613,9 +3550,9 @@ class MYSQL_DB {
 	}
 	
 	function updatePrisoners($wid,$from,$t1,$t2,$t3,$t4,$t5,$t6,$t7,$t8,$t9,$t10,$t11) {
-		$q = "UPDATE " . TB_PREFIX . "prisoners set t1 = t1 + $t1, t2 = t2 + $t2, t3 = t3 + $t3, t4 = t4 + $t4, t5 = t5 + $t5, t6 = t6 + $t6, t7 = t7 + $t7, t8 = t8 + $t8, t9 = t9 + $t9, t10 = t10 + $t10, t11 = t11 + $t11 where wid = $wid and from = $from";
-		return mysql_query($q, $this->connection) or die(mysql_error());
-	}
+        $q = "UPDATE " . TB_PREFIX . "prisoners set t1 = t1 + $t1, t2 = t2 + $t2, t3 = t3 + $t3, t4 = t4 + $t4, t5 = t5 + $t5, t6 = t6 + $t6, t7 = t7 + $t7, t8 = t8 + $t8, t9 = t9 + $t9, t10 = t10 + $t10, t11 = t11 + $t11 where wref = $wid and ".TB_PREFIX."prisoners.from = $from";
+        return mysql_query($q, $this->connection) or die(mysql_error());
+    	}
 	
 	function getPrisoners($wid) {
 		$q = "SELECT * FROM " . TB_PREFIX . "prisoners where wref = $wid";
