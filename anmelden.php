@@ -53,9 +53,6 @@ if(REG_OPEN == true){ ?>
 <form name="snd" method="post" action="anmelden.php">
 <input type="hidden" name="invited" value="<?php echo filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT); ?>" />
 <input type="hidden" name="ft" value="a1" />
-<!-- FIX REFLINK -->
-<input type="hidden" name="reflink" value="<?php echo $reflink; ?>" />
-<!-- end FIX -->
 <table cellpadding="1" cellspacing="1" id="sign_input">
 	<tbody>
 		<tr class="top">
