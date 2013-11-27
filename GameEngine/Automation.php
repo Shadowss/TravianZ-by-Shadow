@@ -233,54 +233,53 @@ class Automation {
 		$this->artefactOfTheFool();
 	}
 
-    private function loyaltyRegeneration() {
-    	if(file_exists("GameEngine/Prevention/loyalty.txt")) {
+     private function loyaltyRegeneration() {
+            if(file_exists("GameEngine/Prevention/loyalty.txt")) {
             unlink("GameEngine/Prevention/loyalty.txt");
     }
+    //fix by ronix
     //create new file to check filetime
     //not every click regenerate but 1 minute or after
     
-    		$ourFileHandle = fopen("GameEngine/Prevention/loyalty.txt", 'w');
-    		fclose($ourFileHandle);    
-    		global $database;  
-		$array = array();
-		$q = "SELECT * FROM ".TB_PREFIX."vdata WHERE loyalty<>100";
-		$array = $database->query_return($q);
-		if(!empty($array)) {
-			foreach($array as $loyalty) {
-				if($this->getTypeLevel(25,$loyalty['wref']) >= 1){
-					$value = $this->getTypeLevel(25,$loyalty['wref']);
-				}elseif($this->getTypeLevel(26,$loyalty['wref']) >= 1){
-					$value = $this->getTypeLevel(26,$loyalty['wref']);
-				} else {
-					$value = 0;
-				}
-				$newloyalty = min(100,$loyalty['loyalty']+$value*(time()-$loyalty['lastupdated'])/(60*60));
-				$q = "UPDATE ".TB_PREFIX."odata SET loyalty = $newloyalty, lastupdated=".time()." WHERE wref = '".$loyalty['wref']."'";
-				$database->query($q);
-			}
-		}
-		$array = array();
-		$q = "SELECT * FROM ".TB_PREFIX."odata WHERE loyalty<>100";
-		$array = $database->query_return($q);
-		if(!empty($array)) {
-			foreach($array as $loyalty) {
-				if($this->getTypeLevel(25,$loyalty['conqured']) >= 1){
-					$value = $this->getTypeLevel(25,$loyalty['conqured']);
-				}elseif($this->getTypeLevel(26,$loyalty['conqured']) >= 1){
-					$value = $this->getTypeLevel(26,$loyalty['conqured']);
-				} else {
-					$value = 0;
-				}
-				$newloyalty = min(100,$loyalty['loyalty']+$value*(time()-$loyalty['lastupdate'])/(60*60));
-				$q = "UPDATE ".TB_PREFIX."odata SET loyalty = $newloyalty WHERE wref = '".$loyalty['wref']."'";
-				$database->query($q);
-			}
-		}
-		//if(file_exists("GameEngine/Prevention/loyalty.txt")) {
-		//	unlink("GameEngine/Prevention/loyalty.txt");
-		//}
-	}
+    
+                    $ourFileHandle = fopen("GameEngine/Prevention/loyalty.txt", 'w');
+                    fclose($ourFileHandle);
+                    global $database;
+                $array = array();
+                $q = "SELECT * FROM ".TB_PREFIX."vdata WHERE loyalty<>100";
+                $array = $database->query_return($q);
+                if(!empty($array)) {
+                        foreach($array as $loyalty) {
+                                if($this->getTypeLevel(25,$loyalty['wref']) >= 1){
+                                        $value = $this->getTypeLevel(25,$loyalty['wref']);
+                                }elseif($this->getTypeLevel(26,$loyalty['wref']) >= 1){
+                                        $value = $this->getTypeLevel(26,$loyalty['wref']);
+                                } else {
+                                        $value = 0;
+                                }
+                                $newloyalty = min(100,$loyalty['loyalty']+$value*(time()-$loyalty['lastupdate2'])/(60*60));
+                                $q = "UPDATE ".TB_PREFIX."vdata SET loyalty = $newloyalty, lastupdate2=".time()." WHERE wref = '".$loyalty['wref']."'";
+                                $database->query($q);
+                        }
+                }
+                $array = array();
+                $q = "SELECT * FROM ".TB_PREFIX."odata WHERE loyalty<>100";
+                $array = $database->query_return($q);
+                if(!empty($array)) {
+                        foreach($array as $loyalty) {
+                                if($this->getTypeLevel(25,$loyalty['conqured']) >= 1){
+                                        $value = $this->getTypeLevel(25,$loyalty['conqured']);
+                                }elseif($this->getTypeLevel(26,$loyalty['conqured']) >= 1){
+                                        $value = $this->getTypeLevel(26,$loyalty['conqured']);
+                                } else {
+                                        $value = 0;
+                                }
+                                $newloyalty = min(100,$loyalty['loyalty']+$value*(time()-$loyalty['lastupdated'])/(60*60));
+                                $q = "UPDATE ".TB_PREFIX."odata SET loyalty = $newloyalty, lastupdated=".time()." WHERE wref = '".$loyalty['wref']."'";
+                                $database->query($q);
+                        }
+                }
+        }
 
 	   private function getfieldDistance($coorx1, $coory1, $coorx2, $coory2) {
    		$max = 2 * WORLD_MAX + 1;
@@ -357,7 +356,7 @@ class Automation {
 					$database->query($q);
 					$q = "DELETE FROM ".TB_PREFIX."bdata where wid = ".$village;
 					$database->query($q);
-					$q = "DELETE FROM ".TB_PREFIX."enforcement where from = ".$village;
+					$q = "DELETE FROM ".TB_PREFIX."enforcement where `from` = ".$village;
 					$database->query($q);
 					$q = "DELETE FROM ".TB_PREFIX."fdata where vref = ".$village;
 					$database->query($q);
@@ -388,7 +387,7 @@ class Automation {
 					$database->addMovement(4,$movedata['to'],$movedata['from'],$movedata['ref'],$time,$time+$time2);
 					$database->setMovementProc($movedata['moveid']);
 					}
-					$q = "DELETE FROM ".TB_PREFIX."movement where from = ".$village;
+					$q = "DELETE FROM ".TB_PREFIX."movement where `from` = ".$village;
 					$database->query($q);
 					$getprisoners = $database->getPrisoners($village);
 					foreach($getprisoners as $pris) {
@@ -1017,7 +1016,7 @@ class Automation {
 	if(file_exists("GameEngine/Prevention/sendunits.txt")) {
 				unlink("GameEngine/Prevention/sendunits.txt");
 			}
-		global $bid23,$bid34,$database,$battle,$village,$technology,$logging,$generator,$session;
+		global $bid23,$bid34,$database,$battle,$village,$technology,$logging,$generator,$session,$units;
 		$reload=false;
 		 $ourFileHandle = fopen("GameEngine/Prevention/sendunits.txt", 'w');
 			fclose($ourFileHandle);
@@ -1060,8 +1059,8 @@ class Automation {
 						$cannotsend = 0;
 						$movements = $database->getMovement("34",$data['to'],1);
 						for($y=0;$y < count($movements);$y++){
-						$returntime = $units[$y]['endtime']-time();
-						if($units[$y]['sort_type'] == 4 && $units[$y]['from'] != 0 && $returntime <= 10){
+						$returntime = $unit[$y]['endtime']-time();
+						if($unit[$y]['sort_type'] == 4 && $unit[$y]['from'] != 0 && $returntime <= 10){ 
 						$cannotsend = 1;
 						}
 						}
@@ -1568,32 +1567,18 @@ class Automation {
 				$totalattackdead += $totaldead_alldef;
 
 
-			// Set units returning from attack
-			$database->modifyAttack($data['ref'],1,$dead1);
-			$database->modifyAttack($data['ref'],2,$dead2);
-			$database->modifyAttack($data['ref'],3,$dead3);
-			$database->modifyAttack($data['ref'],4,$dead4);
-			$database->modifyAttack($data['ref'],5,$dead5);
-			$database->modifyAttack($data['ref'],6,$dead6);
-			$database->modifyAttack($data['ref'],7,$dead7);
-			$database->modifyAttack($data['ref'],8,$dead8);
-			$database->modifyAttack($data['ref'],9,$dead9);
-			$database->modifyAttack($data['ref'],10,$dead10);
-			$database->modifyAttack($data['ref'],11,$dead11);
-			$unitsdead_att = ''.$dead1.','.$dead2.','.$dead3.','.$dead4.','.$dead5.','.$dead6.','.$dead7.','.$dead8.','.$dead9.','.$dead10.'';
-
-			$database->modifyAttack($data['ref'],1,$traped1);
-			$database->modifyAttack($data['ref'],2,$traped2);
-			$database->modifyAttack($data['ref'],3,$traped3);
-			$database->modifyAttack($data['ref'],4,$traped4);
-			$database->modifyAttack($data['ref'],5,$traped5);
-			$database->modifyAttack($data['ref'],6,$traped6);
-			$database->modifyAttack($data['ref'],7,$traped7);
-			$database->modifyAttack($data['ref'],8,$traped8);
-			$database->modifyAttack($data['ref'],9,$traped9);
-			$database->modifyAttack($data['ref'],10,$traped10);
-			$database->modifyAttack($data['ref'],11,$traped11);
-			$unitstraped_att = ''.$traped1.','.$traped2.','.$traped3.','.$traped4.','.$traped5.','.$traped6.','.$traped7.','.$traped8.','.$traped9.','.$traped10.','.$traped11.'';
+                    // Set units returning from attack
+                    
+                    for ($i=1;$i<=11;$i++) {
+                        $t_units.="t".$i."=t".$i." - ".${dead.$i}.(($i > 10) ? '' : ', ');
+                        $p_units.="t".$i."=t".$i." - ".${traped.$i}.(($i > 10) ? '' : ', ');
+                    }    
+                
+                    $database->modifyAttack3($data['ref'],$t_units);
+                    $database->modifyAttack3($data['ref'],$p_units);
+                    
+                    $unitsdead_att = ''.$dead1.','.$dead2.','.$dead3.','.$dead4.','.$dead5.','.$dead6.','.$dead7.','.$dead8.','.$dead9.','.$dead10.'';
+                    $unitstraped_att = ''.$traped1.','.$traped2.','.$traped3.','.$traped4.','.$traped5.','.$traped6.','.$traped7.','.$traped8.','.$traped9.','.$traped10.','.$traped11.'';
 			if ($herosend_att>0){
 				$unitsdead_att_check = $unitsdead_att.','.$dead11;
 			}else{
@@ -1830,8 +1815,8 @@ class Automation {
     }
     if ($isoasis == 1) $can_destroy=0;
 
-			if ($type=='3'){
-				if (($data['t7']-$dead7-$traped7)>0){
+					if ($type=='3'){
+						if (($data['t7']-$traped7)>0){
 					if (isset($empty)){
 						$info_ram = "".$ram_pic.",There is no wall to destroy.";
 					} else
@@ -1853,12 +1838,13 @@ class Automation {
 					$info_ram = "".$ram_pic.",Wall was not damaged.";
 					}else{
 					$info_ram = "".$ram_pic.",Wall damaged from level <b>".$walllevel."</b> to level <b>".$totallvl."</b>.";
-							$database->setVillageLevel($data['to'],"f".$wallid."",$totallvl);
-					}
-
-					}
-				}
-			}
+                $database->setVillageLevel($data['to'],"f".$wallid."",$totallvl);
+            }
+        }
+    }
+} elseif (($data['t7']-$traped7)>0){
+    $info_ram = "".$ram_pic.",Hint: The ram does not work during a raid.";
+}
 		   if ($type=='3')
 {
 	if (($data['t8']-$dead8-$traped8)>0)
@@ -2384,7 +2370,7 @@ class Automation {
 						$database->query($q);
 						$database->addTech($data['to']);
 						//delete reinforcement
-						$q = "DELETE FROM ".TB_PREFIX."enforcement WHERE from = ".$data['to']."";
+						$q = "DELETE FROM ".TB_PREFIX."enforcement WHERE `from` = ".$data['to']."";
 						$database->query($q);
 						// check buildings
 						$pop1 = $database->getVillageField($data['from'],"pop");
@@ -2430,6 +2416,8 @@ class Automation {
 							$value = $data['to'];
 						}
 						$database->setVillageField($data['from'],$exp,$value);
+						//remove oasis related to village
+						$units->returnTroops($data['to'],1);
 						$chiefing_village = 1;
 
 					}
@@ -2564,9 +2552,10 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g3".$targettribe."Icon.gif\" height=\"
 
 
 
-			// When all troops die, sends no info.
-			$data_fail = ''.$from['owner'].','.$from['wref'].','.$owntribe.','.$unitssend_att.','.$unitsdead_att.','.$steal[0].','.$steal[1].','.$steal[2].','.$steal[3].','.$battlepart['bounty'].','.$to['owner'].','.$to['wref'].','.addslashes($to['name']).','.$targettribe.',,,'.$rom.','.$unitssend_deff[1].','.$unitsdead_deff[1].','.$ger.','.$unitssend_deff[2].','.$unitsdead_deff[2].','.$gal.','.$unitssend_deff[3].','.$unitsdead_deff[3].','.$nat.','.$unitssend_deff[4].','.$unitsdead_deff[4].','.$natar.','.$unitssend_deff[5].','.$unitsdead_deff[5].',,,'.$data['t11'].','.$dead11.','.$unitstraped_att.',,';
-
+			// When all troops die, sends no info...send info
+                    $info_troop= "<br><tbody class=\"goods\"><tr><th>Information</th><td colspan=\"11\">none of your soldiers have returned.</td></tr></tbody>";
+                    $data_fail = ''.$from['owner'].','.$from['wref'].','.$owntribe.','.$unitssend_att.','.$unitsdead_att.','.$steal[0].','.$steal[1].','.$steal[2].','.$steal[3].','.$battlepart['bounty'].','.$to['owner'].','.$to['wref'].','.addslashes($to['name']).','.$targettribe.',,,'.$rom.','.$unitssend_deff[1].','.$unitsdead_deff[1].','.$ger.','.$unitssend_deff[2].','.$unitsdead_deff[2].','.$gal.','.$unitssend_deff[3].','.$unitsdead_deff[3].','.$nat.','.$unitssend_deff[4].','.$unitsdead_deff[4].','.$natar.','.$unitssend_deff[5].','.$unitsdead_deff[5].',,,'.$data['t11'].','.$dead11.','.$unitstraped_att.',,'.$info_ram.','.$info_cat.','.$info_chief.','.$info_troop;
+					
 			//Undetected and detected in here.
                     	if($scout){
                         
@@ -2948,9 +2937,6 @@ $wallimg = "<img src=\"".GP_LOCATE."img/g/g3".$targettribe."Icon.gif\" height=\"
             $database->query($q);
             $q = "DELETE FROM ".TB_PREFIX."raidlist where towref = $wref";
             $database->query($q);
-            $q = "DELETE FROM ".TB_PREFIX."ndata WHERE toWref=$wref";
-            $database->query($q);
-        
             $q = "DELETE FROM ".TB_PREFIX."movement where proc = 0 AND ((`from` = $wref AND `to` = $wref) OR (`from` = $wref AND sort_type=3))";
             $database->query($q);
                 
