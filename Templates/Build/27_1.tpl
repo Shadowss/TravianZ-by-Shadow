@@ -33,7 +33,7 @@
         <tbody>
             <?php
 
-        if($result == 0) {
+        if (count($artefact1)==0){
         	echo '<tr><td colspan="4" class="none">You do not own any artefacts.</td></tr>';
         } else {
 		foreach($artefact1 as $artefact){
