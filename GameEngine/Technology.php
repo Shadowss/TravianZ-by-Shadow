@@ -263,7 +263,7 @@ class Technology {
                 }
             }            
             
-            $prisoners = $database->getPrisoners($base);
+            $prisoners = $database->getPrisoners($base,1);
             if(!empty($prisoners)) {
                 foreach($prisoners as $prisoner){
                     $owner = $database->getVillageField($base,"owner");
@@ -718,11 +718,11 @@ private function trainUnit($unit,$amt,$great=false) {
 	}
 
 	public function finishTech() {
-		global $database,$village;
-		$q = "UPDATE ".TB_PREFIX."research SET timestamp=".(time()-1)." WHERE vref = ".$village->wid;
-		$result = $database->query($q);
-		return mysql_affected_rows();
-	}
+        	global $database,$village;
+        	$q = "UPDATE ".TB_PREFIX."research SET timestamp=".(time()-1)." WHERE vref = ".$village->wid;
+        	$result = $database->query($q);
+        	return mysql_affected_rows();
+    	}  
 
 	public function calculateAvaliable($id,$resarray=array()) {
 		global $village,$generator,${'r'.$id};

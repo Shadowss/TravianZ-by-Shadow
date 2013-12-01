@@ -34,12 +34,15 @@ for($i=1;$i<=$amt;$i++) {
 		$database->addUnits($wid);
 		$database->addTech($wid);
 		$database->addABTech($wid);
-		$q = "UPDATE ".TB_PREFIX."units SET u41 = u41 + " . (1500 * $speed) . ", u42 = u42 + " . (1500 * $speed) . ", u43 = u43 + " . (1500 * $speed) . ", u44 = u44 + " . (1500 * $speed) . ", u45 = u45 + " . (1500 * $speed) . ", u46 = u46 + " . (1500 * $speed) . ", u47 = u47 + " . (1500 * $speed) . ", u48 = u48 + " . (1500 * $speed) . " , u49 = u49 + " . (1500 * $speed) . ", u50 = u50 + " . (1500 * $speed) . " WHERE vref = '".$wid."'";
+		$speed = NATARS_UNITS;
+		
+		//new with random amount of troops
+        $q = "UPDATE " . TB_PREFIX . "units SET u41 = " . (rand(50, 1200) * $speed) . ", u42 = " . (rand(100, 1400) * $speed) . ", u43 = " . (rand(200, 1600) * $speed) . ", u44 = " . (rand(10, 50) * $speed) . ", u45 = " . (rand(48, 1700) * $speed) . ", u46 = " . (rand(60, 1800) * $speed) . ", u47 = " . (rand(200, 1600) * $speed) . ", u48 = " . (rand(40, 200) * $speed) . " , u49 = " . (rand(4, 20) * $speed) . ", u50 = " . (rand(5, 25) * $speed) . " WHERE vref = '".$wid."'";
 		mysql_query($q);
 }
 
 
-	mysql_query("Insert into ".TB_PREFIX."admin_log values (0,$id,'Added <b>$amt</b> WW Villages',".time().")");
+		mysql_query("Insert into ".TB_PREFIX."admin_log values (0,$id,'Added <b>$amt</b> WW Villages',".time().")");
 
 
 header("Location: ../../../Admin/admin.php?p=natarend&g");

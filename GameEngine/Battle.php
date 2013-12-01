@@ -86,8 +86,7 @@ class Battle {
                 global $database;
                 $heroarray = $database->getHero($uid);
                 $herodata = $GLOBALS["h".$heroarray[0]['unit']];
-
-                $h_atk = $herodata['atk'] + 5 * floor($heroarray[0]['attack'] * $herodata['atkp'] / 5);
+				$h_atk = $herodata['atk'] + ($heroarray[0]['attack'] * $herodata['atkp']);
                 $h_di = $herodata['di'] + 5 * floor($heroarray[0]['defence'] * $herodata['dip'] / 5);
                 $h_dc = $herodata['dc'] + 5 * floor($heroarray[0]['defence'] * $herodata['dcp'] / 5);
                 $h_ob = 1 + 0.002 * $heroarray[0]['attackbonus'];
@@ -155,10 +154,10 @@ class Battle {
                 
                 if(!$scout) 
                     
-                        return $this->calculateBattle($attacker,$defender,$wall,$post['a1_v'],$deftribe,$post['palast'],$post['ew1'],$post['ew2'],$post['ktyp']+3,$def_ab,$att_ab1,$att_ab2,$att_ab3,$att_ab4,$att_ab5,$att_ab6,$att_ab7,$att_ab8,$post['kata'],$post['stonemason'],$walllevel,$offhero,0,0,0,0,0);
+                        return $this->calculateBattle($attacker,$defender,$wall,$post['a1_v'],$deftribe,$post['palast'],$post['ew1'],$post['ew2'],$post['ktyp']+3,$def_ab,$att_ab1,$att_ab2,$att_ab3,$att_ab4,$att_ab5,$att_ab6,$att_ab7,$att_ab8,$post['kata'],$post['stonemason'],$walllevel,$offhero,$post['h_off'],0,0,0,0,0);
                 
                 else 
-                        return $this->calculateBattle($attacker,$defender,$wall,$post['a1_v'],$deftribe,$post['palast'],$post['ew1'],$post['ew2'],1,$def_ab,$att_ab1,$att_ab2,$att_ab3,$att_ab4,$att_ab5,$att_ab6,$att_ab7,$att_ab8,$post['kata'],$post['stonemason'],$walllevel,0,0,0,0,0,0);
+                        return $this->calculateBattle($attacker,$defender,$wall,$post['a1_v'],$deftribe,$post['palast'],$post['ew1'],$post['ew2'],1,$def_ab,$att_ab1,$att_ab2,$att_ab3,$att_ab4,$att_ab5,$att_ab6,$att_ab7,$att_ab8,$post['kata'],$post['stonemason'],$walllevel,0,0,0,0,0,0,0);
         }  
 
 	 public function getTypeLevel($tid,$vid) {
@@ -209,7 +208,7 @@ class Battle {
 	}
 
 		//1 raid 0 normal
-        function calculateBattle($Attacker,$Defender,$def_wall,$att_tribe,$def_tribe,$residence,$attpop,$defpop,$type,$def_ab,$att_ab1,$att_ab2,$att_ab3,$att_ab4,$att_ab5,$att_ab6,$att_ab7,$att_ab8,$tblevel,$stonemason,$walllevel,$offhero,$AttackerID,$DefenderID,$AttackerWref,$DefenderWref,$conqureby) {
+        function calculateBattle($Attacker,$Defender,$def_wall,$att_tribe,$def_tribe,$residence,$attpop,$defpop,$type,$def_ab,$att_ab1,$att_ab2,$att_ab3,$att_ab4,$att_ab5,$att_ab6,$att_ab7,$att_ab8,$tblevel,$stonemason,$walllevel,$offhero,$hero_strenght,$AttackerID,$DefenderID,$AttackerWref,$DefenderWref,$conqureby) {
                 global $bid34,$bid35,$database;
                 //fix by ronix
                 
@@ -282,13 +281,9 @@ class Battle {
             }
         }
                 
-        //get every enforcement in defender village
-        
-        if ($conqureby>0) { //def from oasis
-            $DefendersAll = $database->getOasisEnforce($DefenderWref,1);
-        } else {
-            $DefendersAll = $database->getEnforceVillage($DefenderWref,0);
-        }
+        //get every enforcement in defender village/oasis
+		
+        $DefendersAll = $database->getEnforceVillage($DefenderWref,0); 
         if(!empty($DefendersAll)){
     
         // Calculates the total points of the Defender
@@ -326,14 +321,14 @@ class Battle {
                 }            
                 
                 $reinfowner = $database->getVillageField($fromvillage,"owner");
-                $defhero[$fromvillage] = $this->getBattleHero($reinfowner);
-                    //calculate def hero from enforcement
-                    if($defenders['hero'] != 0){
-                        $cdp += $defhero[$fromvillage]['dc'];
-                        $dp += $defhero[$fromvillage]['di'];
-                        $dp = $dp * $defhero[$fromvillage]['db'];
-                        $cdp = $cdp * $defhero[$fromvillage]['db'];
-                    }  
+                $defhero = $this->getBattleHero($reinfowner);
+				//calculate def hero from enforcement
+				if($defenders['hero'] != 0){
+					$cdp += $defhero['dc'];
+					$dp += $defhero['di'];
+					$dp = $dp * $defhero['db'];
+					$cdp = $cdp * $defhero['db'];
+				}  
             }
         }
 	}
@@ -348,51 +343,33 @@ class Battle {
         $abcount = 4;
         }
         
-                if($type == 1) //scout
-                {
-                        for($i=$start;$i<=$end;$i++) {
-                                global ${'u'.$i};
-                                $j = $i-$start+1;
-                                if($abcount <= 8 && ${att_ab.$abcount} > 0) { 
-
-                                        if(in_array($i,$calvary)) {
-                                            $cap += (35 + (35 + 300 * ${'u'.$i}['pop'] / 7) * (pow(1.007, ${att_ab.$abcount}) - 1)) * $Attacker['u'.$i];
-                                        }
-                                        else {
-                                            $ap += (35 + (35 + 300 * ${'u'.$i}['pop'] / 7) * (pow(1.007, ${att_ab.$abcount}) - 1)) * $Attacker['u'.$i];
-                                        }
-                                                                                
-                                        $att_foolartefact = $database->getFoolArtefactInfo(3,$AttackerWref,$AttackerID);
-                                        if(count($att_foolartefact) > 0){
-                                        foreach($att_foolartefact as $arte){
-                                        if($arte['bad_effect'] == 1){
-                                        $ap *= $arte['effect2'];
-                                        }else{
-                                        $ap /= $arte['effect2'];
-                                        $ap = round($ap);
-                                        }
-                                        }
-                                        }
-                                }
-                                else {
-                                        if(in_array($i,$calvary)) {
-                                                $cap += $Attacker['u'.$i]*33;
-                                        }
-                                        else {
-                                                $ap += $Attacker['u'.$i]*30.7;
-                                        }                                        
-                                }
-                                $abcount +=1;
-                                $involve += $Attacker['u'.$i];
-                                $units['Att_unit'][$i] = $Attacker['u'.$i];
+            if($type == 1) {//scout
+                    for($i=$start;$i<=$end;$i++) {
+                        global ${'u'.$i};
+                        $j = $i-$start+1;
+                        if($Attacker['u'.$i]>0 && ($i == 4 || $i == 14 || $i == 23 || $i == 44)){
+                            if(${att_ab.$abcount} > 0) { 
+                                    $ap += (35 + (35 + 300 * ${'u'.$i}['pop'] / 7) * (pow(1.004, ${att_ab.$abcount}) - 1)) * $Attacker['u'.$i];// ^ ($Attacker['u'.$i]/100);
+                            }else{
+                                $ap += $Attacker['u'.$i]*25;
+                            }
+                        }    
+                        $involve += $Attacker['u'.$i];
+                        $units['Att_unit'][$i] = $Attacker['u'.$i];
+                        
+                    }
+                    $att_foolartefact = $database->getFoolArtefactInfo(3,$AttackerWref,$AttackerID);
+                    if(count($att_foolartefact) > 0){
+                        foreach($att_foolartefact as $arte){
+                            if($arte['bad_effect'] == 1){
+                                $ap *= $arte['effect2'];
+                            }else{
+                                $ap /= $arte['effect2'];
+                                $ap = round($ap);
+                            }
                         }
-                        if ($Attacker['uhero'] != 0){
-                            $ap += $atkhero['atk'] * 35;
-                            $ap = $ap * $atkhero['ob'];
-                        }
-                }
-                else //type=3 normal 4=raid
-                {
+                    }
+                }else{ //type=3 normal 4=raid
                 $abcount = 1;
                         for($i=$start;$i<=$end;$i++) {
                                 global ${'u'.$i};
@@ -429,18 +406,19 @@ class Battle {
                 $units['Att_unit'][$i] = $Attacker['u'.$i];
             }
 
-           if ($Attacker['uhero'] != 0)
-    	   {
-           	$units['Att_unit']['hero'] = $Attacker['uhero'];
-           	$ap = $ap * $atkhero['ob'];
-           	$cap = $cap * $atkhero['ob'];
-    }
-
-    	   if ($offhero!=0) {
-        	$atkhero=$this->getBattleHeroSim($offhero);
-        	$ap = $ap * $atkhero['ob'];
-        	$cap = $cap * $atkhero['ob'];  
-            }
+                               if ($Attacker['uhero'] != 0){
+                        $units['Att_unit']['hero'] = $Attacker['uhero'];
+                        $ap += $atkhero['atk'];
+                        $ap = $ap * $atkhero['ob'];
+                        $cap = $cap * $atkhero['ob'];
+                    }
+            
+                    if ($offhero!=0 || $hero_strenght!=0) {
+                        $atkhero=$this->getBattleHeroSim($offhero);
+                        $ap += $hero_strenght;                
+                        $ap = $ap * $atkhero['ob'];
+                        $cap = $cap * $atkhero['ob'];
+                    }
 
         }
 

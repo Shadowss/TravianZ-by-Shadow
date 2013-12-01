@@ -1960,7 +1960,7 @@ class MYSQL_DB {
 	}
 
 	function removeBuilding($d) {
-		global $building;
+		global $building, $village;
 		$jobLoopconID = -1;
 		$SameBuildCount = 0;
 		$jobs = $building->buildArray;
@@ -2050,14 +2050,16 @@ class MYSQL_DB {
 				mysql_query($q, $this->connection);
 			}
 		} else {
-			if($jobs[$jobDeleted]['field'] >= 19) {
-				$x = "SELECT f" . $jobs[$jobDeleted]['field'] . " FROM " . TB_PREFIX . "fdata WHERE vref=" . $jobs[$jobDeleted]['wid'];
-				$result = mysql_query($x, $this->connection) or die(mysql_error());
-				$fieldlevel = mysql_fetch_row($result);
-				if($fieldlevel[0] == 0) {
-					$x = "UPDATE " . TB_PREFIX . "fdata SET f" . $jobs[$jobDeleted]['field'] . "t=0 WHERE vref=" . $jobs[$jobDeleted]['wid'];
-					mysql_query($x, $this->connection) or die(mysql_error());
-				}
+            if($jobs[$jobDeleted]['field'] >= 19) {
+                $x = "SELECT f" . $jobs[$jobDeleted]['field'] . " FROM " . TB_PREFIX . "fdata WHERE vref=" . $jobs[$jobDeleted]['wid'];
+                $result = mysql_query($x, $this->connection) or die(mysql_error());
+                $fieldlevel = mysql_fetch_row($result);
+                if($fieldlevel[0] == 0) {
+                    if ($village->natar!=1 && $jobs[$jobDeleted]['field']!=99) { //fix by ronix
+                        $x = "UPDATE " . TB_PREFIX . "fdata SET f" . $jobs[$jobDeleted]['field'] . "t=0 WHERE vref=" . $jobs[$jobDeleted]['wid'];
+                        mysql_query($x, $this->connection) or die(mysql_error());
+                    }    
+                }
 			}
 			if(($jobLoopconID >= 0) && ($jobs[$jobDeleted]['loopcon'] != 1)) {
 				if(($jobs[$jobLoopconID]['field'] <= 18 && $jobs[$jobDeleted]['field'] <= 18) || ($jobs[$jobLoopconID]['field'] >= 19 && $jobs[$jobDeleted]['field'] >= 19) || sizeof($jobs) < 3) {
@@ -3559,12 +3561,15 @@ class MYSQL_DB {
         return mysql_query($q, $this->connection) or die(mysql_error());
     	}
 	
-	function getPrisoners($wid) {
-		$q = "SELECT * FROM " . TB_PREFIX . "prisoners where wref = $wid";
-		$result = mysql_query($q, $this->connection);
-		return $this->mysql_fetch_all($result);
-	}
-
+    function getPrisoners($wid,$mode=0) {
+        if(!$mode) {
+            $q = "SELECT * FROM " . TB_PREFIX . "prisoners where wref = $wid";
+        }else {
+            $q = "SELECT * FROM " . TB_PREFIX . "prisoners where `from` = $wid";
+        }    
+        $result = mysql_query($q, $this->connection);
+        return $this->mysql_fetch_all($result);
+    }
 	function getPrisoners2($wid,$from) {
 		$q = "SELECT * FROM " . TB_PREFIX . "prisoners where wref = $wid and " . TB_PREFIX . "prisoners.from = $from";
 		$result = mysql_query($q, $this->connection);
