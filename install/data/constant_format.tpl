@@ -3,10 +3,11 @@
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
 ##  Filename       config.php                                                  ##
-##  Version        4.8.5                                                       ##
+##  Version        8.0                                                         ##
 ##  Developed by:  Dzoki and Dixie Edited by Advocaite                         ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  License:       TravianZ Project                                            ##
+##  Copyright:     TravianZ (c) 2013-2014. All rights reserved.                ##
+##  Modified by:   Shadow and ronix                                            ##
 ##                                                                             ##
 #################################################################################
 
@@ -15,6 +16,7 @@
 //////////////////////////////////
 // (E_ALL ^ E_NOTICE) = enabled
 // (0) = disabled
+define("ERROR_REPORT","%ERRORREPORT%");
 %ERROR%
 
 //////////////////////////////////
@@ -54,9 +56,9 @@ define("WORLD_MAX", "%MAX%");
 // ***** Graphic Pack
 // True = enabled, false = disabled
 //!!!!!!!!!!!! DO NOT ENABLE !!!!!!!!!!!!
-define("GP_ENABLE", "%GP%");
+define("GP_ENABLE",false);
 // Graphic pack location (default: gpack/travian_default/)
-define("GP_LOCATE", "%GP_LOCATE%");
+define("GP_LOCATE", "gpack/travian_default/");
 
 // ***** Troop Speed
 // Values: 1 (normal), 3 (3x speed) etc...
@@ -93,6 +95,9 @@ define("STORAGE_BASE",800*STORAGE_MULTIPLIER);
 // ***** Quest
 // Ingame quest enabled/disabled.
 define("QUEST",%QUEST%);
+//quest type : 25 = Travian Official 
+//             37 = TravianZ Extended 
+define("QTYPE",%QTYPE%);
 
 // ***** Beginners Protection
 // 3600 = 1 hour
@@ -111,8 +116,8 @@ define("SHOW_NATARS",%SHOW_NATARS%);
 // ***** Natars Units Multiplier
 define("NATARS_UNITS",%NATARS_UNITS%); 
 
-// ***** Nature troops regeneration time 
-define("NATURE_REGTIME",%NATURE_REGTIME%);
+// ***** Nature troops regeneration time
+define("NATURE_REGTIME",%NATURE_REGTIME%); 
 
 // ***** Enable T4 is Coming screen
 define("T4_COMING",%T4_COMING%);
@@ -129,7 +134,7 @@ define("PLUS_TIME",%PLUS_TIME%);
 //+25% production lenght
 define("PLUS_PRODUCTION",%PLUS_PRODUCTION%);
 // ***** Medal Interval check
-define("MEDALINTERVAL",%MEDALINTERVAL%); 
+define("MEDALINTERVAL",%MEDALINTERVAL%);
 // ***** Great Workshop
 define("GREAT_WKS",%GREAT_WKS%);
 // ***** Tourn threshold

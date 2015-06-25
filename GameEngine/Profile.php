@@ -30,7 +30,7 @@ class Profile {
 				header("Location: banned.php");
 				}
 				break;
-                case "p4":
+				case "p4":
 				// Vacation mode - by advocaite and Shadow
 				if($session->access!=BANNED){
 				$this->setvactionmode($post);
@@ -87,11 +87,12 @@ class Profile {
 		$birthday = $post['jahr'].'-'.$post['monat'].'-'.$post['tag'];
 		$database->submitProfile($database->RemoveXSS($post['uid']),$database->RemoveXSS($post['mw']),$database->RemoveXSS($post['ort']),$database->RemoveXSS($birthday),$database->RemoveXSS($post['be2']),$database->RemoveXSS($post['be1']));
 		$varray = $database->getProfileVillages($post['uid']);
-		for($i=0;$i<=count($varray)-1;$i++) {
-		     $k = "".$post['dname'.$i]."";
-                     $name = preg_replace("/[^a-zA-Z0-9_-\s]/", "", $k);
-                     $database->setVillageName($database->RemoveXSS($varray[$i]['wref']),$name);
-		}
+			for($i=0;$i<=count($varray)-1;$i++) {
+				$k = trim($post['dname'.$i]);
+				$name = preg_replace("/[^a-zA-Z0-9_-\s]/", "", $k);
+				$database->setVillageName($database->RemoveXSS($varray[$i]['wref']),$name);
+        $database->setVillageName($database->RemoveXSS($varray[$i]['wref']),$k);
+		}  
 		header("Location: spieler.php?uid=".$post['uid']);
 	}
 
@@ -103,9 +104,9 @@ class Profile {
 	
 		/*******************************************************
 		Function to vacation mode - by advocaite and Shadow
-		References: 
+		References:
 		********************************************************/
-	
+
 	private function setvactionmode($post){
 		global $database,$session,$form;
 		$set =false;
@@ -126,18 +127,18 @@ class Profile {
 		header("Location: spieler.php?s=5");
 		}
 		}
-		
+
 		/*******************************************************
 		Function to vacation mode - by advocaite and Shadow
-		References: 
+		References:
 		********************************************************/
-		
+
 	private function updateAccount($post) {
 		global $database,$session,$form;
 		if($post['pw2'] == $post['pw3']) {
 			if($database->login($session->username,$post['pw1'])) {
 				if ($_POST['uid'] != $session->uid){
-                      			die("Hacking Attemp");
+                      			die("Hacking Attempr");
                 		} else {
 				$database->updateUserField($post['uid'],"password",md5($post['pw2']),1);
 			}

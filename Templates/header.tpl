@@ -80,13 +80,6 @@ height:18px;
   }
 </style>
 <?php
-
-/*
-
-Function added by Shadow
-
-*/
-
 $hour = date('Hi'); 
 if ($hour > 1759 or $hour < 500) {
 $day_night_img = 'night_image';

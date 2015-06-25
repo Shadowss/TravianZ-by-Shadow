@@ -1,21 +1,4 @@
-<?php
-
-#################################################################################
-##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
-## --------------------------------------------------------------------------- ##
-##  Project:       TravianZ      					       		 		  	   ##
-##  Version:       01.09.2013 						       	 				   ##
-##  Filename       graphic.php                                                 ##
-##  Developed by:  Dzoki                                                       ##
-##  Fixed by:      Shadow / Skype : cata7007                                   ##
-##  License:       TravianZ Project                                            ##
-##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
-##  URLs:          http://travian.shadowss.ro 				       	 		   ##
-##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       	   ##
-##                                                                             ##
-#################################################################################
-
- if(GP_ENABLE) {
+<?php if(GP_ENABLE) {
 ?>
 <h1>Player profile</h1>
 
@@ -113,15 +96,7 @@ $database->updateUserField($session->uid,gpack,$_POST["custom_url"],1);
                     <td class="act"><a href="spieler.php?s=4&gp_type=custom&custom_url=gpack/travian_default/">Activate</a></td>
 
                     <td class="down"><a href="gpack/download/travian_default.zip" target="_blank">Download</a></td>
-
                 </tr>
-                <tr>
-				<td class="nam">Travian T3.6 - T4 Building</td>
-                                        <td class="size">4</td>
-                    <td class="act"><a href="spieler.php?s=4&gp_type=custom&custom_url=gpack/travian_t4/">Activate</a></td>
-
-                    <td class="down"><a href="gpack/download/travian_default.zip" target="_blank">Download</a></td>
-			</tr>
                     </tbody>
     </table>
     <?php

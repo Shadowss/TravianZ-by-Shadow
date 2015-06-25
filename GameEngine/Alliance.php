@@ -1,19 +1,20 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-|   PLEASE DO NOT REMOVE THIS COPYRIGHT NOTICE!
-|--------------------------------------------------------------------------
-|
-|   Project owner:   Dzoki < dzoki.travian@gmail.com >
-|
-|   This script is property of TravianX Project. You are allowed to change
-|   its source and release it under own name, not under name `TravianX`.
-|   You have no rights to remove copyright notices.
-|
-|   TravianX All rights reserved
-|
-*/
+#################################################################################
+##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+## --------------------------------------------------------------------------- ##
+##  Project:       TravianZ                                                    ##
+##  Version:       22.06.2015                    			       ## 
+##  Filename       Alliance.php                                                ##
+##  Developed by:  Mr.php , Advocaite , brainiacX , yi12345 , Shadow , ronix   ## 
+##  Fixed by:      Shadow - STARVATION , HERO FIXED COMPL.  		       ##
+##  Fixed by:      InCube - double troops				       ##
+##  License:       TravianZ Project                                            ##
+##  Copyright:     TravianZ (c) 2010-2015. All rights reserved.                ##
+##  URLs:          http://travian.shadowss.ro                		       ##
+##  Source code:   https://github.com/Shadowss/TravianZ		               ## 
+##                                                                             ##
+#################################################################################
 
 	   class Alliance {
 
@@ -61,15 +62,13 @@
 			if(isset($post['ft'])) {
 				switch($post['ft']) {
 					case "ali1":
-                                         $postz = preg_replace("/[^a-zA-Z0-9_-\s]/", "", $post);
-						$this->createAlliance($postz);
+						$this->createAlliance($post);
 						break;
 				}
 
 			}
 			if(isset($_POST['dipl']) and isset($_POST['a_name'])) {
-                            $postz = preg_replace("/[^a-zA-Z0-9_-\s]/", "", $post);
-				$this->changediplomacy($postz);
+				$this->changediplomacy($post);
 			}
 
 			if(isset($post['s'])) {
@@ -97,8 +96,7 @@
 							$this->quitally($post);
 							break;
 						case 100:
-                                              $postz = preg_replace("/[^a-zA-Z0-9_-\s]/", "", $post);
-							$this->changeAliName($postz);
+							$this->changeAliName($post);
 							break;
 					}
 				}
@@ -337,10 +335,7 @@
 			$UserData = $database->getUserArray($post['a_user'], 0);
 			if($this->userPermArray['opt2'] == 0) {
 				$form->addError("perm", NO_PERMISSION);
-                            echo $UserData['id'];
-
 			} else if($UserData['id'] != $session->uid){
-                            if ($post['a_user'] != $session->uid) {
 				$database->updateUserField($post['a_user'], 'alliance', 0, 1);
 				$database->deleteAlliPermissions($post['a_user']);
 				$database->deleteAlliance($session->alliance);
@@ -355,7 +350,6 @@
 				$this->updateMax($newleader);
 				}
 				}
-                            }
 			}else{
 			header("Location: banned.php");
 			}

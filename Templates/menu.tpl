@@ -36,25 +36,22 @@ div.c1 {text-align: center}
         <a id="logo" href="<?php echo HOMEPAGE; ?>" name="logo"><img src="img/x.gif" <?php if($session->plus) { echo "class=\"logo_plus\""; } ?> alt="Travian"></a>
 
 
-        <p><a href="<?php echo HOMEPAGE; ?>"><?php echo HOME; ?></a> <a href="spieler.php?uid=<?php echo $session->uid; ?>"><?php echo PROFILE; ?></a> <a href="#" onclick="return Popup(0,0,1);"><?php echo INSTRUCT; ?></a><a href="forum.php"><?php echo Forum; ?></a> <?php if($session->access == MULTIHUNTER) {
+        <p><a href="<?php echo HOMEPAGE; ?>"><?php echo HOME; ?></a> <a href="spieler.php?uid=<?php echo $session->uid; ?>"><?php echo PROFILE; ?></a> <a href="#" onclick="return Popup(0,0,1);"><?php echo INSTRUCT; ?></a> <?php if($session->access == MULTIHUNTER) {
 
                     echo "<a href=\"Admin/admin.php\"><font color=\"Blue\">Multihunter Panel</font></a>";
                     } ?> <?php if($session->access == ADMIN) {
                     echo "<a href=\"Admin/admin.php\"><font color=\"Red\">".ADMIN_PANEL."</font></a>";
                     echo "<a href=\"massmessage.php\">".MASS_MESSAGE."</a>";
-                    echo "<a href=\"medals.php\">".UPDATE_T_10."</a>";
                     echo "<a href=\"sysmsg.php\">".SYSTEM_MESSAGE."</a>";
 					echo "<a href=\"create_account.php\">Create Natars</a>";
                     } ?> <a href="logout.php"><?php echo LOGOUT;?></a></p>
-
-		<a href="rules.php"><b><?php echo GAME_RULES;?></b></a> 
-        <p><a href="plus.php?id=3">Travian <b><span class="plus_g">P</span><span class="plus_o">l</span><span class="plus_g">u</span><span class="plus_o">s</span></b></a>
-                    <a href="support.php"><b><?php echo SUPPORT;?></b></a> 
-			<a href="version.php"><b><font color='Red'><?php echo Version;?></font></b></a> 
-			<a href="bugs.php"><b><font color='Blue'><?php echo Bugs;?></font></b></a> 
-			<a href="dailygold.php"><b><font color='Gray'><?php echo Dailygold;?></font></b></a> 
+        <p>
+            <a href="plus.php?id=3"><?php echo SERVER_NAME; ?> <b><span class="plus_g">P</span><span class="plus_o">l</span><span class="plus_g">u</span><span class="plus_o">s</span></b></a>
+        </p>
+        <p>
+            <a href="rules.php"><b><?php echo GAME_RULES;?></b></a> 
+            <a href="support.php"><b><?php echo SUPPORT;?></b></a> 
         <br></p>
-
 		<?php
 		$timestamp = $database->isDeleting($session->uid);
 		if($timestamp) {
@@ -74,13 +71,13 @@ div.c1 {text-align: center}
     ?>
 
     <div id="content" class="village1">
-        <h1>Announcement</h1>
+        <h1><?php echo ANNOUNCEMENT; ?></h1>
 </br>
         <h3>Hi <?php echo $session->username; ?>,</h3>
         <?php include("Templates/text.tpl"); ?>
         <div class="c1">
 		</br>
-            <h3><a href="dorf1.php?ok">&raquo; Go to my village</a></h3>
+            <h3><a href="dorf1.php?ok">&raquo; <?php echo GO2MY_VILLAGE; ?></a></h3>
         </div>
     </div>
 
@@ -121,4 +118,3 @@ div.c1 {text-align: center}
     ?>
 </body>
 </html>
-

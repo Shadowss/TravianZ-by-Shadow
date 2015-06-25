@@ -2,14 +2,14 @@
 
 ### start config ### 
 
-$strEmpfaenger = 'admin@travianz.com'; 
+$strEmpfaenger = 'changeme@change.me'; 
 
-$strFrom = "From: Travian ro1 Support <admin@travianz.com>\n"; 
-$strFrom .= "X-Sender: <admin@travianz.com>\n"; 
+$strFrom = "From: TravianiX Support <changeme@change.me>\n"; 
+$strFrom .= "X-Sender: <changeme@change.me>\n"; 
 $strFrom .= "X-Mailer: PHP\n"; 
 $strFrom .= "X-Priority: 3\n"; 
-$strFrom .= "Errors-To: <admin@travianz.com>\n"; 
-$strFrom .= "Return-Path: <admin@travianz.com>\n"; 
+$strFrom .= "Errors-To: <changeme@change.me>\n"; 
+$strFrom .= "Return-Path: <changeme@change.me>\n"; 
 $strFrom .= "Reply-To: " . $_POST['Emailadress'] . "\n"; 
 $strFrom .= "Content-Type: text; charset=iso-8859-15\n"; 
 

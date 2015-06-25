@@ -27,11 +27,10 @@ if(isset($_GET['newdid'])) {
 else {
 	$building->procBuild($_GET);
 }
-/*
+
 if(isset($_GET['s'])){
 $automation->isWinner();
 }
-*/
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -142,14 +141,14 @@ else if (isset($_GET['s'])) {
 	if($_GET['s'] == 2) {
 		include("Templates/Profile/preference.tpl");
 	}
-	if($_GET['s'] == 5) {
-		include("Templates/Profile/vacation.tpl");
-	}
 	if($_GET['s'] == 3) {
 		include("Templates/Profile/account.tpl");
 	}
 	if($_GET['s'] == 4) {
 		include("Templates/Profile/graphic.tpl");
+	}
+	if($_GET['s'] == 5) {
+	include("Templates/Profile/vacation.tpl");
 	}
 	if($_GET['s'] > 5 or $session->sit == 1) {
 	header("Location: ".$_SERVER['PHP_SELF']."?uid=".preg_replace("/[^a-zA-Z0-9_-]/","",$session->uid));

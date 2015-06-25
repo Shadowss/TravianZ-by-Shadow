@@ -4,31 +4,28 @@ if(isset($_GET['c']) && $_GET['c'] == 1) {
 echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php check cmod.</span></div><br>";
 }
 ?>
-<br \>
-<body onLoad="show_clock()">
-
-<center><script language="javascript" src="liveclock.js"></script></center>
 
 <form action="process.php" method="post" id="dataform">
 
 	<p>
 	<span class="f10 c">SERVER RELATED</span>
 	<table><tr>
-	<td><span class="f9 c6">Server name:</span></td><td width="140"><input type="text" name="servername" id="servername" value="TravianZ - by Shadow"></td></tr><tr>
-	<td><span class="f9 c6">Server Timezone:</span></td><td>
-        <select name="tzone" onChange="refresh(this.value)">
-        <option value="1,Africa/Dakar" <?php if ($tz==1) echo "selected";?>>Africa</option>
-        <option value="2,America/New_York" <?php if ($tz==2) echo "selected";?>>America</option>
-        <option value="3,Antarctica/Casey" <?php if ($tz==3) echo "selected";?>>Antarctica</option>
-        <option value="4,Arctic/Longyearbyen" <?php if ($tz==4) echo "selected";?>>Arctic</option>
-        <option value="5,Asia/Kuala_Lumpur" <?php if ($tz==5) echo "selected";?>>Asia</option>
-        <option value="6,Atlantic/Azores" <?php if ($tz==6) echo "selected";?>>Atlantic</option>
-        <option value="7,Australia/Melbourne" <?php if ($tz==7) echo "selected";?>>Australia</option>
-        <option value="8,Europe/Bucharest" <?php if ($tz==8) echo "selected";?>>Europe</option>
-        <option value="9,Indian/Maldives" <?php if ($tz==9) echo "selected";?>>Indian</option>
-        <option value="10,Pacific/Fiji" <?php if ($tz==10) echo "selected";?>>Pacific</option>
-        </select>
-    	</td></tr><tr>
+	<td><span class="f9 c6">Server name:</span></td><td width="140"><input type="text" name="servername" id="servername" value="TravianZ"></td></tr><tr>
+	        <td><span class="f9 c6">Server Timezone:</span></td><td>
+	<select name="tzone" onChange="refresh(this.value)">
+	<option value="1,Africa/Dakar" <?php if ($tz==1) echo "selected";?>>Africa</option>
+	<option value="2,America/New_York" <?php if ($tz==2) echo "selected";?>>America</option>
+	<option value="3,Antarctica/Casey" <?php if ($tz==3) echo "selected";?>>Antarctica</option>
+	<option value="4,Arctic/Longyearbyen" <?php if ($tz==4) echo "selected";?>>Arctic</option>
+	<option value="5,Asia/Kuala_Lumpur" <?php if ($tz==5) echo "selected";?>>Asia</option>
+	<option value="6,Atlantic/Azores" <?php if ($tz==6) echo "selected";?>>Atlantic</option>
+	<option value="7,Australia/Melbourne" <?php if ($tz==7) echo "selected";?>>Australia</option>
+	<option value="8,Europe/Bucharest" <?php if ($tz==8) echo "selected";?>>Europe (Bucharest)</option>
+        <option value="9,Europe/London" <?php if ($tz==9) echo "selected";?>>Europe (London)</option>
+	<option value="10,Indian/Maldives" <?php if ($tz==10) echo "selected";?>>Indian</option>
+	<option value="11,Pacific/Fiji" <?php if ($tz==11) echo "selected";?>>Pacific</option>
+	</select>
+        </td></tr><tr>
 	<td><span class="f9 c6">Server speed:</span></td><td><input name="speed" type="text" id="speed" value="1" size="2"></td></tr><tr>
 	<td><span class="f9 c6">Troop speed:</span></td><td width="140"><input type="text" name="incspeed" id="incspeed" value="1" size="2"></td></tr><tr>
 	<td><span class="f9 c6">Evasion speed:</span></td><td><input name="evasionspeed" type="text" id="evasionspeed" value="1" size="2"></td></tr><tr>
@@ -62,20 +59,21 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<td><span class="f9 c6">Language:</span></td><td>
 				<select name="lang">
 				<option value="en" selected="selected">English</option>
+				<option value="es">Spanish</option>
 				</select>
 		</td></tr><tr></tr>
 	<td><span class="f9 c6">Beginners protection length:</span></td><td>
 				<select name="beginner">
 				<option value="7200">2 hours</option>
-        			<option value="10800">3 hours</option>
-        			<option value="18000">5 hours</option>
-        			<option value="28800">8 hours</option>
-        			<option value="36000">10 hours</option>
+				<option value="10800">3 hours</option>
+				<option value="18000">5 hours</option>
+				<option value="28800">8 hours</option>
+				<option value="36000">10 hours</option>
 				<option value="43200" selected="selected">12 hours</option>
 				<option value="86400">24 hours (1 day)</option>
-        			<option value="172800">48 hours (2 days)</option>
-        			<option value="259200">72 hours (3 days)</option>
-        			<option value="432000">120 hours (5 days)</option> 
+				<option value="172800">48 hours (2 days)</option>
+				<option value="259200">72 hours (3 days)</option>
+				<option value="432000">120 hours (5 days)</option>
 				</select>
 		</td></tr><tr></tr>
 	<td><span class="f9 c6">Plus account length:</span></td><td>
@@ -103,16 +101,17 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 				</select>
 		</td></tr><tr></tr>
 	<td><span class="f9 c6">Nature troops regeneration time:</span></td><td>
-        <select name="nature_regtime">
-        <option value="28800">8 hours</option>
-        <option value="36000">10 hours</option>
-        <option value="43200" selected="selected">12 hours</option>
-        <option value="57600">16 hours</option>
-        <option value="72000">20 hours</option>
-        <option value="86400">24 hours</option>
-        </select>
-    </td></tr><tr></tr> 
-	<td><span class="f9 c6">Medal Interval:</span></td><td>
+				<select name="nature_regtime">
+				<option value="28800">8 hours</option>
+				<option value="36000">10 hours</option>
+				<option value="43200" selected="selected">12 hours</option>
+				<option value="57600">16 hours</option>
+				<option value="72000">20 hours</option>
+				<option value="86400">24 hours</option>
+				</select>
+		</td></tr><tr></tr>
+    <tr class="hover">
+  	<td><span class="f9 c6">Medal Interval:</span></td><td>
         <select name="medalinterval">
         <option value="0">none</option>
         <option value="(3600*24)">1 day</option>
@@ -123,7 +122,7 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
         <option value="(3600*24*6)">6 days</option>
         <option value="(3600*24*7)" selected="selected">7 days</option>
         </select>
-    </td></tr><tr></tr> 
+    	</td></tr><tr></tr> 
 	<td><span class="f9 c6">Storage Multipler:</span></td><td width="140"><input type="text" name="storage_multiplier" id="storage_multiplier" value="1"></td></tr><tr>
 	<td><span class="f9 c6">Tourn Threshold:</span></td><td width="140"><input type="text" name="ts_threshold" id="ts_threshold" value="20"></td></tr><tr>
 	<td><span class="f9 c6">Great Workshop:</span></td><td>
@@ -171,22 +170,6 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	</table>
 	</p>
 
-		<p>
-	<span class="f10 c">ADMIN RELATED</span>
-	<table>
-	<tr><td><span class="f9 c6">Admin Name:</span></td><td><input type="text" name="aname" id="aname"></td></tr>
-	<tr><td><span class="f9 c6">Admin Email:</span></td><td><input name="aemail" type="text" id="aemail"></td></tr>
-
-	<td><span class="f9 c6">Admin Rank:</span></td><td>
-				<select name="admin_rank">
-				<option value="False">No</option>
-				<option value="True" selected="selected">Yes</option>
-				</select>
-		</td></tr><tr></tr>
-	</table>
-	</p>
-
-
 	<p>
 	<span class="f10 c">SQL RELATED</span>
 	<table><tr>
@@ -202,27 +185,34 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	</table>
 	</p>
 
+<!-- <LEFT BOX - ADMIN RELATED>
 
-		<p>
-	<span class="f10 c">GPACK RELATED</span>
-	<table>
-	<td><span class="f9 c6">Gpack:</span></td><td>
-				<select name="gpack">
-				<option value="False">No</option>
-				<option value="True" selected="selected">Yes</option>
-				</select>
-		</td></tr><tr></tr>
-	<td><span class="f9 c6">Gpack Design:</span></td><td>
-				<select name="gp_locate">
-				<option value="gpack/travian_default/" selected="selected">Travian Default</option>
-				<option value="gpack/travian_t4/">TravianZ T4 by Shadow</option>
-				</select>
-		</td></tr><tr></tr>
+	<span><center><strong>ADMIN RELATED</strong></center></span><br />
+	<span class="f9 c6 cc2">Admin Name:</span><span class="cc3"><input type="text" name="aname" id="aname"></span><br /><br />
+	<span class="f9 c6 cc2">Admin Email:</span><span class="cc3"><input name="aemail" type="text" id="aemail"></span><br /><br />
+	<span class="f9 c6 cc2">Admin rank:</span><span class="cc3" style="position: absolute;right:20%;"><select name="admin_rank">
+	  <option value="false">No</option>
+	  <option value="true" selected="selected">Yes</option></select></span><br /><br />
 
-	</table>
-	</p>
+<!-- </LEFT BOX - ADMIN RELATED> -->
 
-<p>
+<!-- <RIGHT BOX - GPACK RELATED>
+
+	<span><center><strong>GPACK RELATED</strong></center></span><br />
+
+
+	<span class="f9 c6 c2">GPack:</span><span class="c3"><select name="gpack">
+	  <option value="false" selected="selected">No</option>
+	  <option value="true" disabled="disabled">Yes</option></select></span><br /><br />
+	<span class="f9 c6 c2">GPack Design:</span><span class="c3"><select name="gp_locate">
+	  <option value="gpack/travian_default/" selected="selected">Travian Default
+	  <option value="gpack/travianx_v1/">TravianX v1 by Dzoki</option></select></span><br /><br />
+
+-->
+<!-- </RIGHT BOX - GPACK RELATED> -->
+
+
+	<p>
 	<span class="f10 c">NEWSBOX OPTIONS</span>
 	<table><tr>
 	<td><span class="f9 c6">Newsbox 1:</span></td><td><select name="box1">
@@ -284,12 +274,16 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	</p>
 
 	<p>
-	<span class="f10 c">EXTRA OPTIONS</span>
-	<table><tr>
-	<td><span class="f9 c6">Quest:</span></td><td><select name="quest">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
-	</select></td></tr><tr>
+    <span class="f10 c">EXTRA OPTIONS</span>
+    <table><tr>
+    <td><span class="f9 c6">Quest:</span></td><td><select name="quest">
+      <option value="true" selected="selected">Yes</option>
+      <option value="false">No</option>
+    </select></td></tr><tr>
+        <td><span class="f9 c6">Quest Type:</span></td><td><select name="qtype">
+      <option value="25" selected="selected">Official Travian</option>
+      <option value="37">TravianZ Extended</option>
+    </select></td></tr><tr>
 	<td><span class="f9 c6">Activate:</span></td><td><select name="activate">
 	  <option value="true">Yes</option>
 	  <option value="false" selected="selected">No</option>

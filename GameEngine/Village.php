@@ -12,6 +12,7 @@
 include("Session.php");
 include("Building.php");
 include("Market.php");
+include_once("GameEngine/Units.php");
 include("Technology.php");
 
 class Village {
@@ -26,11 +27,13 @@ class Village {
 	private $production = array();
 	private $oasisowned,$ocounter = array();
 
-    	function Village() {
-        	global $session, $database;
-        	if(isset($_SESSION['wid'])) {
-            	$this->wid = $_SESSION['wid'];
-        	}else {
+    function Village() {
+        global $session, $database;
+        if(isset($_SESSION['wid'])) {
+            $this->wid = $_SESSION['wid'];
+            
+        }
+        else {
             $this->wid = $session->villages[0];
         }
         //add new line code
@@ -39,7 +42,7 @@ class Village {
             $this->wid=$database->getVillageID($session->uid);
             $_SESSION['wid']=$this->wid;
         }
-        	$this->LoadTown();
+        $this->LoadTown();
 		$this->calculateProduction();
 		$this->processProduction();
 		$this->ActionControl();
@@ -297,5 +300,5 @@ class Village {
 };
 $village = new Village;
 $building = new Building;
-include_once("Automation.php");
+include_once ("Automation.php");
 ?>

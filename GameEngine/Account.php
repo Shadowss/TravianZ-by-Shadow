@@ -3,15 +3,16 @@
 #################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Project:       TravianZ                        		       	       ##
-##  Version:       01.09.2013 						       ##
-##  Filename       Account.php	                                               ##
-##  Developed by:  Songer , Dzoki , Advocaite , yi12345 , Shadow  	       ##
-##  Fixed by:      Shadow - Vacation mode				       ##
+##  Project:       TravianZ                                                    ##
+##  Version:       22.06.2015                    			       ## 
+##  Filename       Account.php                                                 ##
+##  Developed by:  Mr.php , Advocaite , brainiacX , yi12345 , Shadow , ronix   ## 
+##  Fixed by:      Shadow - STARVATION , HERO FIXED COMPL.  		       ##
+##  Fixed by:      InCube - double troops				       ##
 ##  License:       TravianZ Project                                            ##
-##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
-##  URLs:          http://travian.shadowss.ro 				       ##
-##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       ##
+##  Copyright:     TravianZ (c) 2010-2015. All rights reserved.                ##
+##  URLs:          http://travian.shadowss.ro                		       ##
+##  Source code:   https://github.com/Shadowss/TravianZ		               ## 
 ##                                                                             ##
 #################################################################################
 
@@ -60,7 +61,7 @@ class Account {
 			}
 			else if(USRNM_SPECIAL && preg_match("/[:,\\. \\n\\r\\t\\s\\<\\>]+/", $_POST['name'])) {
 				$form->addError("name",USRNM_CHAR);
-			} 
+			}
 			else if($database->checkExist($_POST['name'],0)) {
 				$form->addError("name",USRNM_TAKEN);
 			}
@@ -98,26 +99,22 @@ class Account {
 		if(!isset($_POST['vid'])) {
 			$form->addError("tribe",TRIBE_EMPTY);
 		}
-		if(($_POST['vid'] > 3 ) || ($_POST['vid'] < 1)){
-            		$form->addError("tribe",TRIBE_INVALID);
-        	}
-        	if(($_POST['kid'] > 4) || ($_POST['kid'] < 0)) {
-            		$form->addError("tribe",TRIBE_INVALID);
-        	}
 		if(!isset($_POST['agb'])) {
 			$form->addError("agree",AGREE_ERROR);
 		}
 		if($form->returnErrors() > 0) {
-			$_SESSION['errorarray'] = $form->getErrors();
-			$_SESSION['valuearray'] = $_POST;
+            $form->addError("invt",$_POST['invited']);
+            $_SESSION['errorarray'] = $form->getErrors();
+            $_SESSION['valuearray'] = $_POST;
+            
 
-			header("Location: anmelden.php");
-		}
+            header("Location: anmelden.php");
+        }
 		else {
 			if(AUTH_EMAIL){
 			$act = $generator->generateRandStr(10);
 			$act2 = $generator->generateRandStr(5);
-				$uid = $database->activate($_POST['name'],md5($_POST['pw']),$_POST['email'],$_POST['vid'],$_POST['kid'],$act,$act2,$_POST['reflink']);
+				$uid = $database->activate($_POST['name'],md5($_POST['pw']),$_POST['email'],$_POST['vid'],$_POST['kid'],$act,$act2);
 				if($uid) {
 
 					$mailer->sendActivate($_POST['email'],$_POST['name'],$_POST['pw'],$act);
@@ -125,7 +122,7 @@ class Account {
 				}
 			}
 			else {
-				$uid = $database->register($_POST['name'],md5($_POST['pw']),$_POST['email'],$_POST['vid'],$act,$_POST['reflink']);
+				$uid = $database->register($_POST['name'],md5($_POST['pw']),$_POST['email'],$_POST['vid'],$act);
 				if($uid) {
 					setcookie("COOKUSR",$_POST['name'],time()+COOKIE_EXPIRE,COOKIE_PATH);
 					setcookie("COOKEMAIL",$_POST['email'],time()+COOKIE_EXPIRE,COOKIE_PATH);
@@ -146,7 +143,7 @@ class Account {
 			$result = mysql_query($q, $database->connection);
 			$dbarray = mysql_fetch_array($result);
 			if($dbarray['act'] == $_POST['id']) {
-				$uid = $database->register($dbarray['username'],$dbarray['password'],$dbarray['email'],$dbarray['tribe'],"",$dbarray['reflink']);
+				$uid = $database->register($dbarray['username'],$dbarray['password'],$dbarray['email'],$dbarray['tribe'],"");
 				if($uid) {
 				$database->unreg($dbarray['username']);
 				$this->generateBase($dbarray['kid'],$uid,$dbarray['username']);
@@ -167,7 +164,7 @@ class Account {
 
 	private function Unreg() {
 		global $database;
-		$q = "SELECT * FROM ".TB_PREFIX."activate where id = '".preg_replace("/[^0-9]/","",$_POST['id'])."'";
+		$q = "SELECT * FROM ".TB_PREFIX."activate where id = '".$_POST['id']."'";
 		$result = mysql_query($q, $database->connection);
 		$dbarray = mysql_fetch_array($result);
 		if(md5($_POST['pw']) == $dbarray['password']) {
@@ -198,7 +195,7 @@ class Account {
 		}
 		// Vacation mode by Shadow
 		if($database->getUserField($_POST['user'],"vac_mode",1) == 1 && $database->getUserField($_POST['user'],"vac_time",1) > time()) {
-			$form->addError("vacation","Vacation mode is still enabled");
+		$form->addError("vacation","Vacation mode is still enabled");
 		}
 		// Vacation mode by Shadow
 		if($form->returnErrors() > 0) {

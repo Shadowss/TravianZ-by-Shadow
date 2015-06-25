@@ -15,19 +15,11 @@ if(isset($_GET['ok'])){
 $database->updateUserField($session->uid,'ok','0','1'); $_SESSION['ok'] = '0';
 }
 if(isset($_GET['newdid'])) {
-	$_SESSION['wid'] = $_GET['newdid'];
+    $_SESSION['wid'] = $_GET['newdid'];
+    $database->query("UPDATE ".TB_PREFIX."users SET village_select=".$_GET['newdid']." WHERE id=".$session->uid);  
 	header("Location: ".$_SERVER['PHP_SELF']);
 }else{
 $building->procBuild($_GET);
-}
-if(isset($_GET['master']) && isset($_GET['id']) && isset($_GET['time']) && $session->gold >= 1 && $session->goldclub && $village->master == 0) {
-if($session->access!=BANNED){
-$level = $database->getResourceLevel($village->wid);
-$database->addBuilding($village->wid, $_GET['id'], $_GET['master'], 1, $_GET['time'], 1, $level['f'.$_GET['id']] + 1 + count($database->getBuildingByField($village->wid,$_GET['id'])));
-header("Location: ".$_SERVER['PHP_SELF']);
-}else{
-header("Location: banned.php");
-}
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -108,14 +100,15 @@ include("Templates/res.tpl");
 <div id="stime">
 <div id="ltime">
 <div id="ltimeWrap">
-Calculated in <b><?php
+<?php echo CALCULATED_IN;?> <b><?php
 echo round(($generator->pageLoadTimeEnd()-$start)*1000);
 ?></b> ms
 
-<br />Server time: <span id="tp1" class="b"><?php echo date('H:i:s'); ?></span>
+<br /><?php echo SEVER_TIME;?> <span id="tp1" class="b"><?php echo date('H:i:s'); ?></span>
 </div>
 	</div>
 </div>
+
 <div id="ce"></div>
 </body>
 </html>

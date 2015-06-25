@@ -46,14 +46,14 @@
 						case 8:
 							$this->procHeroRankArray();
 							if($get['hero'] == 0) {
-							$this->getStart(1);
+								$this->getStart(1);
 							} else {
-							$this->getStart($this->searchRank($session->uid, "uid"));
+								$this->getStart($this->searchRank($session->uid, "uid"));
 							}
 							break;
 						case 11:
 							$this->procRankRaceArray(1);
-							if($this->searchRank($session->uid, "userid") != 0){ 
+							if($this->searchRank($session->uid, "userid") != 0){
 							$this->getStart($this->searchRank($session->uid, "userid"));
 							}else{
 							$this->getStart(1);
@@ -141,15 +141,15 @@
 								$this->getStart($post['rank']);
 							}
 							if(isset($post['name']) && $post['name'] != "") {
-							$this->getStart($this->searchRank(stripslashes($post['name']), "tag"));
-					                }
-					                break;
-				                case "r2":
-            					case "r8":
-					                if(isset($post['rank']) && $post['rank'] != "") {
-					                $this->getStart($post['rank']);
-              						}
-					                if(isset($post['name']) && $post['name'] != "") { 
+								$this->getStart($this->searchRank(stripslashes($post['name']), "tag"));
+							}
+							break;
+						case "r2":
+						case "r8":
+							if(isset($post['rank']) && $post['rank'] != "") {
+								$this->getStart($post['rank']);
+							}
+							if(isset($post['name']) && $post['name'] != "") {
 								$this->getStart($this->searchRank(stripslashes($post['name']), "name"));
 							}
 							break;
@@ -179,10 +179,10 @@
 				while(1) {
 					if(count($this->rankarray) > 1) {
 						$key = key($this->rankarray);
-						if($this->rankarray[$key]["id"] == $id) {
+						if(isset ($this->rankarray[$key]["id"]) && $this->rankarray[$key]["id"] === $id) {
 							return $key;
 							break;
-					} else {
+						} else {
 							if(!next($this->rankarray)) {
 								return false;
 								break;
@@ -196,27 +196,27 @@
 
 			public function searchRank($name, $field) {
 				while(1) {
-    					//$key = key($this->rankarray);
-       				for($key=0;$key<count($this->rankarray);$key++){
-        			if($this->rankarray[$key]!="pad") {
-        			if($this->rankarray[$key][$field] == $name) {
-            			return $key;
-            			break;
-        				}
-       				}    
-      			}  
-					if(!next($this->rankarray)) {
-				if($field != "userid"){
-					return $name;
-					break;
-					}else{
-					return 0;
-					break;
-					}
+    //$key = key($this->rankarray);
+       for($key=0;$key<count($this->rankarray);$key++){
+        if($this->rankarray[$key]!="pad") {
+        if($this->rankarray[$key][$field] == $name) {
+            return $key;
+            break;
+        }
+       }    
+      }  
+						if(!next($this->rankarray)) {
+						if($field != "userid"){
+							return $name;
+							break;
+						}else{
+							return 0;
+							break;
+						}
+						}
+					
 				}
-
 			}
-		}
 
 			public function procRankArray() {
 				global $database, $multisort;
@@ -329,7 +329,6 @@
 
 
 					foreach($datas as $result) {
-						
 						$value['userid'] = $result['userid'];
 						$value['username'] = $result['username'];
 						$value['alliance'] = $result['alliance'];
@@ -386,7 +385,6 @@
 					$value['userid'] = $row['userid'];
 					$value['username'] = $row['username'];
 					$value['totalvillages'] = $row['totalvillages'];
-					//$value['totalvillage'] = $row['totalvillages'];
 					$value['id'] = $row['userid'];
 					$value['totalpop'] = $row['pop'];
 					$value['apall'] = $row['apall'];
@@ -533,7 +531,7 @@
 
 					array_push($holder, $value);
 				}
-				$holder = $multisort->sorte($holder, "'totalap'", false, 2);
+				$holder = $multisort->sorte($holder, "'Aap'", false, 2);
 				$newholder = array("pad");
 				foreach($holder as $key) {
 					array_push($newholder, $key);
@@ -561,7 +559,7 @@
 
 					array_push($holder, $value);
 				}
-				$holder = $multisort->sorte($holder, "'totaldp'", false, 2);
+				$holder = $multisort->sorte($holder, "'Adp'", false, 2);
 				$newholder = array("pad");
 				foreach($holder as $key) {
 					array_push($newholder, $key);

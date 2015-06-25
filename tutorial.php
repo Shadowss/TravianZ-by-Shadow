@@ -1,17 +1,12 @@
 <?php
-
 #################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Project:       TravianZ      					       ##
-##  Version:       01.09.2013 						       ##
-##  Filename       tutorial.php                                                ##
+##  Filename       anleitung.php                                               ##
 ##  Developed by:  Dzoki                                                       ##
-##  Fixed by:      Shadow                                                      ##
 ##  License:       TravianX Project                                            ##
+##  Fixed bt:      Shadow                                                      ##
 ##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
-##  URLs:          http://travian.shadowss.ro 				       ##
-##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       ##
 ##                                                                             ##
 #################################################################################
 

@@ -10,10 +10,8 @@
 ##                                                                             ##
 #################################################################################
 
-// Added by Shadow - cata7007@gmail.com / Skype : cata7007
-
 include('GameEngine/Account.php');
-$reflink = substr ($_GET['id'],4);
+$invited=(isset($_GET['uid'])) ? filter_var($_GET['uid'], FILTER_SANITIZE_NUMBER_INT):$form->getError('invt');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -51,8 +49,9 @@ if(REG_OPEN == true){ ?>
 <p><?php echo BEFORE_REGISTER; ?></p>
 
 <form name="snd" method="post" action="anmelden.php">
-<input type="hidden" name="invited" value="<?php echo filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT); ?>" />
+<input type="hidden" name="invited" value="<?php echo $invited; ?>" />
 <input type="hidden" name="ft" value="a1" />
+
 <table cellpadding="1" cellspacing="1" id="sign_input">
 	<tbody>
 		<tr class="top">
@@ -71,8 +70,7 @@ if(REG_OPEN == true){ ?>
 		<tr>
 			<th><?php echo PASSWORD; ?></th>
 			<td>
-				<input class="text" type="password" name="pw" value="<?php echo stripslashes($form->getValue('pw')); ?>" maxlength="30" />
-				
+				<input class="text" type="password" name="pw" value="<?php echo stripslashes($form->getValue('pw')); ?>" maxlength="100" />
 				<span class="error"><?php echo $form->getError('pw'); ?></span>
 			</td>
 		</tr>
@@ -80,62 +78,28 @@ if(REG_OPEN == true){ ?>
 </table>
 
 <table cellpadding="1" cellspacing="1" id="sign_select">
-                        <tbody>
-                            <tr class="top">
-                                <th width="109"><img src="img/x.gif" class="img_u06" alt="choose tribe"></th>
-                                <th colspan="2"><img src="img/x.gif" class="img_u07" alt="starting position"></th>
-                            </tr>
-                            <tr>
-                                <td rowspan="5" class="nat">
-                                    <label>
-                                        <img src="img/rpage/Roman.jpg" alt="Romans" width="87" height="87" longdesc="img" />
-                                        <br />
-                                        <input class="radio" type="radio" name="vid" value="1" <?php echo $form->getRadio('vid',1); ?>>&nbsp;<?php echo ROMANS; ?>
-                                    </label>
-                                </td>
-                                <td width="170" class="btm">&nbsp;</td>
-                                <td width="158" class="btm">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td class="pos1"><label><input class="radio" type="radio" name="kid" value="0" checked>&nbsp;<?php echo RANDOM; ?></label></td>
-                                <td width="158" class="btm">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td><label><input class="radio" type="radio" name="kid" value="1" <?php echo $form->getRadio('kid',1); ?>>&nbsp;<?php echo NW; ?>&nbsp;<b>(-|+)</b>&nbsp;</label></td>
-                                <td><label><input class="radio" type="radio" name="kid" value="2" <?php echo $form->getRadio('kid',2); ?>>&nbsp;<?php echo NE; ?>&nbsp;<b>(+|+)</b>&nbsp;</label></td>
-                            </tr>
-                            <tr>
-                                <td><label><input class="radio" type="radio" name="kid" value="3" <?php echo $form->getRadio('kid',3); ?>>&nbsp;<?php echo SW; ?>&nbsp;<b>(-|-)</b>&nbsp;</label></td>
-                                <td><label><input class="radio" type="radio" name="kid" value="4" <?php echo $form->getRadio('kid',4); ?>>&nbsp;<?php echo SE; ?>&nbsp;<b>(+|-)</b>&nbsp;</label></td>
-                            </tr>
-                            <tr>
-                                <td class="btm">&nbsp;</td>
-                                <td class="btm">&nbsp;</td>
-                            </tr>		
-                            <tr>
-                                <td>
-                                    <label>
-                                        <img src="img/rpage/Teuton.jpg" alt="Teuton" width="87" height="87" longdesc="img" />
-                                        <br />
-                                        <input class="radio" type="radio" name="vid" value="2" <?php echo $form->getRadio('vid',2); ?>>&nbsp;<?php echo TEUTONS; ?>
-                                    </label>
-                                </td>
-                                <td colspan="2" rowspan="2">
-                                    <img src="img/rpage/travian_logo.png" width="219" height="234" longdesc="img" />
-                                </td>
-                            </tr>		
-                            <tr>
-                                <td>
-                                    <label>
-                                        <img src="img/rpage/Gaul.jpg" alt="Gaul" width="87" height="87" longdesc="img" />
-                                        <br />
-                                        <input class="radio" type="radio" name="vid" value="3" <?php echo $form->getRadio('vid',3); ?>>&nbsp;<?php echo GAULS; ?>
-                                    </label>
-                                </td> 
-                            </tr>
-                         
-                        </tbody>
-                    </table>
+	<tbody>
+		<tr class="top">
+			<th><img src="img/x.gif" class="img_u06" alt="choose tribe"></th>
+			<th colspan="2"><img src="img/x.gif" class="img_u07" alt="starting position"></th>
+		</tr>
+		<tr>
+			<td class="nat"><label><input class="radio" type="radio" name="vid" value="1" <?php echo $form->getRadio('vid',1); ?>>&nbsp;<?php echo ROMANS; ?></label></td>
+			&nbsp;<td class="pos1"><label><input class="radio" type="radio" name="kid" value="0" checked>&nbsp;<?php echo RANDOM; ?></label></td>
+			<td class="pos2">&nbsp;</td>
+		</tr>
+		<tr>
+			<td><label><input class="radio" type="radio" name="vid" value="2" <?php echo $form->getRadio('vid',2); ?>>&nbsp;<?php echo TEUTONS; ?></label></td>
+			<td><label><input class="radio" type="radio" name="kid" value="1" <?php echo $form->getRadio('kid',1); ?>>&nbsp;<?php echo NW; ?> <b>(-|+)</b>&nbsp;</label></td>
+			<td><label><input class="radio" type="radio" name="kid" value="2" <?php echo $form->getRadio('kid',2); ?>>&nbsp;<?php echo NE; ?> <b>(+|+)</b></label></td>
+		</tr>
+		<tr class="btm">
+			<td><label><input class="radio" type="radio" name="vid" value="3" <?php echo $form->getRadio('vid',3); ?>>&nbsp;<?php echo GAULS; ?></label></td>
+			<td><label><input class="radio" type="radio" name="kid" value="3" <?php echo $form->getRadio('kid',3); ?>>&nbsp;<?php echo SW; ?> <b>(-|-)</b></label></td>
+			<td><label><input class="radio" type="radio" name="kid" value="4" <?php echo $form->getRadio('kid',4); ?>>&nbsp;<?php echo SE; ?> <b>(+|-)</b></label></td>
+		</tr>
+	</tbody>
+</table>
 
 <ul class="important">
 <?php
@@ -151,16 +115,7 @@ echo $form->getError('agree');
 	<input type="image" value="anmelden" name="s1" id="btn_signup" class="dynamic_img" src="img/x.gif" alt="register"/>
 </p>
 </form>
-<?php 
-$time_left=COMMENCE-time(); 
 
-if ($time_left > 0) 
-{ 
-    echo ("<center><big>Activation Availble in: <b><font color=red><span id=\"timer1\">".date('H:i:s', $time_left+0*3600)."</span></font></b></big></center>"); 
-//GMT Time, edit 0*3600 to correct your local time  
-     
-} 
-?> 
 <p class="info"><?php echo ONE_PER_SERVER; ?></p>
 </div>
 <?php }else{ ?>

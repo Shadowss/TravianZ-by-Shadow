@@ -1,17 +1,11 @@
 <?php
-
 #################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Project:       TravianZ      					       		 		  	   ##
-##  Version:       01.09.2013 						       	 				   ##
-##  Filename       overview.php                                                ##
+##  Filename       overview.tpl                                                ##
 ##  Developed by:  Dzoki                                                       ##
-##  Fixed by:      Shadow / Skype : cata7007                                   ##
-##  License:       TravianZ Project                                            ##
-##  Copyright:     TravianZ (c) 2010-2013. All rights reserved.                ##
-##  URLs:          http://travian.shadowss.ro 				       	 		   ##
-##  Source code:   http://github.com/Shadowss/TravianZ-by-Shadow/	       	   ##
+##  License:       TravianX Project                                            ##
+##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 
@@ -52,16 +46,15 @@ include("menu2.tpl");
 <?php if($displayarray['access']==MULTIHUNTER){ echo "<tr><th colspan='2'><font color='Blue'><center><b>This player is Multihunter.</b></font></center></th></tr>"; } ?>
 <?php if($displayarray['access']==BANNED){ echo "<tr><th colspan='2'><font color='Green'><center><b>This player is BANNED.</b></font></center></th></tr>"; } ?>
 <?php if($displayarray['vac_mode']==1){ echo "<tr><th colspan='2'><font color='Maroon'><center><b>This player is on VACATION.</b></font></center></th></tr>"; } ?>
-
     <tr>
         <td>Details</td>
         <td>Description</td>
 
     </tr>
     </thead><tbody>
- <tr>
-<td class="empty"></td><td class="empty"></td>
-</tr>
+    <tr>
+        <td class="empty"></td><td class="empty"></td>
+    </tr>
     <tr>
         <td class="details">
             <table cellpadding="0" cellspacing="0">
@@ -77,22 +70,20 @@ include("menu2.tpl");
                 <th>Tribe</th>
                 <td><?php 
                 if($displayarray['tribe'] == 1) {
-                echo "<span style='color: OrangeRed'><b>Romans</b></span>";
+                echo "Roman";
                 }
                 else if($displayarray['tribe'] == 2) {
-                echo "<span style='color: Fuchsia'><b>Teutons</b></span>";
+                echo "Teutons";
                 }
                 else if($displayarray['tribe'] == 3) {
-                echo "<span style='color: Olive'><b>Gauls</b></span>";
+                echo "Gauls";
                 }
-                        else if($displayarray['tribe'] == 4) {
-                echo "<span style='color: Turquoise'><b>Nature</b></span>";
-                }
-                else if($displayarray['tribe'] == 0) {
-                echo "<span style='color: Red'><b>Multihunter</b></span>";
+				else if($displayarray['tribe'] == 4) {
+                echo "Nature";
+                
                 }else if($displayarray['tribe'] == 5) {
-                echo "<span style='color: DodgerBlue'><b>Natars</b></span>";
-                }                ?></td>
+                echo "Natars";
+                }				?></td>
             </tr>
 
             <tr>
@@ -149,13 +140,14 @@ include("menu2.tpl");
 			 }
                 ?>                
             </tr>
-			<tr><td colspan="2"><a href="nachrichten.php?t=1&id=5"><font color="Red">&raquo; Report Player</font></a></td></tr>
+			<!--<tr><td colspan="2"><a href="nachrichten.php?t=1&id=0"><font color="Red">&raquo; Report Player</font></a></td></tr>-->
             <tr>
 							<td colspan="2" class="desc2">
 								<div class="desc2div"><?php echo nl2br($profiel[0]); ?></div>
 							</td>
 						</tr>
             </table>
+
         </td>
         <td class="desc1" >
             <div><?php echo nl2br($profiel[1]); ?>
@@ -170,11 +162,11 @@ include("menu2.tpl");
 </table><table cellpadding="1" cellspacing="1" id="villages">
     <thead>
     <tr>
-        <th colspan="4">Villages&nbsp; [ <span style='color: Red'><?php echo count($varray);?></span> ]</th>
+        <th colspan="3">Villages</th>
     </tr>
     <tr>
         <td>Name</td>
-        <td>Oasis</td>
+
         <td>Inhabitants</td>
         <td>Coordinates</td>
     </tr>
@@ -184,46 +176,11 @@ include("menu2.tpl");
     	$coor = $database->getCoor($vil['wref']);
     	echo "<tr><td class=\"nam\"><a href=\"karte.php?d=".$vil['wref']."&amp;c=".$generator->getMapCheck($vil['wref'])."\">".$vil['name']."</a>";
         if($vil['capital'] == 1) {
-        echo "<span class=\"none3\"> <b>(capital)</b></span>";
+        echo "<span class=\"none3\"> (capital)</span>";
         }
-        echo "</td><td class=\"oases\">";
-$prefix = "".TB_PREFIX."odata";
-$uid = $_GET['uid']; $wref = $vil['wref'];
-$sql2 = mysql_query("SELECT * FROM $prefix WHERE owner = $uid AND conqured = $wref");
-while($row = mysql_fetch_array($sql2)){
-$type = $row["type"];
-switch($type) {
-case 1:
-case 2:
-echo  "<img class='r1' src='img/x.gif' title='Lumber'>";
-break;
-case 3:
-echo  "<img class='r1' src='img/x.gif' title='Lumber'> <img class='r4' src='img/x.gif' title='Crop'>";
-break;
-case 4:
-case 5:
-echo  "<img class='r2' src='img/x.gif' title='Clay'>";
-break;
-case 6:
-echo  "<img class='r2' src='img/x.gif' title='Clay'> <img class='r4' src='img/x.gif' title='Crop'>";
-case 7:
-case 8:
-echo  "<img class='r3' src='img/x.gif' title='Iron'>";
-break;
-case 9:
-echo  "<img class='r3' src='img/x.gif' title='Iron'> <img class='r4' src='img/x.gif' title='Crop'>";
-break;
-case 10:
-case 11:
-case 12:
-echo  "<img class='r4' src='img/x.gif' title='Crop'>";
-break;
-}
-}
-
         echo "</td>";
         echo "<td class=\"hab\">".$vil['pop']."</td><td class=\"aligned_coords\">";
         echo "<div class=\"cox\">(".$coor['x']."</div><div class=\"pi\">|</div><div class=\"coy\">".$coor['y'].")</div></td></tr>";
-}
+    }
     ?>
         </tbody></table>

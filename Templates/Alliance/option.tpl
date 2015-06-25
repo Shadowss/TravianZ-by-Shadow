@@ -73,15 +73,11 @@ if ($alliance->userPermArray['opt5']==1){
 		</tr>
 <?php
 }
-?> 
+?>         
         <tr>
 		<td class="sel"><input class="radio" type="radio" name="o" value="11"></td>
 		<td class="val">Quit alliance</td>
 		</tr>
-	
-        
-	
-
         
         </tbody>
 	</table>

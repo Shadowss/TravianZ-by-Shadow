@@ -42,20 +42,11 @@ $search = $_SESSION['search'];
                     echo "<tr><td class=\"ra \" >";
                     }
                     echo $i.".</td><td class=\"pla \" >";
-						if($ranking[$i]['username'] == "Multihunter"){
-						echo"<b><a href=\"spieler.php?uid=".$ranking[$i]['userid']."\"><font color='Red'>".$ranking[$i]['username']."</font></a></b>";
-						} else if($ranking[$i]['username'] == "Support"){
-						echo"<b><a href=\"spieler.php?uid=".$ranking[$i]['userid']."\"><font color='Blue'>".$ranking[$i]['username']."</font></a></b>";
-						} else if($ranking[$i]['username'] == "Natars"){
-						echo"<b><a href=\"spieler.php?uid=".$ranking[$i]['userid']."\"><font color='DodgerBlue'>".$ranking[$i]['username']."</font></a></b>";
-						} else if($ranking[$i]['username'] == "Taskmaster"){
-						echo"<b><a href=\"spieler.php?uid=".$ranking[$i]['userid']."\"><font color='Grey'>".$ranking[$i]['username']."</font></a></b>";
-						} else if($ranking[$i]['username'] == "Nature"){
-						echo"<b><a href=\"spieler.php?uid=".$ranking[$i]['userid']."\"><font color='Turquoise'>".$ranking[$i]['username']."</font></a></b>";
-						} else if($ranking[$i]['username'] == "Shadow"){
-						echo"<b><a href=\"spieler.php?uid=".$ranking[$i]['userid']."\"><font color='Black'>".$ranking[$i]['username']."</font></a></b>";
-						} else
-				            echo"<a href=\"spieler.php?uid=".$ranking[$i]['userid']."\">".$ranking[$i]['username']."</a>";
+						if($ranking[$i]['access'] > 2){
+						echo"<u><a href=\"spieler.php?uid=".$ranking[$i]['userid']."\">".$ranking[$i]['username']."</a></u>";
+						} else {
+						echo"<a href=\"spieler.php?uid=".$ranking[$i]['userid']."\">".$ranking[$i]['username']."</a>";
+						}
 					echo"</td><td class=\"al\" >";
                     if($ranking[$i]['aname'] != "") {
                     echo "<a href=\"allianz.php?aid=".$ranking[$i]['alliance']."\">".$ranking[$i]['aname']."</a>";

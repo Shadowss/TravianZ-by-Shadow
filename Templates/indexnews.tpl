@@ -16,5 +16,5 @@
 ##                                                                             ##
 #################################################################################
 ?>
-<p class="date">[Release by: Travian ro1]</p>
-<p>Thank you for using this version!</p>
+<p class="date">[Release by: TravianZ]</p>
+<p>Thank you for using our version!</p>
